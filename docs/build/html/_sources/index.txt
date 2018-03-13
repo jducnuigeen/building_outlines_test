@@ -15,11 +15,10 @@ Contents:
 
 Meat of the Documentation
 =========================
-
+.. highlight:: python
 .. code-block:: python   
     
-    If a == b,
-	then c == d
+    import qgis
 
 And then we add more text,
 
