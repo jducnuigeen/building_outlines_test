@@ -11,10 +11,22 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   Description
-   Database Schema
+   License
 
+Meat of the Documentation
+=========================
 
+.. code-block:: python   
+    
+    If a == b,
+	then c == d
+
+And then we add more text,
+
+.. code-block:: python
+
+    If b==a,
+	then d == c
 
 Indices and tables
 ==================
