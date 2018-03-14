@@ -1,1 +1,1 @@
-[{"primary_key": [], "foreign_keys": [], "columns": [{"type": "varchar", "name": "name_ascii", "nullable": true}, {"type": "nulltype", "name": "geom", "nullable": true}, {"type": "integer", "name": "t50_fid", "nullable": false}], "table": "merged_polygon_by_mapsheet", "unique_constraints": [], "schema": "public"}]
+{"table": "merged_polygon_by_mapsheet", "table": "lines"}
