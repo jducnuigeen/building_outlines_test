@@ -7,11 +7,9 @@ Database
 Schema goes here
 ================
 
-test
-<ul>
-<li>
-# {% for table in outputschema %}
-* `{{ table.table }} <{{ table.url }}>`_
+
+{% for table in outputschema %}
+{{ table.table }}
 {% endfor %}
-</li>
-</ul>
+
+
