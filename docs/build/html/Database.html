@@ -43,9 +43,14 @@
 <ul class="simple">
 </ul>
 </div>
-<p>{% for table in outputschema %}
-* <a href="#id1"><span class="problematic" id="id2">`{{table.table}}`_</span></a>
-{% endfor %}</p>
+<p>&lt;ul&gt;
+&lt;li&gt;
+{% for table in outputschema %}</p>
+<blockquote>
+<div>{{table}}</div></blockquote>
+<p>{% endfor %}
+&lt;/li&gt;
+&lt;/ul&gt;</p>
 </div>
 
 
