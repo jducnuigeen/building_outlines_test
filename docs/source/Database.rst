@@ -1,6 +1,6 @@
 Database
 ========
 
-{%for table in outputschema %}
-* {{table.name}}
-{%endfor%}
+{% for table in outputschema %}
+* {{table}}
+{% endfor %}
