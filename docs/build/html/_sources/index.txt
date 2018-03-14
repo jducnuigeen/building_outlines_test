@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    License
+   Database
 
 Meat of the Documentation
 =========================
