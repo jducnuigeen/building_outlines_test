@@ -289,7 +289,7 @@ texinfo_documents = [
 schema = json.load(file('data/linz_db_schema.json'))
 
 html_context = {
-	'schema_output': schema
+	'outputschema': schema
 }
 
 
