@@ -9,8 +9,8 @@ Schema goes here
 
 <ul>
 <li>
-{% for table in outputschema %}
- {{ table.table }}
+# {% for table in outputschema %}
+ {{ table }}
 {% endfor %}
 </li>
 </ul>
