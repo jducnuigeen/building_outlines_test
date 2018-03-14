@@ -2,5 +2,5 @@ Database
 ========
 
 {% for table in outputschema %}
-* '<{{table.table}}>'_
+<h1>{{table.table}}</h1>
 {% endfor %}
