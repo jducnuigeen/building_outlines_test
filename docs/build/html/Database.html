@@ -43,11 +43,14 @@
 <ul class="simple">
 </ul>
 </div>
+</div>
+<div class="section" id="schema-goes-here">
+<h1>Schema goes here<a class="headerlink" href="#schema-goes-here" title="Permalink to this headline">¶</a></h1>
 <p>&lt;ul&gt;
 &lt;li&gt;
-{% for table in outputschema %}</p>
+{% for table in outputschema.items() %}</p>
 <blockquote>
-<div>{{table}}</div></blockquote>
+<div>{{ table }}</div></blockquote>
 <p>{% endfor %}
 &lt;/li&gt;
 &lt;/ul&gt;</p>
@@ -58,7 +61,13 @@
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Database</a></li>
+<li><a class="reference internal" href="#schema-goes-here">Schema goes here</a></li>
+</ul>
+<div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
