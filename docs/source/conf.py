@@ -286,7 +286,7 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
 
-schema = json.load(file('data/linz_db_schema2.json'))
+schema = json.load(open('data/linz_db_schema2.json'))
 
 html_context = {
 	'outputschema': schema
