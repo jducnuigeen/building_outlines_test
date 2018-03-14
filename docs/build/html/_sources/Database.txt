@@ -10,7 +10,7 @@ Schema goes here
 <ul>
 <li>
 {% for table in outputschema %}
-* {{ table.table }}
+ {{ table.table }}
 {% endfor %}
 </li>
 </ul>
