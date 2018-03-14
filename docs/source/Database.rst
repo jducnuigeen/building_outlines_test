@@ -5,7 +5,10 @@ Database
    :maxdepth: 2
 
 
-
+<ul>
+<li>
 {% for table in outputschema %}
-* `{{table.table}}`_
+    {{table}}
 {% endfor %}
+</li>
+</ul>
