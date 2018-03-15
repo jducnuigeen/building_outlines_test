@@ -9,7 +9,7 @@ Database Schema
 
 
 {% block body %}
-<ht>Title</ht>
+{% <ht>Title</ht> %}
 {% for tablename in outputschema %}
 * {{ tablename['table'] }}
 {% endfor %}
