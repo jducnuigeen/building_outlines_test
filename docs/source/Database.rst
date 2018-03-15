@@ -10,7 +10,7 @@ Database Schema
 
 
 {% for tablename in outputschema %}
-    {{ tablename['table'] }}
+* {{ tablename['table'] }}
 {% endfor %}
 
 
