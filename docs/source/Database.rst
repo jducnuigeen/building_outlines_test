@@ -6,7 +6,7 @@ Database Schema
 
 
 
-.. raw:: html
+
 
 {% block body %}
 <ht>Title</ht>
