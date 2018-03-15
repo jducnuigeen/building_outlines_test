@@ -5,7 +5,7 @@ Database Schema
    :maxdepth: 2
 
 
-
+.. raw:: html
 
 
 {% block body %}
