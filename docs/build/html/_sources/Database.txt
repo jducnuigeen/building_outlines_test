@@ -7,8 +7,7 @@ Database
 Schema goes here
 ================
 
-.. raw: html
-
+.. raw:: html
 <table>
 {% for tablename in outputschema %}
     <tr><td>{{ tablename['table'] }}</td></tr>
