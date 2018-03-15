@@ -8,9 +8,12 @@ Database Schema
 
 .. raw:: html
 
-
+{% block body %}
+<ht>Title</ht>
 {% for tablename in outputschema %}
 * {{ tablename['table'] }}
 {% endfor %}
+
+{% endblock %}
 
 
