@@ -6,7 +6,7 @@ Database Schema
 
 
 
-
+.. raw:: html
 
 +-----------------------------------+
 |{% for tablename in outputschema %} |
