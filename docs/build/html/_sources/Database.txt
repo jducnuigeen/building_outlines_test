@@ -8,10 +8,9 @@ Database Schema
 
 .. raw:: html
 
-+-----------------------------------+
-|{% for tablename in outputschema %} |
-|    {{ tablename['table'] }}        |
-|{% endfor %}                        |
-+-----------------------------------+
+
+{% for tablename in outputschema %}
+    {{ tablename['table'] }}
+{% endfor %}
 
 
