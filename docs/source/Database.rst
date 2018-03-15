@@ -11,7 +11,7 @@ Schema goes here
 
 <table>
 {% for tablename in outputschema %}
-    <tr><td>{{ table['table'] }}</td></tr>
+    <tr><td>{{ tablename['table'] }}</td></tr>
 {% endfor %}
 </table>
 
