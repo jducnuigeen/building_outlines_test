@@ -1,4 +1,4 @@
-Public Database Schema
+Database Schema
 ======================
 
 .. toctree::
@@ -11,9 +11,9 @@ Public Database Schema
 
 {% for tablename in outputschema %}
 * Table: {{ tablename['table'] }}
-    {% for primarykey in outputschema: %}
+    {% for key in outputschema['primary_key']: %}
       {{ primarykey['primary_key'] }}
-      {% endfor %}
+    {% endfor %}
 {% endfor %}
 
 Some text
