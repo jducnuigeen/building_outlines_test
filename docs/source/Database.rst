@@ -12,7 +12,7 @@ Public Database Schema
 {% for tablename in outputschema %}
 * Table: {{ tablename['table'] }}
     {% for primarykey in outputschema: %}
-      {{ primarykey{'primary_key'} }}
+      {{ primarykey['primary_key'] }}
       {% endfor %}
 {% endfor %}
 
