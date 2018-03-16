@@ -12,6 +12,10 @@ Public Database Schema
 
 {% for tablename in outputschema %}
 * {{ tablename['table'] }}
+  {% for columnname in outputschema %}
+    {{columnname['columns']}}
+
+  {% endfor %}
 {% endfor %}
 
 Some text
