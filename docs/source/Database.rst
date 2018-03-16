@@ -8,7 +8,6 @@ Public Database Schema
 
 
 
-{%import json %}
 
 {% for tablename in outputschema %}
 * {{ tablename['table'] }}
