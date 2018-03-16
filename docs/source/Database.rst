@@ -8,12 +8,12 @@ Public Database Schema
 
 
 
-{<table>}
+{%import json %}
 
 {% for tablename in outputschema %}
 * {{ tablename['table'] }}
-    {% for columnname in outputschema %}
-      {{columnname[{'name'}]}}
+    {% for primarykey in outputschema: %}
+      {{primarykey['primary_key']}}
       {% endfor %}
 {% endfor %}
 
