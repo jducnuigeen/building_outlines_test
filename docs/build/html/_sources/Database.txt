@@ -11,9 +11,7 @@ Database Schema
 
 {% for tablename in outputschema %}
 * Table: {{ tablename['table'] }}
-    {% for key in outputschema['primary_key']: %}
-      {{ key['primary_key'] }}
-    {% endfor %}
+    Columns: {{ tablename['columns'] }}
 {% endfor %}
 
 Some text

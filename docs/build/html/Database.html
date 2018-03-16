@@ -43,21 +43,91 @@
 <ul class="simple">
 </ul>
 </div>
-<ul class="simple">
-<li>Table: spatial_ref_sys</li>
-<li>Table: river_polygon_centrelines_multi</li>
-<li>Table: river_polygon_centrelines_before_split</li>
-<li>Table: river_polygons</li>
-<li>Table: river_polygons_without_innerrings</li>
-<li>Table: added_coast_geom</li>
-<li>Table: river_cl</li>
-<li>Table: river_polygon_centrelines</li>
-<li>Table: test_river_polygon_sample</li>
-<li>Table: merged_polygons</li>
-<li>Table: nz_topo_map_sheet</li>
-<li>Table: nz_coastlines</li>
-<li>Table: merged_polygon_by_mapsheet</li>
-<li>Table: test_river_cl_sample2</li>
+<ul>
+<li><dl class="first docutils">
+<dt>Table: spatial_ref_sys</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;srid&#8217;, u&#8217;nullable&#8217;: False}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;auth_name&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;auth_srid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;srtext&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;proj4text&#8217;, u&#8217;nullable&#8217;: True}]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Table: river_polygon_centrelines_multi</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;nulltype&#8217;, u&#8217;name&#8217;: u&#8217;geom&#8217;, u&#8217;nullable&#8217;: True}]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Table: river_polygon_centrelines_before_split</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;nulltype&#8217;, u&#8217;name&#8217;: u&#8217;geom&#8217;, u&#8217;nullable&#8217;: True}]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Table: river_polygons</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;t50_fid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;name_ascii&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;nulltype&#8217;, u&#8217;name&#8217;: u&#8217;geom&#8217;, u&#8217;nullable&#8217;: True}]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Table: river_polygons_without_innerrings</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;nulltype&#8217;, u&#8217;name&#8217;: u&#8217;geom&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;char&#8217;, u&#8217;name&#8217;: u&#8217;name&#8217;, u&#8217;nullable&#8217;: True}]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Table: added_coast_geom</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;t50_fid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;name_ascii&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;nulltype&#8217;, u&#8217;name&#8217;: u&#8217;geom&#8217;, u&#8217;nullable&#8217;: True}]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Table: river_cl</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;t50_fid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;name_ascii&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;nulltype&#8217;, u&#8217;name&#8217;: u&#8217;geom&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;source_desc&#8217;, u&#8217;nullable&#8217;: True}]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Table: river_polygon_centrelines</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;t50_fid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;name_ascii&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;nulltype&#8217;, u&#8217;name&#8217;: u&#8217;geom&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;source_desc&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;id&#8217;, u&#8217;nullable&#8217;: False}]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Table: test_river_polygon_sample</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;id&#8217;, u&#8217;nullable&#8217;: False}, {u&#8217;type&#8217;: u&#8217;nulltype&#8217;, u&#8217;name&#8217;: u&#8217;geom&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;join_count&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;target_fid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;t50_fid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;split_id&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;t50_fid_1&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;size&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;name_ascii&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;macronated&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;name&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;desc_code&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;area_geo&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;bigint&#8217;, u&#8217;name&#8217;: u&#8217;name_id&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;bigint&#8217;, u&#8217;name&#8217;: u&#8217;feat_id&#8217;, u&#8217;nullable&#8217;: True}]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Table: merged_polygons</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;nulltype&#8217;, u&#8217;name&#8217;: u&#8217;geom&#8217;, u&#8217;nullable&#8217;: True}]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Table: nz_topo_map_sheet</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;id&#8217;, u&#8217;nullable&#8217;: False}, {u&#8217;type&#8217;: u&#8217;nulltype&#8217;, u&#8217;name&#8217;: u&#8217;geom&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;bigint&#8217;, u&#8217;name&#8217;: u&#8217;t50_fid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;sheet_code&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;sheet_name&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;edition&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;revised&#8217;, u&#8217;nullable&#8217;: True}]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Table: nz_coastlines</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;id&#8217;, u&#8217;nullable&#8217;: False}, {u&#8217;type&#8217;: u&#8217;nulltype&#8217;, u&#8217;name&#8217;: u&#8217;geom&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;bigint&#8217;, u&#8217;name&#8217;: u&#8217;t50_fid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;elevation&#8217;, u&#8217;nullable&#8217;: True}]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Table: merged_polygon_by_mapsheet</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;name_ascii&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;nulltype&#8217;, u&#8217;name&#8217;: u&#8217;geom&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;t50_fid&#8217;, u&#8217;nullable&#8217;: False}]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Table: test_river_cl_sample2</dt>
+<dd><p class="first last">Columns: [{u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;id&#8217;, u&#8217;nullable&#8217;: False}, {u&#8217;type&#8217;: u&#8217;nulltype&#8217;, u&#8217;name&#8217;: u&#8217;geom&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;bigint&#8217;, u&#8217;name&#8217;: u&#8217;gid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;bigint&#8217;, u&#8217;name&#8217;: u&#8217;__gid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;name_ascii&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;macronated&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;name&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;desc_code&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;area_geo&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;orig_shp&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;size&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;bigint&#8217;, u&#8217;name&#8217;: u&#8217;t50_fid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;bigint&#8217;, u&#8217;name&#8217;: u&#8217;count&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;max_font&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;gazname&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;bigint&#8217;, u&#8217;name&#8217;: u&#8217;gazfeatid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;varchar&#8217;, u&#8217;name&#8217;: u&#8217;gazstatus&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;bigint&#8217;, u&#8217;name&#8217;: u&#8217;segid&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;start_x&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;start_y&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;end_x&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;end_y&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;start_elev&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;end_elev&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;ave_elev&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;delta_elev&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;length&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;integer&#8217;, u&#8217;name&#8217;: u&#8217;dwn_st_pt&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;trustartel&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;double_precision&#8217;, u&#8217;name&#8217;: u&#8217;truendel&#8217;, u&#8217;nullable&#8217;: True}, {u&#8217;type&#8217;: u&#8217;bigint&#8217;, u&#8217;name&#8217;: u&#8217;t50_fid_2&#8217;, u&#8217;nullable&#8217;: True}]</p>
+</dd>
+</dl>
+</li>
 </ul>
 <p>Some text</p>
 </div>
