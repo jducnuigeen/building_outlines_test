@@ -13,7 +13,7 @@ Public Database Schema
 {% for tablename in outputschema %}
 * {{ tablename['table'] }}
     {% for columnname in outputschema %}
-      {{columnname['name']}}
+      {{columnname[{'name'}]}}
       {% endfor %}
 {% endfor %}
 
