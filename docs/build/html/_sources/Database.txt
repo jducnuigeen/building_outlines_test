@@ -1,4 +1,4 @@
-Database Schema
+Public Database Schema
 ===============
 
 .. toctree::
@@ -8,12 +8,16 @@ Database Schema
 .. raw:: html
 
 
-
+{<table>}
 
 {% for tablename in outputschema %}
 * {{ tablename['table'] }}
+  {% for columnname in outputschema %}
+    {{columnname['columns']}}
+
+  {% endfor %}
 {% endfor %}
 
-
+Some text
 
 
