@@ -12,9 +12,9 @@ Public Database Schema
 
 {% for tablename in outputschema %}
 * {{ tablename['table'] }}
-	{% for columnname in outputschema %}
-	  {{columnname['name']}}
-	{% endfor %}
+    {% for columnname in outputschema %}
+      {{columnname['name']}}
+      {% endfor %}
 {% endfor %}
 
 Some text
