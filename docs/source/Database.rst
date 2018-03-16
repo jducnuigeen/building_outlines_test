@@ -9,7 +9,7 @@ Database Schema
 
 
 
-{% for tablename in outputschema %}
+{% for tablename in outputschema: %}
 * Table: {{ tablename['table'] }}
     {% for columns in tablename['columns]: %}
       {% col = column.get('name') %} 
