@@ -9,10 +9,16 @@ Database Schema
 
 
 
-{% for tablename in outputschema %}
-* Table: {{ tablename['table'] }}
-    Columns: {{ tablename['columns'] }}
-{% endfor %}
+
+
+
+
+
+
+
+
+
+
 
 Some text
 
