@@ -5,7 +5,7 @@ Database Schema
    :maxdepth: 2
 
 
-Schema:
+Schema:What is it
 
 
 
