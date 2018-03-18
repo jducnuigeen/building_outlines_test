@@ -313,7 +313,7 @@ def setup(app):
     app.connect("source-read", rstjinja)
 
 
-schema = json.load(file('schemadata.json'))
+schema = json.load(file('dbschema.json'))
 
 html_context = {
 	'outputschema': schema
