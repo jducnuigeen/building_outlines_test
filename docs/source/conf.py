@@ -15,6 +15,7 @@
 import sys
 import os
 import json
+import tabulate
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -289,6 +290,12 @@ texinfo_documents = [
 
 # Extensions
 
+building_name_table = [
+                ["building_name_id", character, 250, noprec, noscl, "An Id for a building name: 5","A hardware store" ],
+                ["building_id", integer, 4, noprec, noscl, "3928", "A unique id for a building" ]
+                ]
+
+
 def rstjinja(app, docname, source):
     """
     Render our pages as a jinja template for fancy templating goodness.
@@ -311,6 +318,5 @@ schema = json.load(file('linz_db_schema_directexport.json'))
 html_context = {
 	'outputschema': schema
 }
-
 
 
