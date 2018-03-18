@@ -26,18 +26,3 @@ Schema:What is it
      - Works
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Some text
-
-
