@@ -7,4 +7,7 @@ Database Schema
 
 Schema:What is it
 
-change this
+
+{% for table in outputschema %}
+{{ table.table }} should be table
+{% endfor %}
