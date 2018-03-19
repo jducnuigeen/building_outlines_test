@@ -295,7 +295,7 @@ building_name_table = [
                 ["building_name_id", "character", 250, "noprec", "noscl", "An Id for a building name: 5","A hardware store" ],
                 ["building_id", "integer", 4, "noprec", "noscl", "3928", "A unique id for a building" ]
                 ]
-rst_table = tabulate(building_name_table,tablefmt='rst')
+rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Width", "Precision", "Scale", "Example", "Description"])
 
 test1 = {"name": "Test 1", "description": "Blah"}
 test2 = {"name": "Test 2", "description": "Blah de blah"}
