@@ -321,7 +321,7 @@ def setup(app):
     app.connect("source-read", rstjinja)
 
 
-schema = json.load(file('dbschema.json'))
+schema = json.load(file('linz_db_schema_directexport.json'))
 
 html_context = {
 	'outputschema': schema
