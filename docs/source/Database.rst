@@ -11,3 +11,8 @@ Schema:What is it
 {{ table["name"] }}
 {{ table["description"] }}
 {% endfor %}
+
+{% for output in rst %}
+{{ output.rst }}
+{% endfor %}
+
