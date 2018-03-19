@@ -297,7 +297,11 @@ building_name_table = [
                 ]
 rst_table = tabulate(building_name_table,tablefmt='rst')
 
-table_names = ["Test 1", "Test 2", "Test 3"]
+test1 = {"name": "Test 1", "description": "Blah"}
+test2 = {"name": "Test 2", "description": "Blah de blah"}
+test3 = {"name": "Test 3", "description": "Blah blah"}
+
+table_names = [test1, test2, test3]
 
 #json.dumps(rst_table)
 

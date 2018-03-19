@@ -8,5 +8,6 @@ Database Schema
 Schema:What is it
 
 {% for table in something %}
-{{ table }}
+{{ table["name"] }}
+{{ table["description"] }}
 {% endfor %}
