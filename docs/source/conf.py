@@ -297,6 +297,8 @@ building_name_table = [
                 ]
 rst_table = tabulate(building_name_table,tablefmt='rst')
 
+table_names = ["Test 1", "Test 2", "Test 3"]
+
 #json.dumps(rst_table)
 
 with open('dbschema.json', 'w') as outfile:
@@ -322,6 +324,6 @@ def setup(app):
 
 html_context = {
 	'outputschema': rst_table,
-    'something': "Hello"
+    'something': table_names
 }
 

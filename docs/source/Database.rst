@@ -7,7 +7,6 @@ Database Schema
 
 Schema:What is it
 
-
-{% for table in outputschema %}
-{{ table.table }} should be table
+{% for table in something %}
+{{ table }}
 {% endfor %}
