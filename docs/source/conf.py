@@ -299,7 +299,7 @@ rst_table = tabulate(building_name_table,tablefmt='rst')
 
 test1 = {"name": "Test 1", "description": "Blah"}
 test2 = {"name": "Test 2", "description": "Blah de blah"}
-test3 = {"name": "Test 3", "description": "Blah blah"}
+test3 = {"name": "Test 3", "description": "Blah bloo"}
 
 table_names = [test1, test2, test3]
 
