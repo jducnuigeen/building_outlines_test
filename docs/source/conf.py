@@ -304,7 +304,7 @@ test4 = {"rst": rst_table}
 
 table_names = [test1, test2, test3]
 
-rst_out = [test4, test4]
+rst_out = [test4]
 
 #json.dumps(rst_table)
 
