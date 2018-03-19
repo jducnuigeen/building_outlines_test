@@ -7,3 +7,8 @@ building_name_table = [
 
 
 rst_table = tabulate(building_name_table,tablefmt='rst')
+
+
+json.dumps(rst_table)
+
+print 
