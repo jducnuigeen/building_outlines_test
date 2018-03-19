@@ -300,8 +300,9 @@ rst_table = tabulate(building_name_table,tablefmt='rst')
 test1 = {"name": "Test 1", "description": "Blah"}
 test2 = {"name": "Test 2", "description": "Blah de blah"}
 test3 = {"name": "Test 3", "description": "Blah bloo"}
+test4 = {"name": "Table4", "description": "4th description", rst_table}
 
-table_names = [test1, test2, test3]
+table_names = [test1, test2, test3, test4]
 
 #json.dumps(rst_table)
 
