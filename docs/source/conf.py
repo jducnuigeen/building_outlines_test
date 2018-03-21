@@ -15,6 +15,7 @@
 import sys
 import os
 import json
+import re
 from tabulate import tabulate
 from os import path
 
