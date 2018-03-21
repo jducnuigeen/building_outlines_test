@@ -288,56 +288,23 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 
 
-# Extensions and parsing SQL build scripts
+# Extensions
 
 # Test Data
-#building_name_table = [
-#                ["building_name_id", "character", "250", "noprec", "noscl", "An Id for a building name: 5","A hardware store" ],
-#                ["building_id", "integer", "4", "noprec", "noscl", "3928", "A unique id for a building" ]
-#                ]
-
-schema_name_globvar = ''
-tables = []
-
-def get_schema_name():
-    script_file_path = os.path.dirname(os.path.realpath('__file__'))
-    print script_file_path
-    sql_file_path = os.path.join(script_file_path, '../../sql/01-create_building_schema.sql')
-    with open(sql_file_path) as f:
-        for line in f:
-            schemaname = re.search(r"(?:CREATE SCHEMA IF NOT EXISTS)\s(.*)(;)", line)
-            # table = re.search(r"(?:CREATE TABLE IF NOT EXISTS)\s()", line)
-            table_lg = re.search(r"(?:CREATE TABLE IF NOT EXISTS)\s(.*)(\()", line)
-            if schemaname:
-                schema = schemaname.group(1)
-                schema_name_globvar = schema
-                print "Schema Name: ", schema
-
-#def parse(args):
-
-    
- #           if table_lg:
-  #              print 'Table match found: ', table_lg.group(1)
-   #             table_str = table_lg.group(1)
-    #            schema, table = table_str.split(".")
-     #           print 'Table name is: ', table
-
-                
-
-
-      #      else:
-       #         print 'No match'
-    f.close()
+building_name_table = [
+                ["building_name_id", "character", "250", "noprec", "noscl", "An Id for a building name: 5","A hardware store" ],
+                ["building_id", "integer", "4", "noprec", "noscl", "3928", "A unique id for a building" ]
+                ]
 
 
 
 
-get_schema_name()
 
 
-#rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Width", "Precision", "Scale", "Example", "Description"])
 
-schema_name = [schema_name_globvar]
+rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Width", "Precision", "Scale", "Example", "Description"])
+
+
 
 
 
@@ -374,7 +341,7 @@ def setup(app):
     app.connect("source-read", rstjinja)
 
 html_context = {
-    'outputschema': schema_name,
+	'outputschema': rst_table,
     'something': table_names,
     'rst': rst_out
 }

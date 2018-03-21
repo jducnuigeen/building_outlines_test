@@ -5,12 +5,14 @@ Database Schema
    :maxdepth: 2
 
 
-Schema:
-{{outputschema}}
+Schema:What is it
 
 {% for table in something %}
 {{ table["name"] }}
 {{ table["description"] }}
 {% endfor %}
 
+{% for output in rst %}
+{{ output.rst }}
+{% endfor %}
 
