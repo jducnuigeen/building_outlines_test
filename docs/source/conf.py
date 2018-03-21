@@ -296,7 +296,7 @@ texinfo_documents = [
 #                ["building_name_id", "character", "250", "noprec", "noscl", "An Id for a building name: 5","A hardware store" ],
 #                ["building_id", "integer", "4", "noprec", "noscl", "3928", "A unique id for a building" ]
 #                ]
-
+# 
 schema_name_globvar = ''
 tables = []
 
