@@ -16,6 +16,7 @@ import sys
 import os
 import json
 from tabulate import tabulate
+from os import path
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -300,9 +301,13 @@ schema_name_globvar = ''
 tables = []
 
 def get_schema_name():
-    script_file_path = os.path.dirname(os.path.realpath('__file__'))
+    script_file_path = path.dirname(__file__)
     print script_file_path
-    sql_file_path = os.path.join(script_file_path, '../../sql/01-create_building_schema.sql')
+    # The path of this python script is:
+    # home/jducnuigeen/dev/building_outlines_test/docs/source
+    # the path of the sql file is:
+    # home/jducnuigeen/dev/building_outlines_test/sql/
+    sql_file_path = path.abspath(path.join(script_file_path, "..", "..", "../building_outlines_test/sql/01-create_buildings_schema.sql"))
     with open(sql_file_path) as f:
         for line in f:
             schemaname = re.search(r"(?:CREATE SCHEMA IF NOT EXISTS)\s(.*)(;)", line)
@@ -312,6 +317,9 @@ def get_schema_name():
                 schema = schemaname.group(1)
                 schema_name_globvar = schema
                 print "Schema Name: ", schema
+    f.close()
+
+get_schema_name()
 
 #def parse(args):
 
@@ -327,17 +335,11 @@ def get_schema_name():
 
       #      else:
        #         print 'No match'
-    f.close()
-
-
-
-
-get_schema_name()
 
 
 #rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Width", "Precision", "Scale", "Example", "Description"])
 
-schema_name = [schema_name_globvar]
+#schema_name = [schema_name_globvar]
 
 
 
@@ -348,7 +350,7 @@ test4 = {"rst": rst_table}
 
 table_names = [test1, test2, test3]
 
-rst_out = [test4]
+#rst_out = [test4]
 
 #json.dumps(rst_table)
 
@@ -374,8 +376,7 @@ def setup(app):
     app.connect("source-read", rstjinja)
 
 html_context = {
-    'outputschema': schema_name,
+    'outputschema': schema_name_globvar,
     'something': table_names,
     'rst': rst_out
 }
-
