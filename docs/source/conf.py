@@ -338,7 +338,7 @@ get_schema_name()
        #         print 'No match'
 
 
-rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Width", "Precision", "Scale", "Example", "Description"])
+#rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Width", "Precision", "Scale", "Example", "Description"])
 
 #schema_name = [schema_name_globvar]
 
@@ -347,7 +347,7 @@ rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name",
 test1 = {"name": "Test 1", "description": "Blah"}
 test2 = {"name": "Test 2", "description": "Blah de blah"}
 test3 = {"name": "Test 3", "description": "Blah bloo"}
-test4 = {"rst": rst_table}
+#test4 = {"rst": rst_table}
 
 table_names = [test1, test2, test3]
 
