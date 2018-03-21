@@ -344,12 +344,12 @@ get_schema_name()
 
 
 
-test1 = {"name": "Test 1", "description": "Blah"}
-test2 = {"name": "Test 2", "description": "Blah de blah"}
-test3 = {"name": "Test 3", "description": "Blah bloo"}
+#test1 = {"name": "Test 1", "description": "Blah"}
+#test2 = {"name": "Test 2", "description": "Blah de blah"}
+#test3 = {"name": "Test 3", "description": "Blah bloo"}
 #test4 = {"rst": rst_table}
 
-table_names = [test1, test2, test3]
+#table_names = [test1, test2, test3]
 
 #rst_out = [test4]
 
@@ -378,6 +378,6 @@ def setup(app):
 
 html_context = {
     'outputschema': schema_name_globvar,
-    'something': table_names,
-    'rst': rst_out
+    #'something': table_names,
+    #'rst': rst_out
 }
