@@ -10,7 +10,9 @@ Database Schema
 **Schema Name: {{ schema["name"] }}**
 {% endfor %}
 
-
+{% for schemacomment in outputschema %}
+**Schema Comment: {{ schemacomment["schemacomment"] }}**
+{% endfor %}
 
 
 {% for table in something %}
