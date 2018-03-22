@@ -325,14 +325,14 @@ def get_schema_name():
                 return schema_out
     f.close()
 
-def main():
+
     #schema_name_globvar = ''
     #schema_out = []
-    schema_out = get_schema_name()
+schema_out = get_schema_name()
 
 #schema_name_globvar = ''
 #schema_out = []
-main()
+
 
 #def parse(args):
 
