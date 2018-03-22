@@ -24,7 +24,7 @@ from os import path
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('../'))
+# sys.path.insert(0, os.path.abspath('../'))
 
 # -- General configuration ------------------------------------------------
 
@@ -303,14 +303,15 @@ schema_name_globvar = ''
 tables = []
 
 def get_schema_name():
-    script_file_path = path.dirname(__file__)
+    # script_file_path = path.dirname(__file__)
     # print script_file_path
     # The path of this python script is:
     # home/jducnuigeen/dev/building_outlines_test/docs/source
     # the path of the sql file is:
     # home/jducnuigeen/dev/building_outlines_test/sql/
     #sql_file_path = path.abspath(path.join(script_file_path, "..", "..", "./sql/building_outlines_test/sql/01-create_buildings_schema.sql"))
-    sql_file_path = path.abspath(path.join(script_file_path,"/sql/01-create_buildings_schema.sql"))
+    # sql_file_path = path.abspath(path.join(script_file_path,"/sql/01-create_buildings_schema.sql"))
+    sql_file_path = "/sql/01-create_buildings_schema.sql"
     with open(sql_file_path) as f:
         for line in f:
             schemaname = re.search(r"(?:CREATE SCHEMA IF NOT EXISTS)\s(.*)(;)", line)
