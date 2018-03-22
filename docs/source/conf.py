@@ -322,14 +322,16 @@ def get_schema_name():
                 schema_name_globvar = schema
                 print "Schema Name: ", schema
                 schema_out = [schema_name_globvar]
+                return schema_out
     f.close()
 
 def main():
-    schema_name_globvar = ''
-    schema_out = []
+    #schema_name_globvar = ''
+    #schema_out = []
     get_schema_name()
 
-
+schema_name_globvar = ''
+schema_out = []
 main()
 
 #def parse(args):
