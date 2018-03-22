@@ -323,9 +323,6 @@ def get_schema_name():
                 print "Schema Name: ", schema
                 schema_dict = {}
                 schema_dict = {"name": schema_name_globvar}
-                
-                
-                return schema_list
             if schema_com_srch:
                 schema_comment = schema_com_srch.group(3)
                 schema_dict = schema_dict.update({"schemacomment": schema_comment})
