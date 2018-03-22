@@ -321,14 +321,17 @@ def get_schema_name():
                 schema = schemaname.group(1)
                 schema_name_globvar = schema
                 print "Schema Name: ", schema
-                schema_out = [schema_name_globvar]
-                return schema_out
+                schema_dict = {}
+                schema_dict = {"name": schema_name_globvar, "description": "This is the schema"}
+                schema_list = []
+                schema_list = [schema_dict]
+                return schema_list
     f.close()
 
 
     #schema_name_globvar = ''
     #schema_out = []
-schema_out = get_schema_name()
+schema_list = get_schema_name()
 
 #schema_name_globvar = ''
 #schema_out = []
@@ -389,7 +392,7 @@ def setup(app):
     app.connect("source-read", rstjinja)
 
 html_context = {
-    'outputschema': schema_out
+    'outputschema': schema_list
     #'something': table_names,
     #'rst': rst_out
 }

@@ -6,7 +6,10 @@ Database Schema
 
 
 Schema:
-{{outputschema}}
+{% for schema in outputschema %}
+{{schema.outputschema}}
+{% endfor %}
+
 
 {% for table in something %}
 {{ table["name"] }}
