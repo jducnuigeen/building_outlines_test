@@ -321,6 +321,7 @@ def get_schema_name():
                 schema = schemaname.group(1)
                 schema_name_globvar = schema
                 print "Schema Name: ", schema
+                schema_out = [schema_name_globvar]
     f.close()
 
 def main():
@@ -385,7 +386,7 @@ def setup(app):
     app.connect("source-read", rstjinja)
 
 html_context = {
-    'outputschema': schema_name_globvar,
+    'outputschema': schema_out
     #'something': table_names,
     #'rst': rst_out
 }
