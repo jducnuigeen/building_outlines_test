@@ -328,7 +328,7 @@ def get_schema_name():
 def main():
     #schema_name_globvar = ''
     #schema_out = []
-    get_schema_name()
+    schema_out = get_schema_name()
 
 #schema_name_globvar = ''
 #schema_out = []
