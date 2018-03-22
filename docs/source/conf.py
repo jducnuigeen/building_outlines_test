@@ -318,7 +318,7 @@ def get_schema_name():
                 schema_name_globvar = schema
                 print "Schema Name: ", schema
                 schema_dict = {}
-                schema_dict = {"name": schema_name_globvar, "description": "This is the schema"}
+                schema_dict = {"name": schema_name_globvar}
                 schema_list = []
                 schema_list = [schema_dict]
                 return schema_list

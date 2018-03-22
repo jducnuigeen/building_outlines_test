@@ -7,13 +7,10 @@ Database Schema
 
 
 {% for schema in outputschema %}
-Schema Name:{{ schema["name"] }}
-Description{{ schema["description"]}}
+Schema Name: {{ schema["name"] }}
 {% endfor %}
 
-{% for schema in outputschema %}
-Description{{ schema["description"]}}
-{% endfor %}
+
 
 
 {% for table in something %}
