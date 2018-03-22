@@ -307,6 +307,7 @@ def get_schema_name():
     # home/jducnuigeen/dev/building_outlines_test/docs/source
     # the path of the sql file is:
     # home/jducnuigeen/dev/building_outlines_test/sql/
+    schema_list = []
     sql_file_path = "./sql_not_final_location/01-create_buildings_schema.sql"
     with open(sql_file_path) as f:
         for line in f:
@@ -329,6 +330,7 @@ def get_schema_name():
                 schema_comment = schema_com_srch.group(3)
                 schema_dict = schema_dict.update({"schemacomment": schema_comment})
         schema_list = [schema_dict]
+        return schema_list
 
     f.close()
 
