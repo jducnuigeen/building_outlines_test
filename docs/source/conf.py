@@ -303,14 +303,10 @@ schema_name_globvar = ''
 tables = []
 
 def get_schema_name():
-    # script_file_path = path.dirname(__file__)
-    # print script_file_path
     # The path of this python script is:
     # home/jducnuigeen/dev/building_outlines_test/docs/source
     # the path of the sql file is:
     # home/jducnuigeen/dev/building_outlines_test/sql/
-    #sql_file_path = path.abspath(path.join(script_file_path, "..", "..", "./sql/building_outlines_test/sql/01-create_buildings_schema.sql"))
-    # sql_file_path = path.abspath(path.join(script_file_path,"/sql/01-create_buildings_schema.sql"))
     sql_file_path = "./sql_not_final_location/01-create_buildings_schema.sql"
     with open(sql_file_path) as f:
         for line in f:
@@ -328,30 +324,7 @@ def get_schema_name():
                 return schema_list
     f.close()
 
-
-    #schema_name_globvar = ''
-    #schema_out = []
 schema_list = get_schema_name()
-
-#schema_name_globvar = ''
-#schema_out = []
-
-
-#def parse(args):
-
-    
- #           if table_lg:
-  #              print 'Table match found: ', table_lg.group(1)
-   #             table_str = table_lg.group(1)
-    #            schema, table = table_str.split(".")
-     #           print 'Table name is: ', table
-
-                
-
-
-      #      else:
-       #         print 'No match'
-
 
 #rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Width", "Precision", "Scale", "Example", "Description"])
 

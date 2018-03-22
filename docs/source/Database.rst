@@ -5,10 +5,14 @@ Database Schema
    :maxdepth: 2
 
 
-Schema:
+
 {% for schema in outputschema %}
-{{ schema["name"] }}
-{{ schema["description"]}}
+Schema Name:{{ schema["name"] }}
+Description{{ schema["description"]}}
+{% endfor %}
+
+{% for schema in outputschema %}
+Description{{ schema["description"]}}
 {% endfor %}
 
 
