@@ -303,7 +303,7 @@ schema_name_globvar = ''
 tables = []
 
 def get_schema_name():
-    #script_file_path = path.dirname(__file__)
+    script_file_path = path.dirname(__file__)
     # print script_file_path
     # The path of this python script is:
     # home/jducnuigeen/dev/building_outlines_test/docs/source
