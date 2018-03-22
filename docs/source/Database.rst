@@ -7,7 +7,7 @@ Database Schema
 
 
 {% for schema in outputschema %}
-*Schema Name: {{ schema["name"] }}*
+**Schema Name: {{ schema["name"] }}**
 {% endfor %}
 
 
