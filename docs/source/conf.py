@@ -330,8 +330,8 @@ def main():
     #schema_out = []
     get_schema_name()
 
-schema_name_globvar = ''
-schema_out = []
+#schema_name_globvar = ''
+#schema_out = []
 main()
 
 #def parse(args):
