@@ -304,7 +304,7 @@ tables = []
 
 def get_schema_name():
     #script_file_path = path.dirname(__file__)
-    print script_file_path
+    # print script_file_path
     # The path of this python script is:
     # home/jducnuigeen/dev/building_outlines_test/docs/source
     # the path of the sql file is:
@@ -322,7 +322,12 @@ def get_schema_name():
                 print "Schema Name: ", schema
     f.close()
 
-get_schema_name()
+def main():
+    schema_name_globvar = ''
+    get_schema_name()
+
+
+main()
 
 #def parse(args):
 
