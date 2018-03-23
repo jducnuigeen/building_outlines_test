@@ -5,12 +5,12 @@ Database Schema
    :maxdepth: 2
 
 
-
-{% for schema_item in outputschema %}
-**Schema Name: {{ schema_item["name"] }}**
-**Schema Comment: {{ schema_item["schemacomment"] }}**
-{% endfor %}
-
+{% block body %}
+  {% for schema_item in outputschema %}
+  <li>**Schema Name: {{ schema_item["name"] }}**</li>
+  <li>**Schema Comment: {{ schema_item["schemacomment"] }}**</li>
+  {% endfor %}
+{% endblock %}
 
 
 {% for table in something %}
