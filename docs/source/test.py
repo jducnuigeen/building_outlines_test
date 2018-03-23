@@ -35,9 +35,9 @@ def get_schema_name():
                 print "Processing schema com srch"
                 print schema_dict
         #print schema_dict
-        # schema_list = [schema_dict]
-        
-        return schema_dict
+        schema_list = [schema_dict]
+        print schema_list
+        return schema_list
 
     f.close()
 
