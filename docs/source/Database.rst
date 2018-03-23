@@ -6,11 +6,9 @@ Database Schema
 
 
 
-{% for schema in outputschema %}
-	{% for key, value in schema.items %}
-		**Schema Name: Key: {{ key }}**
-		**Schema Comment: Value: {{ value }}**
-	{% endfor %}
+{% for schema_item in outputschema %}
+	**Schema Name: {{ schema_item['name'] }}**
+	**Schema Comment: {{ schema_item['schemacomment'] }}**
 {% endfor %}
 
 
