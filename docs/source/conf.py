@@ -331,13 +331,13 @@ def get_schema_name():
                 print "Processing schema com srch"
                 print schema_dict
         #print schema_dict
-        # schema_list = [schema_dict]
         
-        return schema_dict
+    schema_list = [schema_dict]
+    return schema_list
 
     f.close()
 
-schema_dict_out = get_schema_name()
+schema_list_out = get_schema_name()
 
 #rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Width", "Precision", "Scale", "Example", "Description"])
 
@@ -378,7 +378,7 @@ def setup(app):
     app.connect("source-read", rstjinja)
 
 html_context = {
-    'outputschema': schema_dict_out
+    'outputschema': schema_list_out
     #'something': table_names,
     #'rst': rst_out
 }
