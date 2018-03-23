@@ -307,7 +307,7 @@ def get_schema_name():
     # home/jducnuigeen/dev/building_outlines_test/docs/source
     # the path of the sql file is:
     # home/jducnuigeen/dev/building_outlines_test/sql/
-    schema_list = []
+    schema_dict = {}
     sql_file_path = "./sql_not_final_location/01-create_buildings_schema.sql"
     with open(sql_file_path) as f:
         for line in f:
@@ -320,18 +320,24 @@ def get_schema_name():
             if schemaname:
                 schema = schemaname.group(1)
                 schema_name_globvar = schema
+                print "Processing schemaname"
                 print "Schema Name: ", schema
                 schema_dict = {}
                 schema_dict = {"name": schema_name_globvar}
-            if schema_com_srch:
+                print schema_dict
+            elif schema_com_srch is not None:
                 schema_comment = schema_com_srch.group(3)
-                schema_dict = schema_dict.update({"schemacomment": schema_comment})
-        schema_list = [schema_dict]
-        return schema_list
+                schema_dict['schemacomment'] = schema_comment
+                print "Processing schema com srch"
+                print schema_dict
+        #print schema_dict
+        # schema_list = [schema_dict]
+        
+        return schema_dict
 
     f.close()
 
-schema_list = get_schema_name()
+schema_dict_out = get_schema_name()
 
 #rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Width", "Precision", "Scale", "Example", "Description"])
 
@@ -372,7 +378,7 @@ def setup(app):
     app.connect("source-read", rstjinja)
 
 html_context = {
-    'outputschema': schema_list
+    'outputschema': schema_dict_out
     #'something': table_names,
     #'rst': rst_out
 }
