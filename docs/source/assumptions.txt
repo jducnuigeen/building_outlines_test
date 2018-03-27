@@ -1,0 +1,9 @@
+
+
+Assumptions:
+1. created Tables are not listed more than once
+
+2. once created tables are listed their columns are not listed anywhere else other than immediately after creation
+
+3. the SQL files I'm parsing don't exist in the directory we originally created. I can't get Sphinx virtual machine
+to understand the directory structure we have and pull from that.
