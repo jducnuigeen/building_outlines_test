@@ -9,11 +9,12 @@ Building Outlines Test documentation
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    License
    Database
    database2
+
 
 Meat of the Documentation
 =========================
