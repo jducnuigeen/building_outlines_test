@@ -13,7 +13,6 @@ Contents:
 
    License
    Database
-   page
 
 Meat of the Documentation
 =========================
