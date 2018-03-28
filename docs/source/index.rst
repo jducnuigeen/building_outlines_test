@@ -13,7 +13,7 @@ Contents:
 
    License
    Database
-   
+   database2
 
 Meat of the Documentation
 =========================
