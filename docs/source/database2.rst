@@ -5,9 +5,6 @@ Database2 Schema
    :maxdepth: 2
 
 
-.. only:: html
-
-<li>this is a list item<\li>
 
 
 
