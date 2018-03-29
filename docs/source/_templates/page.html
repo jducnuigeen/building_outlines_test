@@ -1,7 +1,10 @@
 {% extends "!page.html" %}
 
 {% block body %}
-	<li>{{ schema_gen["schema_name"] }} </li>
+{% filter upper %}
+	<b><font size="+2">Schema Name: {{ schema_gen["schema_name"] }} </font></b>
+{% endfilter %}
+<b>Description: {{ schema_gen["schema_com"] }} </b>
 
 
 {% endblock %}
