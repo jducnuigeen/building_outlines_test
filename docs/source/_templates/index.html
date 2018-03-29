@@ -1,7 +1,7 @@
 {% extends "!index.html" %}
 {% block body %}
 {% for key, value in schema_dict_out.iteritems() %}
-	<li>{{ key|e }} </li>
-	<li>{{ value|e }} </li>
+<li>{{ key|e }} </li>
+<li>{{ value|e }} </li>
 {% endfor %}
 {% endblock %}
