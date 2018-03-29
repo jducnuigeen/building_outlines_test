@@ -1,6 +1,7 @@
 {% extends "!page.html" %}
 {% block body %}
 {% for item in schema_gen %}
-	<b>Schema: {{ item }} </b>
+	<b>Schema: {{ schema_gen[loop.index0] }} </b>
+	<b>Description: {{ schema_gen[loop.index1] }}</b>
 {% endfor %}
 {% endblock %}
