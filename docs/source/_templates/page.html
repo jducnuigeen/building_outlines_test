@@ -1,6 +1,6 @@
 {% extends "!page.html" %}
 {% block body %}
 {% for key, dict_item in outputschema.items() %}
-	<li>{{ key['schema_name'] }} : {{ dict_item }}</li>
+	<li>Item: {{ key['schema_name'] }} : {{ dict_item }}</li>
 {% endfor %}
 {% endblock %}
