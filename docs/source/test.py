@@ -14,7 +14,7 @@ def get_schema_name():
     # home/jducnuigeen/dev/building_outlines_test/sql/
     schema_dict = {}
     table_list = []
-    sql_file_path = "./sql_not_final_location/01-create_buildings_schema.sql"
+    sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
     with open(sql_file_path) as full_file:
         file_content = full_file.read()
     full_file.close()

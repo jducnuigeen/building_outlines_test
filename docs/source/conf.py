@@ -298,7 +298,8 @@ texinfo_documents = [
 #                ["building_name_id", "character", "250", "noprec", "noscl", "An Id for a building name: 5","A hardware store" ],
 #                ["building_id", "integer", "4", "noprec", "noscl", "3928", "A unique id for a building" ]
 #                ]
-# 
+
+
 schema_name_globvar = ''
 tables = []
 
@@ -310,34 +311,55 @@ def get_schema_name():
     schema_dict = {}
     sql_file_path = "./sql_not_final_location/01-create_buildings_schema.sql"
     with open(sql_file_path) as f:
-        for line in f:
-            # CREATE SCHEMA IF NOT EXISTS buildings;
-            schemaname = re.search(r"(?:CREATE SCHEMA IF NOT EXISTS)\s(.*)(;)", line)
-            # COMMENT ON SCHEMA buildings IS 'This schema holds all of the tables for buildings';
-            schema_com_srch = re.search(r"(?:COMMENT ON SCHEMA)\s(.*)(?:IS)\s(')(.*)(')(;)", line)
+        # for line in f:
+        #     # CREATE SCHEMA IF NOT EXISTS buildings;
+        #     schemaname = re.search(r"(?:CREATE SCHEMA IF NOT EXISTS)\s(.*)(;)", line)
+        #     # COMMENT ON SCHEMA buildings IS 'This schema holds all of the tables for buildings';
+        #     schema_com_srch = re.search(r"(?:COMMENT ON SCHEMA)\s(.*)(?:IS)\s(')(.*)(')(;)", line)
 
-            table_lg = re.search(r"(?:CREATE TABLE IF NOT EXISTS)\s(.*)(\()", line)
-            if schemaname:
-                schema = schemaname.group(1)
-                schema_name_globvar = schema
-                print "Processing schemaname"
-                print "Schema Name: ", schema
-                schema_dict = {}
-                schema_dict = {"name": schema_name_globvar}
-                print schema_dict
-            elif schema_com_srch is not None:
-                schema_comment = schema_com_srch.group(3)
-                schema_dict['schemacomment'] = schema_comment
-                print "Processing schema com srch"
-                print schema_dict
-        #print schema_dict
-        
-    schema_list = [schema_dict]
-    return schema_list
+        #     table_name_srch = re.search(r"(?:CREATE TABLE IF NOT EXISTS)(?:\s)(?:.*)(?:\.)(.*)(?:\s)(?:\()", line)
 
+
+        #     if schemaname:
+        #         schema = schemaname.group(1)
+        #         schema_name_globvar = schema
+        #         print "Processing schemaname"
+        #         print "Schema Name: ", schema
+        #         schema_dict = {}
+        #         schema_dict = {"name": schema_name_globvar}
+        #         print schema_dict
+        #     elif schema_com_srch is not None:
+        #         schema_comment = schema_com_srch.group(3)
+        #         schema_dict['schemacomment'] = schema_comment
+        #         print "Processing schema com srch"
+        #         print schema_dict
+        #     elif table_name_srch is not None:
+        schema_dict = {"schema_name": "buildings", "schema_comment": "holds schema comment", "tables": 
+        {"lifecycle_stage": {"table_comment": "lifecycle_stage comment", "table_columns": 
+                    [["lifecycle_stage_id", "integer", "", "32", "0", "Lookup table that holds all of the lifecycle stages for a building."],
+                    ["value", "varchar", "40", "", "", "The stage of a buildings lifecycle."]]
+                            }
+             ,
+        "use": {"table_comment": "Lookup table that holds all of the uses for a building. These uses are the same as those used in the Topo50 map series.", "table_columns":
+                    [["use_id", "integer", "", "32", "0", "Unique identifier for the use."],
+                    ["value", "varchar", "40", "", "", "The building use, maintained for the Topo50 map series."]]
+                }
+        }
+                    }
+
+
+
+
+
+    #schema_list = [schema_dict]
+    #return schema_list
+    return schema_dict
     f.close()
 
-schema_list_out = get_schema_name()
+
+#schema_list_out = get_schema_name()
+schema_dict_out = get_schema_name()
+
 
 #rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Width", "Precision", "Scale", "Example", "Description"])
 
@@ -378,7 +400,8 @@ def setup(app):
     app.connect("source-read", rstjinja)
 
 html_context = {
-    'outputschema': schema_list_out
+    'outputschema': schema_dict_out
+    #'outputschema': schema_list_out
     #'something': table_names,
     #'rst': rst_out
 }
