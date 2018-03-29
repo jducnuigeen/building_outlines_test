@@ -2,12 +2,10 @@
 
 {% block body %}
 {% for key, value in schema_gen.items() %}
-	{% if key|reject('equalto', "schema_com") %}
-	Schema Name: {{ value }}
-	{%- endif%}
-	{% if key|reject('equalto', "schema_name") %}
-	Description: {{ value }}
-	{%- endif%}
+	{{ key|selectattr("schema_name") }}
+	{{ key|selectattr("schema_com") }}
+
+
 {% endfor %}
 
 {% endblock %}
