@@ -1,8 +1,0 @@
-{% extends "!index.html" %}
-{% block body %}
-{% for key, dict_item in schema_dict_out.items() %}
-	{% for key2, nested_value in dict_item.items() %}
-		<li>1 Nested Value: {{ nested_value }}</li>
-	{%  endfor %}
-{% endfor %}
-{% endblock %}

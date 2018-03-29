@@ -346,6 +346,7 @@ def get_schema_name():
                 }
         }
                     }
+        print "schema_dict", schema_dict
 
 
 
