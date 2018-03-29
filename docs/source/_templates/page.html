@@ -5,7 +5,7 @@
 	{% if key|reject('equalto', "schema_com") %}
 	Schema Name: {{ value }}
 	{%- endif%}
-	{% if key|rejest('equalto', "schema_name") %}
+	{% if key|reject('equalto', "schema_name") %}
 	Description: {{ value }}
 	{%- endif%}
 {% endfor %}
