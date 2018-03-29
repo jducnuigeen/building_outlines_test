@@ -404,7 +404,7 @@ def setup(app):
     app.connect("source-read", rstjinja)
 
 html_context = {
-    'outputschema': schema_dict_out
+    'outputschema': schema_dict_out,
     'schema_gen': schema_general
     #'something': table_names,
     #'rst': rst_out
