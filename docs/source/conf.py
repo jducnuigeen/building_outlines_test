@@ -335,7 +335,7 @@ def get_schema_name():
         #         print "Processing schema com srch"
         #         print schema_dict
         #     elif table_name_srch is not None:
-        schema_general = [buildings, "holds schema comment"]
+        schema_general = ["buildings", "holds schema comment"]
         schema_dict = [
         {"lifecycle_stage": {"table_comment": "lifecycle_stage comment", "table_columns": 
                     [["lifecycle_stage_id", "integer", "", "32", "0", "Lookup table that holds all of the lifecycle stages for a building."],
