@@ -1,10 +1,6 @@
 {% extends "!page.html" %}
 {% block body %}
-{% for item in schema_gen %}
-	<b>Schema: {{ schema_gen[loop.index0] }} </b>
-{% endfor %}
-{% for item in schema_gen %}
-	<b>Description: {{ schema_gen[loop.index1] }} </b>
-{% endfor %}
-
+{% for key, value in schema_general.items() %}
+	Schema Name: {% if key|reject('equalto', "schema_com") %}
+	Descriptoin: {% if key|rejest('equalto', "schema_name") %}
 {% endblock %}

@@ -309,7 +309,7 @@ def get_schema_name():
     # the path of the sql file is:
     # home/jducnuigeen/dev/building_outlines_test/sql/
     schema_dict = {}
-    schema_general = []
+    schema_general = {}
     sql_file_path = "./sql_not_final_location/01-create_buildings_schema.sql"
     with open(sql_file_path) as f:
         # for line in f:
@@ -335,7 +335,7 @@ def get_schema_name():
         #         print "Processing schema com srch"
         #         print schema_dict
         #     elif table_name_srch is not None:
-        schema_general = ["buildings", "holds schema comment"]
+        schema_general = {"schema_name" : "buildings", "schema_com" : "holds schema comment"}
         schema_dict = [
         {"lifecycle_stage": {"table_comment": "lifecycle_stage comment", "table_columns": 
                     [["lifecycle_stage_id", "integer", "", "32", "0", "Lookup table that holds all of the lifecycle stages for a building."],
