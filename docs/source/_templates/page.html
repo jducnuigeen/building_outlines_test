@@ -1,7 +1,7 @@
 {% extends "!page.html" %}
 
 {% block body %}
-{% for key, value in schema_general.items() %}
+{% for key, value in schema_gen.items() %}
 	{% if key|reject('equalto', "schema_com") %}
 	Schema Name: {{ value }}
 	{%- endif%}
