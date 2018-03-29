@@ -1,9 +1,8 @@
 {% extends "!page.html" %}
 
 {% block body %}
-{% for key, value in schema_gen.items() %}
-	{{ key|selectattr("schema_name") }}
-	{{ key|selectattr("schema_com") }}
+{% for item in schema_gen.list %}
+	<li>{{ item.schema_name }} : {{ item.schema_com }}</li>
 
 
 {% endfor %}
