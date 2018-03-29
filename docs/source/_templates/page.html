@@ -1,6 +1,13 @@
 {% extends "!page.html" %}
+
 {% block body %}
 {% for key, value in schema_general.items() %}
-	Schema Name: {% if key|reject('equalto', "schema_com") %}
-	Descriptoin: {% if key|rejest('equalto', "schema_name") %}
+	{% if key|reject('equalto', "schema_com") %}
+	Schema Name: {{ value }}
+	{%- endif%}
+	{% if key|rejest('equalto', "schema_name") %}
+	Description: {{ value }}
+	{%- endif%}
+{% endfor %}
+
 {% endblock %}
