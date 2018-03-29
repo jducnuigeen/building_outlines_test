@@ -7,16 +7,16 @@
 <b><font size="+1">Description: {{ schema_gen["schema_com"] }} </font></b><br/>
 
 <p>
-{% for key, parent_dict_item in outputschema.items()  %}
+{% for item in outputschema.items()  %}
 	Table Name: {{ outputschema["table_nam"] }}<br/>
-	{% for key2, nested_value in parent_dict_item.items() %}
-		Nested Value: {{ nested_value }}<br/>
+	Description: {{ outputschema["table_comment"] }}<br/>
+	Columns: {{ outputschema["table_columns"] }}<br/>
 		
 	
 
 
 
-	{% endfor }
+	
 {% endfor }
 </p>
 {% endblock %}
