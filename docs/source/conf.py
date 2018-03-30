@@ -402,6 +402,7 @@ def rstjinja(app, docname, source):
 
 def setup(app):
     app.connect("source-read", rstjinja)
+    app.add_stylesheet('custom.css')
 
 html_context = {
     'outputschema': schema_list_out,
