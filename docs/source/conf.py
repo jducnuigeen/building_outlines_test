@@ -121,8 +121,8 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    page_width: auto;
-    sidebar_width: 200px;
+    'page_width': 'auto',
+    'sidebar_width': '200px',
 
 }
 
