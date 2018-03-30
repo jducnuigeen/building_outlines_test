@@ -336,7 +336,7 @@ def get_schema_name():
         #         print schema_dict
         #     elif table_name_srch is not None:
         schema_general = {"schema_name": "buildings", "schema_com": "holds schema comment"}
-        schema_dict = [
+        schema_list = [
         {"table_nam": "lifecycle_stage", "table_comment": "lifecycle_stage comment", "table_columns": [ 
                     {"column": "lifecycle_stage_id", "type": "integer", "length": "", "width": "32", "precision": "0", "scale": "", "description": "Lookup table that holds all of the lifecycle stages for a building."},
                     {"column": "value", "type": "varchar", "length": "40", "width": "", "precision": "", "scale": "", "description": "The stage of a buildings lifecycle."}
@@ -357,12 +357,12 @@ def get_schema_name():
 
     #schema_list = [schema_dict]
     #return schema_list
-    return schema_general, schema_dict
+    return schema_general, schema_list
     f.close()
 
 
 #schema_list_out = get_schema_name()
-schema_general, schema_dict_out = get_schema_name()
+schema_general, schema_list_out = get_schema_name()
 
 
 #rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Width", "Precision", "Scale", "Example", "Description"])
@@ -404,7 +404,7 @@ def setup(app):
     app.connect("source-read", rstjinja)
 
 html_context = {
-    'outputschema': schema_dict_out,
+    'outputschema': schema_list_out,
     'schema_gen': schema_general
     #'something': table_names,
     #'rst': rst_out
