@@ -13,14 +13,13 @@
 	{% if item["table_columns"] %}
 		<table>
 		<tbody>
-		{% for column in item["table_columns"] %}
+		{% for columns in item["table_columns"] %}
+			{% for column in columns %}
 			<tr>
 				 <td>{{ column }}</td>
-				 
-
-
-
-			</tr>
+			</tr>	 
+			{% endfor %}
+			
 		{% endfor%}
 		</tbody>
 		</table>
