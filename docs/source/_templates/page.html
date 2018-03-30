@@ -13,7 +13,7 @@
 	{% if item["table_columns"] %}
 		<table>
 		<tbody>
-		{% for column in item %}
+		{% for column in item["table_columns"] %}
 			<tr>
 				 <td>{{ column }}</td>
 				 
