@@ -341,8 +341,8 @@ def get_schema_name():
                     {"column": "lifecycle_stage_id", "type": "integer", "length": "", "width": "32", "precision": "0", "scale": "", "description": "Lookup table that holds all of the lifecycle stages for a building."},
                     {"column": "value", "type": "varchar", "length": "40", "width": "", "precision": "", "scale": "", "description": "The stage of a buildings lifecycle."}
                             ]
-             ,
-        "table_nam": "use", "table_comment": "Lookup table that holds all of the uses for a building. These uses are the same as those used in the Topo50 map series.", "table_columns": [
+             },
+        {"table_nam": "use", "table_comment": "Lookup table that holds all of the uses for a building. These uses are the same as those used in the Topo50 map series.", "table_columns": [
                     {"column": "use_id", "type": "integer", "length": "", "width": "32", "precision": "0", "scale": "", "description": "Unique identifier for the use."},
                     {"column": "value", "type": "varchar", "length": "40", "width": "", "precision": "", "scale": "", "description": "The building use, maintained for the Topo50 map series."}
                             ]

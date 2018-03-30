@@ -30,12 +30,13 @@
 						<td>{{ column["column"] }}</td>
 						<td>{{ column["type"] }}</td>
 						<td>{{ column["length"]}}</td>
-
-
-
+						<td>{{ column["width"]}}</td>
+						<td>{{ column["precision"]}}</td>
+						<td>{{ column["scale"]}}</td>
+						<td>{{ column["description"]}}</td>
 					<tr>	
 				{% endfor %}
-
+			</tbody>
 		</table>
 	</div>
 {% endfor %}
