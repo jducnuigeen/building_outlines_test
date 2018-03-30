@@ -7,9 +7,9 @@
 <b><font size="+1">Description: {{ schema_gen["schema_com"] }} </font></b><br/>
 
 <p>
-{% for item in outputschema.items()  %}
-	Table Name: {{ outputschema["table_nam"] }}<br/>
-	Description: {{ outputschema["table_comment"] }}<br/>
+{% for key, value in outputschema.items()  %}
+	Table Name: {{ key["table_nam"] }}<br/>
+	Description: {{ key["table_comment"] }}<br/>
 {% endfor %}
 
 {% endblock %}
