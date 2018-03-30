@@ -9,5 +9,7 @@ th {
     vertical-align: center;
     padding: 5px;
     border-bottom: 2px solid black;
+    border: 1px solid black;
+    border-collapse: collapse;
 
 }
