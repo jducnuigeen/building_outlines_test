@@ -11,22 +11,19 @@
 	<p>Table Name: {{ item["table_nam"] }}<br/>
 	Description: {{ item["table_comment"] }}<br/>
 	{% if item["table_columns"] %}
-		
-		{% for column in outputschema[item] %}
-			
-				 {{ column['column'] }}<br>
-				 {{ column["type"] }}<br>
-				 {{ column["length"] }}<br>
-				 {{ column["width"] }}<br>
-				 {{ column["precision"] }}<br>
-				 {{ column["scale"] }}<br>
-				 {{ column["description"] }}<br>
+		<table>
+		<tbody>
+		{% for key, value in outputschema[item] %}
+			<tr>
+				 <td>{{ value }}</td>
+				 
 
 
 
-			
+			</tr>
 		{% endfor%}
-		
+		</tbody>
+		</table>
 	{% endif %}
 	</p>
 {% endfor %}
