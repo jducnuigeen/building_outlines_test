@@ -13,9 +13,9 @@
 	{% if item["table_columns"] %}
 		<table>
 		<tbody>
-		{% for key, value in item.iteritems() %}
+		{% for column in item %}
 			<tr>
-				 <td>{{ value }}</td>
+				 <td>{{ column }}</td>
 				 
 
 
