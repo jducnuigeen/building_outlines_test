@@ -11,18 +11,21 @@
 	<p>Table Name: {{ item["table_nam"] }}<br/>
 	Description: {{ item["table_comment"] }}<br/>
 	{% if item["table_columns"] %}
+		<div style="overflow:auto; height:150px; width:auto; border:1px solid; margin:20px;">
 		<table>
 		<tbody>
 		{% for columns in item["table_columns"] %}
-			{% for column in columns %}
 			<tr>
-				 <td>{{ column }}</td>
-			</tr>	 
-			{% endfor %}
+			{% for column in columns %}
 			
+				 <td>{{ column }}</td>
+				 
+			{% endfor %}
+			</tr>
 		{% endfor%}
 		</tbody>
 		</table>
+		</div>
 	{% endif %}
 	</p>
 {% endfor %}
