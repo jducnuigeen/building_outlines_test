@@ -11,24 +11,8 @@
 	<p>Table Name: {{ item["table_nam"] }}<br/>
 	Description: {{ item["table_comment"] }}<br/>
 	{% if item["table_columns"] %}
-		<table>
-		<tbody>
-		{% for column in outputschema[item] %}
-			<tr>
-				<td> {{ column["colunm"] }}</td>
-				<td> {{ column["type"] }}</td>
-				<td> {{ column["length"] }}</td>
-				<td> {{ column["width"] }}</td>
-				<td> {{ column["precision"] }}</td>
-				<td> {{ column["scale"] }}</td>
-				<td> {{ column["description"] }}</td>
-
-
-
-			</tr>
-		{% endfor%}
-		</tbody>
-		</table>
+		{{ column["colunm"] }}<br/>
+		{{ column["type"] }}<br>
 	{% endif %}
 	</p>
 {% endfor %}
