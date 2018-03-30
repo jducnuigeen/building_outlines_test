@@ -8,8 +8,8 @@
 
 <p>
 {% for item in outputschema  %}
-	<p>Table Name: {{ item["table_nam"] }}<br/>
-	Description: {{ item["table_comment"] }}<br/>
+	<b><p>Table Name: {% filter upper %} {{ item["table_nam"] }} {% endfilter %}<br/></b>
+	<b>Description: {{ item["table_comment"] }}<br/></b>
 	{% if item["table_columns"] %}
 		
 		<table>

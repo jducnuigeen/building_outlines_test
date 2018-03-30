@@ -341,7 +341,7 @@ def get_schema_name():
         #     elif table_name_srch is not None:
         schema_general = {"schema_name": "buildings", "schema_com": "holds schema comment"}
         schema_list = [
-        {"table_nam": "lifecycle_stage", "table_comment": "lifecycle_stage comment", "table_columns": [
+        {"table_nam": "lifecycle stage", "table_comment": "Lifecycle stage comments", "table_columns": [
                     ["lifecycle_stage_id", "integer", "", "32", "0", "", "Lookup table that holds all of the lifecycle stages for a building."],
                     ["value", "varchar", "40", "", "", "", "The stage of a buildings lifecycle."]
                             ]
