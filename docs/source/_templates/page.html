@@ -12,6 +12,7 @@
 	Description: {{ item["table_comment"] }}<br/>
 	{% if item["table_columns"] %}
 		<table>
+		<tbody>
 		{% for column in outputschema[item] %}
 			<tr>
 				<td> {{ column["colunm"] }}</td>
@@ -26,6 +27,7 @@
 
 			</tr>
 		{% endfor%}
+		</tbody>
 		</table>
 	{% endif %}
 	</p>
