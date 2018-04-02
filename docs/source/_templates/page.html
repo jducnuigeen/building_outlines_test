@@ -2,9 +2,9 @@
 
 {% block body %}
 {% filter upper %}
-	<b><font size="+2">Schema: {{ schema_general["schema_name"] }} </font></b><br/>
+	<b><font size="+2">Schema: {{ schema_gen["schema_name"] }} </font></b><br/>
 {% endfilter %}
-<b><font size="+1">Description: {{ schema_general["schema_com"] }} </font></b><br/>
+<b><font size="+1">Description: {{ schema_gen["schema_com"] }} </font></b><br/>
 
 <p>
 {% for item in outputschema  %}

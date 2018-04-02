@@ -726,7 +726,7 @@ def get_columns(table_str, file_content, this_table_columns):
 
 
 
-schema_general = get_schema_name1()
+schema_gen = get_schema_name1()
 
 #schema_list_out = get_schema_name()
 schema_list_out = get_schema_name2()
@@ -773,7 +773,7 @@ def setup(app):
 
 html_context = {
     'outputschema': schema_list_out,
-    'schema_gen': schema_general
+    'schema_gen': schema_gen
     #'something': table_names,
     #'rst': rst_out
 }
