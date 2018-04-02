@@ -603,7 +603,6 @@ def get_columns(table_str, file_content, this_table_columns):
     print "columns stripped: ", columns_strip
     for column_details in columns_strip:
         pri_key_srch = re.search(r"(.*)(?:serial PRIMARY KEY)", column_details)
-        #not_null_srch_1 = re.search(r"^(.*)(?:\s)(?:integer NOT NULL)", column_details)
         char_var_srch = re.search(r"(.*)(?:\s)(?:character varying)\((.*?)\)", column_details)
         timestamp1 = re.search(r"(.*)(?:\s)(?:timestamptz)", column_details)
         integer = re.search(r"^(.*)(?:\s)(?=integer)", column_details)
@@ -619,17 +618,6 @@ def get_columns(table_str, file_content, this_table_columns):
             this_column.append("0") #Scale
             this_column.append("") #Description
             this_table_columns.append(this_column)
-
-        # if not_null_srch_1 is not None:
-        #     this_column = []
-        #     int_column = not_null_srch_1.group(1)
-        #     this_column.append(int_column) #column Name
-        #     this_column.append("integer") #Data Type
-        #     this_column.append("") #Length
-        #     this_column.append("32") #Precision
-        #     this_column.append("0") #scale
-        #     this_column.append("") #Description
-        #     this_table_columns.append(this_column)
 
         if char_var_srch is not None:
             this_column = []
@@ -671,7 +659,7 @@ def get_columns(table_str, file_content, this_table_columns):
             this_column = []
             shapecol = shape.group(1)
             this_column.append(shapecol) #column Name
-            this_column.append("") #Data Type
+            this_column.append("geometry") #Data Type
             this_column.append("") #Length
             this_column.append("") #Precision
             this_column.append("") #scale
