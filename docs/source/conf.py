@@ -315,7 +315,8 @@ def get_schema_general():
     schema_general = {}
     #schema_list = []
     #table_dict = {}
-    sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
+    #sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
+    sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
     with open(sql_file_path) as full_file:
         file_content = full_file.read()
     full_file.close()
