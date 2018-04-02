@@ -15,13 +15,16 @@
 import sys
 import os
 import json
+import re
 from tabulate import tabulate
+from os import path
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
+#sys.path.insert(0, os.path.abspath('../buildings_outlines_test'))
 
 # -- General configuration ------------------------------------------------
 
@@ -117,7 +120,11 @@ html_theme = 'alabaster'
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+html_theme_options = {
+    'page_width': 'auto',
+    'sidebar_width': '200px',
+
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
@@ -288,25 +295,99 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 
 
-# Extensions
+# Extensions and parsing SQL build scripts
 
 # Test Data
-building_name_table = [
-                ["building_name_id", "character", 250, "noprec", "noscl", "An Id for a building name: 5","A hardware store" ],
-                ["building_id", "integer", 4, "noprec", "noscl", "3928", "A unique id for a building" ]
-                ]
-rst_table = tabulate(building_name_table,tablefmt='rst')
+#building_name_table = [
+#                ["building_name_id", "character", "250", "noprec", "noscl", "An Id for a building name: 5","A hardware store" ],
+#                ["building_id", "integer", "4", "noprec", "noscl", "3928", "A unique id for a building" ]
+#                ]
 
-test1 = {"name": "Test 1", "description": "Blah"}
-test2 = {"name": "Test 2", "description": "Blah de blah"}
-test3 = {"name": "Test 3", "description": "Blah bloo"}
 
-table_names = [test1, test2, test3]
+schema_name_globvar = ''
+tables = {}
+
+def get_schema_name():
+    # The path of this python script is:
+    # home/jducnuigeen/dev/building_outlines_test/docs/source
+    # the path of the sql file is:
+    # home/jducnuigeen/dev/building_outlines_test/sql/
+    schema_dict = {}
+    schema_general = {}
+    sql_file_path = "./sql_not_final_location/01-create_buildings_schema.sql"
+    with open(sql_file_path) as f:
+        # for line in f:
+        #     # CREATE SCHEMA IF NOT EXISTS buildings;
+        #     schemaname = re.search(r"(?:CREATE SCHEMA IF NOT EXISTS)\s(.*)(;)", line)
+        #     # COMMENT ON SCHEMA buildings IS 'This schema holds all of the tables for buildings';
+        #     schema_com_srch = re.search(r"(?:COMMENT ON SCHEMA)\s(.*)(?:IS)\s(')(.*)(')(;)", line)
+
+        #     table_name_srch = re.search(r"(?:CREATE TABLE IF NOT EXISTS)(?:\s)(?:.*)(?:\.)(.*)(?:\s)(?:\()", line)
+
+
+        #     if schemaname:
+        #         schema = schemaname.group(1)
+        #         schema_name_globvar = schema
+        #         print "Processing schemaname"
+        #         print "Schema Name: ", schema
+        #         schema_dict = {}
+        #         schema_dict = {"name": schema_name_globvar}
+        #         print schema_dict
+        #     elif schema_com_srch is not None:
+        #         schema_comment = schema_com_srch.group(3)
+        #         schema_dict['schemacomment'] = schema_comment
+        #         print "Processing schema com srch"
+        #         print schema_dict
+        #     elif table_name_srch is not None:
+        schema_general = {"schema_name": "buildings", "schema_com": "holds schema comment"}
+        schema_list = [
+        {"table_nam": "lifecycle stage", "table_comment": "Lifecycle stage comments", "table_columns": [
+                    ["lifecycle_stage_id", "integer", "", "32", "0", "", "Lookup table that holds all of the lifecycle stages for a building."],
+                    ["value", "varchar", "40", "", "", "", "The stage of a buildings lifecycle."]
+                            ]
+             },
+        {"table_nam": "use", "table_comment": "Lookup table that holds all of the uses for a building. These uses are the same as those used in the Topo50 map series.", "table_columns": [
+                    ["use_id", "integer", "", "32", "0", "", "Unique identifier for the use."],
+                    ["value", "varchar", "40", "", "", "", "The building use, maintained for the Topo50 map series."]
+                            ]
+        }
+                    ]
+        print "schema_dict", schema_dict
+        print "schema_general", schema_general
+
+
+
+
+
+    #schema_list = [schema_dict]
+    #return schema_list
+    return schema_general, schema_list
+    f.close()
+
+
+#schema_list_out = get_schema_name()
+schema_general, schema_list_out = get_schema_name()
+
+
+#rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Width", "Precision", "Scale", "Example", "Description"])
+
+#schema_name = [schema_name_globvar]
+
+
+
+#test1 = {"name": "Test 1", "description": "Blah"}
+#test2 = {"name": "Test 2", "description": "Blah de blah"}
+#test3 = {"name": "Test 3", "description": "Blah bloo"}
+#test4 = {"rst": rst_table}
+
+#table_names = [test1, test2, test3]
+
+#rst_out = [test4]
 
 #json.dumps(rst_table)
 
-with open('dbschema.json', 'w') as outfile:
-    json.dump(rst_table, outfile)
+# with open('dbschema.json', 'w') as outfile:
+#    json.dump(rst_table, outfile)
 
 
 
@@ -325,9 +406,11 @@ def rstjinja(app, docname, source):
 
 def setup(app):
     app.connect("source-read", rstjinja)
+    app.add_stylesheet('custom.css')
 
 html_context = {
-	'outputschema': rst_table,
-    'something': table_names
+    'outputschema': schema_list_out,
+    'schema_gen': schema_general
+    #'something': table_names,
+    #'rst': rst_out
 }
-

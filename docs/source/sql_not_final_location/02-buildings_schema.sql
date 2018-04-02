@@ -6,6 +6,7 @@ SET client_min_messages TO WARNING;
 
 
 CREATE SCHEMA IF NOT EXISTS buildings;
+COMMENT ON SCHEMA buildings IS 'This schema holds all of the tables for buildings';
 
 -- LOOKUP TABLES
 
