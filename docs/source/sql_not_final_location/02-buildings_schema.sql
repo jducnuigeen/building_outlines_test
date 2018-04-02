@@ -6,7 +6,7 @@ SET client_min_messages TO WARNING;
 
 
 CREATE SCHEMA IF NOT EXISTS buildings;
-COMMENT ON SCHEMA buildings IS 'This schema holds all of the tables for buildings';
+COMMENT ON SCHEMA buildings IS 'This schema holds all of the tables for buildings. This comment should probably be expanded.';
 
 -- LOOKUP TABLES
 
@@ -115,7 +115,8 @@ COMMENT ON COLUMN buildings.building_outlines.building_outline_id IS
 COMMENT ON COLUMN buildings.building_outlines.building_id IS
 'Unique identifier for the building.';
 COMMENT ON COLUMN buildings.building_outlines.capture_method_id IS
-'Unique identifier for the building.';
+'Unique identifier for the building, '
+' blah blah blah second line of comment';
 COMMENT ON COLUMN buildings.building_outlines.capture_source_id IS
 'Unique identifier for the building.';
 COMMENT ON COLUMN buildings.building_outlines.lifecycle_stage_id IS
