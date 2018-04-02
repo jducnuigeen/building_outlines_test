@@ -297,26 +297,18 @@ texinfo_documents = [
 
 # Extensions and parsing SQL build scripts
 
-# Test Data
-#building_name_table = [
-#                ["building_name_id", "character", "250", "noprec", "noscl", "An Id for a building name: 5","A hardware store" ],
-#                ["building_id", "integer", "4", "noprec", "noscl", "3928", "A unique id for a building" ]
-#                ]
-
+# Script to parse database sql files into one dictionary and one list 
 
 schema_name_globvar = ''
-#tables = {}
-#schema_list = []
+sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
+#sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
 
 def get_schema_general():
-    # The path of this python script is:
-    # home/jducnuigeen/dev/building_outlines_test/docs/source
-    # the path of the sql file is:
-    # home/jducnuigeen/dev/building_outlines_test/sql/
+    # The path of this conf.py script is:
+    # ../docs/source
+    # The path of the SQL file has been altered from likely final folder path
     schema_general = {}
-    #schema_list = []
-    #table_dict = {}
-    sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
+    #sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
     #sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
     with open(sql_file_path) as full_file:
         file_content = full_file.read()
@@ -360,7 +352,7 @@ def get_tables():
     #schema_general = {}
     schema_list = []
     table_dict = {}
-    sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
+    # sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
     #sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
     with open(sql_file_path) as full_file:
         file_content = full_file.read()
