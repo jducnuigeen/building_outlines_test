@@ -300,8 +300,8 @@ texinfo_documents = [
 # Script to parse database sql files into one dictionary and one list 
 
 schema_name_globvar = ''
-sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
-#sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
+# sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
+sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
 
 def get_schema_general():
     # The path of this conf.py script is:
