@@ -453,10 +453,14 @@ def get_tables():
 def get_column_comments(column_str, file_content):
     col_com_str = r"(?:COMMENT ON COLUMN " + column_str + r")(?:\s)(?:IS)([^\;]*)"
     col_com_srch = re.search(col_com_str, file_content)
-    col_com = col_com_srch.group(1)
-    col_com_result_clean = col_com.replace('\r\n', '').replace("'", "")
+    if col_com_srch is not None:
+        print "The Column comment srch resulted in: ", col_com_srch
+        col_com = col_com_srch.group(1)
+        col_com_result_clean = col_com.replace('\r\n', '').replace("'", "")
+        
+    if col_com_srch is None:
+        col_com_result_clean = ""
     return col_com_result_clean
-
 
 
 def get_columns(table_str, file_content, this_table_columns):
