@@ -306,6 +306,7 @@ texinfo_documents = [
 
 schema_name_globvar = ''
 tables = {}
+schema_list = []
 
 def get_schema_general():
     # The path of this python script is:
