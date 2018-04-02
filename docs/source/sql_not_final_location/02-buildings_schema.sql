@@ -132,7 +132,7 @@ COMMENT ON COLUMN buildings.building_outlines.begin_lifespan IS
 COMMENT ON COLUMN buildings.building_outlines.end_lifespan IS
 'The date that a building was either replaced or disused.';
 COMMENT ON COLUMN buildings.building_outlines.shape IS
-'The date that a building was either replaced or disused.';
+'The geometry of the building.';
 
 -- Building Name
 

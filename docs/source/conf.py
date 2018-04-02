@@ -492,42 +492,14 @@ def get_columns(table_str, file_content, this_table_columns):
             this_table_columns.append(this_column)
 
     return this_table_columns
-    #schema_list = [schema_dict]
-    #return schema_list
-    return schema_list
-    f.close()
-
-
-
 
 schema_general_out = get_schema_general()
 
-#schema_list_out = get_schema_name()
 schema_list_out = get_tables()
 
 
-#rst_table = tabulate(building_name_table,tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Width", "Precision", "Scale", "Example", "Description"])
 
-#schema_name = [schema_name_globvar]
-
-
-
-#test1 = {"name": "Test 1", "description": "Blah"}
-#test2 = {"name": "Test 2", "description": "Blah de blah"}
-#test3 = {"name": "Test 3", "description": "Blah bloo"}
-#test4 = {"rst": rst_table}
-
-#table_names = [test1, test2, test3]
-
-#rst_out = [test4]
-
-#json.dumps(rst_table)
-
-# with open('dbschema.json', 'w') as outfile:
-#    json.dump(rst_table, outfile)
-
-
-
+# This is required to allow Sphinx to read data dynamically
 def rstjinja(app, docname, source):
     """
     Render our pages as a jinja template for fancy templating goodness.
@@ -548,11 +520,9 @@ def setup(app):
 html_context = {
     'outputschema': schema_list_out,
     'schema_gen': schema_general_out
-    #'something': table_names,
-    #'rst': rst_out
 }
 
-
+# This is test data in case troubleshooting is required
         # schema_general = {"schema_name": "buildings", "schema_com": "holds schema comment"}
         # schema_list = [
         # {"table_nam": "lifecycle stage", "table_comment": "Lifecycle stage comments", "table_columns": [
