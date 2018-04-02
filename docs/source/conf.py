@@ -298,25 +298,24 @@ texinfo_documents = [
 # Extensions and parsing SQL build scripts
 
 # Script to parse database sql files into one dictionary and one list 
+# The path of this conf.py script is:
+# ../docs/source
+# The path of the SQL file has been altered from likely final folder path
 
 schema_name_globvar = ''
-# sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
-sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
+sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
+# sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
 
 def get_schema_general():
-    # The path of this conf.py script is:
-    # ../docs/source
-    # The path of the SQL file has been altered from likely final folder path
-    schema_general = {}
-    #sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
-    #sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
-    with open(sql_file_path) as full_file:
-        file_content = full_file.read()
-    full_file.close()
+    
+    schema_general = {}  # This only hold the schema name and schema comment
+    
+    #with open(sql_file_path) as full_file:
+    #    file_content = full_file.read()  #We
+    #full_file.close()
 
     with open(sql_file_path) as f:
         for line in f:
-            print "The line being processed is: ", line
             schemaname = re.search(r"(?:CREATE SCHEMA IF NOT EXISTS)\s(.*)(;)", line)
             schema_com_srch = re.search(r"(?:COMMENT ON SCHEMA)\s(.*)(?:IS)\s(')(.*)(')(;)", line)
 
