@@ -397,15 +397,14 @@ def get_schema_name1():
                 schema_list.append(table_dict)
                 print "After adding a new table, schema_list is now:", schema_list
 
-    print "Final schema_list is: ", schema_list
-    return schema_list
+    print "Final schema_general is: ", schema_general
+    return schema_general
 
     f.close()
 
 
 def get_columns(table_str, file_content, this_table_columns):
 
-    
     srch_str = r"(?<=CREATE TABLE IF NOT EXISTS " + table_str + r"\s\()[^\;]*(?=\)\;)"
     column_srch = re.search(srch_str, file_content)
     columns = column_srch.group(0)
@@ -490,30 +489,11 @@ def get_columns(table_str, file_content, this_table_columns):
             this_table_columns.append(this_column)
 
     return this_table_columns
-
-        # schema_general = {"schema_name": "buildings", "schema_com": "holds schema comment"}
-        # schema_list = [
-        # {"table_nam": "lifecycle stage", "table_comment": "Lifecycle stage comments", "table_columns": [
-        #             ["lifecycle_stage_id", "integer", "", "32", "0", "", "Lookup table that holds all of the lifecycle stages for a building."],
-        #             ["value", "varchar", "40", "", "", "", "The stage of a buildings lifecycle."]
-        #                     ]
-        #      },
-        # {"table_nam": "use", "table_comment": "Lookup table that holds all of the uses for a building. These uses are the same as those used in the Topo50 map series.", "table_columns": [
-        #             ["use_id", "integer", "", "32", "0", "", "Unique identifier for the use."],
-        #             ["value", "varchar", "40", "", "", "", "The building use, maintained for the Topo50 map series."]
-        #                     ]
-        # }
-        #             ]
-
-
-
-
-
     #schema_list = [schema_dict]
     #return schema_list
-    print "This is schema_general: ", schema_general
-    return schema_general
+    #return schema_list
     f.close()
+####################################################################################################
 
 
 def get_schema_name2():
@@ -699,25 +679,6 @@ def get_columns(table_str, file_content, this_table_columns):
             this_table_columns.append(this_column)
 
     return this_table_columns
-
-        # schema_general = {"schema_name": "buildings", "schema_com": "holds schema comment"}
-        # schema_list = [
-        # {"table_nam": "lifecycle stage", "table_comment": "Lifecycle stage comments", "table_columns": [
-        #             ["lifecycle_stage_id", "integer", "", "32", "0", "", "Lookup table that holds all of the lifecycle stages for a building."],
-        #             ["value", "varchar", "40", "", "", "", "The stage of a buildings lifecycle."]
-        #                     ]
-        #      },
-        # {"table_nam": "use", "table_comment": "Lookup table that holds all of the uses for a building. These uses are the same as those used in the Topo50 map series.", "table_columns": [
-        #             ["use_id", "integer", "", "32", "0", "", "Unique identifier for the use."],
-        #             ["value", "varchar", "40", "", "", "", "The building use, maintained for the Topo50 map series."]
-        #                     ]
-        # }
-        #             ]
-
-
-
-
-
     #schema_list = [schema_dict]
     #return schema_list
     return schema_list
@@ -726,7 +687,7 @@ def get_columns(table_str, file_content, this_table_columns):
 
 
 
-schema_general = get_schema_name1()
+schema_general_out = get_schema_name1()
 
 #schema_list_out = get_schema_name()
 schema_list_out = get_schema_name2()
@@ -773,7 +734,22 @@ def setup(app):
 
 html_context = {
     'outputschema': schema_list_out,
-    'schema_gen': schema_general
+    'schema_gen': schema_general_out
     #'something': table_names,
     #'rst': rst_out
 }
+
+
+        # schema_general = {"schema_name": "buildings", "schema_com": "holds schema comment"}
+        # schema_list = [
+        # {"table_nam": "lifecycle stage", "table_comment": "Lifecycle stage comments", "table_columns": [
+        #             ["lifecycle_stage_id", "integer", "", "32", "0", "", "Lookup table that holds all of the lifecycle stages for a building."],
+        #             ["value", "varchar", "40", "", "", "", "The stage of a buildings lifecycle."]
+        #                     ]
+        #      },
+        # {"table_nam": "use", "table_comment": "Lookup table that holds all of the uses for a building. These uses are the same as those used in the Topo50 map series.", "table_columns": [
+        #             ["use_id", "integer", "", "32", "0", "", "Unique identifier for the use."],
+        #             ["value", "varchar", "40", "", "", "", "The building use, maintained for the Topo50 map series."]
+        #                     ]
+        # }
+        #             ]
