@@ -511,6 +511,7 @@ def get_columns(table_str, file_content, this_table_columns):
 
     #schema_list = [schema_dict]
     #return schema_list
+    print "This is schema_general: ", schema_general
     return schema_general
     f.close()
 
@@ -520,7 +521,7 @@ def get_schema_name2():
     # home/jducnuigeen/dev/building_outlines_test/docs/source
     # the path of the sql file is:
     # home/jducnuigeen/dev/building_outlines_test/sql/
-    schema_general = {}
+    #schema_general = {}
     schema_list = []
     table_dict = {}
     sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
@@ -726,6 +727,7 @@ def get_columns(table_str, file_content, this_table_columns):
 
 
 schema_general = get_schema_name1()
+
 #schema_list_out = get_schema_name()
 schema_list_out = get_schema_name2()
 
