@@ -98,7 +98,7 @@ def get_schema_name():
                 print "After adding a new table, schema_list is now:", schema_list
 
     print "Final schema_list is: ", schema_list
-    return schema_list
+    return schema_general, schema_list
 
     f.close()
 
@@ -194,4 +194,7 @@ def get_columns(table_str, file_content, this_table_columns):
 
 
 
-schema_list = get_schema_name()
+schema_general, schema_list = get_schema_name()
+print "schema_general is: ", schema_general
+print "         "
+print "schema_list is: ", schema_list
