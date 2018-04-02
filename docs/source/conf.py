@@ -426,7 +426,7 @@ def get_tables():
 
                     # get this tables' columns
                     print "Currently this_table_columns is: ", this_table_columns
-                    this_table_columns = get_columns(table_str, file_content, this_table_columns, table_str)
+                    this_table_columns = get_columns(table_str, file_content, this_table_columns)
                     table_dict["table_columns"] = this_table_columns
                     print "table_dict is now after adding columns: ", table_dict
 
@@ -437,7 +437,7 @@ def get_tables():
                     table_dict["table_comment"] = ""
                     print "table_dict is now: ", table_dict
                     # get the columms for this table
-                    this_table_columns = get_columns(table_str, file_content, this_table_columns, table_str)
+                    this_table_columns = get_columns(table_str, file_content, this_table_columns)
                     table_dict["table_columns"] = this_table_columns
                     print "table_dict is now after adding columns: ", table_dict
                 schema_list.append(table_dict)
@@ -455,14 +455,12 @@ def get_column_comments(column_str, file_content):
     col_com_srch = re.search(col_com_str, file_content)
     col_com = col_com_srch.group(1)
     col_com_result_clean = col_com.replace('\r\n', '').replace("'", "")
-
     return col_com_result_clean
 
 
 
-def get_columns(table_str, file_content, this_table_columns, table_str):
+def get_columns(table_str, file_content, this_table_columns):
 
-    
     srch_str = r"(?<=CREATE TABLE IF NOT EXISTS " + table_str + r"\s\()[^\;]*(?=\)\;)"
     column_srch = re.search(srch_str, file_content)
     columns = column_srch.group(0)
