@@ -362,9 +362,9 @@ def get_tables():
 
             table_name_srch = re.search(r"(?<=CREATE TABLE IF NOT EXISTS )(\w+)(?:\.)([^\(\s]*)", line)
 
-            if schemaname is not None:
-                schema = schemaname.group(1)
-                schema_name_globvar = schema
+            #if schemaname is not None:
+            #    schema = schemaname.group(1)
+             #   schema_name_globvar = schema
 
             elif table_name_srch is not None:
                 # Now perform all actions to find table name, table comment, table columns, and table comments
