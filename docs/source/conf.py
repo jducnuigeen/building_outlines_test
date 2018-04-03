@@ -308,7 +308,7 @@ sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
 
 def get_schema_general():
     
-    schema_general = {}  # This only hold the schema name and schema comment
+    schema = {}  # This only hold the schema name and schema comment
     schema_count = 0
     with open(sql_file_path) as full_file:
         file_content = full_file.read()
@@ -325,17 +325,15 @@ def get_schema_general():
             if schema_search is not None:
                 schema_name = schema_search.group(1)
                 schema_name_globvar = schema_name
-                #schema_general = {}
-                schema_general = {"schema_name": schema_name_globvar}
+                schema = {"schema_name": schema_name_globvar}
                 schema_count += 1
             if schema_comment_search is not None:
                 schema_comment = schema_comment_search.group(1)
                 schema_comment_clean = schema_comment.replace('\r\n', '').replace("'", "")
-                schema_general['schema_com'] = schema_comment_clean
+                schema['schema_com'] = schema_comment_clean
 
-    print "Final schema_general is: ", schema_general
     f.close()
-    return schema_general
+    return schema
     
 
 
@@ -381,7 +379,6 @@ def get_tables():
                 this_table_columns = [] # this holds several lists, each list is is one column of info
 
                 if table_com_srch is not None:
-                    table_com_result = ''
                     table_com_result = table_com_srch.group(0)
                     # remove line terminators and quote marks from multiline comment
                     table_com_result_clean = table_com_result.replace('\r\n', '').replace("'", "")
