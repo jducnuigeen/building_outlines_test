@@ -6,7 +6,9 @@ SET client_min_messages TO WARNING;
 
 
 CREATE SCHEMA IF NOT EXISTS buildings;
-COMMENT ON SCHEMA buildings IS 'This schema holds all of the tables for buildings. This comment should probably be expanded.';
+COMMENT ON SCHEMA buildings IS 'The schema holds builing information. this is a dummy comment field, '
+'much more could be said in this comment field, which is multiline '
+'Lets home we can be more verbose ';
 
 -- LOOKUP TABLES
 
