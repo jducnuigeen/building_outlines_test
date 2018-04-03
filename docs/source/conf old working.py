@@ -309,25 +309,20 @@ sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
 def get_schema_general():
     
     #schema_general = {}  # This only hold the schema name and schema comment
-    with open(sql_file_path) as full_file:
-        file_content = full_file.read()
-    full_file.close()
 
     with open(sql_file_path) as f:
         for line in f:
-            schema_search = re.search(r"(?:CREATE SCHEMA IF NOT EXISTS)\s(.*)(;)", line)
-            #schema_comment_search = re.search(r"(?:COMMENT ON SCHEMA)\s(.*)(?:IS)\s(')(.*)(')(;)", line)
-            schema_comment_search = re.search(r"COMMENT ON SCHEMA\s.*IS\s'(.*)';", file_content, re.DOTALL)
+            schemaname = re.search(r"(?:CREATE SCHEMA IF NOT EXISTS)\s(.*)(;)", line)
+            schema_comment_search = re.search(r"(?:COMMENT ON SCHEMA)\s(.*)(?:IS)\s(')(.*)(')(;)", line)
 
             if schemaname is not None:
-                schema_name = schema_search.group(1)
-                schema_name_globvar = schema_name
+                schema = schemaname.group(1)
+                schema_name_globvar = schema
                 #schema_general = {}
                 schema_general = {"schema_name": schema_name_globvar}
             elif schema_comment_search is not None:
-                schema_comment = schema_com_srch.group(1)
-                schema_comment_clean = schema_comment.replace('\r\n', '').replace("'", "")
-                schema_general['schema_com'] = schema_comment_clean
+                schema_comment = schema_com_srch.group(3)
+                schema_general['schema_com'] = schema_comment
 
     print "Final schema_general is: ", schema_general
     f.close()

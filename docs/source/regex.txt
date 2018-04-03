@@ -1,0 +1,15 @@
+1.
+to find column name in integer PRIMARY KEY in line: "building_outline_id integer PRIMARY KEY REFERENCES"
+building_outline_id integer PRIMARY KEY REFERENCES 
+
+
+2.
+to find column name in integer NOT NULL in line: " supplied_dataset_id integer NOT NULL REFERENCES buildings_bulk_load.supplied_datasets (supplied_dataset_id)"
+(^.*)(?:\s)(?:integer NOT NULL)(?:.*)
+
+
+3.
+to find column name in geometry...NOT NULL in line: "shape public.geometry(MultiPolygon, 2193) NOT NULL"
+(shape)(?:.*)(?:geometry)(?:.*)(?:NOT NULL)
+
+4.
