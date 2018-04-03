@@ -10,6 +10,7 @@
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -38,11 +39,1043 @@
           <div class="body" role="main">
             
 
-	<li>1 Nested Value: {'use': {'table_comment': 'Lookup table that holds all of the uses for a building. These uses are the same as those used in the Topo50 map series.', 'table_columns': [['use_id', 'integer', '', '32', '0', 'Unique identifier for the use.'], ['value', 'varchar', '40', '', '', 'The building use, maintained for the Topo50 map series.']]}, 'lifecycle_stage': {'table_comment': 'lifecycle_stage comment', 'table_columns': [['lifecycle_stage_id', 'integer', '', '32', '0', 'Lookup table that holds all of the lifecycle stages for a building.'], ['value', 'varchar', '40', '', '', 'The stage of a buildings lifecycle.']]}}</li>
+	<B><FONT SIZE="+2">SCHEMA: BUILDINGS </FONT></B><BR/>
 
-	<li>1 Nested Value: holds schema comment</li>
+<b><font size="+1">Description: This schema holds all of the tables for buildings. This comment should probably be expanded. </font></b><br/>
 
-	<li>1 Nested Value: buildings</li>
+<p>
+
+	<b><p>Table Name:  LIFECYCLE_STAGE <br/></b>
+	<b>Description: Lookup table that holds all of the lifecycle stages for a building.<br/></b>
+	
+		
+		<table>
+		<tbody>
+			<thead>
+				<tr>
+					<th>Column Name</th>
+					<th>Data Type</th>
+					<th>Length</th>
+					<th>Precision</th>
+					<th>Scale</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+		
+			<tr>
+			
+			
+				 <td>lifecycle_stage_id </td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>value</td>
+				 
+			
+			
+				 <td>varchar</td>
+				 
+			
+			
+				 <td>40</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>The stage of a buildings lifecycle.</td>
+				 
+			
+			</tr>
+		
+		</tbody>
+		</table>
+		
+	
+	</p>
+
+	<b><p>Table Name:  USE <br/></b>
+	<b>Description: Lookup table that holds all of the uses for a building. These uses are the same as those used in the Topo50 map series.<br/></b>
+	
+		
+		<table>
+		<tbody>
+			<thead>
+				<tr>
+					<th>Column Name</th>
+					<th>Data Type</th>
+					<th>Length</th>
+					<th>Precision</th>
+					<th>Scale</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+		
+			<tr>
+			
+			
+				 <td>use_id </td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>value</td>
+				 
+			
+			
+				 <td>varchar</td>
+				 
+			
+			
+				 <td>40</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>The building use, maintained for the Topo50 map series.</td>
+				 
+			
+			</tr>
+		
+		</tbody>
+		</table>
+		
+	
+	</p>
+
+	<b><p>Table Name:  BUILDINGS <br/></b>
+	<b>Description: The building table maintains a unique identifier for a building. Over time, a building can be represented by multiple building outlines aligned to different imagery sources. These building outlines are linked via the building_id.<br/></b>
+	
+		
+		<table>
+		<tbody>
+			<thead>
+				<tr>
+					<th>Column Name</th>
+					<th>Data Type</th>
+					<th>Length</th>
+					<th>Precision</th>
+					<th>Scale</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+		
+			<tr>
+			
+			
+				 <td>building_id </td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>begin_lifespan</td>
+				 
+			
+			
+				 <td>date</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>The date that the building was first captured in the system.</td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>end_lifespan</td>
+				 
+			
+			
+				 <td>date</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>The date that a building was either replaced or disused.</td>
+				 
+			
+			</tr>
+		
+		</tbody>
+		</table>
+		
+	
+	</p>
+
+	<b><p>Table Name:  BUILDING_OUTLINES <br/></b>
+	<b>Description: The building table maintains a unique identifier for a building. Over time, a building can be represented by multiple building outlines aligned to different imagery sources. These building outlines are linked via the building_id.<br/></b>
+	
+		
+		<table>
+		<tbody>
+			<thead>
+				<tr>
+					<th>Column Name</th>
+					<th>Data Type</th>
+					<th>Length</th>
+					<th>Precision</th>
+					<th>Scale</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+		
+			<tr>
+			
+			
+				 <td>building_outline_id </td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>building_id</td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td>Unique identifier for the building.</td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>capture_method_id</td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td>Unique identifier for the building,  blah blah blah second line of comment</td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>capture_source_id</td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td>Unique identifier for the building.</td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>lifecycle_stage_id</td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td>Unique identifier for the building.</td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>suburb_locality_id</td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td>Unique identifier for the building.</td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>town_city_id</td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td>Unique identifier for the building.</td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>territorial_authority_id</td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td>Unique identifier for the building.</td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>begin_lifespan</td>
+				 
+			
+			
+				 <td>date</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>The date that the building was first captured in the system.</td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>end_lifespan</td>
+				 
+			
+			
+				 <td>date</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>The date that a building was either replaced or disused.</td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>shape</td>
+				 
+			
+			
+				 <td>geometry</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>The geometry of the building.</td>
+				 
+			
+			</tr>
+		
+		</tbody>
+		</table>
+		
+	
+	</p>
+
+	<b><p>Table Name:  BUILDING_NAME <br/></b>
+	<b>Description: <br/></b>
+	
+		
+		<table>
+		<tbody>
+			<thead>
+				<tr>
+					<th>Column Name</th>
+					<th>Data Type</th>
+					<th>Length</th>
+					<th>Precision</th>
+					<th>Scale</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+		
+			<tr>
+			
+			
+				 <td>building_name_id </td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>building_id</td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>building_name</td>
+				 
+			
+			
+				 <td>varchar</td>
+				 
+			
+			
+				 <td>250</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>begin_lifespan</td>
+				 
+			
+			
+				 <td>date</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>end_lifespan</td>
+				 
+			
+			
+				 <td>date</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+		</tbody>
+		</table>
+		
+	
+	</p>
+
+	<b><p>Table Name:  BUILDING_USE <br/></b>
+	<b>Description: <br/></b>
+	
+		
+		<table>
+		<tbody>
+			<thead>
+				<tr>
+					<th>Column Name</th>
+					<th>Data Type</th>
+					<th>Length</th>
+					<th>Precision</th>
+					<th>Scale</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+		
+			<tr>
+			
+			
+				 <td>building_use_id </td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>building_id</td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>use_id</td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>begin_lifespan</td>
+				 
+			
+			
+				 <td>date</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>end_lifespan</td>
+				 
+			
+			
+				 <td>date</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+		</tbody>
+		</table>
+		
+	
+	</p>
+
+	<b><p>Table Name:  LIFECYCLE <br/></b>
+	<b>Description: <br/></b>
+	
+		
+		<table>
+		<tbody>
+			<thead>
+				<tr>
+					<th>Column Name</th>
+					<th>Data Type</th>
+					<th>Length</th>
+					<th>Precision</th>
+					<th>Scale</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+		
+			<tr>
+			
+			
+				 <td>lifecycle_id </td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>parent_building_id</td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+			<tr>
+			
+			
+				 <td>building_id</td>
+				 
+			
+			
+				 <td>integer</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			
+				 <td>32</td>
+				 
+			
+			
+				 <td>0</td>
+				 
+			
+			
+				 <td></td>
+				 
+			
+			</tr>
+		
+		</tbody>
+		</table>
+		
+	
+	</p>
+
+</p>
+
 
 
           </div>
