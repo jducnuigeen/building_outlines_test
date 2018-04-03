@@ -302,7 +302,7 @@ texinfo_documents = [
 # ../docs/source
 # The path of the SQL file has been altered from likely final folder path
 
-global schema_name_globvar
+#global schema_name_globvar
 sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
 # sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
 
@@ -324,8 +324,8 @@ def get_schema_general():
                 raise ValueError("More than one schema is defined in this SQL file: {}".format(sql_file_path))
             if schema_search is not None:
                 schema_name = schema_search.group(1)
-                schema_name_globvar = schema_name
-                schema = {"schema_name": schema_name_globvar}
+                #schema_name_globvar = schema_name
+                schema = {"schema_name": schema_name}
                 schema_count += 1
             if schema_comment_search is not None:
                 schema_comment = schema_comment_search.group(1)
