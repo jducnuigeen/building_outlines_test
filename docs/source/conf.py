@@ -309,6 +309,7 @@ sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
 def get_schema_general():
     
     schema_general = {}  # This only hold the schema name and schema comment
+    schema_count = 0
     with open(sql_file_path) as full_file:
         file_content = full_file.read()
     full_file.close()
@@ -324,6 +325,7 @@ def get_schema_general():
                 schema_name_globvar = schema_name
                 #schema_general = {}
                 schema_general = {"schema_name": schema_name_globvar}
+                schema_count += 1
             if schema_comment_search is not None:
                 schema_comment = schema_comment_search.group(1)
                 schema_comment_clean = schema_comment.replace('\r\n', '').replace("'", "")
