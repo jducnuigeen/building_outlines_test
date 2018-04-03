@@ -320,6 +320,8 @@ def get_schema_general():
             #schema_comment_search = re.search(r"(?:COMMENT ON SCHEMA)\s(.*)(?:IS)\s(')(.*)(')(;)", line)
             schema_comment_search = re.search(r"(?:COMMENT ON SCHEMA .*?)\s(?:IS)\s(.+?)(?=\;)", file_content, re.DOTALL)
 
+            if schema_count > 1:
+                raise ValueError("More than one schema is defined in this SQL file: {}".format(sql_file_path))
             if schema_search is not None:
                 schema_name = schema_search.group(1)
                 schema_name_globvar = schema_name
