@@ -302,8 +302,8 @@ texinfo_documents = [
 # ../docs/source
 # The path of the SQL file has been altered from likely final folder path
 
-sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
-# sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
+#sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
+sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
 
 def get_schema_general():
     
