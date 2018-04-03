@@ -366,7 +366,7 @@ def get_tables():
             #    schema = schemaname.group(1)
              #   schema_name_globvar = schema
 
-            elif table_name_srch is not None:
+            if table_name_srch is not None:
                 # Now perform all actions to find table name, table comment, table columns, and table comments
                 # and when done add all these content to table_dict, and then finally to schema_list
 
