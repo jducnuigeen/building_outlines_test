@@ -317,7 +317,7 @@ def get_schema_general():
         for line in f:
             schema_search = re.search(r"(?:CREATE SCHEMA IF NOT EXISTS)\s(.*)(;)", line)
             #schema_comment_search = re.search(r"(?:COMMENT ON SCHEMA)\s(.*)(?:IS)\s(')(.*)(')(;)", line)
-            schema_comment_search = re.search(r"(?:COMMENT ON SCHEMA buildings)\s(?:IS)\s(.+?)(?=\;)", file_content, re.DOTALL)
+            schema_comment_search = re.search(r"(?:COMMENT ON SCHEMA .*?)\s(?:IS)\s(.+?)(?=\;)", file_content, re.DOTALL)
 
             if schema_search is not None:
                 schema_name = schema_search.group(1)
