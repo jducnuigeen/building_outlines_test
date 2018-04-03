@@ -305,7 +305,7 @@ texinfo_documents = [
 sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
 #sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
 
-def get_schema_general():
+def get_schema():
     
     schema = {}  # This only hold the schema name and schema comment
     schema_count = 0
@@ -490,7 +490,7 @@ def get_columns(table_str, file_content, this_table_columns):
 
     return this_table_columns
 
-schema_general_out, schema_name = get_schema_general()
+schema_out, schema_name = get_schema()
 
 schema_list_out = get_tables(schema_name)
 
@@ -516,7 +516,7 @@ def setup(app):
 
 html_context = {
     'outputschema': schema_list_out,
-    'schema_gen': schema_general_out
+    'schema_gen': schema_out
 }
 
 # This is test data in case troubleshooting is required
