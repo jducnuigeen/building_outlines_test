@@ -333,7 +333,7 @@ def get_schema_general():
                 schema['schema_com'] = schema_comment_clean
 
     f.close()
-    return schema
+    return schema, schema_name
     
 
 
@@ -342,7 +342,7 @@ def get_schema_general():
 # function to build a list of dictionaries (schema_list), with each dictionary (table_dict) containing all
 # of the information for one table in the schema. Each of these dictionaries contains a key
 # to hold a list (this_table_columns) of lists of the columns for each table.
-def get_tables():
+def get_tables(schema_name):
     
     schema_list = []
     table_dict = {}
@@ -373,7 +373,7 @@ def get_tables():
                 table_dict = {}  # This dict hold all the information for one table
                 table_name = table_name_srch.group(2)
                 table_dict["table_nam"] = table_name
-                table_str = schema_name_globvar + "." + table_name
+                table_str = schema_name + "." + table_name
                 table_com_str = "(?<=COMMENT ON TABLE " + table_str + " IS)([^\;]*)"
                 table_com_srch = re.search(table_com_str, file_content, re.DOTALL)
                 this_table_columns = [] # this holds several lists, each list is is one column of info
@@ -499,9 +499,9 @@ def get_columns(table_str, file_content, this_table_columns):
 
     return this_table_columns
 
-schema_general_out = get_schema_general()
+schema_general_out, schema_name = get_schema_general()
 
-schema_list_out = get_tables()
+schema_list_out = get_tables(schema_name)
 
 
 
