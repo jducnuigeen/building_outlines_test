@@ -302,7 +302,6 @@ texinfo_documents = [
 # ../docs/source
 # The path of the SQL file has been altered from likely final folder path
 
-#global schema_name_globvar
 sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
 # sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
 
@@ -324,7 +323,6 @@ def get_schema_general():
                 raise ValueError("More than one schema is defined in this SQL file: {}".format(sql_file_path))
             if schema_search is not None:
                 schema_name = schema_search.group(1)
-                #schema_name_globvar = schema_name
                 schema = {"schema_name": schema_name}
                 schema_count += 1
             if schema_comment_search is not None:
@@ -356,15 +354,8 @@ def get_tables(schema_name):
     # reading by line by line is done so that no tables are missed
     with open(sql_file_path) as f:
         for line in f:
-            #schemaname = re.search(r"(?:CREATE SCHEMA IF NOT EXISTS)\s(.*)(;)", line)
-            
-            #schema_com_srch = re.search(r"(?:COMMENT ON SCHEMA)\s(.*)(?:IS)\s(')(.*)(')(;)", line)
 
             table_name_srch = re.search(r"(?<=CREATE TABLE IF NOT EXISTS )(\w+)(?:\.)([^\(\s]*)", line)
-
-            #if schemaname is not None:
-            #    schema = schemaname.group(1)
-             #   schema_name_globvar = schema
 
             if table_name_srch is not None:
                 # Now perform all actions to find table name, table comment, table columns, and table comments
