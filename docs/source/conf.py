@@ -515,7 +515,7 @@ def setup(app):
     app.add_stylesheet('custom.css')
 
 html_context = {
-    'schema_tables': schema_list_out,
+    'outputschema': schema_list_out,
     'schema_gen': schema_out
 }
 
