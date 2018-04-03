@@ -325,7 +325,7 @@ def get_schema_general():
                 #schema_general = {}
                 schema_general = {"schema_name": schema_name_globvar}
             elif schema_comment_search is not None:
-                schema_comment = schema_com_srch.group(1)
+                schema_comment = schema_comment_search.group(1)
                 schema_comment_clean = schema_comment.replace('\r\n', '').replace("'", "")
                 schema_general['schema_com'] = schema_comment_clean
 
