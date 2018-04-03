@@ -308,7 +308,7 @@ sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
 
 def get_schema_general():
     
-    #schema_general = {}  # This only hold the schema name and schema comment
+    schema_general = {}  # This only hold the schema name and schema comment
     with open(sql_file_path) as full_file:
         file_content = full_file.read()
     full_file.close()
