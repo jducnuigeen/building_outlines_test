@@ -371,7 +371,7 @@ def get_tables(schema_out):
                 this_table_columns = [] # this holds several lists, each list is is one column of info
 
                 if table_comment_search is not None:
-                    table_comment_result = table_comment_search.group(0)
+                    table_comment_result = table_comment_search.group(1)
                     # remove line terminators and quote marks from multiline comment
                     table_comment_result_clean = table_comment_result.replace("\r\n", "").replace("'", "")
                     table_dict["table_comment"] = table_comment_result_clean
