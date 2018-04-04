@@ -416,11 +416,11 @@ def get_columns(table_str, file_content, this_table_columns):
     columns_strip = [x.strip() for x in columns.split(',')]
 
     for column_details in columns_strip:
-        pri_key_srch = re.search(r"(.*)(?:serial PRIMARY KEY)", column_details)
-        char_var_srch = re.search(r"(.*)(?:\s)(?:character varying)\((.*?)\)", column_details)
-        timestamp1 = re.search(r"(.*)(?:\s)(?:timestamptz)", column_details)
-        integer = re.search(r"^(.*)(?:\s)(?=integer)", column_details)
-        shape = re.search(r"(shape)(?:.*)(?:geometry)", column_details)
+        pri_key_srch = re.search(r"(.*)serial PRIMARY KEY", column_details)
+        char_var_srch = re.search(r"(.*)\scharacter varying\((.*?)\)", column_details)
+        timestamp1 = re.search(r"(.*)\stimestamptz", column_details)
+        integer = re.search(r"^(.*)\sinteger", column_details)
+        shape = re.search(r"(shape).*geometry", column_details)
 
         if pri_key_srch is not None:
             this_column = []
