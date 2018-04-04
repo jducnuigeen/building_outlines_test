@@ -316,8 +316,7 @@ def get_schema():
     with open(sql_file_path) as f:
         for line in f:
             schema_search = re.search(r"CREATE SCHEMA IF NOT EXISTS\s(.*);", line)
-            #schema_comment_search = re.search(r"(?:COMMENT ON SCHEMA)\s(.*)(?:IS)\s(')(.*)(')(;)", line)
-            schema_comment_search = re.search(r"(?:COMMENT ON SCHEMA .*?)\s(?:IS)\s(.+?)(?=\;)", file_content, re.DOTALL)
+            schema_comment_search = re.search(r"COMMENT ON SCHEMA .*?\sIS\s(.+?)\;", file_content, re.DOTALL)
 
             if schema_search is not None:
                 schema_count += 1
@@ -357,14 +356,14 @@ def get_tables(schema_name):
     with open(sql_file_path) as f:
         for line in f:
 
-            table_name_search = re.search(r"(?<=CREATE TABLE IF NOT EXISTS )(\w+)(?:\.)([^\(\s]*)", line)
+            table_name_search = re.search(r"CREATE TABLE IF NOT EXISTS \w+\.([^\(\s]*)", line)
 
             if table_name_search is not None:
                 # Now perform all actions to find table name, table comment, table columns, and table comments
                 # and when done add all these content to table_dict, and then finally to schema_list
 
                 table_dict = {}  # This dict hold all the information for one table
-                table_name = table_name_search.group(2)
+                table_name = table_name_search.group(1)
                 table_dict["table_nam"] = table_name
                 table_str = schema_name + "." + table_name
                 table_com_str = "(?<=COMMENT ON TABLE " + table_str + " IS)([^\;]*)"
