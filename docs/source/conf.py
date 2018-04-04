@@ -323,7 +323,8 @@ def get_schema():
                 raise ValueError("More than one schema is defined in this SQL file: {}".format(sql_file_path))
             if schema_search is not None:
                 schema_name = schema_search.group(1)
-                schema = {"schema_name": schema_name}
+                schema["name"] = schema_name
+                # schema = {"schema_name": schema_name}
                 schema_count += 1
             if schema_comment_search is not None:
                 schema_comment = schema_comment_search.group(1)
