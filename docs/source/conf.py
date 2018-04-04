@@ -324,12 +324,11 @@ def get_schema():
             if schema_search is not None:
                 schema_name = schema_search.group(1)
                 schema["name"] = schema_name
-                # schema = {"schema_name": schema_name}
                 schema_count += 1
             if schema_comment_search is not None:
                 schema_comment = schema_comment_search.group(1)
-                schema_comment_clean = schema_comment.replace('\r\n', '').replace("'", "")
-                schema['schema_com'] = schema_comment_clean
+                schema_comment_clean = schema_comment.replace("\r\n", "").replace("'", "")
+                schema['comment'] = schema_comment_clean
 
     f.close()
     return schema, schema_name
