@@ -388,7 +388,6 @@ def get_tables(schema_out):
 
                 schema_list.append(table_dict)
 
-    print "Final schema_list is: ", schema_list
     f.close()
     return schema_list
 
@@ -396,12 +395,12 @@ def get_tables(schema_out):
 
 # Get column comments which might contain multilines
 def get_column_comments(column_str, file_content):
-    col_com_str = r"(?:COMMENT ON COLUMN " + column_str + r")(?:\s)(?:IS)([^\;]*)"
+    col_com_str = r"COMMENT ON COLUMN " + column_str + r"\sIS([^\;]*)"
     col_com_srch = re.search(col_com_str, file_content)
 
     if col_com_srch is not None:
         col_com = col_com_srch.group(1)
-        col_com_result_clean = col_com.replace('\r\n', '').replace("'", "")
+        col_com_result_clean = col_com.replace("\r\n", "").replace("'", "")
 
     if col_com_srch is None:
         col_com_result_clean = ""
@@ -411,8 +410,8 @@ def get_column_comments(column_str, file_content):
 # Get the columns for one table, which are listed across multiple lines
 def get_columns(table_str, file_content, this_table_columns):
 
-    srch_str = r"(?<=CREATE TABLE IF NOT EXISTS " + table_str + r"\s\()[^\;]*(?=\)\;)"
-    column_srch = re.search(srch_str, file_content)
+    search_str = r"CREATE TABLE IF NOT EXISTS " + table_str + r"\s\(([^\;]*)\)\;"
+    column_srch = re.search(search_str, file_content)
     columns = column_srch.group(0)
     columns_strip = [x.strip() for x in columns.split(',')]
 
