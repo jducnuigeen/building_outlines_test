@@ -315,7 +315,7 @@ def get_schema():
 
     with open(sql_file_path) as f:
         for line in f:
-            schema_search = re.search(r"(?:CREATE SCHEMA IF NOT EXISTS)\s(.*)(;)", line)
+            schema_search = re.search(r"CREATE SCHEMA IF NOT EXISTS\s(.*);", line)
             #schema_comment_search = re.search(r"(?:COMMENT ON SCHEMA)\s(.*)(?:IS)\s(')(.*)(')(;)", line)
             schema_comment_search = re.search(r"(?:COMMENT ON SCHEMA .*?)\s(?:IS)\s(.+?)(?=\;)", file_content, re.DOTALL)
 
@@ -374,7 +374,7 @@ def get_tables(schema_name):
                 if table_com_srch is not None:
                     table_com_result = table_com_srch.group(0)
                     # remove line terminators and quote marks from multiline comment
-                    table_com_result_clean = table_com_result.replace('\r\n', '').replace("'", "")
+                    table_com_result_clean = table_com_result.replace("\r\n", "").replace("'", "")
                     table_dict["table_comment"] = table_com_result_clean
                     # get the columns for this table
                     this_table_columns = get_columns(table_str, file_content, this_table_columns)
