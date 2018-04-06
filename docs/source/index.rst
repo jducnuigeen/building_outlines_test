@@ -8,6 +8,7 @@ Contents:
    :maxdepth: 2
 
 
+:doc:`schema1 </_templates/schema1.html>`
 
 .. only:: html
 
