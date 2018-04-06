@@ -7,8 +7,10 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   schema1
-   Schema2
+
+.. only:: html
+
+   - 'schema1' <schema1.html
    
 
 
