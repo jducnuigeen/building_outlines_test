@@ -6,8 +6,8 @@
 .. toctree::
    :maxdepth: 2
 
-   Schema1
-   Schema2
+     Schema1
+     Schema2
    
 
 
