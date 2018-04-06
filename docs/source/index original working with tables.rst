@@ -9,12 +9,29 @@ Building Outlines Test documentation
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
-   Schema1
-   Schema2
-   
+   License
+   Database
+   database2
 
+
+Meat of the Documentation
+=========================
+.. highlight:: python
+.. code-block:: python   
+    
+    import qgis
+
+And then we add more text,
+
+.. code-block:: python
+
+    If b==a,
+	then d == c
+
+Indices and tables
+==================
 
 * :ref:`genindex`
 * :ref:`modindex`
