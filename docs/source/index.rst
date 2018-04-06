@@ -10,7 +10,7 @@ Contents:
 
 .. only:: html
 
-   - 'schema1 <schema1.html>' _
+   - 'schema1 <schema1.html>'_
    
 
 
