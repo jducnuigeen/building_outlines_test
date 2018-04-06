@@ -8,11 +8,11 @@ Contents:
    :maxdepth: 2
 
 
-:doc:`schema1 </_templates/schema1.html>`
+:doc:`schema1 </schema1.html>`
 
 .. only:: html
 
-   - 'schema1 <_templates/schema1.html>'_
+   - 'schema1 <schema1.html>'_
    
 
 
