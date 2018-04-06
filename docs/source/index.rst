@@ -1,11 +1,10 @@
-.. Building Outlines Test documentation master file, created by
-   sphinx-quickstart on Tue Mar 13 11:20:05 2018.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+
+Buildings Project
+=================
 
 .. toctree::
    :maxdepth: 2
-   
+
    schema1
    Schema2
    
