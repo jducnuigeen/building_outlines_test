@@ -2,6 +2,8 @@
 Buildings Project
 =================
 
+Contents:
+
 .. toctree::
    :maxdepth: 2
 
