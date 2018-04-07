@@ -8,7 +8,7 @@ Contents:
    :maxdepth: 2
 
 
-   'schema1 <schema1.html>'_
+   'schema1 </_templates/schema1.html>'_
    
 
 
