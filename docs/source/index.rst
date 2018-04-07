@@ -10,9 +10,7 @@ Contents:
 
 :doc:`schema1 </schema1.html>`
 
-.. only:: html
-
-   - 'schema1 <schema1.html>'_
+   :ref: 'schema1 <schema1.html>'_
    
 
 
