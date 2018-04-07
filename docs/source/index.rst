@@ -8,9 +8,7 @@ Contents:
    :maxdepth: 2
 
 
-:doc:`schema1 </schema1.html>`
-
-   :ref: 'schema1 <schema1.html>'_
+   'schema1 <schema1.html>'_
    
 
 
