@@ -8,8 +8,7 @@ Contents:
    :maxdepth: 2
    :glob:
 
-   schema1*
-   'schema1 </_templates/schema1.html>'
+   schema1.html
    
 
 
