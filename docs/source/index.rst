@@ -10,7 +10,7 @@ Contents:
    schema1_
 
 
-.. _schema1 <_templates/schema1>
+.. _schema1 schema1
 
 
 * :ref:`genindex`
