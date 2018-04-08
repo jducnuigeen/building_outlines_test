@@ -8,7 +8,7 @@ Contents:
    :maxdepth: 2
 
    _templates/schema1
-   :download: 'schema2 <../_static/schema2.html>'
+   :sphinx:'schema1 <_templates/schema1.html>'
 
 
 * :ref:`genindex`
