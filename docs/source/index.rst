@@ -7,8 +7,10 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   _templates/schema1
-   :sphinx:'schema1 </_templates/schema1>'
+   schema1_
+
+
+.. _schema1 <_templates/schema1>
 
 
 * :ref:`genindex`
