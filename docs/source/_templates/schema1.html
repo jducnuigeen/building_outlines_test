@@ -11,7 +11,7 @@
 
 
 {% extends "!page.html" %}
-
+{{ super() }}
 {% block body %}
 {% filter upper %}
 	<b><font size="+2">Schema: {{ schema_gen["name"] }} </font></b><br/>
