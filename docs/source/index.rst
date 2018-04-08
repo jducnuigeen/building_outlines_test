@@ -7,10 +7,10 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   schema1_
+   schema1
 
 
-.. _schema1 schema1
+
 
 
 * :ref:`genindex`
