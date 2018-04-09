@@ -516,7 +516,7 @@ def get_columns(table_str, file_content, this_table_columns):
 
 schema_out = get_schema()
 
-schema_out, schema_tabulate_list_out = get_tables(schema_out)
+schema_list_out, schema_tabulate_list_out = get_tables(schema_out)
 
 
 # all_schema_tables = tabulate(
@@ -549,7 +549,7 @@ def setup(app):
 html_context = {
     'outputschema': schema_list_out,
     'schema_gen': schema_out,
-    'schema_tab': schema_out_tab
+    'schema_tab': schema_tabulate_list_out
 }
 
 # This is test data in case troubleshooting is required
