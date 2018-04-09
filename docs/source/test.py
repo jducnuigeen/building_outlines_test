@@ -104,7 +104,8 @@ def get_tables(schema_out):
                 schema_list.append(table_dict)
                 # temporary
                 schema_tabulate_list.append(table_dict_tab)
-                print schema_tabulate_list
+    
+    print schema_tabulate_list
 
 
     f.close()
