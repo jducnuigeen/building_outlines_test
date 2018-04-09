@@ -425,7 +425,7 @@ def get_column_comments(column_str, file_content):
         column_comment_result_clean = column_comment.replace("\r\n", "").replace("'", "")
 
     if column_comment_search is None:
-        column_comment_result_clean = " "
+        column_comment_result_clean = "_1"
     return column_comment_result_clean
 
 
