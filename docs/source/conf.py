@@ -497,8 +497,11 @@ schema_out = get_schema()
 
 schema_list_out = get_tables(schema_out)
 
-all_schema_tables = tabulate(schema_list_out, tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"])
-)
+all_schema_tables = tabulate(schema_list_out, 
+    tablefmt='rst', 
+    headers=["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
+    )
+
 
 
 
