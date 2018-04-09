@@ -8,6 +8,7 @@ Contents:
    :maxdepth: 2
 
    schema1
+   tables
 
 
 About this Data Set
