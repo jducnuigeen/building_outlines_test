@@ -406,6 +406,7 @@ def get_tables(schema_out):
                 schema_list.append(table_dict)
                 # temporary
                 schema_tabulate_list.append(table_dict_tab)
+                print schema_tabulate_list
 
 
     f.close()
@@ -550,6 +551,7 @@ html_context = {
     'outputschema': schema_list_out,
     'schema_gen': schema_out,
     'schema_tab': schema_tabulate_list_out
+    'one_table': one_table
 }
 
 # This is test data in case troubleshooting is required
