@@ -17,7 +17,7 @@ Tables:
 					Description
 		{% for columns in item["table_columns"] %}
 			
-				 {{ column }}
+				 {{ [column] }}
 				 
 		{% endfor%}
 
