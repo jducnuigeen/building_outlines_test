@@ -4,7 +4,9 @@ Tables
 
 Tables:
 ==================  ===========  ========  ===========  =======  ===================================
+
 Column Name         Data Type    Length    Precision    Scale    Description
+
 ==================  ===========  ========  ===========  =======  ===================================
 lifecycle_stage_id  integer                32           0        _1
 value               varchar      40                              The stage of a buildings lifecycle.
