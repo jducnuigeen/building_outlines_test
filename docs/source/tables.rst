@@ -10,10 +10,8 @@ Tables:
 	
 	Description: {{ item["table_comment"] }}
 
-	   {% for columns in item["table_columns"] %}
-	      {{ columns }}
-	   {% endfor %}
-
+	{{ item["table_columns"] }}
+	      
 		
 
 {% endfor %}
