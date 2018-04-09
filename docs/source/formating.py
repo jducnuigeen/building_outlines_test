@@ -1,9 +1,3 @@
-import os
-import sys
-import re
-from os import path
-from itertools import takewhile
-from tabulate import tabulate
 sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
 #sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
 
@@ -87,7 +81,7 @@ def get_tables(schema_out):
                     table_dict["table_columns"] = this_table_columns
                     # temporary
                     headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
-                    tabulate_col = tabulate(this_table_columns, tablefmt='rst', headers = headers)
+                    tabulate_col = tabulate(this_table_columns,tablefmt='rst', headers = headers)
                     table_dict_tab["table_columns"] = tabulate_col
 
                 elif table_comment_search is None:
@@ -98,17 +92,16 @@ def get_tables(schema_out):
                     # temporary
                     table_dict_tab["table_comment"] = ""
                     headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
-                    tabulate_col = tabulate(this_table_columns, tablefmt='rst', headers = headers)
+                    tabulate_col = tabulate(this_table_columns,tablefmt='rst', headers = headers)
                     table_dict_tab["table_columns"] = tabulate_col
 
                 schema_list.append(table_dict)
                 # temporary
                 schema_tabulate_list.append(table_dict_tab)
-
+                print schema_tabulate_list
 
 
     f.close()
-    print schema_tabulate_list
     return schema_list, schema_tabulate_list
 
 
@@ -217,4 +210,3 @@ def get_columns(table_str, file_content, this_table_columns):
 schema_out = get_schema()
 
 schema_list_out, schema_tabulate_list_out = get_tables(schema_out)
-
