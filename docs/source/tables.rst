@@ -11,9 +11,7 @@ Tables:
 	Description: {{ item["table_comment"] }}
 
 	   {% for columns in item["table_columns"] %}
-	      {% for column in columns %}
-	      {{ column }}
-	      {% endfor %}
+	      {{ columns }}
 	   {% endfor %}
 
 		
