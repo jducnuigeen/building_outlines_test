@@ -13,6 +13,5 @@ Tables:
 		{% endfor%}
 
 		
-	{% endif %}
 
 {% endfor %}
