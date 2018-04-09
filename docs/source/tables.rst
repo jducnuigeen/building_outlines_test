@@ -8,8 +8,9 @@ Tables:
 	
 	Description: {{ item["table_comment"] }}
 
+	
 	{% for columns in item["table_columns"] %}
-	{{ columns }}
+		{{ columns }}
 	{% endfor%}
 
 		
