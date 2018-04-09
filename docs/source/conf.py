@@ -551,7 +551,6 @@ html_context = {
     'outputschema': schema_list_out,
     'schema_gen': schema_out,
     'schema_tab': schema_tabulate_list_out
-    'one_table': one_table
 }
 
 # This is test data in case troubleshooting is required
