@@ -16,11 +16,9 @@ Tables:
 					Scale
 					Description
 		{% for columns in item["table_columns"] %}
-			{% for column in columns %}
 			
 				 {{ column }}
 				 
-			{% endfor %}
 		{% endfor%}
 
 		
