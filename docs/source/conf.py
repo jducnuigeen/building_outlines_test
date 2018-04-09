@@ -425,7 +425,7 @@ def get_column_comments(column_str, file_content):
         column_comment_result_clean = column_comment.replace("\r\n", "").replace("'", "")
 
     if column_comment_search is None:
-        column_comment_result_clean = ""
+        column_comment_result_clean = " "
     return column_comment_result_clean
 
 
@@ -510,9 +510,6 @@ def get_columns(table_str, file_content, this_table_columns):
             this_column.append(column_comment_out) #Description
             this_table_columns.append(this_column)
 
-        # temporary
-
-
 
     return this_table_columns
 
@@ -521,11 +518,6 @@ schema_out = get_schema()
 schema_list_out, schema_tabulate_list_out = get_tables(schema_out)
 
 
-# all_schema_tables = tabulate(
-#     [ (k,) + v for k,v in schema_list_out.items()], 
-#     tablefmt='rst', 
-#     headers = headers
-#     )
 
 
 
