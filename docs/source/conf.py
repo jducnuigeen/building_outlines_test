@@ -516,7 +516,7 @@ def get_columns(table_str, file_content, this_table_columns):
 
 schema_out = get_schema()
 
-schema_list_out, schema_tabulate_list_out = get_tables(schema_out, schema_tabulate_list)
+schema_out, schema_tabulate_list_out = get_tables(schema_out, schema_tabulate_list)
 
 
 # all_schema_tables = tabulate(
