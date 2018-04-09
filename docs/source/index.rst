@@ -9,6 +9,7 @@ Contents:
 
    schema1
    tables
+   tables2
 
 
 About this Data Set
