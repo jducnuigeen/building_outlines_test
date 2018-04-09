@@ -499,11 +499,11 @@ schema_list_out = get_tables(schema_out)
 
 headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
 
-all_schema_tables = tabulate(
-    [ (k,) + v for k,v in schema_list_out.items()], 
-    tablefmt='rst', 
-    headers = headers
-    )
+# all_schema_tables = tabulate(
+#     [ (k,) + v for k,v in schema_list_out.items()], 
+#     tablefmt='rst', 
+#     headers = headers
+#     )
 
 
 
@@ -529,7 +529,6 @@ def setup(app):
 html_context = {
     'outputschema': schema_list_out,
     'schema_gen': schema_out,
-    'rst_tabulate': all_schema_tables
 }
 
 # This is test data in case troubleshooting is required
