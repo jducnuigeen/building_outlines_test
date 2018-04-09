@@ -8,7 +8,7 @@ Tables:
 	Description: {{ item["table_comment"] }}
 	{{ item["table_columns"] }}
 	| {% if item["table_columns"] %}
-		
+	|	
 					Column Name
 					Data Type
 					Length
@@ -18,7 +18,7 @@ Tables:
 		{% for columns in item["table_columns"] %}
 			
 				 | {{ column }}
-				 
+				 |
 		{% endfor%}
 
 		
