@@ -87,7 +87,7 @@ def get_tables(schema_out):
                     table_dict["table_columns"] = this_table_columns
                     # temporary
                     headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
-                    tabulate_col = tabulate(this_table_columns, tablefmt='rst', headers = headers)
+                    tabulate_col = tabulate(this_table_columns,tablefmt='rst', headers = headers)
                     table_dict_tab["table_columns"] = tabulate_col
 
                 elif table_comment_search is None:
@@ -98,7 +98,7 @@ def get_tables(schema_out):
                     # temporary
                     table_dict_tab["table_comment"] = ""
                     headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
-                    tabulate_col = tabulate(this_table_columns, tablefmt='rst', headers = headers)
+                    tabulate_col = tabulate(this_table_columns,tablefmt='rst', headers = headers)
                     table_dict_tab["table_columns"] = tabulate_col
 
                 schema_list.append(table_dict)
@@ -108,7 +108,6 @@ def get_tables(schema_out):
 
 
     f.close()
-    print schema_tabulate_list
     return schema_list, schema_tabulate_list
 
 
@@ -123,7 +122,7 @@ def get_column_comments(column_str, file_content):
         column_comment_result_clean = column_comment.replace("\r\n", "").replace("'", "")
 
     if column_comment_search is None:
-        column_comment_result_clean = ""
+        column_comment_result_clean = "_1"
     return column_comment_result_clean
 
 
@@ -208,9 +207,6 @@ def get_columns(table_str, file_content, this_table_columns):
             this_column.append(column_comment_out) #Description
             this_table_columns.append(this_column)
 
-        # temporary
-
-
 
     return this_table_columns
 
@@ -218,3 +214,4 @@ schema_out = get_schema()
 
 schema_list_out, schema_tabulate_list_out = get_tables(schema_out)
 
+print schema_tabulate_list_out
