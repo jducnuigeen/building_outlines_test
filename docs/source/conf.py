@@ -405,7 +405,7 @@ def get_tables(schema_out):
 
                 schema_list.append(table_dict)
                 # temporary
-                schema_tabulate_list.append(tabulate_dict_tab)
+                schema_tabulate_list.append(table_dict_tab)
 
 
     f.close()
