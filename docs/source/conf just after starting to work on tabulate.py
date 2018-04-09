@@ -348,9 +348,7 @@ def get_schema():
 def get_tables(schema_out):
     
     schema_list = []
-    schema_tabulate_list = []
     table_dict = {}
-    table_dict_tab = {}
     
     # We open and save a copy of the SQL file into a variable, in order to search for components
     # which may have multiple rows (ie table comments or column comments). 
@@ -369,10 +367,8 @@ def get_tables(schema_out):
                 # and when done add all these content to table_dict, and then finally to schema_list
 
                 table_dict = {}  # This dict hold all the information for one table
-                table_dict_tab = {}
                 table_name = table_name_search.group(1)
                 table_dict["table_nam"] = table_name
-                table_dict_tab["table_nam"] = table_name
                 table_str = schema_out["name"] + "." + table_name
                 table_comment_str = "(?<=COMMENT ON TABLE " + table_str + " IS)([^\;]*)"
                 table_comment_search = re.search(table_comment_str, file_content, re.DOTALL)
@@ -383,33 +379,20 @@ def get_tables(schema_out):
                     # remove line terminators and quote marks from multiline comment
                     table_comment_result_clean = table_comment_result.replace("\r\n", "").replace("'", "")
                     table_dict["table_comment"] = table_comment_result_clean
-                    table_dict_tab["table_comment"] = table_comment_result_clean
                     # get the columns for this table
                     this_table_columns = get_columns(table_str, file_content, this_table_columns)
                     table_dict["table_columns"] = this_table_columns
-                    # temporary
-                    headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
-                    tabulate_col = tabulate(this_table_columns,tablefmt='rst', headers = headers)
-                    tabulate_dict_tab["table_columns"] = tabulate_col
 
                 elif table_comment_search is None:
                     table_dict["table_comment"] = ""
                     # get the columms for this table
                     this_table_columns = get_columns(table_str, file_content, this_table_columns)
                     table_dict["table_columns"] = this_table_columns
-                    # temporary
-                    table_dict_tab["table_comment"] = ""
-                    headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
-                    tabulate_col = tabulate(this_table_columns,tablefmt='rst', headers = headers)
-                    tabulate_dict_tab["table_columns"] = tabulate_col
 
                 schema_list.append(table_dict)
-                # temporary
-                schema_tabulate_list.append(tabulate_dict_tab)
-
 
     f.close()
-    return schema_list, schema_tabulate_list
+    return schema_list
 
 
 
@@ -508,16 +491,13 @@ def get_columns(table_str, file_content, this_table_columns):
             this_column.append(column_comment_out) #Description
             this_table_columns.append(this_column)
 
-        # temporary
-
-
-
     return this_table_columns
 
 schema_out = get_schema()
 
-schema_list_out, schema_tabulate_list_out = get_tables(schema_out, schema_tabulate_list)
+schema_list_out = get_tables(schema_out)
 
+headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
 
 # all_schema_tables = tabulate(
 #     [ (k,) + v for k,v in schema_list_out.items()], 
@@ -549,7 +529,6 @@ def setup(app):
 html_context = {
     'outputschema': schema_list_out,
     'schema_gen': schema_out,
-    'schema_tab': schema_out_tab
 }
 
 # This is test data in case troubleshooting is required

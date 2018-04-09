@@ -3,10 +3,10 @@ Tables
 
 
 Tables:
-{% for item in outputschema  %}
-	Table Name: {% filter upper %} {{ item["table_nam"] }} {% endfilter %}<br/></b>
+{% for item in schema_tab  %}
+	Table Name: {% filter upper %} {{ item["table_nam"] }} {% endfilter %}
 	Description: {{ item["table_comment"] }}
-	
+
 	{% if item["table_columns"] %}
 		
 					Column Name
