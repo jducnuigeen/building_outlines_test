@@ -497,6 +497,9 @@ schema_out = get_schema()
 
 schema_list_out = get_tables(schema_out)
 
+all_schema_tables = tabulate(schema_list_out, tablefmt='rst', headers=["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"])
+)
+
 
 
 # This is required to allow Sphinx to read data dynamically
@@ -519,7 +522,8 @@ def setup(app):
 
 html_context = {
     'outputschema': schema_list_out,
-    'schema_gen': schema_out
+    'schema_gen': schema_out,
+    'rst_tabulate': all_schema_tables
 }
 
 # This is test data in case troubleshooting is required
