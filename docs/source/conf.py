@@ -19,7 +19,6 @@ import re
 from tabulate import tabulate
 from os import path
 sys.path.append('../sql')
-import 02-buildings_schema.sql
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
