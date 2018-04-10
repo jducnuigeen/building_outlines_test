@@ -390,10 +390,10 @@ def get_tables(schema_out):
                     table_dict["table_columns"] = this_table_columns
                     # temporary
                     headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
-                    tabulate_col = tabulate(this_table_columns,tablefmt='rst', headers = headers)
-                    #tab_split = [x.split(",")for x in tabulate_col.split("\n")]
-                    #table_dict_tab["table_columns"] = tab_split
-                    table_dict_tab["table_columns"] = tabulate_col
+                    tabulate_col = tabulate(this_table_columns, tablefmt='rst', headers = headers)
+                    tab_split = x.split(",")for x in tabulate_col.split("\n")
+                    table_dict_tab["table_columns"] = tab_split
+                    #table_dict_tab["table_columns"] = tabulate_col
 
                 elif table_comment_search is None:
                     table_dict["table_comment"] = "_"
@@ -403,10 +403,10 @@ def get_tables(schema_out):
                     # temporary
                     table_dict_tab["table_comment"] = "_"
                     headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
-                    tabulate_col = tabulate(this_table_columns,tablefmt='rst', headers = headers)
-                    #tab_split = [x.split(",")for x in tabulate_col.split("\n")]
-                    #table_dict_tab["table_columns"] = tab_split
-                    table_dict_tab["table_columns"] = tabulate_col
+                    tabulate_col = tabulate(this_table_columns, tablefmt='rst', headers = headers)
+                    tab_split = x.split(",")for x in tabulate_col.split("\n")
+                    table_dict_tab["table_columns"] = tab_split
+                    #table_dict_tab["table_columns"] = tabulate_col
 
                 schema_list.append(table_dict)
                 # temporary
