@@ -508,7 +508,10 @@ schema_out = get_schema()
 schema_tabulate_list_out = get_tables(schema_out)
 
 
-
+html_context = {
+    'schema_gen': schema_out,
+    'schema_tab': schema_tabulate_list_out
+}
 
 
 
@@ -530,10 +533,7 @@ def setup(app):
     app.connect("source-read", rstjinja)
     app.add_stylesheet('custom.css')
 
-html_context = {
-    'schema_gen': schema_out,
-    'schema_tab': schema_tabulate_list_out
-}
+
 
 # This is test data in case troubleshooting is required
         # schema_general = {"schema_name": "buildings", "schema_com": "holds schema comment"}
