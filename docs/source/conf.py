@@ -425,10 +425,10 @@ def get_column_comments(column_str, file_content):
 
     if column_comment_search is not None:
         column_comment = column_comment_search.group(1)
-        column_comment_result_clean = column_comment.replace("\r\n", "").replace("'", "")
+        column_comment_result_clean = column_comment.replace('\r\n', '').replace("'", '')
 
     if column_comment_search is None:
-        column_comment_result_clean = "_"
+        column_comment_result_clean = '_'
     return column_comment_result_clean
 
 
@@ -452,10 +452,10 @@ def get_columns(table_str, file_content, this_table_columns):
             pri_key = pri_key_search.group(1)
             column_str = table_str + "." + pri_key
             this_column.append(pri_key) #column Name
-            this_column.append("integer")  #Data Type
-            this_column.append("_") # Length
-            this_column.append("32") #Precision
-            this_column.append("0") #Scale
+            this_column.append('integer')  #Data Type
+            this_column.append('_') # Length
+            this_column.append('32') #Precision
+            this_column.append('0') #Scale
             column_comment_out = get_column_comments(column_str, file_content)
             this_column.append(column_comment_out) #Description
             this_table_columns.append(this_column)
@@ -466,10 +466,10 @@ def get_columns(table_str, file_content, this_table_columns):
             length = character_varying_search.group(2)
             column_str = table_str + "." + var_column
             this_column.append(var_column) #column Name
-            this_column.append("varchar") #Data Type
+            this_column.append('varchar') #Data Type
             this_column.append(length) #Length
-            this_column.append("_") #Precision
-            this_column.append("_") #scale
+            this_column.append('_') #Precision
+            this_column.append('_') #scale
             column_comment_out = get_column_comments(column_str, file_content)
             this_column.append(column_comment_out) #Description
             this_table_columns.append(this_column)
@@ -479,10 +479,10 @@ def get_columns(table_str, file_content, this_table_columns):
             timecolumn1 = timestamp_search.group(1)
             column_str = table_str + "." + timecolumn1
             this_column.append(timecolumn1) #column Name
-            this_column.append("date") #Data Type
-            this_column.append("_") #Length
-            this_column.append("_") #Precision
-            this_column.append("_") #scale
+            this_column.append('date') #Data Type
+            this_column.append('_') #Length
+            this_column.append('_') #Precision
+            this_column.append('_') #scale
             column_comment_out = get_column_comments(column_str, file_content)
             this_column.append(column_comment_out) #Description
             this_table_columns.append(this_column)
@@ -492,10 +492,10 @@ def get_columns(table_str, file_content, this_table_columns):
             integer_column_name = integer_search.group(1)
             column_str = table_str + "." + integer_column_name
             this_column.append(integer_column_name) #column Name
-            this_column.append("integer") #Data Type
-            this_column.append("_") #Length
-            this_column.append("32") #Precision
-            this_column.append("0") #scale
+            this_column.append('integer') #Data Type
+            this_column.append('_') #Length
+            this_column.append('32') #Precision
+            this_column.append('0') #scale
             column_comment_out = get_column_comments(column_str, file_content)
             this_column.append(column_comment_out) #Description
             this_table_columns.append(this_column)
@@ -505,10 +505,10 @@ def get_columns(table_str, file_content, this_table_columns):
             shape_column_name = shape.group(1)
             column_str = table_str + "." + shape_column_name
             this_column.append(shape_column_name) #column Name
-            this_column.append("geometry") #Data Type
-            this_column.append("_") #Length
-            this_column.append("_") #Precision
-            this_column.append("_") #scale
+            this_column.append('geometry') #Data Type
+            this_column.append('_') #Length
+            this_column.append('_') #Precision
+            this_column.append('_') #scale
             column_comment_out = get_column_comments(column_str, file_content)
             this_column.append(column_comment_out) #Description
             this_table_columns.append(this_column)
