@@ -343,14 +343,15 @@ def get_schema():
 
 ##############################################################################
 
-# function to build a list of dictionaries (schema_tabulate_list), with each dictionary (table_dict_tabulate) containing all
+# function to build a list of dictionaries (schema_list), with each dictionary (table_dict) containing all
 # of the information for one table in the schema. Each of these dictionaries contains a key
 # to hold a list (this_table_columns) of lists of the columns for each table.
 def get_tables(schema_out):
     
     schema_list = []
     schema_tabulate_list = []
-    table_dict_tabulate = {}
+    table_dict = {}
+    table_dict_tab = {}
     
     # We open and save a copy of the SQL file into a variable, in order to search for components
     # which may have multiple rows (ie table comments or column comments). 
@@ -366,11 +367,13 @@ def get_tables(schema_out):
 
             if table_name_search is not None:
                 # Now perform all actions to find table name, table comment, table columns, and table comments
-                # and when done add all these content to table_dict, and then finally to schema_tabulate_list
+                # and when done add all these content to table_dict, and then finally to schema_list
 
-                table_dict_tabulate = {} # This dict hold all the information for one table
+                table_dict = {}  # This dict hold all the information for one table
+                table_dict_tab = {}
                 table_name = table_name_search.group(1)
-                table_dict_tabulate["table_nam"] = table_name
+                table_dict["table_nam"] = table_name
+                table_dict_tab["table_nam"] = table_name
                 table_str = schema_out["name"] + "." + table_name
                 table_comment_str = "(?<=COMMENT ON TABLE " + table_str + " IS)([^\;]*)"
                 table_comment_search = re.search(table_comment_str, file_content, re.DOTALL)
@@ -380,28 +383,38 @@ def get_tables(schema_out):
                     table_comment_result = table_comment_search.group(1)
                     # remove line terminators and quote marks from multiline comment
                     table_comment_result_clean = table_comment_result.replace("\r\n", "").replace("'", "")
-                    table_dict_tabulate["table_comment"] = table_comment_result_clean
+                    table_dict["table_comment"] = table_comment_result_clean
+                    table_dict_tab["table_comment"] = table_comment_result_clean
                     # get the columns for this table
                     this_table_columns = get_columns(table_str, file_content, this_table_columns)
+                    table_dict["table_columns"] = this_table_columns
+                    # temporary
                     headers = ['Column Name', 'Data Type', 'Length', 'Precision', 'Scale', 'Description']
-                    tabulate_columns = tabulate(this_table_columns, tablefmt='rst', headers = headers)
-                    tabulate_split = [x.split(',')for x in tabulate_columns.split('\n')]
-                    table_dict_tabulate["table_columns"] = tabulate_split
+                    tabulate_col = tabulate(this_table_columns, tablefmt='rst', headers = headers)
+                    tab_split = [x.split(',')for x in tabulate_col.split('\n')]
+                    table_dict_tab["table_columns"] = tab_split
+                    #table_dict_tab["table_columns"] = tabulate_col
 
                 elif table_comment_search is None:
+                    table_dict["table_comment"] = ' '
                     # get the columms for this table
                     this_table_columns = get_columns(table_str, file_content, this_table_columns)
-                    table_dict_tabulate["table_comment"] = ' '
+                    table_dict["table_columns"] = this_table_columns
+                    # temporary
+                    table_dict_tab["table_comment"] = ' '
                     headers = ['Column Name', 'Data Type', 'Length', 'Precision', 'Scale', 'Description']
-                    tabulate_columns = tabulate(this_table_columns, tablefmt='rst', headers = headers)
-                    tabulate_split = [x.split(',')for x in tabulate_columns.split('\n')]
-                    table_dict_tabulate["table_columns"] = tabulate_split
+                    tabulate_col = tabulate(this_table_columns, tablefmt='rst', headers = headers)
+                    tab_split = [x.split(',')for x in tabulate_col.split('\n')]
+                    table_dict_tab["table_columns"] = tab_split
+                    #table_dict_tab["table_columns"] = tabulate_col
 
-                schema_tabulate_list.append(table_dict_tabulate)
+                schema_list.append(table_dict)
+                # temporary
+                schema_tabulate_list.append(table_dict_tab)
 
 
     f.close()
-    return schema_tabulate_list
+    return schema_list, schema_tabulate_list
 
 
 
@@ -505,7 +518,7 @@ def get_columns(table_str, file_content, this_table_columns):
 
 schema_out = get_schema()
 
-schema_tabulate_list_out = get_tables(schema_out)
+schema_list_out, schema_tabulate_list_out = get_tables(schema_out)
 
 
 
@@ -531,6 +544,7 @@ def setup(app):
     app.add_stylesheet('custom.css')
 
 html_context = {
+    'outputschema': schema_list_out,
     'schema_gen': schema_out,
     'schema_tab': schema_tabulate_list_out
 }
