@@ -13,7 +13,6 @@ Tables:
 	Description: {{ item.table_comment }}
 
 		{% for table in item.table_columns %}
-			
 			{%  for column in table %}
 			{{ column }}
 			{% endfor %}
