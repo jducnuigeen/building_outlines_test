@@ -17,7 +17,6 @@ Tables:
 			{%  for column in table %}
 			{{ column }}
 			{% endfor %}
-			
 		{% endfor %}
 	      
 		
