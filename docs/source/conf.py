@@ -509,7 +509,7 @@ schema_tabulate_list_out = get_tables(schema_out)
 
 context = {
     'schema_gen': schema_out,
-    'schema_tab': schema_tabulate_list_out
+    'schema_tab': schema_tabulate_list_out,
     'schema_gen2': schema_out,
     'schema_tab2': schema_tabulate_list_out
     }
