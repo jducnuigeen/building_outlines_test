@@ -7,3 +7,7 @@ Assumptions:
 
 3. the SQL files I'm parsing don't exist in the directory we originally created. I can't get Sphinx virtual machine
 to understand the directory structure we have and pull from that.
+
+4. Every table must have a table comment.
+
+
