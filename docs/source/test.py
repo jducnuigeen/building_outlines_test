@@ -211,7 +211,8 @@ def get_columns(table_str, file_content, this_table_columns):
             this_column.append(column_comment_out) #Description
             this_table_columns.append(this_column)
 
-
+    print this_table_columns
+    print "           "
     return this_table_columns
 
 schema_out = get_schema()
@@ -219,4 +220,3 @@ schema_out = get_schema()
 schema_list_out, schema_tabulate_list_out = get_tables(schema_out)
 
 
-print schema_tabulate_list_out

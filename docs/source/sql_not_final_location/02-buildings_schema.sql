@@ -40,7 +40,7 @@ COMMENT ON TABLE buildings.use IS
 COMMENT ON COLUMN buildings.use.use_id IS
 'Unique identifier for the use.';
 COMMENT ON COLUMN buildings.use.value IS
-'The building use, maintained for the Topo50 map series.';
+'The building use maintained for the Topo50 map series.';
 
 -- DATA TABLES
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS buildings.buildings (
 SELECT setval('buildings.buildings_building_id_seq', coalesce((SELECT max(building_id) + 1 FROM buildings.buildings), 1000000), false);
 
 COMMENT ON TABLE buildings.buildings IS
-'The building table maintains a unique identifier for a building. Over time, '
+'The building table maintains a unique identifier for a building. Over time '
 'a building can be represented by multiple building outlines aligned to '
 'different imagery sources. These building outlines are linked via the '
 'building_id.';
@@ -106,7 +106,7 @@ CREATE INDEX shx_building_outlines
     ON buildings.building_outlines USING gist (shape);
 
 COMMENT ON TABLE buildings.building_outlines IS
-'The building table maintains a unique identifier for a building. Over time, '
+'The building table maintains a unique identifier for a building. Over time '
 'a building can be represented by multiple building outlines aligned to '
 'different imagery sources. These building outlines are linked via the '
 'building_id.';
@@ -116,7 +116,7 @@ COMMENT ON COLUMN buildings.building_outlines.building_outline_id IS
 COMMENT ON COLUMN buildings.building_outlines.building_id IS
 'Unique identifier for the building.';
 COMMENT ON COLUMN buildings.building_outlines.capture_method_id IS
-'Unique identifier for the building, '
+'Unique identifier for the building '
 ' blah blah blah second line of comment';
 COMMENT ON COLUMN buildings.building_outlines.capture_source_id IS
 'Unique identifier for the building.';
