@@ -9,6 +9,13 @@
 {% endfilter %}
 **Description: {{ schema_gen["comment"] }}**
 
+Additional Notes about this Schema
+------------------------------------
+* This schema is designed for specific purposes
+
+Current Schema Details
+----------------------------
+
 
 {% for item in schema_tab  %}
 
