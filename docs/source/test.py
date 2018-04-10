@@ -7,6 +7,9 @@ from tabulate import tabulate
 sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
 #sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
 
+#sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
+#sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
+
 def get_schema():
     
     schema = {}  # This only hold the schema name and schema comment
@@ -88,23 +91,24 @@ def get_tables(schema_out):
                     # temporary
                     headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
                     tabulate_col = tabulate(this_table_columns,tablefmt='rst', headers = headers)
-                    table_dict_tab["table_columns"] = tabulate_col
+                    tab_split = tabulate_col.split("\n")
+                    table_dict_tab["table_columns"] = tab_split
 
                 elif table_comment_search is None:
-                    table_dict["table_comment"] = ""
+                    table_dict["table_comment"] = "_"
                     # get the columms for this table
                     this_table_columns = get_columns(table_str, file_content, this_table_columns)
                     table_dict["table_columns"] = this_table_columns
                     # temporary
-                    table_dict_tab["table_comment"] = ""
+                    table_dict_tab["table_comment"] = "_"
                     headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
                     tabulate_col = tabulate(this_table_columns,tablefmt='rst', headers = headers)
-                    table_dict_tab["table_columns"] = tabulate_col
+                    tab_split = tabulate_col.split("\n")
+                    table_dict_tab["table_columns"] = tab_split
 
                 schema_list.append(table_dict)
                 # temporary
                 schema_tabulate_list.append(table_dict_tab)
-
 
 
     f.close()
