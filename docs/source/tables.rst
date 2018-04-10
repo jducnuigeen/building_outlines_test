@@ -1,4 +1,4 @@
-#jinja2: newline_sequence:’\n’
+
 
 Tables
 ==========
@@ -12,7 +12,11 @@ Tables:
 	
 	Description: {{ item.table_comment }}
 
-	{{ item.table_columns }}
+	{% for table in item.table_columns %}
+
+	{{ table }}
+
+	{% endfor %}
 	      
 		
 
