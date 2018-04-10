@@ -396,12 +396,12 @@ def get_tables(schema_out):
                     #table_dict_tab["table_columns"] = tabulate_col
 
                 elif table_comment_search is None:
-                    table_dict["table_comment"] = '_'
+                    table_dict["table_comment"] = ' '
                     # get the columms for this table
                     this_table_columns = get_columns(table_str, file_content, this_table_columns)
                     table_dict["table_columns"] = this_table_columns
                     # temporary
-                    table_dict_tab["table_comment"] = '_'
+                    table_dict_tab["table_comment"] = ' '
                     headers = ['Column Name', 'Data Type', 'Length', 'Precision', 'Scale', 'Description']
                     tabulate_col = tabulate(this_table_columns, tablefmt='rst', headers = headers)
                     tab_split = [x.split(',')for x in tabulate_col.split('\n')]
@@ -453,7 +453,7 @@ def get_columns(table_str, file_content, this_table_columns):
             column_str = table_str + "." + pri_key
             this_column.append(pri_key) #column Name
             this_column.append('integer')  #Data Type
-            this_column.append('_') # Length
+            this_column.append(' ') # Length
             this_column.append('32') #Precision
             this_column.append('0') #Scale
             column_comment_out = get_column_comments(column_str, file_content)
@@ -468,8 +468,8 @@ def get_columns(table_str, file_content, this_table_columns):
             this_column.append(var_column) #column Name
             this_column.append('varchar') #Data Type
             this_column.append(length) #Length
-            this_column.append('_') #Precision
-            this_column.append('_') #scale
+            this_column.append(' ') #Precision
+            this_column.append(' ') #scale
             column_comment_out = get_column_comments(column_str, file_content)
             this_column.append(column_comment_out) #Description
             this_table_columns.append(this_column)
@@ -480,9 +480,9 @@ def get_columns(table_str, file_content, this_table_columns):
             column_str = table_str + "." + timecolumn1
             this_column.append(timecolumn1) #column Name
             this_column.append('date') #Data Type
-            this_column.append('_') #Length
-            this_column.append('_') #Precision
-            this_column.append('_') #scale
+            this_column.append(' ') #Length
+            this_column.append(' ') #Precision
+            this_column.append(' ') #scale
             column_comment_out = get_column_comments(column_str, file_content)
             this_column.append(column_comment_out) #Description
             this_table_columns.append(this_column)
@@ -493,7 +493,7 @@ def get_columns(table_str, file_content, this_table_columns):
             column_str = table_str + "." + integer_column_name
             this_column.append(integer_column_name) #column Name
             this_column.append('integer') #Data Type
-            this_column.append('_') #Length
+            this_column.append(' ') #Length
             this_column.append('32') #Precision
             this_column.append('0') #scale
             column_comment_out = get_column_comments(column_str, file_content)
@@ -506,9 +506,9 @@ def get_columns(table_str, file_content, this_table_columns):
             column_str = table_str + "." + shape_column_name
             this_column.append(shape_column_name) #column Name
             this_column.append('geometry') #Data Type
-            this_column.append('_') #Length
-            this_column.append('_') #Precision
-            this_column.append('_') #scale
+            this_column.append(' ') #Length
+            this_column.append(' ') #Precision
+            this_column.append(' ') #scale
             column_comment_out = get_column_comments(column_str, file_content)
             this_column.append(column_comment_out) #Description
             this_table_columns.append(this_column)
