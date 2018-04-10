@@ -171,7 +171,6 @@ html_extra_path = ['../sql']
 html_additional_pages = {
     'schema1': 'schema1.html'
 
-
 }
 
 # If false, no module index is generated.
