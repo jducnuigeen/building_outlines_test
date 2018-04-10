@@ -3,7 +3,10 @@
 Tables
 ==========
 
-
+{% filter upper %}
+Schema: {{ schema_gen["name"] }}
+{% endfilter %}
+Description: {{ schema_gen["comment"] }}
 
 
 {% for item in schema_tab  %}
