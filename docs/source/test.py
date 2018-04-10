@@ -89,22 +89,24 @@ def get_tables(schema_out):
                     this_table_columns = get_columns(table_str, file_content, this_table_columns)
                     table_dict["table_columns"] = this_table_columns
                     # temporary
-                    headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
-                    tabulate_col = tabulate(this_table_columns,tablefmt='rst', headers = headers)
-                    tab_split = [x.split(",")for x in tabulate_col.split("\n")]
+                    headers = ['Column Name', 'Data Type', 'Length', 'Precision', 'Scale', 'Description']
+                    tabulate_col = tabulate(this_table_columns, tablefmt='rst', headers = headers)
+                    tab_split = [x.split(',')for x in tabulate_col.split('\n')]
                     table_dict_tab["table_columns"] = tab_split
+                    #table_dict_tab["table_columns"] = tabulate_col
 
                 elif table_comment_search is None:
-                    table_dict["table_comment"] = "_"
+                    table_dict["table_comment"] = '_'
                     # get the columms for this table
                     this_table_columns = get_columns(table_str, file_content, this_table_columns)
                     table_dict["table_columns"] = this_table_columns
                     # temporary
-                    table_dict_tab["table_comment"] = "_"
-                    headers = ["Column Name", "Data Type", "Length", "Precision", "Scale", "Description"]
-                    tabulate_col = tabulate(this_table_columns,tablefmt='rst', headers = headers)
-                    tab_split = [x.split(",")for x in tabulate_col.split("\n")]
+                    table_dict_tab["table_comment"] = '_'
+                    headers = ['Column Name', 'Data Type', 'Length', 'Precision', 'Scale', 'Description']
+                    tabulate_col = tabulate(this_table_columns, tablefmt='rst', headers = headers)
+                    tab_split = [x.split(',')for x in tabulate_col.split('\n')]
                     table_dict_tab["table_columns"] = tab_split
+                    #table_dict_tab["table_columns"] = tabulate_col
 
                 schema_list.append(table_dict)
                 # temporary
@@ -211,12 +213,11 @@ def get_columns(table_str, file_content, this_table_columns):
             this_column.append(column_comment_out) #Description
             this_table_columns.append(this_column)
 
-    print this_table_columns
-    print "           "
+
     return this_table_columns
 
 schema_out = get_schema()
 
 schema_list_out, schema_tabulate_list_out = get_tables(schema_out)
 
-
+print schema_tabulate_list_out

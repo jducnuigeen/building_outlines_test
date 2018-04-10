@@ -391,20 +391,20 @@ def get_tables(schema_out):
                     # temporary
                     headers = ['Column Name', 'Data Type', 'Length', 'Precision', 'Scale', 'Description']
                     tabulate_col = tabulate(this_table_columns, tablefmt='rst', headers = headers)
-                    tab_split = [x.split(",")for x in tabulate_col.split("\n")]
+                    tab_split = [x.split(',')for x in tabulate_col.split('\n')]
                     table_dict_tab["table_columns"] = tab_split
                     #table_dict_tab["table_columns"] = tabulate_col
 
                 elif table_comment_search is None:
-                    table_dict["table_comment"] = "_"
+                    table_dict["table_comment"] = '_'
                     # get the columms for this table
                     this_table_columns = get_columns(table_str, file_content, this_table_columns)
                     table_dict["table_columns"] = this_table_columns
                     # temporary
-                    table_dict_tab["table_comment"] = "_"
+                    table_dict_tab["table_comment"] = '_'
                     headers = ['Column Name', 'Data Type', 'Length', 'Precision', 'Scale', 'Description']
                     tabulate_col = tabulate(this_table_columns, tablefmt='rst', headers = headers)
-                    tab_split = [x.split(",")for x in tabulate_col.split("\n")]
+                    tab_split = [x.split(',')for x in tabulate_col.split('\n')]
                     table_dict_tab["table_columns"] = tab_split
                     #table_dict_tab["table_columns"] = tabulate_col
 
