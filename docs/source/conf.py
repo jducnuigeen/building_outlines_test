@@ -507,11 +507,10 @@ schema_out = get_schema()
 
 schema_tabulate_list_out = get_tables(schema_out)
 
+context = {'schema_gen': schema_out,
+    'schema_tab': schema_tabulate_list_out}
 
-html_context = {
-    'schema_gen': schema_out,
-    'schema_tab': schema_tabulate_list_out
-}
+html_context = context
 
 
 
