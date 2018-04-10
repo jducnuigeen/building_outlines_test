@@ -11,11 +11,8 @@ Tables:
 	Table Name: {% filter upper %} {{ item.table_nam }} {% endfilter %}
 	
 	Description: {{ item.table_comment }}
-
-	{% for table in item.table_columns %}
-	{{ table }}
-	{% endfor %}
-	      
-		
+	
+	{{ item.table_columns }}
+	
 
 {% endfor %}
