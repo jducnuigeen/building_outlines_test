@@ -18,6 +18,8 @@ import json
 import re
 from tabulate import tabulate
 from os import path
+sys.path.append('../sql')
+import 02-buildings_schema.sql
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -305,7 +307,7 @@ texinfo_documents = [
 # ../docs/source
 # The path of the SQL file has been altered from likely final folder path
 
-sql_file_path = "./sql/02-buildings_schema.sql"
+sql_file_path = "../sql/02-buildings_schema.sql"
 #sql_file_path = "./sql_not_final_location/02-buildings_schema.sql"
 #sql_file_path = "./sql_not_final_location/02-create_buildings_stage_schema.sql"
 
