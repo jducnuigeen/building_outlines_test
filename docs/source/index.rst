@@ -10,6 +10,11 @@ Contents:
    schema1tables
    schema2tables
    schema3tables
+   schema4tables
+
+.. toctree::
+   :hidden:
+   schema4tables
 
 
 Index page Subsection
@@ -21,6 +26,8 @@ Index page Subsection
 :doc:`schema2tables`
 
 :doc:`schema3tables`
+
+:doc:`schema4tables`
 
 
 
