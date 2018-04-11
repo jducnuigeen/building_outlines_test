@@ -5,6 +5,7 @@ Building Outlines Dataset
 Contents:
 
 .. toctree::
+   :maxdepth: 2
 
    tables
 
