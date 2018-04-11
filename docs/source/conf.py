@@ -18,6 +18,7 @@ import json
 import re
 from tabulate import tabulate
 from os import path
+import glob
 sys.path.insert(0, os.path.abspath('../../sql'))
 
 
@@ -169,10 +170,7 @@ html_extra_path = ['../../sql']
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
-html_additional_pages = {
-    'schema1': 'schema1.html'
-
-}
+#html_additional_pages = {}
 
 # If false, no module index is generated.
 #html_domain_indices = True
@@ -333,7 +331,7 @@ def get_schema():
                 else:
                     schema_name = schema_search.group(1)
                     schema["name"] = schema_name
-                
+
             if schema_comment_search is not None:
                 schema_comment = schema_comment_search.group(1)
                 schema_comment_clean = schema_comment.replace("\r\n", "").replace("'", "")
@@ -350,11 +348,11 @@ def get_schema():
 # of the information for one table in the schema. Each of these dictionaries contains a key
 # to hold a list (this_table_columns) of lists of the columns for each table.
 def get_tables(schema_out):
-    
+
     schema_list = []
     schema_tabulate_list = []
     table_dict_tabulate = {}
-    
+
     # We open and save a copy of the SQL file into a variable, in order to search for components
     # which may have multiple rows (ie table comments or column comments). 
     with open(sql_file_path) as full_file:
@@ -506,32 +504,10 @@ def get_columns(table_str, file_content, this_table_columns):
 
     return this_table_columns
 
-def get_filenames():
-
-    # read the path and file names of all of the SQL schema files in the /SQL folder
-    filenames = glob.glob("../../sql/*")
-    str = "schema"
-    for name in filenames:
-        if str not in name:
-            filenames.remove(name)
-    return filenames
-
-
-
-
-files_to_read = get_filenames()
 
 schema_out = get_schema()
 
 schema_tabulate_list_out = get_tables(schema_out)
-
-context = {
-    "schema_gen": schema_out,
-    "schema_tab": schema_tabulate_list_out
-    }
-
-
-
 
 
 # This is required to allow Sphinx to read data dynamically
@@ -552,7 +528,10 @@ def setup(app):
     app.connect("source-read", rstjinja)
     app.add_stylesheet('custom.css')
 
-html_context = context
+html_context = {
+    "schema_gen": schema_out,
+    "schema_tab": schema_tabulate_list_out
+    }
 
 # This is test data in case troubleshooting is required
         # schema_general = {"schema_name": "buildings", "schema_com": "holds schema comment"}
