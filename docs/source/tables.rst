@@ -1,8 +1,5 @@
 
 .. _tables:
-
-
-
 {% filter upper %}
 **Schema: {{ schema_gen["name"] }}**
 =======================================
@@ -13,8 +10,8 @@ Additional Notes about this Schema
 ------------------------------------
 * This schema is designed for specific purposes
 
-Current Schema Details
-----------------------------
+{{ schema_gen["name"] }} Schema Details
+-----------------------------------------
 
 
 {% for item in schema_tab  %}
