@@ -7,15 +7,18 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   tables
-   table2
+   schema1tables
+   schema2tables
+   schema3tables
 
 
 Index page Subsection
 ----------------------------
 
 
-:doc:`tables`
+:doc:`schema1tables`
+:doc:`schema2tables`
+:doc:`schema3tables`
 
 
 
