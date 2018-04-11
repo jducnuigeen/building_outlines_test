@@ -15,7 +15,7 @@ Index page Subsection
 ----------------------------
 
 
-:doc: `tables`
+:doc:`tables`
 
 
 
