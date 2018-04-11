@@ -17,7 +17,9 @@ Index page Subsection
 
 
 :doc:`schema1tables`
+
 :doc:`schema2tables`
+
 :doc:`schema3tables`
 
 
