@@ -10,7 +10,6 @@ Contents:
    schema1tables
    schema2tables
    schema3tables
-   schema4tables
 
 .. toctree::
    :hidden:
