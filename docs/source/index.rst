@@ -11,9 +11,7 @@ Contents:
    schema2tables
    schema3tables
 
-.. toctree::
-   :hidden:
-   schema4tables
+
 
 
 Index page Subsection
