@@ -1,10 +1,10 @@
 
 .. _schema1tables:
 {% filter upper %}
-**Schema: {{ schema_gen1["name"] }}**
+**Schema:** **{{ schema_gen1["name"] }}**
 =======================================
 {% endfilter %}
-**Description:** {{ schema_gen1["comment"] }}
+**Description:** **{{ schema_gen1["comment"] }}
 
 Additional Notes about this Schema #1
 ------------------------------------
@@ -18,7 +18,7 @@ Additional Notes about this Schema #1
 
 	**Table Name:** {% filter upper %} **{{ item.table_nam }}** {% endfilter %}
 	
-	**Description: {{ item.table_comment }}**
+	**Description:** **{{ item.table_comment }}**
 
 		{% for table in item.table_columns %}{%  for column in table %}{{ column }}{% endfor %}
 		{% endfor %}
