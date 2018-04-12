@@ -4,7 +4,7 @@
 **Schema:** **{{ schema_gen1["name"] }}**
 =======================================
 {% endfilter %}
-**Description:** **{{ schema_gen1["comment"] }}
+**Description:** **{{ schema_gen1["comment"] }}**
 
 Additional Notes about this Schema #1
 ------------------------------------
