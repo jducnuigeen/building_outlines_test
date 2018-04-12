@@ -511,7 +511,7 @@ def get_filenames():
             filenames.remove(name)
 
     filenames_sorted = sorted(filenames)
-    return filenames_out
+    return filenames_sorted
 
 
 def setup_html_context(files_to_read):
