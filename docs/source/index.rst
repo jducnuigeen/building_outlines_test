@@ -24,7 +24,6 @@ Index page Subsection
 
 :doc:`schema3tables`
 
-:doc:`schema4tables`
 
 
 
