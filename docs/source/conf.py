@@ -517,7 +517,7 @@ def get_filenames():
 def setup_html_context(files_to_read):
 
     # Generate a dictionary containing HTML_context items needed by Sphinx build process.
-    # One schema_gen and one schema_tab for each schema.
+    # One schema_gen and one schema_tab for each schema .
     context = {}
     schema_number = 0
 
