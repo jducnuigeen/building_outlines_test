@@ -504,13 +504,14 @@ def get_filenames():
 
     # read the path and file names of all of the SQL schema files in the /SQL folder
     filenames = glob.glob("../../sql/*")
+    filenames_sorted = []
     str = "schema"
     for name in filenames:
         if str not in name:
             filenames.remove(name)
 
-    filesnames_sorted = sorted(filenames)
-    return filenames_sorted
+    filenames_sorted = sorted(filenames)
+    return filenames_out
 
 
 def setup_html_context(files_to_read):

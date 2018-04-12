@@ -12,16 +12,17 @@ def get_filenames():
 
     # read the path and file names of all of the SQL schema files in the /SQL folder
     filenames = []
+    filenames_sorted = []
     filenames = glob.glob("../../sql/*.sql")
     str = "schema"
     for name in filenames:
         if str not in name:
             filenames.remove(name)
-    return filenames
+
+    filenames_sorted = sorted(filenames)
+    return filenames_sorted
 
 
 
-filenames = get_filenames()
-
-filenames2 = sorted(filenames)
-print filenames2
+filenames_out = get_filenames()
+print filenames_out
