@@ -508,12 +508,14 @@ def get_filenames():
     for name in filenames:
         if str not in name:
             filenames.remove(name)
-    return filenames
+
+    filesnames_sorted = sorted(filenames)
+    return filenames_sorted
 
 
 def setup_html_context(files_to_read):
 
-    # Generate a dict containing HTML_context items needed by Sphinx build process.
+    # Generate a dictionary containing HTML_context items needed by Sphinx build process.
     # One schema_gen and one schema_tab for each schema.
     context = {}
     schema_number = 0
