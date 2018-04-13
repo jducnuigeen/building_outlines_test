@@ -83,7 +83,7 @@ language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['schema4tables.rst']
+#exclude_patterns = []
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -519,11 +519,12 @@ def setup_html_context(files_to_read):
 
     for f in files_to_read:
         sql_file_path = f
-        schema_number += 1
-        context_key = "schema_gen" + str(schema_number)
+        schema_name_search = re.search(r".*\-(.*)\_schema.*", sql_file_path)
+        name_key = schema_name_search.group(1)
+        context_key = "schema_gen_" + name_key
         schema_out = get_schema(sql_file_path)
         context[context_key] = schema_out
-        context_table_key = "schema_tab" + str(schema_number)
+        context_table_key = "schema_tab_" + name_key
         schema_tabulate_list_out = get_tables(schema_out, sql_file_path)
         context[context_table_key] = schema_tabulate_list_out
 
