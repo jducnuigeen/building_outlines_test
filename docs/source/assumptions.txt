@@ -1,13 +1,16 @@
 
 
 Assumptions:
-1. created Tables are not listed more than once
+1. The line "create Tables" are not listed more than once for any one table
 
-2. once created tables are listed their columns are not listed anywhere else other than immediately after creation
+2. once created tables are listed their columns are not listed anywhere else other than immediately after the line "Create table"
 
-3. the SQL files I'm parsing don't exist in the directory we originally created. I can't get Sphinx virtual machine
-to understand the directory structure we have and pull from that.
+3. Schema and table and column comments can be more than one line in the sql file
 
-4. Every table must have a table comment.
+4. Every table and every schema must have a comment.
 
+5. SQL files must have the name of the schema followed by "_schema"
 
+6. Avoid using commas in any comments
+
+7. Numeric data types must have a space after the comma before the scale value
