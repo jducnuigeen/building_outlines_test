@@ -424,29 +424,44 @@ def get_columns(table_str, file_content, this_table_columns):
     columns_strip = [x.strip() for x in columns.split(",")]
 
     for column_details in columns_strip:
-        pri_key_search = re.search(r"(.*)\s.*\sPRIMARY KEY", column_details) # Also handles "serial PRIMARY KEY"
-        character_varying_search = re.search(r"(.*)\scharacter varying\((.*?)\)\s(?!NOT NULL)", column_details) #does not contain "NOT NULL"
-        character_varying_not_null_search = re.search(r"(.*)\scharacter varying\((.*?)\)\sNOT NULL", column_details) #does contain "NOT NULL"
-        timestamp_search = re.search(r"(.*)\stimestamptz\s(?!NOT NULL)", column_details) #does not contain "NOT NULL"
-        timestamp_not_null_search = re.search(r"^(.*)\stimestamptz\sNOT NULL.*", column_details) #does contain "NOT NULL"
-        integer_search = re.search(r"^(.*)\sinteger\s(?!NOT NULL)", column_details) #does not contain "NOT NULL"
-        integer_not_null_search = re.search(r"^(.*)\sinteger\sNOT NULL.*", column_details) #does contain "NOT NULL"
+        pri_key_serial_search = re.search(r"(.*)\sserial PRIMARY KEY", column_details)
+        pri_key_search = re.search(r"(.*)\sinteger PRIMARY KEY", column_details)
+        character_varying_search = re.search(r"(.*)\scharacter varying\((.*?)\)\s(?!NOT NULL)", column_details)  #does not contain "NOT NULL"
+        character_varying_not_null_search = re.search(r"(.*)\scharacter varying\((.*?)\)\sNOT NULL", column_details)  #does contain "NOT NULL"
+        timestamp_search = re.search(r"(.*)\stimestamptz\s(?!NOT NULL)", column_details)  #does not contain "NOT NULL"
+        timestamp_not_null_search = re.search(r"^(.*)\stimestamptz\sNOT NULL.*", column_details)  #does contain "NOT NULL"
+        integer_search = re.search(r"^(.*)\sinteger\s(?!NOT NULL)", column_details)  #does not contain "NOT NULL"
+        integer_not_null_search = re.search(r"^(.*)\sinteger\sNOT NULL.*", column_details)  #does contain "NOT NULL"
         numeric_search = re.search(r"(.*)\snumeric\((\d{1,2})\,\s(\d{1,2})\)\s(?!NOT NULL)", column_details)
         numeric_not_null_search = re.search(r"(.*)\snumeric\((\d{1,2})\,\s(\d{1,2}).*NOT NULL", column_details)
         shape = re.search(r"(shape).*geometry", column_details)
 
-        if pri_key_search is not None:
+        if pri_key_serial_search is not None:
+            this_column = []
+            pri_key = pri_key_serial_search.group(1)
+            column_str = table_str + "." + pri_key
+            this_column.append(pri_key)  #column Name
+            this_column.append("integer")  #Data Type
+            this_column.append(" ")  # Length
+            this_column.append("32")  #Precision
+            this_column.append("0")  # Scale
+            this_column.append("No") # Allows Nulls
+            column_comment_out = get_column_comments(column_str, file_content)
+            this_column.append(column_comment_out)  # Description
+            this_table_columns.append(this_column)
+
+        elif pri_key_search is not None:
             this_column = []
             pri_key = pri_key_search.group(1)
             column_str = table_str + "." + pri_key
-            this_column.append(pri_key) #column Name
+            this_column.append(pri_key)  #column Name
             this_column.append("integer")  #Data Type
-            this_column.append(" ") # Length
-            this_column.append("32") #Precision
-            this_column.append("0") #Scale
+            this_column.append(" ")  # Length
+            this_column.append("32")  #Precision
+            this_column.append("0")  # Scale
             this_column.append("No") # Allows Nulls
             column_comment_out = get_column_comments(column_str, file_content)
-            this_column.append(column_comment_out) #Description
+            this_column.append(column_comment_out)  # Description
             this_table_columns.append(this_column)
 
         elif character_varying_search is not None:
