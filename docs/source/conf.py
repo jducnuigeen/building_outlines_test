@@ -602,6 +602,7 @@ def get_columns(table_str, file_content, this_table_columns):
 def get_filenames():
 
     # read the path and file names of all of the SQL schema files in the /SQL folder
+    # including subfolders
     filenames = glob2.glob("../../sql/**/*")
     for name in filenames:
         if "schema" not in name:
