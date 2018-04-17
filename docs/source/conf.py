@@ -512,7 +512,7 @@ def get_columns(table_str, file_content, this_table_columns):
             this_column = []
             timecolumn2 = timestamp_not_null_search.group(1)
             column_str = table_str + "." + timecolumn2
-            this_column.append(timecolumn1) #column Name
+            this_column.append(timecolumn2) #column Name
             this_column.append("date") #Data Type
             this_column.append(" ") #Length
             this_column.append(" ") #Precision
