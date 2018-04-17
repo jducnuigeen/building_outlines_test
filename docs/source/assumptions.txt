@@ -7,7 +7,7 @@ Assumptions:
 
 3. Schema and table and column comments can be more than one line in the sql file
 
-4. Every table and every schema must have a comment.
+4. Every schema, table, and column must have a comment.
 
 5. SQL files must have the name of the schema followed by "_schema"
 
