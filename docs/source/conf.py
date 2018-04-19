@@ -125,7 +125,7 @@ html_theme_options = {
     'page_width': 'auto',
     'sidebar_width': '200px',
     'logo': 'logo.png',
-    'logo_Name': True
+    'logo_name': True
 
 }
 
