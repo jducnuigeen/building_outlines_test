@@ -7,9 +7,6 @@ th {
     color: #ffffff;
 }
 
-body {
-	'width': 'auto',
-
-
-
+.wy-nav-content{
+	max-width: auto;
 }
