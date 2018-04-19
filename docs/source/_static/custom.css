@@ -7,18 +7,6 @@ th {
     color: #ffffff;
 }
 
-@media screen and (min-width: 767px) {
-
-   .wy-table-responsive table td {
-      /* !important prevents the common CSS stylesheets from overriding
-         this as on RTD they are loaded after this stylesheet */
-      white-space: normal !important;
-   }
-
-   .wy-table-responsive {
-      overflow: visible !important;
-   }
-}
 
 .wy-nav-content {
 	padding: 1.618em 3.236em;
