@@ -125,8 +125,7 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'page_width': 'auto',
     'sidebar_width': '220px',
-    'logo': 'logo.png',
-    'logo_name': True
+    'logo': 'logo.png'
 
 }
 
