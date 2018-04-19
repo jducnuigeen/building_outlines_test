@@ -1,8 +1,8 @@
 
-Building Outlines Dataset
+Building Outlines Data Dictionary
 =========================
 
-Contents:
+Table of Contents:
 
 .. toctree::
    :maxdepth: 2
