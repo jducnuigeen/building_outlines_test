@@ -123,7 +123,7 @@ html_theme = 'alabaster'
 # documentation.
 html_theme_options = {
     'page_width': 'auto',
-    'sidebar_width': '200px',
+    'sidebar_width': '220px',
     'logo': 'logo.png',
     'logo_name': True
 
