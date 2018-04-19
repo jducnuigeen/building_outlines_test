@@ -123,8 +123,7 @@ html_theme = 'sphinx_rtd_theme'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'page_width': 'auto',
-    'sidebar_width': '220px'
+
 
 }
 
