@@ -3,7 +3,7 @@
 
 from setuptools import setup, find_packages
 
-with open("requirements.txt") as f:
+with open("requirements-docs.txt") as f:
     requirements = f.read().splitlines()
 
 setup(
