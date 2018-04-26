@@ -7,10 +7,10 @@ with open("requirements-docs.txt") as f:
     requirements = f.read().splitlines()
 
 setup(
-    name="test_docs",
+    name="Building_Outlines",
     version="dev",
-    description="Test Docs",
-    url="https://github.com/jducnuigeen",
+    description="Building Outlines Data Dictionary",
+    url="https://github.com/",
     packages=find_packages(),
     install_requires=requirements,
     classifiers=[
