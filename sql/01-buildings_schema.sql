@@ -24,7 +24,7 @@ COMMENT ON TABLE buildings.lifecycle_stage IS
 COMMENT ON COLUMN buildings.lifecycle_stage.lifecycle_stage_id IS
 'This is a primary key in :ref:`table-name-use`';
 COMMENT ON COLUMN buildings.lifecycle_stage.value IS
-'The stage of a buildings lifecycle..';
+'The stage of a buildings lifecycle. test: :ref:`table-name-capture-source-group`';
 
 -- Use
 
