@@ -171,6 +171,11 @@ DROP INDEX IF EXISTS idx_building_use_use_id;
 CREATE INDEX idx_building_use_use_id
     ON buildings.building_use USING btree (use_id);
 
+COMMENT ON COLUMN buildings.building_use.use_id IS
+'Unique identifier use id for the building.';
+COMMENT ON COLUMN buildings.building_use.begin_lifespan IS
+'Lifespan beginning of building.';
+
 -- Lifecycle
 
 CREATE TABLE IF NOT EXISTS buildings.lifecycle (
