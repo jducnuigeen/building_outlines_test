@@ -22,9 +22,9 @@ COMMENT ON TABLE buildings.lifecycle_stage IS
 'Lookup table that holds all of the lifecycle stages for a building.';
 
 COMMENT ON COLUMN buildings.lifecycle_stage.lifecycle_stage_id IS
-'Primary key to another table: :ref:`table-name-use`';
+'Primary key to another table: :ref:`Link title <table-name-use>`';
 COMMENT ON COLUMN buildings.lifecycle_stage.value IS
-'The stage of a buildings lifecycle.';
+'The stage of a buildings lifecycle..';
 
 -- Use
 
