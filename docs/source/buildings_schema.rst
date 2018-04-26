@@ -17,6 +17,7 @@ Additional Notes about this Schema
 {% for item in schema_tab_buildings  %}
 
 	**Table Name:** {% filter upper %} **{{ item.table_nam }}** {% endfilter %}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	
 	**Description: {{ item.table_comment }}**
 
