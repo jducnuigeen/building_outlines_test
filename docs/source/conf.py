@@ -54,8 +54,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Building Outlines'
-copyright = u'2018, LINZ'
+project = u'Building Outlines Data Dictionary'
 author = u'Land Information NZ'
 
 # The version info for the project you're documenting, acts as replacement for
