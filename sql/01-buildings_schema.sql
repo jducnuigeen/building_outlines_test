@@ -20,7 +20,6 @@ CREATE TABLE IF NOT EXISTS buildings.lifecycle_stage (
 
 COMMENT ON TABLE buildings.lifecycle_stage IS
 'Lookup table that holds all of the lifecycle stages for a building.';
-
 COMMENT ON COLUMN buildings.lifecycle_stage.lifecycle_stage_id IS
 'Does anything work here';
 COMMENT ON COLUMN buildings.lifecycle_stage.value IS
