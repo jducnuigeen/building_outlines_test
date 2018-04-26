@@ -119,7 +119,7 @@ COMMENT ON COLUMN buildings.building_outlines.capture_method_id IS
 'Unique identifier for the building '
 ' blah blah blah second line of comment';
 COMMENT ON COLUMN buildings.building_outlines.capture_source_id IS
-'Foreign key to the `here <http://building-outlines-test.readthedocs.io/en/latest/buildings_common_schema.html#table-name-capture-source>`_';
+'Foreign key to the capture_source_';
 COMMENT ON COLUMN buildings.building_outlines.lifecycle_stage_id IS
 'Unique identifier for the building.';
 COMMENT ON COLUMN buildings.building_outlines.suburb_locality_id IS

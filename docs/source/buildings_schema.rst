@@ -30,5 +30,5 @@ Additional Notes about this Schema
 
 {% endfor %}
 
-
+.. _capture_source: http://building-outlines-test.readthedocs.io/en/latest/buildings_common_schema.html#table-name-capture-source
 
