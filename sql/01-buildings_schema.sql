@@ -24,7 +24,7 @@ COMMENT ON TABLE buildings.lifecycle_stage IS
 COMMENT ON COLUMN buildings.lifecycle_stage.lifecycle_stage_id IS
 'This is a primary key in :ref:`table-name-use`';
 COMMENT ON COLUMN buildings.lifecycle_stage.value IS
-'The stage of a buildings lifecycle. test :ref:`link <table-name-capture-source-group>`';
+'The stage of a buildings lifecycle. test :ref:`http://building-outlines-test.readthedocs.io/en/latest/buildings_common_schema.html#table-name-capture-source-group`';
 
 -- Use
 
@@ -119,7 +119,7 @@ COMMENT ON COLUMN buildings.building_outlines.capture_method_id IS
 'Unique identifier for the building '
 ' blah blah blah second line of comment';
 COMMENT ON COLUMN buildings.building_outlines.capture_source_id IS
-'Unique identifier for the building.';
+'Foreign key to the `here <http://building-outlines-test.readthedocs.io/en/latest/buildings_common_schema.html#table-name-capture-source>`_';
 COMMENT ON COLUMN buildings.building_outlines.lifecycle_stage_id IS
 'Unique identifier for the building.';
 COMMENT ON COLUMN buildings.building_outlines.suburb_locality_id IS
