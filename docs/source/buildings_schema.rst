@@ -15,8 +15,7 @@ Additional Notes about this Schema
 
 
 {% for item in schema_tab_buildings  %}
-:ref: 'table 1 <{{item.table_nam}}>'
-
+.. figure:: whatever
 	**Table Name:** {% filter upper %} **{{ item.table_nam }}** {% endfilter %}
 
 	
