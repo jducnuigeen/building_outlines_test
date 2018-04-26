@@ -16,7 +16,7 @@ Additional Notes about this Schema
 
 {% for item in schema_tab_buildings  %}
 
-.. _table-name-{{ item.table_nam }}:
+.. _table-name-{{item.table_nam}}:
 
 **Table Name:** {% filter upper %} **{{ item.table_nam }}** {% endfilter %}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

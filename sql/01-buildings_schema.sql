@@ -22,7 +22,7 @@ COMMENT ON TABLE buildings.lifecycle_stage IS
 'Lookup table that holds all of the lifecycle stages for a building.';
 
 COMMENT ON COLUMN buildings.lifecycle_stage.lifecycle_stage_id IS
-'Unique identifier for the lifecycle stage.';
+'Unique identifier for the lifecycle stage. This is a test link to key in table :ref:'table-name-use';
 COMMENT ON COLUMN buildings.lifecycle_stage.value IS
 'The stage of a buildings lifecycle.';
 
@@ -112,7 +112,7 @@ COMMENT ON TABLE buildings.building_outlines IS
 'building_id.';
 
 COMMENT ON COLUMN buildings.building_outlines.building_outline_id IS
-'Unique identifier for the building.';
+'Unique identifier for the building. This is a foreign key to table <';
 COMMENT ON COLUMN buildings.building_outlines.building_id IS
 'Unique identifier for the building.';
 COMMENT ON COLUMN buildings.building_outlines.capture_method_id IS
