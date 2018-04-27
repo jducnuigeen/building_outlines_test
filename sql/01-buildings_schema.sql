@@ -24,7 +24,7 @@ COMMENT ON TABLE buildings.lifecycle_stage IS
 COMMENT ON COLUMN buildings.lifecycle_stage.lifecycle_stage_id IS
 'This is a primary key in :ref:`table-name-use`';
 COMMENT ON COLUMN buildings.lifecycle_stage.value IS
-'The stage of a buildings lifecycle. table-name-capture-source-group_';
+'The stage of a buildings lifecycle. `Capture_source <http://building-outlines-test.readthedocs.io/en/latest/buildings_common_schema.html#table-name-capture-source>`_';
 
 -- Use
 
