@@ -37,7 +37,7 @@ sys.path.insert(0, os.path.abspath('../../sql'))
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    
+    'sphinx.ext.autosectionlabel'
 ]
 
 # 'sphinx.ext.autosectionlabel'
