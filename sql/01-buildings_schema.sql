@@ -22,7 +22,7 @@ COMMENT ON TABLE buildings.lifecycle_stage IS
 'Lookup table that holds all of the lifecycle stages for a building.';
 
 COMMENT ON COLUMN buildings.lifecycle_stage.lifecycle_stage_id IS
-'Foreign key in buildings_use table';
+'Foreign key to the buildings.use table';
 COMMENT ON COLUMN buildings.lifecycle_stage.value IS
 'The stage of a buildings lifecycle. `Capture_source <http://building-outlines-test.readthedocs.io/en/latest/buildings_common_schema.html#table-name-capture-source>`_';
 
@@ -119,7 +119,7 @@ COMMENT ON COLUMN buildings.building_outlines.capture_method_id IS
 'Unique identifier for the building '
 ' blah blah blah second line of comment';
 COMMENT ON COLUMN buildings.building_outlines.capture_source_id IS
-'Foreign key to the capture_source_';
+'Foreign key to the capture_source.use table';
 COMMENT ON COLUMN buildings.building_outlines.lifecycle_stage_id IS
 'Unique identifier for the building.';
 COMMENT ON COLUMN buildings.building_outlines.suburb_locality_id IS

@@ -412,7 +412,7 @@ def get_column_comments(column_str, file_content):
     if column_comment_search is not None:
         column_comment = column_comment_search.group(1)
         column_comment_result_clean = column_comment.replace("\r\n", " ").replace("'", " ")
-        column_comment_result_clean_lower = column_comment_result_clean.lower()
+        column_comment_result_clean_lower = column_comment_result_clean.lower().strip()
         if "foreign key to the" in column_comment_result_clean_lower:
             foreign_search = re.search(r".*\s(.*)\.(.*)\stable", column_comment_result_clean_lower)
             schema_named = foreign_search.group(1)
