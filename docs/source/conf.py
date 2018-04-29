@@ -420,9 +420,8 @@ def get_column_comments(column_str, file_content):
             spaced = table_named.replace("_", " ")
             hyphens = table_named.replace("_", "-")
             template_url = "`{table_name_spaced} <https://building-outlines-test.readthedocs.io/en/latest/{schema_name}_schema.html#table-name-{table_name_hyphens}>`_"
-            column_comment_result_clean = template_url.format(table_name_spaced=spaced, schema_name=schema_named, table_name_hyphens=hyphens)
-
-
+            foreign_link = template_url.format(table_name_spaced=spaced, schema_name=schema_named, table_name_hyphens=hyphens)
+            column_comment_result_clean = "Foreign key to the " + foreign_link + " table."
 
     if column_comment_search is None:
         column_comment_result_clean = " "
