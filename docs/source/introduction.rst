@@ -18,3 +18,5 @@ Building outlines have been identified as a dataset of national importance, and 
 File format
 ---------------------------
 
+Aspatial data is provided in UTF-8 format. The source geometry of all spatial tables is NZGD2000 (New Zealand Geodetic Datum 2000).
+
