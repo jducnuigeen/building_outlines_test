@@ -189,7 +189,7 @@ html_static_path = ['_static']
 #html_show_sphinx = True
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
-#html_show_copyright = True
+html_show_copyright = False
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
@@ -214,7 +214,7 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'BuildingOutlinesTestdoc'
+htmlhelp_basename = 'BuildingOutlines'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -280,8 +280,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'BuildingOutlinesTest', u'Building Outlines Test Documentation',
-     author, 'BuildingOutlinesTest', 'One line description of project.',
+    (master_doc, 'BuildingOutlines', u'Building Outlines Documentation',
+     author, 'BuildingOutlines', 'One line description of project.',
      'Miscellaneous'),
 ]
 
