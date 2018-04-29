@@ -19,6 +19,7 @@ from tabulate import tabulate
 from os import path
 import glob2
 sys.path.insert(0, os.path.abspath('../../sql'))
+site_url = "http://building-outlines-test.readthedocs.io/en/latest/"
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -407,9 +408,21 @@ def get_column_comments(column_str, file_content):
     column_comment_str = r"COMMENT ON COLUMN " + column_str + r"\sIS([^\;]*)"
     column_comment_search = re.search(column_comment_str, file_content)
 
+
     if column_comment_search is not None:
         column_comment = column_comment_search.group(1)
         column_comment_result_clean = column_comment.replace("\r\n", " ").replace("'", " ")
+        column_comment_result_clean_lower = column_comment_result_clean.lower()
+        if "foreign key to the" in column_comment_result_clean_lower:
+            foreign_search = re.search(r".*\s(.*)\.(.*)\stable", column_comment_result_clean_lower)
+            schema_named = foreign_search.group(1)
+            table_named = foreign_search.group(2)
+            spaced = table_named.replace("_", " ")
+            hyphens = table_named.replace("_", "-")
+            template_url = "`{table_name_spaced} <https://building-outlines-test.readthedocs.io/en/latest/{schema_name}_schema.html#table-name-{table_name_hyphens}>`_"
+            column_comment_result_clean = template_url.format(table_name_spaced=spaced, schema_name=schema_named, table_name_hyphens=hyphens)
+
+
 
     if column_comment_search is None:
         column_comment_result_clean = " "
@@ -423,6 +436,7 @@ def get_columns(table_str, file_content, this_table_columns):
     column_search = re.search(search_str, file_content)
     columns = column_search.group(0)
     columns_strip = [x.strip() for x in columns.split(",")]
+
 
     for column_details in columns_strip:
         pri_key_serial_search = re.search(r"(.*)\sserial PRIMARY KEY", column_details)

@@ -426,9 +426,7 @@ def get_columns(table_str, file_content, this_table_columns):
         if pri_key_serial_search is not None:
             this_column = []
             pri_key = pri_key_serial_search.group(1)
-            print "pri_key is: ", pri_key
             pri_key2 = pri_key.strip()
-            print "pri_key2 is: ", pri_key2
             column_str = table_str + "." + pri_key2
             this_column.append(pri_key)  #column Name
             this_column.append("integer")  #Data Type
@@ -436,11 +434,9 @@ def get_columns(table_str, file_content, this_table_columns):
             this_column.append("32")  #Precision
             this_column.append("0")  # Scale
             this_column.append("No") # Allows Nulls
+            print "table_str is: ", table_str
             print "column_str is: ", column_str
-            print "    "
             column_comment_out = get_column_comments(column_str, file_content)
-            print "column comment out is: ", column_comment_out
-            print "  "
             this_column.append(column_comment_out)  # Description
             this_table_columns.append(this_column)
 

@@ -22,7 +22,7 @@ COMMENT ON TABLE buildings.lifecycle_stage IS
 'Lookup table that holds all of the lifecycle stages for a building.';
 
 COMMENT ON COLUMN buildings.lifecycle_stage.lifecycle_stage_id IS
-'This is a primary key in `Building Name <http://building-outlines-test.readthedocs.io/en/latest/buildings_schema.html#table-name-building-name>`_';
+'Foreign key in buildings_use table';
 COMMENT ON COLUMN buildings.lifecycle_stage.value IS
 'The stage of a buildings lifecycle. `Capture_source <http://building-outlines-test.readthedocs.io/en/latest/buildings_common_schema.html#table-name-capture-source>`_';
 
