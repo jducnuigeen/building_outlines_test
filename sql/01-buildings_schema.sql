@@ -24,7 +24,7 @@ COMMENT ON TABLE buildings.lifecycle_stage IS
 COMMENT ON COLUMN buildings.lifecycle_stage.lifecycle_stage_id IS
 'Foreign key to the buildings.use table';
 COMMENT ON COLUMN buildings.lifecycle_stage.value IS
-'The stage of a buildings lifecycle. `Capture_source <http://building-outlines-test.readthedocs.io/en/latest/buildings_common_schema.html#table-name-capture-source>`_';
+'The stage of a buildings lifecycle, and a foreign key to the buidings_lds.nz_building_outlines table. ';
 
 -- Use
 
