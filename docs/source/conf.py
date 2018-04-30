@@ -419,7 +419,7 @@ def get_column_comments(column_str, file_content):
             schema_and_table = foreign_search.group(4)
             front_comment = foreign_search.group(1)
             print "front_comment early is:", front_comment
-            schema_named, table_named = schema_table.split(".")
+            schema_named, table_named = schema_and_table.split(".")
             #table_named = foreign_search.group(2)
 
             spaced = table_named.replace("_", " ")
