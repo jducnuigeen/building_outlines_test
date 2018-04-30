@@ -431,7 +431,7 @@ def get_column_comments(column_str, file_content):
                 column_comment_result_strip = "Foreign key to the " + foreign_link + " table."
 
     if column_comment_search is None:
-        column_comment_result_clean = " "
+        column_comment_result_strip = " "
     return column_comment_result_strip
 
 
