@@ -429,7 +429,7 @@ def get_column_comments(column_str, file_content):
                 column_comment_result_strip = front_comment + foreign_link + " table."
             else:
                 front_comment = foreign_search.group(2)
-                column_comment_result_strip = front_comment + foreign_link + " table."
+                column_comment_result_strip = front_comment + foreign_link + " table." #
 
     if column_comment_search is None:
         column_comment_result_strip = " "
