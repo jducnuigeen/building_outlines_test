@@ -23,13 +23,13 @@ Aspatial data is provided in UTF-8 format. The source geometry of all spatial ta
 Definitions
 ---------------------------
 
-.. table:: Truth table for "not"
+.. table::
    :widths: auto
 
-   =====  =====
-     A    not A
-   =====  =====
-   False  True
-   True   False
-   =====  =====
+   ========  ==============================================
+     Term    Description
+   ========  ==============================================
+   Aspatial  Data that is not related to a spatial geometry
+   LDS       LINZ Data Service
+   ========  ==============================================
 
