@@ -416,7 +416,7 @@ def get_column_comments(column_str, file_content):
         column_comment_result_clean_lower = column_comment_result_clean.lower().strip()
         if "foreign key to the" in column_comment_result_clean_lower:
             foreign_search = re.search(r"((.*)(?i)(foreign key to the\s))(.*\..*)\stable", column_comment_result_strip)
-            schema_table = foreign_search.group(4)
+            schema_and_table = foreign_search.group(4)
             front_comment = foreign_search.group(1)
             print "front_comment early is:", front_comment
             schema_named, table_named = schema_table.split(".")
@@ -424,8 +424,8 @@ def get_column_comments(column_str, file_content):
 
             spaced = table_named.replace("_", " ")
             hyphens = table_named.replace("_", "-")
-            template_url = "`{table_name_spaced} <https://building-outlines-test.readthedocs.io/en/latest/{schema_name}_schema.html#table-name-{table_name_hyphens}>`_"
-            foreign_link = template_url.format(table_name_spaced=spaced, schema_name=schema_named, table_name_hyphens=hyphens)
+            template_url = "`{schema_table} <https://building-outlines-test.readthedocs.io/en/latest/{schema_name}_schema.html#table-name-{table_name_hyphens}>`_"
+            foreign_link = template_url.format(schema_table=schema_and_table, schema_name=schema_named, table_name_hyphens=hyphens)
             column_comment_result_strip = front_comment + foreign_link + " table."
 
     if column_comment_search is None:
