@@ -16,21 +16,6 @@ Table of Contents:
 
 
 
-This is a sub-sub section
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-:doc:`buildings_schema`
-
-:doc:`buildings_common_schema`
-
-:doc:`buildings_bulk_load_schema`
-
-:doc:`buildings_lds_schema`
-
-
-
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`

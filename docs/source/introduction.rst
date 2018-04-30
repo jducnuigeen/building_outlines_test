@@ -31,10 +31,11 @@ Definitions
 .. table::
    :widths: auto
 
-   ========  ==============================================
+   ========  ================================================================================================================
      Term    Description
-   ========  ==============================================
+   ========  ================================================================================================================
    Aspatial  Data that is not related to a spatial geometry
    LDS       LINZ Data Service
-   ========  ==============================================
+   building  A structure generally permanent in nature which has been constructed to meet a specific objective (e.g. housing, storage, and workplace) and less permanent structures such as caravans and other portable housing may also be represented.
+   ========  ================================================================================================================
 
