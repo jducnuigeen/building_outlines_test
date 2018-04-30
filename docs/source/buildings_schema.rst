@@ -10,7 +10,7 @@ Additional Notes about this Schema
 ------------------------------------
 * This schema is designed for specific purposes
 
-{{ schema_gen_buildings["name"] }} Schema Details
+{% filter upper %}{{ schema_gen_buildings["name"] }}{% endfilter %} Schema Details
 -----------------------------------------
 
 
