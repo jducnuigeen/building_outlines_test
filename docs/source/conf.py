@@ -428,7 +428,8 @@ def get_column_comments(column_str, file_content):
             if front_comment is not None:
                 column_comment_result_strip = front_comment + foreign_link + " table."
             else:
-                column_comment_result_strip = "Foreign key to the " + foreign_link + " table."
+                front_comment = foreign_search.group(2)
+                column_comment_result_strip = front_comment + foreign_link + " table."
 
     if column_comment_search is None:
         column_comment_result_strip = " "
