@@ -22,7 +22,7 @@ COMMENT ON TABLE buildings.lifecycle_stage IS
 'Lookup table that holds all of the lifecycle stages for a building.';
 
 COMMENT ON COLUMN buildings.lifecycle_stage.lifecycle_stage_id IS
-'Foreign key to the buildings.use table';
+'Foreign key to the buildings_common.capture_source table';
 COMMENT ON COLUMN buildings.lifecycle_stage.value IS
 'Unique identifier for the buildings.use table and foreign key to the buildsings.other_table table.';
 
