@@ -397,10 +397,10 @@ def get_column_comments(column_str, file_content):
 
     if column_comment_search is not None:
         column_comment = column_comment_search.group(1)
-        print "column_comment is: ", column_comment
+        #print "column_comment is: ", column_comment
         column_comment_result_clean = column_comment.replace("\r\n", " ").replace("'", " ")
         column_comment_result_clean_lower = column_comment_result_clean.lower().strip()
-        print "column_comment_result_clean_lower is: ", column_comment_result_clean_lower
+        #print "column_comment_result_clean_lower is: ", column_comment_result_clean_lower
         if "foreign key to the" in column_comment_result_clean_lower:
             foreign_search = re.search(r".*\s(.*)\.(.*)\stable", column_comment_result_clean_lower)
             schema_named = foreign_search.group(1)
@@ -442,9 +442,11 @@ def get_columns(table_str, file_content, this_table_columns):
         if pri_key_serial_search is not None:
             this_column = []
             pri_key = pri_key_serial_search.group(1)
+            pri_key_str = " **"+pri_key+"** "
             pri_key2 = pri_key.strip()
             column_str = table_str + "." + pri_key2
-            this_column.append(pri_key)  #column Name
+            print "pri_key_str is: ", pri_key_str
+            this_column.append(pri_key_str)  #column Name
             this_column.append("integer")  #Data Type
             this_column.append(" ")  # Length
             this_column.append("32")  #Precision
