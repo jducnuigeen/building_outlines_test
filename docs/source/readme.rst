@@ -1,7 +1,19 @@
 Documentation on SQL script setup for proper Read The Docs parsing
 ==================================================================
 
-This document describes the requirements for properly formatting the SQL build scripts
+Purpose
+-------------
+
+This document describes the requirements for properly formatting the SQL build scripts for this dataset to allow the automated parsing of these scripts by Read The Docs system and correctly generating the tables for the Building Outlines Data Dictionary.
+
+File Structure
+------------------
+
+The SQL build scripts:
+The SQL scripts which build schema must be contained in a folder in the root repository:
+-- highlight:: SQL
+   /building_outlines/sql
+
 
 Assumptions:
 1. The line "create Tables" are not listed more than once for any one table
