@@ -21,20 +21,17 @@ Definitions
 
 .. table::
    :widths: auto
-
-   =================  ===============================================================================================
-     Term               Description
-   =================  ===============================================================================================
-   Aspatial           Data that is not related to a spatial geometry
-   LDS                LINZ Data Service
-   building           A structure generally permanent in nature which has been constructed to meet a specific
-                      objective (e.g. housing, storage, and workplace) and less permanent structures such as caravans
-                      and other portable housing may also be represented.
-   Building Outlines  Building Outlines are a digital representation of the roof outlines of a buildings 
-                      which have been classified from remotely sensed information that identifies every
-                      building structure that is greater than 10 square meters and falls within an area
-                      of the capture of buildings.
-   ================  ================================================================================================
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Term              | Description                                                                                                                                                                                                                                                                         |
++===================+=====================================================================================================================================================================================================================================================================================+
+| Aspatial          | Data that is not related to a spatial geometry                                                                                                                                                                                                                                      |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| LDS               | LINZ Data Service                                                                                                                                                                                                                                                                   |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Building          | A structure generally permanent in nature which has been constructed to meet a specific objective (e.g. housing, storage, and workplace) and less permanent structures such as   caravans and other portable housing may also be represented.                                       |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Building Outlines | Building Outlines are a digital representation of the roof outlines of a buildings which have been classified from remotely sensed information that identifies every building structure that is greater than 10 square meters and falls within an area of the capture of buildings. |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 
