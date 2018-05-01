@@ -18,5 +18,5 @@ th {
 }
 
 div.section p, div.body li {
-	line-height: 130%;
+	font-size: 130%;
 }
