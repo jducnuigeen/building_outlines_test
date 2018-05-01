@@ -1,4 +1,7 @@
+Documentation on SQL script setup for proper Read The Docs parsing
+==================================================================
 
+This document describes the requirements for properly formatting the SQL build scripts
 
 Assumptions:
 1. The line "create Tables" are not listed more than once for any one table
