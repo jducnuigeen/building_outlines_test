@@ -17,6 +17,6 @@ th {
 
 }
 
-div.section p, div.body li {
-	font-size: 130%;
+div.section p {
+	font-size: 300%;
 }
