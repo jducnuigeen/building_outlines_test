@@ -9,8 +9,11 @@ This document describes the requirements for properly formatting the SQL build s
 File Structure
 ------------------
 
-The SQL build scripts:
-The SQL scripts which build schema must be contained in a /sql folder in the root repository. Two files are also needed in the root directory: requirements-docs.txt and setup.py. All other files needed for the automated Read The Docs system should be located in the /docs/source/ folders. The _static folder is where logos, custom css and images are stored.
+* The SQL scripts which build schema must be contained in a /sql folder in the root repository. 
+* Two files are also needed in the root directory: requirements-docs.txt and setup.py.
+* All other files needed for the automated Read The Docs system should be located in the /docs/source/ folders.
+* The _static folder is where logos, custom css and images are stored.
+* The SQL scripts which build schema must also have a name with the format "<name>_schema.sql"
 
 .. code-block:: python
 
@@ -19,6 +22,14 @@ The SQL scripts which build schema must be contained in a /sql folder in the roo
    /building_outlines/setup.py
    /building_outlines/docs/source/
    /building_outlines/docs/source/_static
+
+
+
+Files required
+------------------
+
+* Within the /building_outlines/docs/source/ folder, there must be an .rst file for each schema being parsed, with a name format of "<schema name>_schema.rst". 
+* 
 
 
 Assumptions:
