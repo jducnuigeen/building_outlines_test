@@ -26,10 +26,13 @@ This dataset includes the spatial coverage of buildings using remotely sensed in
 
    Image 1. Example of a building outline versus a building footprint.
 
+
+
 File format
 ---------------------------
 
 Aspatial data is provided in UTF-8 format. The source geometry of all spatial tables is NZGD2000 (New Zealand Geodetic Datum 2000).
+
 
 Definitions
 ---------------------------
