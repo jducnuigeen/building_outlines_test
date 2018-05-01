@@ -6,7 +6,7 @@ Introduction
 Purpose
 -----------------------------
 
-This document provides detailed metadata (data dictionary) for the simple and comprehensive NZ Building Outlines data published on the LINZ Data Service.
+This document provides detailed metadata (data dictionary) for the NZ Building Outlines data published on the LINZ Data Service.
 
 Background
 ----------------------------
@@ -18,7 +18,12 @@ Building outlines have been identified as a dataset of national importance, and 
 Description
 ---------------------------
 
-This dataset includes the spatial coverage of buildings using remotely sensed information. A building outline is a digital representation of the roof outline of buildings which have been classified from remotely sensed information using a combination of automated and manual processes to extract and orthogonalise building roof outlines and identifies every structure greater than 9 square meters. These processes use electromagnetic radiation reflectance in the red, green and blue bands (visible bands) to classify pixels based on known patterns of signal combinations from various building roof materials.
+This dataset includes the spatial coverage of buildings using remotely sensed information. A building outline is a digital representation of the roof outline of buildings which have been classified from remotely sensed information using a combination of automated and manual processes to extract and orthogonalise building roof outlines and identifies every structure greater than or equal to 10 square meters. These processes use electromagnetic radiation reflectance in the red, green and blue bands (visible bands) to classify pixels based on known patterns of signal combinations from various building roof materials. The building outlines represented in this dataset should not be confused with *building footprints*, which are 2D representations of where a building touches the ground. 
+.. figure:: footprint.png
+   :scale: 100 %
+   :alt: comparison of footprint with building outlines
+
+   Image 1. Example of a building outline versus a building footprint.
 
 File format
 ---------------------------
@@ -31,11 +36,12 @@ Definitions
 .. table::
    :widths: auto
 
-   ========  ================================================================================================================
-     Term    Description
-   ========  ================================================================================================================
-   Aspatial  Data that is not related to a spatial geometry
-   LDS       LINZ Data Service
-   building  A structure generally permanent in nature which has been constructed to meet a specific objective (e.g. housing, storage, and workplace) and less permanent structures such as caravans and other portable housing may also be represented.
-   ========  ================================================================================================================
+   ================  ====================================================================================
+     Term            Description
+   ================  ==============================================================================================
+   Aspatial          Data that is not related to a spatial geometry
+   LDS               LINZ Data Service
+   building          A structure generally permanent in nature which has been constructed to meet a specific objective (e.g. housing, storage, and workplace) and less permanent structures such as caravans and other portable housing may also be represented.
+   Building Outlines  Building Outlines are a digital representation of the roof outlines of a buildings which have been classified from remotely sensed information that identifies every building structure that is greater than 10 square meters and falls within an area of the capture of buildings.
+   ================  ================================================================================================================
 
