@@ -10,11 +10,15 @@ File Structure
 ------------------
 
 The SQL build scripts:
-The SQL scripts which build schema must be contained in a folder in the root repository:
+The SQL scripts which build schema must be contained in a /sql folder in the root repository. Two files are also needed in the root directory: requirements-docs.txt and setup.py. All other files needed for the automated Read The Docs system should be located in the /docs/source/ folders. The _static folder is where logos, custom css and images are stored.
 
 .. code-block:: python
 
    /building_outlines/sql
+   /building_outlines/requirements-docs.txt
+   /building_outlines/setup.py
+   /building_outlines/docs/source/
+   /building_outlines/docs/source/_static
 
 
 Assumptions:
