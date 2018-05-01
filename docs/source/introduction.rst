@@ -29,7 +29,17 @@ This dataset includes the spatial coverage of buildings outlines using remotely 
 
 The current Topo50 data for buildings is represented by either a `building polygon <https://data.linz.govt.nz/layer/50246-nz-building-polygons-topo-150k/>`_ or a `building point <https://data.linz.govt.nz/layer/50245-nz-building-points-topo-150k/>`_ . A building polygon is used to represent a structure that is large enough to be captured at 1:50,000 scale and has an area of 25m² or greater. The central business districts of large towns and cities is held in the LINZ building data as large building polygons. It is shown on the printed maps as black fill, and is a generalized view, not showing individual buildings, or open spaces between buildings. A building point is used to represent a building with an area too small to be captured as a polygon feature at 1:50,000 scale.
 
-The building outlines data described here represents the oulines of individual buildings, as visible in the imagery, and not generalized for more urban areas.
+The building outlines data described here represents the outlines of individual buildings as polygons, as visible in the imagery, and not generalized for more urban areas.
+
+Building polygons in the building outlines data are defined by the following criteria:
+
+* Buildings under construction are not captured as building outlines.
+* Primary building structures are captured as separate building outline polygons from adjoining building structure polygons.
+* Building extensions, sunrooms, balconies, patios and annexes are captured as part of the primary building outline structure if resolution of imagery allows.
+* Permanent building structures such as sheds and greenhouses, not attached to a primary building structure, but larger than 10 square meters is captured as a separate building outline polygon.
+* Adjoining townhouses are not captured as separate structures, but rather as joined primary structures.
+* Adjoining commercial buildings are captured as separate building outlines when rooflines allows delineation.
+* Water tanks are captured as building outlines when their size is at least 16.5 square metres.
 
 
 Source Imagery
