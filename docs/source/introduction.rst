@@ -19,7 +19,7 @@ Building outlines have been identified as a dataset of national importance, and 
 Description
 ---------------------------
 
-This dataset includes the spatial coverage of buildings using remotely sensed information. A building outline is a digital representation of the roof outline of buildings which have been classified from remotely sensed information using a combination of automated and manual processes to extract and orthogonalise building roof outlines and identifies every structure greater than or equal to 10 square meters. These processes use electromagnetic radiation reflectance in the red, green and blue bands (visible bands) to classify pixels based on known patterns of signal combinations from various building roof materials. The building outlines represented in this dataset should not be confused with *building footprints*, which are 2D representations of where a building touches the ground. 
+This dataset includes the spatial coverage of buildings outlines using remotely sensed information. A building outline is a 2D representation of the roof outline of buildings which have been classified from remotely sensed information using a combination of automated and manual processes to extract and orthogonalise building roof outlines and identifies every structure greater than or equal to 10 square meters. These processes use electromagnetic radiation reflectance in the red, green and blue bands (visible bands) to classify pixels based on known patterns of signal combinations from various building roof materials. It may include spaces such as decks, garages and porches. Each building polygon represents a building outline. The building outlines represented in this dataset should not be confused with *building footprints*, which are 2D representations of where a building touches the ground. 
 
 .. figure:: _static/footprint.png
    :scale: 100 %
@@ -27,6 +27,21 @@ This dataset includes the spatial coverage of buildings using remotely sensed in
 
    Image 1. Example of a building outline versus a building footprint.
 
+The current Topo50 data for buildings is represented by either a `building polygon <https://data.linz.govt.nz/layer/50246-nz-building-polygons-topo-150k/>`_ or a `building point <https://data.linz.govt.nz/layer/50245-nz-building-points-topo-150k/>`_ . A building polygon is used to represent a structure that is large enough to be captured at 1:50,000 scale and has an area of 25m² or greater. The central business districts of large towns and cities is held in the LINZ building data as large building polygons. It is shown on the printed maps as black fill, and is a generalized view, not showing individual buildings, or open spaces between buildings. A building point is used to represent a building with an area too small to be captured as a polygon feature at 1:50,000 scale.
+
+The building outlines data described here represents the oulines of individual buildings, as visible in the imagery, and not generalized for more urban areas.
+
+
+Source Imagery
+---------------------------
+
+Resolution of imagery used for capture of building outlines ranges from 50cm pixel resolution (0.5m GSD) to 10cm pixel resolution (0.1m GSD).
+
+
+Accuracy Specification
+---------------------------
+
+The Building Outlines contain spatial detail reflective of the visible characteristics of building outlines as seen from the source imagery to an accuracy of 1 metre. Outlines are captured in full where they are partially occluded by vegetation or require additional viewer interpretation, and squared off at 90 degrees if the corner angles are between 80-100 degrees.
 
 
 File format
