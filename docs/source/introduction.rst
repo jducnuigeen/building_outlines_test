@@ -21,7 +21,7 @@ Description
 This dataset includes the spatial coverage of buildings using remotely sensed information. A building outline is a digital representation of the roof outline of buildings which have been classified from remotely sensed information using a combination of automated and manual processes to extract and orthogonalise building roof outlines and identifies every structure greater than or equal to 10 square meters. These processes use electromagnetic radiation reflectance in the red, green and blue bands (visible bands) to classify pixels based on known patterns of signal combinations from various building roof materials. The building outlines represented in this dataset should not be confused with *building footprints*, which are 2D representations of where a building touches the ground. 
 
 .. figure:: _static/footprint.png
-   :scale: 70 %
+   :scale: 100 %
    :alt: comparison of footprint with building outlines
 
    Image 1. Example of a building outline versus a building footprint.
