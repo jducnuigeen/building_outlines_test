@@ -11,7 +11,9 @@ File Structure
 
 The SQL build scripts:
 The SQL scripts which build schema must be contained in a folder in the root repository:
-.. highlight:: SQL
+
+.. highlight:: sql
+
    /building_outlines/sql
 
 
