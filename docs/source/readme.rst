@@ -32,13 +32,13 @@ Files required
 * Within the /building_outlines/docs/source/ folder, there must be an .rst file for each schema being parsed, with a name format of "<schema name>_schema.rst". 
 * On the first line of each schema .rst file, there should be a line as shown here to give the file a name for referencing:
 
-.. code-block::
+::
 
    .. _buildings_schema:
 
 * An index.rst file must exist with the names of the above mentioned schema .rst files listed in the toctree without the .rst extension:
 
-.. code-block::
+::
 
    .. toctree::
       :maxdepth: 3
