@@ -220,10 +220,10 @@ htmlhelp_basename = 'BuildingOutlines'
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+'papersize': 'a4paper',
 
 # The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+'pointsize': '10pt',
 
 # Additional stuff for the LaTeX preamble.
 #'preamble': '',
@@ -236,8 +236,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'BuildingOutlinesTest.tex', u'Building Outlines Test Documentation',
-     u'Jan Ducnuigeen', 'manual'),
+    (master_doc, 'BuildingOutlines.tex', u'Building Outlines Data Documentation',
+     u'LINZ', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
