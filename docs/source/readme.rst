@@ -60,15 +60,15 @@ Structure requirements of SQL schema build files:
 
 2. Tables must be written with the following structure, and lines must end with an opening "(" bracket, and schema name and schema table name separated by a period:
 
-.. code-block:: Sql
+.. code:: sql
 
    CREATE TABLE IF NOT EXISTS buildings.lifecycle_stage (
 
 3. Each table's columns must be listed in the lines immediately following the CREATE TABLE IF NOT EXISTS line, and within "()" brackets and ending with a semi-colon:
 
-.. code-block:: sql
+.. code:: sql
 
-  CREATE TABLE IF NOT EXISTS buildings.use (
+   CREATE TABLE IF NOT EXISTS buildings.use (
       use_id serial PRIMARY KEY,
       value character varying(40) NOT NULL
       );
@@ -77,7 +77,7 @@ Structure requirements of SQL schema build files:
 
 5. Schema and table and column comments should be formatted as below, ending with a semi-colon, and multiple lines can exist:
 
-.. code-block:: sql
+.. code:: sql
 
    COMMENT ON SCHEMA buildings IS 'The schema holds builing information. ';
 
@@ -92,7 +92,7 @@ Structure requirements of SQL schema build files:
 
 7. Numeric data types can have precision or scale values as single or double digits, but there cannot be a space in front of single digit precision values, and must have a space after the comma before the scale value, regardless of whether the scale value is single or double digit.
 
-.. code-block:: sql
+.. code:: sql
 
    CREATE TABLE IF NOT EXISTS buildings_bulk_load.related (
     area_bulk_load numeric(10, 2) NOT NULL,
