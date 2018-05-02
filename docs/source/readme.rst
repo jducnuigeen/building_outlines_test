@@ -14,6 +14,7 @@ File Structure
 * All other files needed for the automated Read The Docs system should be located in the /docs/source/ folders.
 * The _static folder is where logos, custom css and images are stored.
 * The SQL scripts which build schema must also have a name with the format "<name>_schema.sql"
+* The /sql folder can contain subfolders with additional schema sql build files
 
 .. code-block:: python
 
@@ -28,13 +29,38 @@ File Structure
 Files required
 ------------------
 
-* Within the /building_outlines/docs/source/ folder, there must be an .rst file for each schema being parsed, with a name format of 
-"<schema name>_schema.rst". 
-* 
+* Within the /building_outlines/docs/source/ folder, there must be an .rst file for each schema being parsed, with a name format of "<schema name>_schema.rst". 
+* On the first line of each schema .rst file, there should be a line as shown here to give the file a name for referencing:
 
+.. code-block:: python
 
-Assumptions:
-1. The line "create Tables" are not listed more than once for any one table
+   .. _buildings_schema:
+
+* An index.rst file must exist with the names of the above mentioned schema .rst files listed in the toctree without the .rst extension:
+
+.. code-block:: python
+
+   .. toctree::
+      :maxdepth: 3
+      :numbered:
+
+      introduction
+      data_model
+      buildings_schema
+      buildings_common_schema
+      buildings_bulk_load_schema
+      buildings_lds_schema
+
+* any .rst files named in the toctree above must exist in the /docs/source/ folder (ie introduction, data_model, etc)
+* a conf.py file containing setup and parsing scripts must be located in the /docs/source/ folder.
+
+Structure requirements of SQL schema build files:
+
+1. The SQL scripts which build schema must have a name with the format "<name>_schema.sql"
+
+1. Tables must be written with the following structure, and lines must end with an opening "(" bracket, and schema name and schema table name separated by a period:
+.. code-block:: python
+   CREATE TABLE IF NOT EXISTS buildings.lifecycle_stage (
 
 2. once created tables are listed their columns are not listed anywhere else other than immediately after the line "Create table"
 
