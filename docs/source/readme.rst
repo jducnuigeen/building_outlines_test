@@ -71,7 +71,7 @@ Structure requirements of SQL schema build files:
    CREATE TABLE IF NOT EXISTS buildings.use (
       use_id serial PRIMARY KEY,
       value character varying(40) NOT NULL
-   );
+      );
 
 4. Every schema, table, and column must have a comment describing it.
 
@@ -89,12 +89,13 @@ Structure requirements of SQL schema build files:
 
 6. Avoid using commas in any comments.
 
-7. Numeric data types must have a space after the comma before the scale value
+7. Numeric data types can have precision or scale values as single or double digits, but there cannot be a space in front of single digit precision values, and must have a space after the comma before the scale value, regardless of whether the scale value is single or double digit.
 
 .. code-block:: sql
    CREATE TABLE IF NOT EXISTS buildings_bulk_load.related (
     area_bulk_load numeric(10, 2) NOT NULL,
-    area_existing numeric(10, 2) NOT NULL
+    area_existing numeric(10, 12) NOT NULL,
+    area_overlap numeric(8, 2) NOT NULL
     );
 
 8. For table field comments which are foreign keys, they can either be written like 
