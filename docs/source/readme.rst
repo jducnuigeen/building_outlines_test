@@ -59,7 +59,9 @@ Structure requirements of SQL schema build files:
 1. The SQL scripts which build schema must have a name with the format "<name>_schema.sql"
 
 1. Tables must be written with the following structure, and lines must end with an opening "(" bracket, and schema name and schema table name separated by a period:
+
 .. code-block:: python
+
    CREATE TABLE IF NOT EXISTS buildings.lifecycle_stage (
 
 2. once created tables are listed their columns are not listed anywhere else other than immediately after the line "Create table"
