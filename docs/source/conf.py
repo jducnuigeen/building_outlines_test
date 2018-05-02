@@ -38,7 +38,8 @@ site_url = "http://building-outlines-test.readthedocs.io/en/latest/"
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.autosectionlabel'
+    'sphinx.ext.autosectionlabel',
+    'rst2pdf.pdfbuilder'
 ]
 
 # 'sphinx.ext.autosectionlabel'
