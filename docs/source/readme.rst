@@ -62,7 +62,7 @@ Structure requirements of SQL schema build files:
 
 .. code-block:: sql
 
-   CREATE TABLE IF NOT EXISTS buildings.lifecycle_stage ();
+ CREATE TABLE IF NOT EXISTS buildings.lifecycle_stage (
 
 3. Each table's columns must be listed in the lines immediately following the CREATE TABLE IF NOT EXISTS line, and within "()" brackets and ending with a semi-colon:
 
