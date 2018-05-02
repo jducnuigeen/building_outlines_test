@@ -60,7 +60,7 @@ Structure requirements of SQL schema build files:
 
 2. Tables must be written with the following structure, and lines must end with an opening "(" bracket, and schema name and schema table name separated by a period:
 
-.. code-block:: sql
+.. code-block:: Sql
 
    CREATE TABLE IF NOT EXISTS buildings.lifecycle_stage (
 
@@ -68,7 +68,7 @@ Structure requirements of SQL schema build files:
 
 .. code-block:: sql
 
-   CREATE TABLE IF NOT EXISTS buildings.use (
+  CREATE TABLE IF NOT EXISTS buildings.use (
       use_id serial PRIMARY KEY,
       value character varying(40) NOT NULL
       );
