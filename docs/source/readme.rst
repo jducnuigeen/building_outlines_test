@@ -16,7 +16,7 @@ File Structure
 * The SQL scripts which build schema must also have a name with the format "<name>_schema.sql"
 * The /sql folder can contain subfolders with additional schema sql build files
 
-.. code-block:: python
+.. code-block::
 
    /building_outlines/sql
    /building_outlines/requirements-docs.txt
@@ -38,7 +38,7 @@ Files required
 
 * An index.rst file must exist with the names of the above mentioned schema .rst files listed in the toctree without the .rst extension:
 
-.. code-block:: rst
+.. code-block::
 
    .. toctree::
       :maxdepth: 3
