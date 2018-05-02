@@ -64,7 +64,13 @@ Structure requirements of SQL schema build files:
 
    CREATE TABLE IF NOT EXISTS buildings.lifecycle_stage (
 
-2. once created tables are listed their columns are not listed anywhere else other than immediately after the line "Create table"
+2. Each table's columns must be listed in the lines immediately following the CREATE TABLE IF NOT EXISTS line, and within "()" brackets and ending with a semi-colon:
+
+.. code-block:: rst
+   CREATE TABLE IF NOT EXISTS buildings.use (
+      use_id serial PRIMARY KEY
+    , value character varying(40) NOT NULL
+   );
 
 3. Schema and table and column comments can be more than one line in the sql file, and must take the form of:
 "COMMENT ON COLUMN schema.table.column IS 'comment contents';
