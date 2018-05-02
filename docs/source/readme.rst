@@ -16,7 +16,7 @@ File Structure
 * The SQL scripts which build schema must also have a name with the format "<name>_schema.sql"
 * The /sql folder can contain subfolders with additional schema sql build files
 
-.. code-block::
+.. highlight:: sql
 
    /building_outlines/sql
    /building_outlines/requirements-docs.txt
