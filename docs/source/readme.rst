@@ -92,6 +92,7 @@ Structure requirements of SQL schema build files:
 7. Numeric data types can have precision or scale values as single or double digits, but there cannot be a space in front of single digit precision values, and must have a space after the comma before the scale value, regardless of whether the scale value is single or double digit.
 
 .. code-block:: sql
+
    CREATE TABLE IF NOT EXISTS buildings_bulk_load.related (
     area_bulk_load numeric(10, 2) NOT NULL,
     area_existing numeric(10, 12) NOT NULL,
