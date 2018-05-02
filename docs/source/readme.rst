@@ -32,13 +32,13 @@ Files required
 * Within the /building_outlines/docs/source/ folder, there must be an .rst file for each schema being parsed, with a name format of "<schema name>_schema.rst". 
 * On the first line of each schema .rst file, there should be a line as shown here to give the file a name for referencing:
 
-.. code-block:: python
+.. code-block:: rst
 
    .. _buildings_schema:
 
 * An index.rst file must exist with the names of the above mentioned schema .rst files listed in the toctree without the .rst extension:
 
-.. code-block:: python
+.. code-block:: rst
 
    .. toctree::
       :maxdepth: 3
@@ -58,32 +58,44 @@ Structure requirements of SQL schema build files:
 
 1. The SQL scripts which build schema must have a name with the format "<name>_schema.sql"
 
-1. Tables must be written with the following structure, and lines must end with an opening "(" bracket, and schema name and schema table name separated by a period:
+2. Tables must be written with the following structure, and lines must end with an opening "(" bracket, and schema name and schema table name separated by a period:
 
-.. code-block:: python
+.. code-block:: sql
 
    CREATE TABLE IF NOT EXISTS buildings.lifecycle_stage (
 
-2. Each table's columns must be listed in the lines immediately following the CREATE TABLE IF NOT EXISTS line, and within "()" brackets and ending with a semi-colon:
+3. Each table's columns must be listed in the lines immediately following the CREATE TABLE IF NOT EXISTS line, and within "()" brackets and ending with a semi-colon:
 
-.. code-block:: rst
+.. code-block:: sql
 
    CREATE TABLE IF NOT EXISTS buildings.use (
-      use_id serial PRIMARY KEY
-    , value character varying(40) NOT NULL
+      use_id serial PRIMARY KEY,
+      value character varying(40) NOT NULL
    );
 
-3. Schema and table and column comments can be more than one line in the sql file, and must take the form of:
-"COMMENT ON COLUMN schema.table.column IS 'comment contents';
-If they are more than one line, they must have matching single quotes containing the text on each line.
+4. Every schema, table, and column must have a comment describing it.
 
-4. Every schema, table, and column must have a comment.
+5. Schema and table and column comments should be formatted as below, ending with a semi-colon, and multiple lines can exist:
 
-5. SQL schema files must have the name of the schema followed by "_schema"
+.. code-block:: sql
+   COMMENT ON SCHEMA buildings IS 'The schema holds builing information. ';
 
-6. Avoid using commas in any comments
+   COMMENT ON TABLE buildings.lifecycle_stage IS
+   'Lookup table that holds all of the lifecycle stages for a building.';
+
+   COMMENT ON COLUMN buildings.buildings.begin_lifespan IS
+   'The date that the building was first captured in the system.'
+   ' This column cannot be null.';
+
+6. Avoid using commas in any comments.
 
 7. Numeric data types must have a space after the comma before the scale value
+
+.. code-block:: sql
+   CREATE TABLE IF NOT EXISTS buildings_bulk_load.related (
+    area_bulk_load numeric(10, 2) NOT NULL,
+    area_existing numeric(10, 2) NOT NULL
+    );
 
 8. For table field comments which are foreign keys, they can either be written like 
 	"Foreign key to the schema.table table", or
