@@ -99,7 +99,7 @@ Structure requirements of SQL schema build files:
     );
 
 8. For table field comments which are foreign keys, they can either be written like 
-	"Foreign key to the schema.table table", or
+	"Foreign key to the schema.table table",  or
 	"Unique identifier for the schema.tablename table and foreign key to the schema.table table."
 	The important part for the parsing script is the "foreign key to the " followed by "table", and the schema/table part must be separated by a period.
 
