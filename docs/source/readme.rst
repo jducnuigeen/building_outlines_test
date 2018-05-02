@@ -28,7 +28,8 @@ File Structure
 Files required
 ------------------
 
-* Within the /building_outlines/docs/source/ folder, there must be an .rst file for each schema being parsed, with a name format of "<schema name>_schema.rst". 
+* Within the /building_outlines/docs/source/ folder, there must be an .rst file for each schema being parsed, with a name format of 
+"<schema name>_schema.rst". 
 * 
 
 
