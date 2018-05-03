@@ -416,8 +416,9 @@ def get_column_comments(column_str, file_content):
         column_comment_result_clean_lower = column_comment_result_clean.lower().strip()
         if "foreign key to the" in column_comment_result_clean_lower:
             foreign_search = re.search(r"((.*)(?i)(foreign key to the\s))(.*\..*)\stable", column_comment_result_strip)
-            schema_and_table = foreign_search.group(4)
+            
             front_comment = foreign_search.group(1)
+            schema_and_table = foreign_search.group(4)
             schema_named, table_named = schema_and_table.split(".")
             spaced = table_named.replace("_", " ")
             hyphens = table_named.replace("_", "-")
