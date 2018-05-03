@@ -38,8 +38,7 @@ site_url = "http://building-outlines-test.readthedocs.io/en/latest/"
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.autosectionlabel',
-    'rst2pdf.pdfbuilder'
+    'sphinx.ext.autosectionlabel'
 ]
 
 # 'sphinx.ext.autosectionlabel'
@@ -419,10 +418,7 @@ def get_column_comments(column_str, file_content):
             foreign_search = re.search(r"((.*)(?i)(foreign key to the\s))(.*\..*)\stable", column_comment_result_strip)
             schema_and_table = foreign_search.group(4)
             front_comment = foreign_search.group(1)
-            print "front_comment early is:", front_comment
             schema_named, table_named = schema_and_table.split(".")
-            #table_named = foreign_search.group(2)
-
             spaced = table_named.replace("_", " ")
             hyphens = table_named.replace("_", "-")
             template_url = "`{schema_table} <https://building-outlines-test.readthedocs.io/en/latest/{schema_name}_schema.html#table-name-{table_name_hyphens}>`_"
@@ -431,7 +427,6 @@ def get_column_comments(column_str, file_content):
 
     if column_comment_search is None:
         column_comment_result_strip = " "
-    print "what is the return :", column_comment_result_strip
     return column_comment_result_strip
 
 
