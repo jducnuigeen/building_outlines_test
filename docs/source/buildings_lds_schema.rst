@@ -6,10 +6,6 @@
 {% endfilter %}
 **Description:** **{{ schema_gen_buildings_lds["comment"] }}**
 
-Additional Notes about this Schema
-------------------------------------
-* This schema is designed for specific purposes
-
 {% filter upper %}{{ schema_gen_buildings_lds["name"] }}{% endfilter %} Schema Details
 -----------------------------------------
 
