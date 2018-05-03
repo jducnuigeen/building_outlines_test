@@ -6,9 +6,6 @@
 {% endfilter %}
 **Description: {{ schema_gen_buildings_common["comment"] }}**
 
-Additional Notes about this Schema
-------------------------------------
-* This schema is designed for specific purposes
 
 {% filter upper %}{{ schema_gen_buildings_common["name"] }}{% endfilter %} Schema Details
 -----------------------------------------
@@ -19,6 +16,7 @@ Additional Notes about this Schema
 
 Table Name: {% filter upper %} {{ item.table_nam }} {% endfilter %}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	
 	
 	Description: {{ item.table_comment }}
 
