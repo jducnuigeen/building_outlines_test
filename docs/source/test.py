@@ -408,49 +408,29 @@ def get_column_comments(column_str, file_content):
     column_comment_str = r"COMMENT ON COLUMN " + column_str + r"\sIS([^\;]*)"
     column_comment_search = re.search(column_comment_str, file_content)
 
-
     if column_comment_search is not None:
         column_comment = column_comment_search.group(1)
         column_comment_result_clean = column_comment.replace("\r\n", "").replace("'", "").replace("\n", "")
         column_comment_result_strip = column_comment_result_clean.strip()
         column_comment_result_clean_lower = column_comment_result_clean.lower().strip()
-        print "1 column_comment_result_clean_lower is: ", column_comment_result_clean_lower
         if "foreign key to the" in column_comment_result_clean_lower:
-            print "am I inside?"
             foreign_search = re.search(r"(.*)(foreign key to the\s)(.*\..*)\stable(.*)", column_comment_result_strip, re.IGNORECASE)
             schema_and_table = foreign_search.group(3)
             schema_and_table_strip = schema_and_table.strip()
-            #print "schema_and_table is: ", schema_and_table
             front_comment = foreign_search.group(1)
-            print "front comment:" + "'" + front_comment + "'"
             end_comment = foreign_search.group(4)
-            print "end_comment:" + "'"+ end_comment + "'"
             foreign_key_comment = foreign_search.group(2)
             schema_named, table_named = schema_and_table.split(".")
             hyphens = table_named.replace("_", "-")
             template_url = "`{schema_table} <https://building-outlines-test.readthedocs.io/en/latest/{schema_name}_schema.html#table-name-{table_name_hyphens}>`_"
             foreign_link = template_url.format(schema_table=schema_and_table_strip, schema_name=schema_named, table_name_hyphens=hyphens)
-            #print "foreign_link is: ", foreign_link
-            #if foreign_search.group(1) and foreign_search.group(4):
             column_comment_result_strip = front_comment + foreign_key_comment + foreign_link + " table" + end_comment
-            #print "A"
-            #if (foreign_search.group(1) is None) and (foreign_search.group(4) is None):
-                #column_comment_result_strip = foreign_key_comment + foreign_link + "table"
-                #print "B"
-            #if foreign_search.group(1) and (foreign_search.group(4) is None):
-                #column_comment_result_strip = front_comment + foreign_key_comment + foreign_link + "table."
-                #print "C"
-            #if foreign_search.group(1) is None and foreign_search.group(4):
-                #column_comment_result_strip = foreign_key_comment + foreign_link + "table." + end_comment
-                #print "D"
 
 
     if column_comment_search is None:
         column_comment_result_strip = " "
-    print "2 column_comment_result_strip is: ", column_comment_result_strip
-    print "    "
-    print "    "
     return column_comment_result_strip
+
 
 
 # Get the columns for one table, which are listed across multiple lines
