@@ -58,7 +58,7 @@ Structure requirements of SQL schema build files:
 
 1. The SQL scripts which build schema must have a name with the format "<name>_schema.sql"
 
-2. Tables must be written with the following structure, and lines must end with an opening "(" bracket, and schema name and schema table name separated by a period:
+2. Tables must be created with the following structure, and lines must end with an opening "(" bracket, and schema name and schema table name separated by a period:
 
 .. code-block:: sql
 
@@ -100,14 +100,20 @@ Structure requirements of SQL schema build files:
     area_overlap numeric(8, 2) NOT NULL
     );
 
-8. For table field comments which are foreign keys, they can either be written like 
+8. For table column comments which are foreign keys, they can either be written like 
 	"Foreign key to the schema.table table",   or
 	"Unique identifier for the schema.tablename table and foreign key to the schema.table table."
 	The important part for the parsing script is the "foreign key to the " followed by "table", and the schema/table part must be separated by a period.
 
 9. The in order for the parsing linking to work, the names of the schema must be known in advance, and rst pages setup in advance according
-to the names of the schema. This must be hard coded into the index file, and appropriate links to pages setup. Therefore, the linking in item 8 above requires
-you to know the URL of the path to the appropriate schema pages in advance.
+to the names of the schema. This must be hard coded into the index.rst file, and appropriate links to pages setup. Therefore, the hyperlink to a table in item 8 above requires you to know the URL of the path to the appropriate schema pages in advance.
+For example, an URL anchor link to the building_outlines table in the buildings schema will look like this:
 
-10. 
+.. code-block:: sql
+
+   https://building-outlines-test.readthedocs.io/en/latest/buildings_schema.html#table-name-building-outlines
+
+The above hyperlink is only shown to help understand the structure of the hyperlinks. The parsing script automatically determines the schema and table names.
+
+
 

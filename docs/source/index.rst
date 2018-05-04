@@ -15,8 +15,3 @@ Table of Contents:
    buildings_lds_schema
 
 
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
