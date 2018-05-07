@@ -11,13 +11,13 @@ th {
 .wy-nav-content {
 	padding: 1.618em 3.236em;
     height: 100%;
+    max-width: 100%;
     margin: auto;
 
 }
 
-div.section#definitions td tr {
-	width: 50%;
-
+div.section#definitions td:nth-child(2) {
+	width: 40%;
 
 }
 
