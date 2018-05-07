@@ -66,7 +66,7 @@ Definitions
 
 .. table::
    :widths: auto
-   
+
 +-------------------+----------------------------------------------------------------------+
 | Term              | Description                                                          |
 +===================+======================================================================+
@@ -83,6 +83,7 @@ Definitions
 |                   | of a buildings which have been classified from remotely              |
 |                   | sensed information that identifies every building structure that is  |
 |                   | greater than 10 square meters and falls within an area of the        |
-|                   | capture of buildings.                                                |                                                       |
+|                   | capture of buildings.                                                |
+|                   |                                                                      |
 +-------------------+----------------------------------------------------------------------+
 
