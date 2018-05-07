@@ -103,7 +103,7 @@ Structure requirements of SQL schema build files:
 8. For table column comments which are foreign keys, they can either be written like 
 	"Foreign key to the schema.table table",   or
 	"Unique identifier for the schema.tablename table and foreign key to the schema.table table."
-	The important part for the parsing script is the "foreign key to the " followed by "table", and the schema/table part must be separated by a period.
+	The important part for the parsing script is the "foreign key to the " followed by "table", and the schema/table part must be separated by a period. This allows the script to correctly parse the schema and table name and link to the appropriate page containing that column reference.
 
 9. The in order for the parsing linking to work, the names of the schema must be known in advance, and rst pages setup in advance according
 to the names of the schema. This must be hard coded into the index.rst file, and appropriate links to pages setup. Therefore, the hyperlink to a table in item 8 above requires you to know the URL of the path to the appropriate schema pages in advance.
