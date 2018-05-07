@@ -16,6 +16,12 @@ th {
 
 }
 
+table.manual td {
+	width: 50%;
+
+
+}
+
 div.section p {
 	font-size: 100%;
 }
