@@ -17,7 +17,7 @@ th {
 }
 
 /* override table width restrictions */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 800px) {
 
    .wy-table-responsive table td {
       /* !important prevents the common CSS stylesheets from overriding
