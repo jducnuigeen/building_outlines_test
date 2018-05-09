@@ -8,6 +8,7 @@ Table of Contents:
    :numbered:
 
    introduction
+   published_data
    data_model
    buildings_schema
    buildings_common_schema
