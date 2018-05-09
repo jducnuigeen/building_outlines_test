@@ -1,4 +1,4 @@
-Building Outlines Data Dictionary
+NZ Buildings Data Dictionary
 =========================
 
 Table of Contents:

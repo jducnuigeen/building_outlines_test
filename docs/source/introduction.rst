@@ -6,7 +6,7 @@ Introduction
 Purpose
 -----------------------------
 
-This document provides detailed metadata (data dictionary) for the NZ Building Outlines data published on the LINZ Data Service.
+This document provides detailed metadata (data dictionary) for the NZ Buildings data published on the LINZ Data Service.
 
 Background
 ----------------------------
