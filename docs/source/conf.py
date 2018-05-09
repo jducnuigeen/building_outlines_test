@@ -57,7 +57,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Building Outlines Data Dictionary'
+project = u'NZ Buildings Data Dictionary'
 author = u'Land Information NZ'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -134,10 +134,10 @@ html_theme_options = {
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = 'Building Outlines Data Dictionary'
+html_title = 'NZ Buildings Data Dictionary'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = 'Building Outlines Data Dictionary'
+html_short_title = 'NZ Buildings Data Dictionary'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -214,7 +214,7 @@ html_show_copyright = False
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'BuildingOutlines'
+htmlhelp_basename = 'NZ_Buildings'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -235,10 +235,10 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
-latex_documents = [
-    (master_doc, 'BuildingOutlines.tex', u'Building Outlines Data Documentation',
-     u'LINZ', 'manual'),
-]
+#latex_documents = [
+#    (master_doc, 'BuildingOutlines.tex', u'Building Outlines Data Documentation',
+#     u'LINZ', 'manual'),
+#]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
@@ -266,7 +266,7 @@ latex_use_parts = True
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'buildingoutlinestest', u'Building Outlines Test Documentation',
+    (master_doc, 'buildings_data_dictionary', u'buildings_data_dictionary',
      [author], 1)
 ]
 
@@ -280,8 +280,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'BuildingOutlines', u'Building Outlines Documentation',
-     author, 'BuildingOutlines', 'One line description of project.',
+    (master_doc, 'buildings_data_dictionary', u'NZ Buildings Data Dictionary',
+     author, 'LINZ', 'Documentation for the NZ Buildings Dataset',
      'Miscellaneous'),
 ]
 
