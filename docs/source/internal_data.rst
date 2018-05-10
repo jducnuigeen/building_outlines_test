@@ -16,10 +16,10 @@ To enable changes between updates to be recorded and then queried using the LDS 
 This data model has been designed to manage building data with multiple representations, allowing for future enhancements in building data management. Not all of this data is currently available and data capture for these new fields will occur over time.
 
 
-**Schema:** **{{ schema_gen_buildings["name"] }}**
+**Schema: {{ schema_gen_buildings["name"] }}**
 ----------------------------------------------------
 
-**Description:** **{{ schema_gen_buildings["comment"] }}**
+**Description: {{ schema_gen_buildings["comment"] }}**
 
 
 {% for item in schema_tab_buildings  %}
@@ -28,6 +28,29 @@ This data model has been designed to manage building data with multiple represen
 Table: {{ item.table_nam }}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	
+Description: {{ item.table_comment }}
+
+		{% for table in item.table_columns %}{%  for column in table %}{{ column }}{% endfor %}
+		{% endfor %}
+	      
+		
+
+{% endfor %}
+
+
+
+**Schema: {{ schema_gen_buildings_common["name"] }}**
+-------------------------------------------------------
+
+**Description: {{ schema_gen_buildings_common["comment"] }}**
+
+
+{% for item in schema_tab_buildings_common  %}
+.. _table-name-{{item.table_nam}}:
+
+Table: {{ item.table_nam }}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Description: {{ item.table_comment }}
 
 		{% for table in item.table_columns %}{%  for column in table %}{{ column }}{% endfor %}
