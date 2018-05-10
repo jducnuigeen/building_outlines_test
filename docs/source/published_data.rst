@@ -22,9 +22,6 @@ This data model has been designed to manage building data with multiple represen
 
 **Description:** **{{ schema_gen_buildings_lds["comment"] }}**
 
-{% filter upper %}{{ schema_gen_buildings_lds["name"] }}{% endfilter %} Schema Details
------------------------------------------
-
 
 {% for item in schema_tab_buildings_lds  %}
 .. _table-name-{{item.table_nam}}:
