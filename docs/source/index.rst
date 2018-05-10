@@ -10,10 +10,5 @@ Table of Contents:
    introduction
    published_data
    internal_data
-   data_model
-   buildings_schema
-   buildings_common_schema
-   buildings_bulk_load_schema
-   buildings_lds_schema
 
 
