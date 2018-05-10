@@ -18,7 +18,7 @@ This data model has been designed to manage building data with multiple represen
 
 
 **Schema:** **{{ schema_gen_buildings_lds["name"] }}**
-=======================================
+--------------------------------------------------------
 
 **Description:** **{{ schema_gen_buildings_lds["comment"] }}**
 
