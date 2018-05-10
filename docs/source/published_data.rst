@@ -17,10 +17,10 @@ To enable changes between updates to be recorded and then queried using the LDS 
 This data model has been designed to manage building data with multiple representations, allowing for future enhancements in building data management. Not all of this data is currently available and data capture for these new fields will occur over time.
 
 
-**Schema:** **{{ schema_gen_buildings_lds["name"] }}**
+Schema: {{ schema_gen_buildings_lds["name"] }}
 --------------------------------------------------------
 
-**Description:** **{{ schema_gen_buildings_lds["comment"] }}**
+Description: {{ schema_gen_buildings_lds["comment"] }}
 
 
 {% for item in schema_tab_buildings_lds  %}
