@@ -9,6 +9,7 @@ Table of Contents:
 
    introduction
    published_data
+   internal_data
    data_model
    buildings_schema
    buildings_common_schema
