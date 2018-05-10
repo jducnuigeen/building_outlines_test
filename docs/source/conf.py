@@ -408,6 +408,7 @@ def get_tables(schema_out, sql_file_path):
 def get_column_comments(column_str, file_content):
     column_comment_str = r"COMMENT ON COLUMN " + column_str + r"\sIS([^\;]*)"
     column_comment_search = re.search(column_comment_str, file_content)
+    schema_check = column_str.split('.')[0]
 
     if column_comment_search is not None:
         column_comment = column_comment_search.group(1)
@@ -424,11 +425,15 @@ def get_column_comments(column_str, file_content):
                 foreign_key_comment = foreign_search.group(2)
                 schema_named, table_named = schema_and_table.split(".")
                 hyphens = table_named.replace("_", "-")
-                template_url = "`{schema_table} <https://building-outlines-test.readthedocs.io/en/latest/{schema_name}_schema.html#table-name-{table_name_hyphens}>`_"
-                foreign_link = template_url.format(schema_table=schema_and_table_strip, schema_name=schema_named, table_name_hyphens=hyphens)
-                column_comment_result_strip = front_comment + foreign_key_comment + foreign_link + " table" + end_comment
+                if schema_check == "buildings" or schema_check == "buildings_common" or schema_check == "buildings_bulk_load":
+                    template_url = "`{schema_table} <https://building-outlines-test.readthedocs.io/en/latest/internal_data.html#table-{table_name_hyphens}>`_"
+                    foreign_link = template_url.format(schema_table=schema_and_table_strip, table_name_hyphens=hyphens)
+                    column_comment_result_strip = front_comment + foreign_key_comment + foreign_link + " table" + end_comment
+                if schema_check == "buildings_lds":
+                    template_url = "`{schema_table} <https://building-outlines-test.readthedocs.io/en/latest/published_data.html#table-{table_name_hyphens}>`_"
+                    foreign_link = template_url.format(schema_table=schema_and_table_strip, table_name_hyphens=hyphens)
+                    column_comment_result_strip = front_comment + foreign_key_comment + foreign_link + " table" + end_comment
             else:
-                print"The parser search was expecting something in this column comment: ", column_comment_result_strip
                 column_comment_result_strip = " "
 
     if column_comment_search is None:
