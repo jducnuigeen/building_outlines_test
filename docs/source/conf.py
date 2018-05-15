@@ -453,7 +453,7 @@ def get_columns(table_str, file_content, this_table_columns):
     for column_details in columns_strip:
         pri_key_serial_search = re.search(r"(.*)\sserial PRIMARY KEY", column_details)
         pri_key_search = re.search(r"(.*)\sinteger PRIMARY KEY", column_details)
-        character_varying_search = re.search(r"(.*)\scharacter varying\((.*?)\)\s(?!NOT NULL)", column_details)  #does not contain "NOT NULL"
+        character_varying_search = re.search(r"(.*)\scharacter varying\((.*?)\)(?! NOT NULL)", column_details)  #does not contain "NOT NULL"
         character_varying_not_null_search = re.search(r"(.*)\scharacter varying\((.*?)\)\sNOT NULL", column_details)  #does contain "NOT NULL"
         timestamp_search = re.search(r"(.*)\stimestamptz(?! NOT NULL)", column_details)  #does not contain "NOT NULL"
         timestamp_not_null_search = re.search(r"^(.*)\stimestamptz\sNOT NULL.*", column_details)  #does contain "NOT NULL"
