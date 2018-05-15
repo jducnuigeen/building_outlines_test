@@ -446,7 +446,7 @@ def get_columns(table_str, file_content, this_table_columns):
 
     search_str = r"CREATE TABLE IF NOT EXISTS " + table_str + r"\s\(([^\;]*)\)\;"
     column_search = re.search(search_str, file_content)
-    columns = column_search.group(0)
+    columns = column_search.group(1)
     columns_strip = [x.strip() for x in columns.split("    ,")]
 
 

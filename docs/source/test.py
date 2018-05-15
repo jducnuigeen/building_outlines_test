@@ -577,6 +577,7 @@ def get_columns(table_str, file_content, this_table_columns):
             this_table_columns.append(this_column)
 
         elif integer_not_null_search is not None:
+            print "inside integer not null"
             this_column = []
             integer_column_name = integer_not_null_search.group(1)
             column_str = table_str + "." + integer_column_name
