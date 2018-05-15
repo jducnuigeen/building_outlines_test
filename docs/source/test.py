@@ -57,7 +57,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Building Outlines Data Dictionary'
+project = u'NZ Buildings Data Dictionary'
 author = u'Land Information NZ'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -134,10 +134,10 @@ html_theme_options = {
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = 'Building Outlines Data Dictionary'
+html_title = 'NZ Buildings Data Dictionary'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = 'Building Outlines Data Dictionary'
+html_short_title = 'NZ Buildings Data Dictionary'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -214,16 +214,16 @@ html_show_copyright = False
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'BuildingOutlines'
+htmlhelp_basename = 'NZ_Buildings'
 
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+'papersize': 'a4paper',
 
 # The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+'pointsize': '10pt',
 
 # Additional stuff for the LaTeX preamble.
 #'preamble': '',
@@ -235,10 +235,10 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
-latex_documents = [
-    (master_doc, 'BuildingOutlinesTest.tex', u'Building Outlines Test Documentation',
-     u'Jan Ducnuigeen', 'manual'),
-]
+#latex_documents = [
+#    (master_doc, 'BuildingOutlines.tex', u'Building Outlines Data Documentation',
+#     u'LINZ', 'manual'),
+#]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
@@ -246,7 +246,7 @@ latex_documents = [
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
-#latex_use_parts = False
+latex_use_parts = True
 
 # If true, show page references after internal links.
 #latex_show_pagerefs = False
@@ -266,7 +266,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'buildingoutlinestest', u'Building Outlines Test Documentation',
+    (master_doc, 'buildings_data_dictionary', u'buildings_data_dictionary',
      [author], 1)
 ]
 
@@ -280,8 +280,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'BuildingOutlines', u'Building Outlines Documentation',
-     author, 'BuildingOutlines', 'One line description of project.',
+    (master_doc, 'buildings_data_dictionary', u'NZ Buildings Data Dictionary',
+     author, 'LINZ', 'Documentation for the NZ Buildings Dataset',
      'Miscellaneous'),
 ]
 
@@ -404,12 +404,11 @@ def get_tables(schema_out, sql_file_path):
 
 
 # Get column comments which might contain multilines
+# If a column is a foreign key to another table, create hyperlinks to that RTD table
 def get_column_comments(column_str, file_content):
-    print "column_str is: ", column_str
     column_comment_str = r"COMMENT ON COLUMN " + column_str + r"\sIS([^\;]*)"
     column_comment_search = re.search(column_comment_str, file_content)
     schema_check = column_str.split('.')[0]
-    print "schema_check is: ", schema_check
 
     if column_comment_search is not None:
         column_comment = column_comment_search.group(1)
@@ -435,49 +434,55 @@ def get_column_comments(column_str, file_content):
                     foreign_link = template_url.format(schema_table=schema_and_table_strip, table_name_hyphens=hyphens)
                     column_comment_result_strip = front_comment + foreign_key_comment + foreign_link + " table" + end_comment
             else:
-                print"The parser search was expecting something in this column comment: ", column_comment_result_strip
                 column_comment_result_strip = " "
 
     if column_comment_search is None:
         column_comment_result_strip = " "
-    print "column_comment_result_strip is: ", column_comment_result_strip
     return column_comment_result_strip
 
 
-
-# Get the columns for one table, which are listed across multiple lines
+# Get the columns for one table, which are listed across multiple lines 
 def get_columns(table_str, file_content, this_table_columns):
 
     search_str = r"CREATE TABLE IF NOT EXISTS " + table_str + r"\s\(([^\;]*)\)\;"
     column_search = re.search(search_str, file_content)
-    columns = column_search.group(0)
-    columns_strip = [x.strip() for x in columns.split(",")]
+    columns = column_search.group(1)
+    print "columns: ", columns
+    columns_strip = [x.strip() for x in columns.split("    ,")]
+    print "columns_strip: ", columns_strip
 
 
     for column_details in columns_strip:
+        print "column_details: ", column_details
         pri_key_serial_search = re.search(r"(.*)\sserial PRIMARY KEY", column_details)
         pri_key_search = re.search(r"(.*)\sinteger PRIMARY KEY", column_details)
-        character_varying_search = re.search(r"(.*)\scharacter varying\((.*?)\)\s(?!NOT NULL)", column_details)  #does not contain "NOT NULL"
+        character_varying_search = re.search(r"(.*)\scharacter varying\((.*?)\)(?! NOT NULL)", column_details)  #does not contain "NOT NULL"
         character_varying_not_null_search = re.search(r"(.*)\scharacter varying\((.*?)\)\sNOT NULL", column_details)  #does contain "NOT NULL"
-        timestamp_search = re.search(r"(.*)\stimestamptz\s(?!NOT NULL)", column_details)  #does not contain "NOT NULL"
+        timestamp_search = re.search(r"(.*)\stimestamptz(?! NOT NULL)", column_details)  #does not contain "NOT NULL"
         timestamp_not_null_search = re.search(r"^(.*)\stimestamptz\sNOT NULL.*", column_details)  #does contain "NOT NULL"
-        integer_search = re.search(r"^(.*)\sinteger\s(?!NOT NULL)", column_details)  #does not contain "NOT NULL"
+        integer_search = re.search(r"^(.*)\sinteger(?!.*NOT NULL)", column_details)  #does not contain "NOT NULL"
         integer_not_null_search = re.search(r"^(.*)\sinteger\sNOT NULL.*", column_details)  #does contain "NOT NULL"
         numeric_search = re.search(r"(.*)\snumeric\((\d{1,2})\,\s(\d{1,2})\)\s(?!NOT NULL)", column_details)
         numeric_not_null_search = re.search(r"(.*)\snumeric\((\d{1,2})\,\s(\d{1,2}).*NOT NULL", column_details)
         shape = re.search(r"(shape).*geometry", column_details)
+        text_not_null_search = re.search(r"(.*)\stext NOT NULL", column_details)
+        text_search = re.search(r"(.*)\stext", column_details)
+        date_search = re.search(r"(.*)\sdate(?!.*NOT NULL)", column_details)  # does not contain NOT NULL
+        date_not_null_search = re.search(r"(.*)\sdate\sNOT NULL", column_details)  # contains NOT NULL
+        decimal_search = re.search(r"(.*)\sdecimal\((\d{1,2})\,\s(\d{1,2})\)(?! NOT NULL)", column_details)
+        decimal_not_null_search = re.search(r"(.*)\sdecimal\((\d{1,2})\,\s(\d{1,2}).*NOT NULL", column_details)
 
         if pri_key_serial_search is not None:
             this_column = []
             pri_key = pri_key_serial_search.group(1)
             pri_key2 = pri_key.strip()
-            pri_key_str = " **"+pri_key2+"** "
+            pri_key_str = " **" + pri_key2 + "** "
             column_str = table_str + "." + pri_key2
             this_column.append(pri_key_str)  #column Name
             this_column.append("integer")  #Data Type
-            this_column.append(" ")  # Length
-            this_column.append("32")  #Precision
-            this_column.append("0")  # Scale
+            this_column.append("32")  # Length
+            this_column.append(" ")  #Precision
+            this_column.append(" ")  # Scale
             this_column.append("No") # Allows Nulls
             column_comment_out = get_column_comments(column_str, file_content)
             this_column.append(column_comment_out)  # Description
@@ -487,13 +492,13 @@ def get_columns(table_str, file_content, this_table_columns):
             this_column = []
             pri_key = pri_key_search.group(1)
             pri_key2 = pri_key.strip()
-            pri_key_str = " **"+pri_key2+"** "
+            pri_key_str = " **" + pri_key2 + "** "
             column_str = table_str + "." + pri_key2
             this_column.append(pri_key_str)  #column Name
             this_column.append("integer")  #Data Type
-            this_column.append(" ")  # Length
-            this_column.append("32")  #Precision
-            this_column.append("0")  # Scale
+            this_column.append("32")  # Length
+            this_column.append(" ")  #Precision
+            this_column.append(" ")  # Scale
             this_column.append("No") # Allows Nulls
             column_comment_out = get_column_comments(column_str, file_content)
             this_column.append(column_comment_out)  # Description
@@ -563,9 +568,9 @@ def get_columns(table_str, file_content, this_table_columns):
             column_str = table_str + "." + integer_column_name
             this_column.append(integer_column_name) #column Name
             this_column.append("integer") #Data Type
-            this_column.append(" ") #Length
-            this_column.append("32") #Precision
-            this_column.append("0") #scale
+            this_column.append("32") #Length
+            this_column.append(" ") #Precision
+            this_column.append(" ") #scale
             this_column.append("Yes") # Allows Nulls
             column_comment_out = get_column_comments(column_str, file_content)
             this_column.append(column_comment_out) #Description
@@ -577,9 +582,9 @@ def get_columns(table_str, file_content, this_table_columns):
             column_str = table_str + "." + integer_column_name
             this_column.append(integer_column_name) #column Name
             this_column.append("integer") #Data Type
-            this_column.append(" ") #Length
-            this_column.append("32") #Precision
-            this_column.append("0") #scale
+            this_column.append("32") #Length
+            this_column.append(" ") #Precision
+            this_column.append(" ") #scale
             this_column.append("No") # Allows Nulls
             column_comment_out = get_column_comments(column_str, file_content)
             this_column.append(column_comment_out) #Description
@@ -592,7 +597,7 @@ def get_columns(table_str, file_content, this_table_columns):
             numeric_scale = numeric_search.group(3)
             column_str = table_str + "." + numeric_column_name
             this_column.append(numeric_column_name) #column Name
-            this_column.append("integer") #Data Type
+            this_column.append("numeric") #Data Type
             this_column.append(" ") #Length
             this_column.append(str(numeric_precision)) #Precision
             this_column.append(str(numeric_scale)) #scale
@@ -608,8 +613,8 @@ def get_columns(table_str, file_content, this_table_columns):
             numeric_scale = numeric_not_null_search.group(3)
             column_str = table_str + "." + numeric_column_name
             this_column.append(numeric_column_name) #column Name
-            this_column.append("integer") #Data Type
-            this_column.append(" ") #Length
+            this_column.append("numeric") #Data Type
+            this_column.append("32") #Length
             this_column.append(str(numeric_precision)) #Precision
             this_column.append(str(numeric_scale)) #scale
             this_column.append("No") # Allows Nulls
@@ -626,6 +631,94 @@ def get_columns(table_str, file_content, this_table_columns):
             this_column.append(" ") #Length
             this_column.append(" ") #Precision
             this_column.append(" ") #scale
+            this_column.append("No") # Allows Nulls
+            column_comment_out = get_column_comments(column_str, file_content)
+            this_column.append(column_comment_out) #Description
+            this_table_columns.append(this_column)
+
+        elif text_not_null_search is not None:
+            this_column = []
+            text_not_null_column_name = text_not_null_search.group(1)
+            column_str = table_str + "." + text_not_null_column_name
+            this_column.append(text_not_null_column_name) #column Name
+            this_column.append("text") #Data Type
+            this_column.append(" ") #Length
+            this_column.append(" ") #Precision
+            this_column.append(" ") #scale
+            this_column.append("No") # Allows Nulls
+            column_comment_out = get_column_comments(column_str, file_content)
+            this_column.append(column_comment_out) #Description
+            this_table_columns.append(this_column)
+
+        elif text_search is not None:
+            this_column = []
+            text_column_name = text_search.group(1)
+            column_str = table_str + "." + text_column_name
+            this_column.append(text_column_name) #column Name
+            this_column.append("text") #Data Type
+            this_column.append(" ") #Length
+            this_column.append(" ") #Precision
+            this_column.append(" ") #scale
+            this_column.append("Yes") # Allows Nulls
+            column_comment_out = get_column_comments(column_str, file_content)
+            this_column.append(column_comment_out) #Description
+            this_table_columns.append(this_column)
+
+        elif date_search is not None:
+            this_column = []
+            date_column_name = date_search.group(1)
+            column_str = table_str + "." + date_column_name
+            this_column.append(date_column_name) #column Name
+            this_column.append("date") #Data Type
+            this_column.append("4") #Length
+            this_column.append(" ") #Precision
+            this_column.append(" ") #scale
+            this_column.append("Yes") # Allows Nulls
+            column_comment_out = get_column_comments(column_str, file_content)
+            this_column.append(column_comment_out) #Description
+            this_table_columns.append(this_column)
+
+        elif date_not_null_search is not None:
+            this_column = []
+            date_not_null_column_name = date_not_null_search.group(1)
+            column_str = table_str + "." + date_not_null_column_name
+            this_column.append(date_not_null_column_name) #column Name
+            this_column.append("date") #Data Type
+            this_column.append("4") #Length
+            this_column.append(" ") #Precision
+            this_column.append(" ") #scale
+            this_column.append("No") # Allows Nulls
+            column_comment_out = get_column_comments(column_str, file_content)
+            this_column.append(column_comment_out) #Description
+            this_table_columns.append(this_column)
+
+        elif decimal_search is not None:
+            this_column = []
+            decimal_column_name = decimal_search.group(1)
+            numeric_precision = decimal_search.group(2)
+            numeric_scale = decimal_search.group(3)
+            column_str = table_str + "." + decimal_column_name
+            this_column.append(decimal_column_name) #column Name
+            this_column.append("decimal") #Data Type
+            this_column.append(" ") #Length
+            this_column.append(str(numeric_precision)) #Precision
+            this_column.append(str(numeric_scale)) #scale
+            this_column.append("Yes") # Allows Nulls
+            column_comment_out = get_column_comments(column_str, file_content)
+            this_column.append(column_comment_out) #Description
+            this_table_columns.append(this_column)
+
+        elif decimal_not_null_search is not None:
+            this_column = []
+            decimal_not_null_column_name = decimal_not_null_search.group(1)
+            numeric_precision = decimal_not_null_search.group(2)
+            numeric_scale = decimal_not_null_search.group(3)
+            column_str = table_str + "." + decimal_not_null_column_name
+            this_column.append(decimal_not_null_column_name) #column Name
+            this_column.append("decimal") #Data Type
+            this_column.append(" ") #Length
+            this_column.append(str(numeric_precision)) #Precision
+            this_column.append(str(numeric_scale)) #scale
             this_column.append("No") # Allows Nulls
             column_comment_out = get_column_comments(column_str, file_content)
             this_column.append(column_comment_out) #Description
@@ -668,3 +761,5 @@ def setup_html_context(files_to_read):
 files_to_read = get_filenames()
 
 context_out = setup_html_context(files_to_read)
+
+
