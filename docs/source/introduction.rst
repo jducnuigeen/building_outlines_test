@@ -52,6 +52,16 @@ Coverage Maps
 
 The building Outlines dataset will have national coverage in stages. Image 2 shows the current distribution of building outlines available on the LDS. Image 3 shows the upcoming distribution of building outlines coverage available by the end of 2018. Image 4 shows the future distribution of building outlines coverage.
 
++-------------------------------------------------------------+------------------------------------------------------------+
+| .. figure:: _static/current_building_outlines_coverage.jpg  | .. figure:: _static/upcoming_building_outlines_coverage.jpg|
+|    :scale: 80%                                              |    :scale: 80%                                             |
+|    :alt: current building outlines coverage                 |    :alt: upcoming bulding outlines coverage                |
+|    Image 2: Map of current national coverage                |    Image 3: Map of upcoming national coverage of           |
+|    of building outlines.                                    |    building outlines.                                      |
++-------------------------------------------------------------+------------------------------------------------------------+
+
+     
+
 .. figure:: _static/current_building_outlines_coverage.jpg
    :scale: 80%
    :alt: current building outlines coverage
