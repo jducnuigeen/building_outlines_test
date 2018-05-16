@@ -308,6 +308,7 @@ texinfo_documents = [
 
 
 
+
 def get_schema(sql_file_path):
     
     schema = {}  # This only hold the schema name and schema comment
@@ -433,8 +434,6 @@ def get_column_comments(column_str, file_content):
                     template_url = "`{schema_table} <https://building-outlines-test.readthedocs.io/en/latest/published_data.html#table-{table_name_hyphens}>`_"
                     foreign_link = template_url.format(schema_table=schema_and_table_strip, table_name_hyphens=hyphens)
                     column_comment_result_strip = front_comment + foreign_key_comment + foreign_link + " table" + end_comment
-            else:
-                column_comment_result_strip = " "
 
     if column_comment_search is None:
         column_comment_result_strip = " "
@@ -447,9 +446,7 @@ def get_columns(table_str, file_content, this_table_columns):
     search_str = r"CREATE TABLE IF NOT EXISTS " + table_str + r"\s\(([^\;]*)\)\;"
     column_search = re.search(search_str, file_content)
     columns = column_search.group(1)
-    print "columns: ", columns
     columns_strip = [x.strip() for x in columns.split("    ,")]
-    print "columns_strip: ", columns_strip
 
 
     for column_details in columns_strip:
@@ -577,7 +574,6 @@ def get_columns(table_str, file_content, this_table_columns):
             this_table_columns.append(this_column)
 
         elif integer_not_null_search is not None:
-            print "inside integer not null"
             this_column = []
             integer_column_name = integer_not_null_search.group(1)
             column_str = table_str + "." + integer_column_name
@@ -762,5 +758,4 @@ def setup_html_context(files_to_read):
 files_to_read = get_filenames()
 
 context_out = setup_html_context(files_to_read)
-
 
