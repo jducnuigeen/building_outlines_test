@@ -433,8 +433,8 @@ def get_column_comments(column_str, file_content):
                     template_url = "`{schema_table} <https://building-outlines-test.readthedocs.io/en/latest/published_data.html#table-{table_name_hyphens}>`_"
                     foreign_link = template_url.format(schema_table=schema_and_table_strip, table_name_hyphens=hyphens)
                     column_comment_result_strip = front_comment + foreign_key_comment + foreign_link + " table" + end_comment
-            else:
-                column_comment_result_strip = " "
+            #else:
+                #column_comment_result_strip = " "
 
     if column_comment_search is None:
         column_comment_result_strip = " "
