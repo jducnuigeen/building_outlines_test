@@ -47,6 +47,29 @@ Source Imagery
 
 Resolution of imagery used for capture of building outlines ranges from 50cm pixel resolution (0.5m GSD) to 10cm pixel resolution (0.1m GSD).
 
+Coverage Maps
+---------------------------
+
+The building Outlines dataset will have national coverage in stages. Image 2 shows the current distribution of building outlines available on the LDS. Image 3 shows the upcoming distribution of building outlines coverage available by the end of 2018. Image 4 shows the future distribution of building outlines coverage.
+
+-- figure:: _static/current_building_outlines_coverage.jpg
+   :scale: 50%
+   :alt: current building outlines coverage
+
+   Image 2: Map of current national coverage of building outlines.
+
+-- figure:: _static/upcoming_building_outlines_coverage.jpg
+   :scale: 50%
+   :alt: upcoming bulding outlines coverage
+
+   Image 3: Map of upcoming national coverage of building outlines.
+
+-- figure:: _static/future_building_outlines_coverage.jpg
+   :scale: 50%
+   :alt: future building outlines coverage
+
+   Image 4: Map of future national coverage of building outlines.
+
 
 Accuracy Specification
 ---------------------------
