@@ -61,25 +61,6 @@ The building Outlines dataset will have national coverage in stages. Image 2 sho
 |    of building outlines.                                    |    building outlines.                                       |    of building outlines.                                  |
 +-------------------------------------------------------------+-------------------------------------------------------------+-----------------------------------------------------------+
 
-     
-
-.. figure:: _static/current_building_outlines_coverage.jpg
-   :scale: 80%
-   :alt: current building outlines coverage
-
-   Image 2: Map of current national coverage of building outlines.
-
-.. figure:: _static/upcoming_building_outlines_coverage.jpg
-   :scale: 80%
-   :alt: upcoming bulding outlines coverage
-
-   Image 3: Map of upcoming national coverage of building outlines.
-
-.. figure:: _static/future_building_outlines_coverage.jpg
-   :scale: 80%
-   :alt: future building outlines coverage
-
-   Image 4: Map of future national coverage of building outlines.
 
 
 Accuracy Specification
