@@ -135,7 +135,7 @@ COMMENT ON COLUMN buildings.building_outlines.begin_lifespan IS
 COMMENT ON COLUMN buildings.building_outlines.end_lifespan IS
 'The date that the building outline was superceded, replaced or disused.';
 COMMENT ON COLUMN buildings.building_outlines.shape IS
-'Foreign key to the The geometry of the building outline.';
+'The geometry of the building outline.';
 
 -- Building Name
 
