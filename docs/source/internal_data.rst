@@ -15,6 +15,10 @@ To enable changes between updates to be recorded and then queried using the LDS 
 
 This data model has been designed to manage building data with multiple representations, allowing for future enhancements in building data management. Not all of this data is currently available and data capture for these new fields will occur over time.
 
+.. figure:: _static/nz-buildings-pgtap-db.svg
+   :scale: 50%
+   :alt: buildings database diagram
+
 
 Schema: {{ schema_gen_buildings["name"] }}
 ----------------------------------------------------
