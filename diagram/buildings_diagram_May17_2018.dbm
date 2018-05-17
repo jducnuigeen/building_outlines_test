@@ -28,7 +28,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<comment><![CDATA[PostGIS geometry, geography, and raster spatial types and functions]]></comment>
 </extension>
 
-<schema name="buildings_admin_bdys" rect-visible="true" fill-color="#e077c2">
+<schema name="buildings_admin_bdys" rect-visible="true" fill-color="#cee8ff">
 	<role name="jducnuigeen"/>
 </schema>
 
