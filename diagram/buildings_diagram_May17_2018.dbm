@@ -35,7 +35,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="nz_locality">
 	<schema name="buildings_admin_bdys"/>
 	<role name="jducnuigeen"/>
-	<position x="2298.81" y="50.0476"/>
+	<position x="49.7191" y="859.139"/>
 	<column name="id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
@@ -92,7 +92,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="territorial_authority">
 	<schema name="buildings_admin_bdys"/>
 	<role name="jducnuigeen"/>
-	<position x="2302.12" y="355.381"/>
+	<position x="53.0291" y="1164.47"/>
 	<column name="ogc_fid" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
@@ -2416,7 +2416,7 @@ END;
 <table name="nz_building_outlines">
 	<schema name="buildings_lds"/>
 	<role name="jducnuigeen"/>
-	<position x="2297.22" y="500.398"/>
+	<position x="2729.95" y="438.58"/>
 	<column name="building_outline_id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
