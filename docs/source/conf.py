@@ -502,7 +502,7 @@ def get_columns(table_str, file_content, this_table_columns):
 
         elif pri_key_integer_not_null_search is not None:
             this_column = []
-            pri_key = pri_key_search.group(1)
+            pri_key = pri_key_integer_not_null_search.group(1)
             pri_key2 = pri_key.strip()
             pri_key_str = " **" + pri_key2 + "** "
             column_str = table_str + "." + pri_key2
