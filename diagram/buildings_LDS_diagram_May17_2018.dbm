@@ -28,14 +28,14 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<comment><![CDATA[PostGIS geometry, geography, and raster spatial types and functions]]></comment>
 </extension>
 
-<schema name="buildings_admin_bdys" rect-visible="true" fill-color="#e077c2">
+<schema name="buildings_admin_bdys" rect-visible="true" fill-color="#cee8ff">
 	<role name="jducnuigeen"/>
 </schema>
 
-<table name="nz_locality">
+<table name="nz_locality" hide-ext-attribs="true">
 	<schema name="buildings_admin_bdys"/>
 	<role name="jducnuigeen"/>
-	<position x="2298.81" y="50.0476"/>
+	<position x="2323.81" y="163.048"/>
 	<column name="id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
@@ -89,10 +89,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<table name="territorial_authority">
+<table name="territorial_authority" hide-ext-attribs="true">
 	<schema name="buildings_admin_bdys"/>
 	<role name="jducnuigeen"/>
-	<position x="2302.12" y="355.381"/>
+	<position x="2327.12" y="468.381"/>
 	<column name="ogc_fid" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
@@ -2416,7 +2416,7 @@ END;
 <table name="nz_building_outlines">
 	<schema name="buildings_lds"/>
 	<role name="jducnuigeen"/>
-	<position x="2297.22" y="500.398"/>
+	<position x="43.22" y="868.398"/>
 	<column name="building_outline_id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
