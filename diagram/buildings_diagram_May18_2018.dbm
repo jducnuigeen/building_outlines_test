@@ -28,19 +28,27 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<comment><![CDATA[PostGIS geometry, geography, and raster spatial types and functions]]></comment>
 </extension>
 
-<schema name="buildings_admin_bdys" rect-visible="true" fill-color="#cee8ff">
+<schema name="buildings_admin_bdys" rect-visible="true" fill-color="#bdb209">
 	<role name="jducnuigeen"/>
 </schema>
 
-<table name="nz_locality">
+<sequence name="suburb_locality_suburb_locality_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
 	<schema name="buildings_admin_bdys"/>
 	<role name="jducnuigeen"/>
-	<position x="49.7191" y="858.139"/>
-	<column name="id" not-null="true">
+</sequence>
+
+<table name="suburb_locality">
+	<schema name="buildings_admin_bdys"/>
+	<role name="jducnuigeen"/>
+	<position x="50" y="50"/>
+	<column name="suburb_locality_id" not-null="true" sequence="buildings_admin_bdys.suburb_locality_suburb_locality_id_seq">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="parent_id">
-		<type name="numeric" length="10" precision="0"/>
+	<column name="external_suburb_locality_id">
+		<type name="integer" length="0"/>
 	</column>
 	<column name="suburb_4th">
 		<type name="character varying" length="60"/>
@@ -54,60 +62,44 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="suburb_1st">
 		<type name="character varying" length="60"/>
 	</column>
-	<column name="type_order">
-		<type name="numeric" length="10" precision="0"/>
-	</column>
-	<column name="type">
-		<type name="character varying" length="12"/>
-	</column>
-	<column name="city_id">
-		<type name="numeric" length="10" precision="0"/>
-	</column>
-	<column name="city_name">
-		<type name="character varying" length="60"/>
-	</column>
-	<column name="has_addres">
-		<type name="character varying" length="1"/>
-	</column>
-	<column name="start_date">
-		<type name="date" length="0"/>
-	</column>
-	<column name="end_date">
-		<type name="date" length="0"/>
-	</column>
-	<column name="major_id">
-		<type name="numeric" length="10" precision="0"/>
-	</column>
-	<column name="major_name">
-		<type name="character varying" length="80"/>
-	</column>
 	<column name="shape">
 		<type name="geometry" length="0"/>
 	</column>
-	<constraint name="nz_locality_pkey" type="pk-constr" table="buildings_admin_bdys.nz_locality">
-		<columns names="id" ref-type="src-columns"/>
+	<constraint name="suburb_locality_pkey" type="pk-constr" table="buildings_admin_bdys.suburb_locality">
+		<columns names="suburb_locality_id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
 <table name="territorial_authority">
 	<schema name="buildings_admin_bdys"/>
 	<role name="jducnuigeen"/>
-	<position x="53.0291" y="1163.47"/>
-	<column name="ogc_fid" not-null="true">
+	<position x="447.066" y="50"/>
+	<column name="territorial_authority_id" not-null="true" default-value="nextval('buildings_admin_bdys.territorial_authority_territorial_authority_id_seq'::regclass)">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="shape">
-		<type name="geometry" length="0"/>
+	<column name="external_territorial_authority_id">
+		<type name="integer" length="0"/>
 	</column>
 	<column name="name">
 		<type name="character varying" length="100"/>
 	</column>
+	<column name="shape">
+		<type name="geometry" length="0"/>
+	</column>
 	<constraint name="territorial_authority_pkey" type="pk-constr" table="buildings_admin_bdys.territorial_authority">
-		<columns names="ogc_fid" ref-type="src-columns"/>
+		<columns names="territorial_authority_id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
-<schema name="buildings_common" rect-visible="true" fill-color="#cfd3ca">
+<sequence name="territorial_authority_territorial_authority_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_admin_bdys"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<schema name="buildings_common" rect-visible="true" fill-color="#1b0414">
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[Schema that holds tables referenced in more than one other schema.]]></comment>
 </schema>
@@ -124,7 +116,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="buildings_common"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[Lookup table that holds all of the methods by which the geometry was captured.]]></comment>
-	<position x="578.285" y="622.381"/>
+	<position x="891.664" y="50"/>
 	<column name="capture_method_id" not-null="true" sequence="buildings_common.capture_method_capture_method_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the capture method.]]></comment>
@@ -142,7 +134,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="buildings_common"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[Lookup table that holds all of the capture source groups. Capture source groups are categories of data sources, e.g. NZ Aerial Imagery]]></comment>
-	<position x="87.2785" y="721.429"/>
+	<position x="1310.24" y="50"/>
 	<column name="capture_source_group_id" not-null="true" default-value="nextval('buildings_common.capture_source_group_capture_source_group_id_seq'::regclass)">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the capture source group.]]></comment>
@@ -180,7 +172,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="buildings_common"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[Lookup table that holds all of the methods by which the geometry was captured.]]></comment>
-	<position x="48.3396" y="572.857"/>
+	<position x="1775.51" y="50"/>
 	<column name="capture_source_id" not-null="true" sequence="buildings_common.capture_source_capture_source_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the capture source.]]></comment>
@@ -206,7 +198,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<schema name="buildings" rect-visible="true" fill-color="#cee8ff">
+<schema name="buildings" rect-visible="true" fill-color="#512290">
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[Schema that holds production buildings data.]]></comment>
 </schema>
@@ -219,11 +211,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="jducnuigeen"/>
 </sequence>
 
-<table name="lifecycle_stage" hide-ext-attribs="true">
+<table name="lifecycle_stage">
 	<schema name="buildings"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[Lookup table that holds all of the lifecycle stages for a building.]]></comment>
-	<position x="30.0388" y="465.238"/>
+	<position x="2288.7" y="50"/>
 	<column name="lifecycle_stage_id" not-null="true" sequence="buildings.lifecycle_stage_lifecycle_stage_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the lifecycle stage.]]></comment>
@@ -245,11 +237,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="jducnuigeen"/>
 </sequence>
 
-<table name="use" hide-ext-attribs="true">
+<table name="use">
 	<schema name="buildings"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[Lookup table that holds all of the uses for a building. These uses are the same as those used in the Topo50 map series.]]></comment>
-	<position x="99.7759" y="389.048"/>
+	<position x="2697" y="50"/>
 	<column name="use_id" not-null="true" sequence="buildings.use_use_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the use.]]></comment>
@@ -271,11 +263,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="jducnuigeen"/>
 </sequence>
 
-<table name="buildings" hide-ext-attribs="true">
+<table name="buildings">
 	<schema name="buildings"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[The building table maintains a unique identifier for a building. Over time, a building can be represented by multiple building outlines aligned to different imagery sources. These building outlines are linked via the building_id.]]></comment>
-	<position x="537.186" y="55.7143"/>
+	<position x="3029.6" y="50"/>
 	<column name="building_id" not-null="true" sequence="buildings.buildings_building_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the building.]]></comment>
@@ -301,11 +293,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="jducnuigeen"/>
 </sequence>
 
-<table name="building_outlines" hide-ext-attribs="true">
+<table name="building_outlines">
 	<schema name="buildings"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[The building_outline table holds a geometry, typically captured from an aerial photograph. A new record is created for each new outline that represents a building.]]></comment>
-	<position x="543.56" y="224.286"/>
+	<position x="3432.87" y="50"/>
 	<column name="building_outline_id" not-null="true" sequence="buildings.building_outlines_building_outline_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the building outline.]]></comment>
@@ -336,9 +328,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="territorial_authority_id" not-null="true">
 		<type name="integer" length="0"/>
+		<comment><![CDATA[Holds an external id for the territorial authority from the territorial_authority dataset.]]></comment>
 	</column>
 	<column name="begin_lifespan" not-null="true" default-value="now()">
 		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[The date that the building outline was added to the system.]]></comment>
 	</column>
 	<column name="end_lifespan">
 		<type name="timestamp with time zone" length="0" with-timezone="true"/>
@@ -401,11 +395,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="jducnuigeen"/>
 </sequence>
 
-<table name="building_name" hide-ext-attribs="true">
+<table name="building_name">
 	<schema name="buildings"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[The building_name table stores a name that is related to a building at a point in time. Names have an lifespan independent from the building - the name can change independent to any other changes to the building.]]></comment>
-	<position x="13.3391" y="134.762"/>
+	<position x="3907.53" y="50"/>
 	<column name="building_name_id" not-null="true" sequence="buildings.building_name_building_name_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for a building name.]]></comment>
@@ -447,11 +441,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="jducnuigeen"/>
 </sequence>
 
-<table name="building_use" hide-ext-attribs="true">
+<table name="building_use">
 	<schema name="buildings"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[The building_use table stores a use that is related to a building at a point in time. Uses have an lifespan independent from the building - the use can change independent to any other changes to the building.]]></comment>
-	<position x="15.753" y="260.937"/>
+	<position x="2288.7" y="430.937"/>
 	<column name="building_use_id" not-null="true" sequence="buildings.building_use_building_use_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for a building_use.]]></comment>
@@ -501,11 +495,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="jducnuigeen"/>
 </sequence>
 
-<table name="lifecycle" hide-ext-attribs="true">
+<table name="lifecycle">
 	<schema name="buildings"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[The lifecycle table stores the relationship between buildings when one building is split into two buildings or two buildings are merged into one building. This will generally occur when a building outline was erroneously captured encompassing two buildings, which later becomes clear with additional aerial imagery.]]></comment>
-	<position x="21.0741" y="32.3657"/>
+	<position x="2709.02" y="430.937"/>
 	<column name="lifecycle_id" not-null="true" sequence="buildings.lifecycle_lifecycle_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for a building_use.]]></comment>
@@ -539,7 +533,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<schema name="buildings_bulk_load" rect-visible="true" fill-color="#bbbbbb">
+<schema name="buildings_bulk_load" rect-visible="true" fill-color="#2f9c54">
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[Schema that holds building outlines data while quality assurance is conducted. Data is also prepared to be loaded into production.]]></comment>
 </schema>
@@ -552,11 +546,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="jducnuigeen"/>
 </sequence>
 
-<table name="organisation" hide-ext-attribs="true">
+<table name="organisation">
 	<schema name="buildings_bulk_load"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[This is a lookup table that holds names of organisations that are related to buildings data. All suppliers of building outlines data must be recorded here.]]></comment>
-	<position x="1544.29" y="445.541"/>
+	<position x="50" y="663.874"/>
 	<column name="organisation_id" not-null="true" sequence="buildings_bulk_load.organisation_organisation_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the organisation table.]]></comment>
@@ -578,11 +572,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="jducnuigeen"/>
 </sequence>
 
-<table name="bulk_load_status" hide-ext-attribs="true">
+<table name="bulk_load_status">
 	<schema name="buildings_bulk_load"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[This is a lookup table that holds the status of building outlines through the bulk load process.]]></comment>
-	<position x="1042.65" y="536.017"/>
+	<position x="444.096" y="663.874"/>
 	<column name="bulk_load_status_id" not-null="true" sequence="buildings_bulk_load.bulk_load_status_bulk_load_status_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the bulk_load_status table.]]></comment>
@@ -604,11 +598,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="jducnuigeen"/>
 </sequence>
 
-<table name="qa_status" hide-ext-attribs="true">
+<table name="qa_status">
 	<schema name="buildings_bulk_load"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[This is a lookup table that holds the status of building outlines during QA of the bulk load process.]]></comment>
-	<position x="1930.61" y="176.969"/>
+	<position x="865.473" y="663.874"/>
 	<column name="qa_status_id" not-null="true" sequence="buildings_bulk_load.qa_status_qa_status_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the qa_status table.]]></comment>
@@ -630,11 +624,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="jducnuigeen"/>
 </sequence>
 
-<table name="supplied_datasets" hide-ext-attribs="true">
+<table name="supplied_datasets">
 	<schema name="buildings_bulk_load"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[This table records information about datasets supplied to LINZ for bulk load into the buildings system.]]></comment>
-	<position x="1538.33" y="322.684"/>
+	<position x="1239.32" y="663.874"/>
 	<column name="supplied_dataset_id" not-null="true" sequence="buildings_bulk_load.supplied_datasets_supplied_dataset_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the supplied_datasets table.]]></comment>
@@ -676,11 +670,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="jducnuigeen"/>
 </sequence>
 
-<table name="bulk_load_outlines" hide-ext-attribs="true">
+<table name="bulk_load_outlines">
 	<schema name="buildings_bulk_load"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[This dataset contains all building outline geometries as they are received from the supplier, in addition to any new building outlines added during QA of that particular bulk load. A number of attributes are first connected to the building outline in this table, which are later loaded into the production buildings schema.]]></comment>
-	<position x="1009.29" y="328.398"/>
+	<position x="1670.88" y="663.874"/>
 	<column name="bulk_load_outline_id" not-null="true" sequence="buildings_bulk_load.bulk_load_outlines_bulk_load_outline_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the bulk_load_outlines table.]]></comment>
@@ -770,11 +764,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<table name="existing_subset_extracts" hide-ext-attribs="true">
+<table name="existing_subset_extracts">
 	<schema name="buildings_bulk_load"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[This table contains extracts of production building outlines over the same area covered by a new bulk load of building outlines data. Each set of extracted building outlines is related to the new bulk load via the supplied_dataset_id.]]></comment>
-	<position x="1034.76" y="26.0018"/>
+	<position x="50" y="1044.81"/>
 	<column name="building_outline_id" not-null="true">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the existing_subset_extracts table and foreign key to the buildings.building_outlines table.]]></comment>
@@ -808,11 +802,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<table name="added" hide-ext-attribs="true">
+<table name="added">
 	<schema name="buildings_bulk_load"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[This table holds the building outlines that have been identified as new buildings within the building outlines dataset.]]></comment>
-	<position x="1542.66" y="511.716"/>
+	<position x="574.808" y="1044.81"/>
 	<column name="bulk_load_outline_id" not-null="true">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the added table and foreign key to the buildings_bulk_load.bulk_load_outlines table.]]></comment>
@@ -834,11 +828,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<table name="removed" hide-ext-attribs="true">
+<table name="removed">
 	<schema name="buildings_bulk_load"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[This table holds the building outlines that have been identified as no longer existing. These building outlines were within the area of capture but were not found in a more recent capture process.]]></comment>
-	<position x="1536.63" y="244.097"/>
+	<position x="991.413" y="1044.81"/>
 	<column name="building_outline_id" not-null="true">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the removed table and foreign key to the buildings_bulk_load.existing_subset_extracts table.]]></comment>
@@ -868,11 +862,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<role name="jducnuigeen"/>
 </sequence>
 
-<table name="related" hide-ext-attribs="true">
+<table name="related">
 	<schema name="buildings_bulk_load"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[This table holds potential m:n matches between outlines that have been loaded into the system in bulk and those that already exist.]]></comment>
-	<position x="1541.77" y="592.668"/>
+	<position x="1414.78" y="1044.81"/>
 	<column name="related_id" not-null="true" sequence="buildings_bulk_load.related_related_id_seq">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the related table.]]></comment>
@@ -945,11 +939,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<table name="matched" hide-ext-attribs="true">
+<table name="matched">
 	<schema name="buildings_bulk_load"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[This table holds potential 1:1 matches between outlines that have been loaded into the system in bulk and those that already exist.]]></comment>
-	<position x="1516.48" y="18.3827"/>
+	<position x="1851.82" y="1044.81"/>
 	<column name="bulk_load_outline_id" not-null="true">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Foreign key to the buildings_bulk_load.bulk_load_outlines table.]]></comment>
@@ -1004,11 +998,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		</idxelement>
 </index>
 
-<table name="transferred" hide-ext-attribs="true">
+<table name="transferred">
 	<schema name="buildings_bulk_load"/>
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[This table holds the building_outline_id that was created for each bulk loaded building outline tranferred to production.]]></comment>
-	<position x="1034.76" y="136.51"/>
+	<position x="50" y="1411.75"/>
 	<column name="bulk_load_outline_id" not-null="true">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Unique identifier for the transferred table and foreign key to the buildings_bulk_load.bulk_load_outlines table.]]></comment>
@@ -1728,248 +1722,7 @@ END;
 ]]></definition>
 </function>
 
-<usertype name="geometry" configuration="base"
- internal-length="0" by-value="false"
- alignment="double precision" storage="main"
- delimiter=":"
- category="U" sql-disabled="true">
-	<schema name="public"/>
-	<role name="jducnuigeen"/>
-	<comment><![CDATA[postgis type: Planar spatial data type.]]></comment>
-</usertype>
-
-<function name="fn_suburb_locality_intersect_poly"
-		window-func="false"
-		returns-setof="false"
-		behavior-type="CALLED ON NULL INPUT"
-		function-type="VOLATILE"
-		security-type="SECURITY INVOKER"
-		execution-cost="100"
-		row-amount="0">
-	<schema name="buildings"/>
-	<role name="jducnuigeen"/>
-	<language name="sql" sql-disabled="true"/>
-	<return-type>
-	<type name="integer" length="1"/>
-	</return-type>
-	<parameter name="p_polygon_geometry">
-		<type name="public.geometry" length="0"/>
-	</parameter>
-	<definition><![CDATA[
-    
-    SELECT   nzl.id
-    FROM     buildings_admin_bdys.nz_locality nzl
-    WHERE    ST_Intersects(
-                   p_polygon_geometry
-                 , nzl.shape
-             )
-    ORDER BY ST_Area( 
-                 ST_Intersection( 
-                       p_polygon_geometry
-                     , nzl.shape
-                 ) 
-             ) / ST_Area(nzl.shape) DESC
-    LIMIT    1;
-
-]]></definition>
-</function>
-
-<function name="fn_bulk_load_outlines_update_suburb"
-		window-func="false"
-		returns-setof="false"
-		behavior-type="CALLED ON NULL INPUT"
-		function-type="VOLATILE"
-		security-type="SECURITY INVOKER"
-		execution-cost="100"
-		row-amount="0">
-	<schema name="buildings"/>
-	<role name="jducnuigeen"/>
-	<language name="plpgsql" sql-disabled="true"/>
-	<return-type>
-	<type name="integer" length="1"/>
-	</return-type>
-	<parameter name="p_supplied_dataset_id">
-		<type name="integer" length="0"/>
-	</parameter>
-	<definition><![CDATA[
-
-DECLARE
-    v_rows_updated integer;
-
-BEGIN
-
-    UPDATE buildings_bulk_load.bulk_load_outlines outlines
-    SET suburb_locality_id = nzl_intersect.fn_suburb_locality_intersect_poly
-    FROM (
-        SELECT buildings.fn_suburb_locality_intersect_poly(outlines.shape), outlines.id
-        FROM buildings_bulk_load.bulk_load_outlines outlines
-    ) nzl_intersect
-    WHERE outlines.id = nzl_intersect.bulk_load_outline_id AND outlines.supplied_dataset_id = p_supplied_dataset_id;
-
-    GET DIAGNOSTICS v_rows_updated = ROW_COUNT;
-
-    RETURN v_rows_updated;
-
-END;
-
-]]></definition>
-</function>
-
-<function name="fn_town_city_locality_intersect_poly"
-		window-func="false"
-		returns-setof="false"
-		behavior-type="CALLED ON NULL INPUT"
-		function-type="VOLATILE"
-		security-type="SECURITY INVOKER"
-		execution-cost="100"
-		row-amount="0">
-	<schema name="buildings"/>
-	<role name="jducnuigeen"/>
-	<language name="sql" sql-disabled="true"/>
-	<return-type>
-	<type name="numeric" length="1"/>
-	</return-type>
-	<parameter name="p_polygon_geometry">
-		<type name="public.geometry" length="0"/>
-	</parameter>
-	<definition><![CDATA[
-    
-    SELECT   nzl.city_id
-    FROM     buildings_admin_bdys.nz_locality nzl
-    WHERE    ST_Intersects(
-                   p_polygon_geometry
-                 , nzl.shape
-             )
-    ORDER BY ST_Area( 
-                 ST_Intersection( 
-                       p_polygon_geometry
-                     , nzl.shape
-                 ) 
-             ) / ST_Area(nzl.shape) DESC
-    LIMIT    1;
-
-]]></definition>
-</function>
-
-<function name="fn_bulk_load_outlines_update_town_city"
-		window-func="false"
-		returns-setof="false"
-		behavior-type="CALLED ON NULL INPUT"
-		function-type="VOLATILE"
-		security-type="SECURITY INVOKER"
-		execution-cost="100"
-		row-amount="0">
-	<schema name="buildings"/>
-	<role name="jducnuigeen"/>
-	<language name="plpgsql" sql-disabled="true"/>
-	<return-type>
-	<type name="integer" length="1"/>
-	</return-type>
-	<parameter name="p_supplied_dataset_id">
-		<type name="integer" length="0"/>
-	</parameter>
-	<definition><![CDATA[
-
-DECLARE
-    v_rows_updated integer;
-
-BEGIN
-
-    UPDATE buildings_bulk_load.bulk_load_outlines outlines
-    SET town_city_id = nzl_intersect.fn_town_city_locality_intersect_poly
-    FROM (
-        SELECT buildings.fn_town_city_locality_intersect_poly(outlines.shape), outlines.id
-        FROM buildings_bulk_load.bulk_load_outlines outlines
-    ) nzl_intersect
-    WHERE outlines.id = nzl_intersect.bulk_load_outline_id AND outlines.supplied_dataset_id = p_supplied_dataset_id;
-
-    GET DIAGNOSTICS v_rows_updated = ROW_COUNT;
-
-    RETURN v_rows_updated;
-
-END;
-
-]]></definition>
-</function>
-
-<function name="fn_territorial_authority_locality_intersect_poly"
-		window-func="false"
-		returns-setof="false"
-		behavior-type="CALLED ON NULL INPUT"
-		function-type="VOLATILE"
-		security-type="SECURITY INVOKER"
-		execution-cost="100"
-		row-amount="0">
-	<schema name="buildings"/>
-	<role name="jducnuigeen"/>
-	<language name="sql" sql-disabled="true"/>
-	<return-type>
-	<type name="integer" length="1"/>
-	</return-type>
-	<parameter name="p_polygon_geometry">
-		<type name="public.geometry" length="0"/>
-	</parameter>
-	<definition><![CDATA[
-    
-    SELECT   nzl.ogc_fid
-    FROM     buildings_admin_bdys.territorial_authority nzl
-    WHERE    ST_Intersects(
-                   p_polygon_geometry
-                 , nzl.shape
-             )
-    ORDER BY ST_Area( 
-                 ST_Intersection( 
-                       p_polygon_geometry
-                     , nzl.shape
-                 ) 
-             ) / ST_Area(nzl.shape) DESC
-    LIMIT    1;
-
-]]></definition>
-</function>
-
-<function name="fn_bulk_load_outlines_update_territorial_authority"
-		window-func="false"
-		returns-setof="false"
-		behavior-type="CALLED ON NULL INPUT"
-		function-type="VOLATILE"
-		security-type="SECURITY INVOKER"
-		execution-cost="100"
-		row-amount="0">
-	<schema name="buildings"/>
-	<role name="jducnuigeen"/>
-	<language name="plpgsql" sql-disabled="true"/>
-	<return-type>
-	<type name="integer" length="1"/>
-	</return-type>
-	<parameter name="p_supplied_dataset_id">
-		<type name="integer" length="0"/>
-	</parameter>
-	<definition><![CDATA[
-
-DECLARE
-    v_rows_updated integer;
-
-BEGIN
-
-    UPDATE buildings_bulk_load.bulk_load_outlines outlines
-    SET town_city_id = nzl_intersect.fn_territorial_authority_locality_intersect_poly
-    FROM (
-        SELECT buildings.fn_territorial_authority_locality_intersect_poly(outlines.shape), outlines.id
-        FROM buildings_bulk_load.bulk_load_outlines outlines
-    ) nzl_intersect
-    WHERE outlines.id = nzl_intersect.bulk_load_outline_id AND outlines.supplied_dataset_id = p_supplied_dataset_id;
-
-    GET DIAGNOSTICS v_rows_updated = ROW_COUNT;
-
-    RETURN v_rows_updated;
-
-END;
-
-]]></definition>
-</function>
-
-<function name="fn_buildings_insert"
+<function name="buildings_insert"
 		window-func="false"
 		returns-setof="false"
 		behavior-type="CALLED ON NULL INPUT"
@@ -1998,7 +1751,17 @@ END;
 ]]></definition>
 </function>
 
-<function name="fn_building_outlines_insert"
+<usertype name="geometry" configuration="base"
+ internal-length="0" by-value="false"
+ alignment="double precision" storage="main"
+ delimiter=":"
+ category="U" sql-disabled="true">
+	<schema name="public"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[postgis type: Planar spatial data type.]]></comment>
+</usertype>
+
+<function name="building_outlines_insert"
 		window-func="false"
 		returns-setof="false"
 		behavior-type="CALLED ON NULL INPUT"
@@ -2070,7 +1833,7 @@ END;
 ]]></definition>
 </function>
 
-<function name="fn_lifecycle_stage_insert"
+<function name="lifecycle_stage_insert"
 		window-func="false"
 		returns-setof="false"
 		behavior-type="CALLED ON NULL INPUT"
@@ -2103,7 +1866,7 @@ END;
 ]]></definition>
 </function>
 
-<function name="fn_bulk_load_outlines_insert"
+<function name="bulk_load_outlines_insert"
 		window-func="false"
 		returns-setof="false"
 		behavior-type="CALLED ON NULL INPUT"
@@ -2166,10 +1929,10 @@ END;
         , p_bulk_load_status_id
         , p_capture_method_id
         , p_capture_source_id
-        , NULL --p_suburb_locality_id
-        , NULL --p_town_city_id
-        , NULL --p_territorial_authority_id
-        , now() --p_begin_lifespan
+        , p_suburb_locality_id
+        , p_town_city_id
+        , p_territorial_authority_id
+        , now()
         , p_shape
     )
     RETURNING bulk_load_outline_id;
@@ -2177,7 +1940,7 @@ END;
 ]]></definition>
 </function>
 
-<function name="fn_existing_subset_extract_insert"
+<function name="existing_subset_extracts_insert"
 		window-func="false"
 		returns-setof="false"
 		behavior-type="CALLED ON NULL INPUT"
@@ -2187,7 +1950,7 @@ END;
 		row-amount="0">
 	<schema name="buildings_bulk_load"/>
 	<role name="jducnuigeen"/>
-	<language name="plpgsql" sql-disabled="true"/>
+	<language name="sql" sql-disabled="true"/>
 	<return-type>
 	<type name="integer" length="1"/>
 	</return-type>
@@ -2201,32 +1964,25 @@ END;
 		<type name="public.geometry" length="0"/>
 	</parameter>
 	<definition><![CDATA[
-
-DECLARE
-    v_rows_updated integer;
-
-BEGIN
-
-    INSERT INTO buildings_bulk_load.existing_subset_extract(
-          building_outline_id
-        , supplied_dataset_id
-        , shape
+    WITH insert_subset_extracts AS(
+        INSERT INTO buildings_bulk_load.existing_subset_extracts(
+              building_outline_id
+            , supplied_dataset_id
+            , shape
+        )
+        VALUES (
+              p_building_outline_id
+            , p_supplied_dataset_id
+            , p_shape
+        )
+        RETURNING *
     )
-    VALUES (
-          p_building_outline_id
-        , p_supplied_dataset_id
-        , p_shape
-    );
-
-    GET DIAGNOSTICS v_rows_updated = ROW_COUNT;
-
-    RETURN v_rows_updated;
-END;
+    SELECT count(*)::integer FROM insert_subset_extracts
 
 ]]></definition>
 </function>
 
-<function name="fn_supplied_datasets_insert"
+<function name="supplied_datasets_insert"
 		window-func="false"
 		returns-setof="false"
 		behavior-type="CALLED ON NULL INPUT"
@@ -2267,7 +2023,7 @@ END;
 ]]></definition>
 </function>
 
-<function name="fn_organisation_insert"
+<function name="organisation_insert"
 		window-func="false"
 		returns-setof="false"
 		behavior-type="CALLED ON NULL INPUT"
@@ -2300,7 +2056,7 @@ END;
 ]]></definition>
 </function>
 
-<function name="fn_capture_source_insert"
+<function name="capture_source_insert"
 		window-func="false"
 		returns-setof="false"
 		behavior-type="CALLED ON NULL INPUT"
@@ -2338,7 +2094,7 @@ END;
 ]]></definition>
 </function>
 
-<function name="fn_capture_method_insert"
+<function name="capture_method_insert"
 		window-func="false"
 		returns-setof="false"
 		behavior-type="CALLED ON NULL INPUT"
@@ -2371,7 +2127,7 @@ END;
 ]]></definition>
 </function>
 
-<function name="fn_capture_source_group_insert"
+<function name="capture_source_group_insert"
 		window-func="false"
 		returns-setof="false"
 		behavior-type="CALLED ON NULL INPUT"
@@ -2408,7 +2164,7 @@ END;
 ]]></definition>
 </function>
 
-<schema name="buildings_lds" rect-visible="true" fill-color="#412035">
+<schema name="buildings_lds" rect-visible="true" fill-color="#9a8fdb">
 	<role name="jducnuigeen"/>
 	<comment><![CDATA[Schema that holds tables that will be published via the LINZ Data Service.]]></comment>
 </schema>
@@ -2416,7 +2172,7 @@ END;
 <table name="nz_building_outlines">
 	<schema name="buildings_lds"/>
 	<role name="jducnuigeen"/>
-	<position x="2729.95" y="438.58"/>
+	<position x="2296.79" y="663.874"/>
 	<column name="building_outline_id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
@@ -2463,82 +2219,6 @@ END;
 		<type name="public.geometry" length="0"/>
 	</column>
 </table>
-
-<function name="populate_buildings_lds"
-		window-func="false"
-		returns-setof="false"
-		behavior-type="CALLED ON NULL INPUT"
-		function-type="VOLATILE"
-		security-type="SECURITY INVOKER"
-		execution-cost="100"
-		row-amount="0">
-	<schema name="buildings_lds"/>
-	<role name="jducnuigeen"/>
-	<language name="plpgsql" sql-disabled="true"/>
-	<return-type>
-	<type name="integer" length="1"/>
-	</return-type>
-	<definition><![CDATA[
-
-DECLARE
-    v_rows_updated integer;
-
-BEGIN
-
-    INSERT INTO buildings_lds.nz_building_outlines (
-          building_outline_id
-        , building_id
-        , name
-        , use
-        , suburb_locality
-        , town_city
-        , territorial_authority
-        , capture_method
-        , capture_source
-        , lifecycle_stage
-        , outline_begin_lifespan
-        , building_begin_lifespan
-        , shape
-    )
-    SELECT
-          building_outlines.building_outline_id
-        , building_outlines.building_id
-        , building_name.building_name
-        , use.value
-        , nz_locality.suburb_4th
-        , nz_locality.city_name
-        , territorial_authority.name
-        , capture_method.value
-        , capture_source_group.value
-        , lifecycle_stage.value
-        , building_outlines.begin_lifespan
-        , buildings.begin_lifespan
-        , building_outlines.shape
-    FROM buildings.building_outlines
-    JOIN buildings.buildings USING (building_id)
-    LEFT JOIN buildings.building_name USING (building_id)
-    LEFT JOIN buildings.building_use USING (building_id)
-    LEFT JOIN buildings.use USING (use_id)
-    JOIN buildings.lifecycle_stage USING (lifecycle_stage_id)
-    JOIN buildings_common.capture_method USING (capture_method_id)
-    JOIN buildings_common.capture_source USING (capture_source_id)
-    JOIN buildings_common.capture_source_group USING (capture_source_group_id)
-    JOIN buildings_admin_bdys.nz_locality ON nz_locality.id = building_outlines.suburb_locality_id
-    JOIN buildings_admin_bdys.territorial_authority ON territorial_authority.ogc_fid = building_outlines.territorial_authority_id
-    WHERE building_outlines.end_lifespan IS NULL
-    AND buildings.end_lifespan IS NULL
-    AND building_name.end_lifespan IS NULL
-    AND building_use.end_lifespan IS NULL
-    ORDER BY building_outlines.building_outline_id;
-
-    GET DIAGNOSTICS v_rows_updated = ROW_COUNT;
-
-    RETURN v_rows_updated;
-
-END;
-
-]]></definition>
-</function>
 
 <constraint name="capture_source_capture_source_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_common.capture_source_group" table="buildings_common.capture_source">
@@ -2715,179 +2395,175 @@ END;
 </constraint>
 
 <relationship name="rel_capture_source_capture_source_group" type="relfk"
-	 custom-color="#facf06"
+	 custom-color="#202c81"
 	 src-table="buildings_common.capture_source"
 	 dst-table="buildings_common.capture_source_group" reference-fk="capture_source_capture_source_group_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_building_outlines_buildings" type="relfk"
-	 custom-color="#72f49e"
+	 custom-color="#0f9629"
 	 src-table="buildings.building_outlines"
 	 dst-table="buildings.buildings" reference-fk="building_outlines_building_id_fkey"
-	 src-required="false" dst-required="false">
-	<label ref-type="name-label">
-		<position x="39.807" y="6.98537"/>
-	</label>
-</relationship>
+	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_building_outlines_capture_method" type="relfk"
-	 custom-color="#52c39c"
+	 custom-color="#11c20b"
 	 src-table="buildings.building_outlines"
 	 dst-table="buildings_common.capture_method" reference-fk="building_outlines_capture_method_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_building_outlines_capture_source" type="relfk"
-	 custom-color="#138a43"
+	 custom-color="#62c18a"
 	 src-table="buildings.building_outlines"
 	 dst-table="buildings_common.capture_source" reference-fk="building_outlines_capture_source_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_building_outlines_lifecycle_stage" type="relfk"
-	 custom-color="#741ea6"
+	 custom-color="#9fa3a9"
 	 src-table="buildings.building_outlines"
 	 dst-table="buildings.lifecycle_stage" reference-fk="building_outlines_lifecycle_stage_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_building_name_buildings" type="relfk"
-	 custom-color="#1e6030"
+	 custom-color="#8df6e6"
 	 src-table="buildings.building_name"
 	 dst-table="buildings.buildings" reference-fk="building_name_building_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_building_use_buildings" type="relfk"
-	 custom-color="#2eae82"
+	 custom-color="#1b8ab3"
 	 src-table="buildings.building_use"
 	 dst-table="buildings.buildings" reference-fk="building_use_building_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_building_use_use" type="relfk"
-	 custom-color="#246ff1"
+	 custom-color="#30afa1"
 	 src-table="buildings.building_use"
 	 dst-table="buildings.use" reference-fk="building_use_use_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_lifecycle_buildings" type="relfk"
-	 custom-color="#38fecc"
+	 custom-color="#16f60b"
 	 src-table="buildings.lifecycle"
 	 dst-table="buildings.buildings" reference-fk="lifecycle_parent_building_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_lifecycle_buildings1" type="relfk"
-	 custom-color="#e6657b"
+	 custom-color="#ed85e8"
 	 src-table="buildings.lifecycle"
 	 dst-table="buildings.buildings" reference-fk="lifecycle_building_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_supplied_datasets_organisation" type="relfk"
-	 custom-color="#20cf1f"
+	 custom-color="#489540"
 	 src-table="buildings_bulk_load.supplied_datasets"
 	 dst-table="buildings_bulk_load.organisation" reference-fk="supplied_datasets_supplier_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_bulk_load_outlines_supplied_datasets" type="relfk"
-	 custom-color="#7a875f"
+	 custom-color="#2a227b"
 	 src-table="buildings_bulk_load.bulk_load_outlines"
 	 dst-table="buildings_bulk_load.supplied_datasets" reference-fk="bulk_load_outlines_supplied_dataset_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_bulk_load_outlines_bulk_load_status" type="relfk"
-	 custom-color="#31b8e0"
+	 custom-color="#82183f"
 	 src-table="buildings_bulk_load.bulk_load_outlines"
 	 dst-table="buildings_bulk_load.bulk_load_status" reference-fk="bulk_load_outlines_bulk_load_status_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_bulk_load_outlines_capture_method" type="relfk"
-	 custom-color="#f90a69"
+	 custom-color="#2216c0"
 	 src-table="buildings_bulk_load.bulk_load_outlines"
 	 dst-table="buildings_common.capture_method" reference-fk="bulk_load_outlines_capture_method_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_bulk_load_outlines_capture_source" type="relfk"
-	 custom-color="#02b42f"
+	 custom-color="#c3d79c"
 	 src-table="buildings_bulk_load.bulk_load_outlines"
 	 dst-table="buildings_common.capture_source" reference-fk="bulk_load_outlines_capture_source_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_existing_subset_extracts_building_outlines" type="relfk"
-	 custom-color="#5314b9"
+	 custom-color="#1a8386"
 	 src-table="buildings_bulk_load.existing_subset_extracts"
 	 dst-table="buildings.building_outlines" reference-fk="existing_subset_extracts_building_outline_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_existing_subset_extracts_supplied_datasets" type="relfk"
-	 custom-color="#f635eb"
+	 custom-color="#224495"
 	 src-table="buildings_bulk_load.existing_subset_extracts"
 	 dst-table="buildings_bulk_load.supplied_datasets" reference-fk="existing_subset_extracts_supplied_dataset_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_added_bulk_load_outlines" type="relfk"
-	 custom-color="#18ac8e"
+	 custom-color="#7c5ee4"
 	 src-table="buildings_bulk_load.added"
 	 dst-table="buildings_bulk_load.bulk_load_outlines" reference-fk="added_bulk_load_outline_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_added_qa_status" type="relfk"
-	 custom-color="#a14e37"
+	 custom-color="#714bb3"
 	 src-table="buildings_bulk_load.added"
 	 dst-table="buildings_bulk_load.qa_status" reference-fk="added_qa_status_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_removed_existing_subset_extracts" type="relfk"
-	 custom-color="#430a0e"
+	 custom-color="#c7d468"
 	 src-table="buildings_bulk_load.removed"
 	 dst-table="buildings_bulk_load.existing_subset_extracts" reference-fk="removed_building_outline_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_removed_qa_status" type="relfk"
-	 custom-color="#427194"
+	 custom-color="#e93e9f"
 	 src-table="buildings_bulk_load.removed"
 	 dst-table="buildings_bulk_load.qa_status" reference-fk="removed_qa_status_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_related_bulk_load_outlines" type="relfk"
-	 custom-color="#8add15"
+	 custom-color="#70232d"
 	 src-table="buildings_bulk_load.related"
 	 dst-table="buildings_bulk_load.bulk_load_outlines" reference-fk="related_bulk_load_outline_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_related_existing_subset_extracts" type="relfk"
-	 custom-color="#80e0b0"
+	 custom-color="#e76c29"
 	 src-table="buildings_bulk_load.related"
 	 dst-table="buildings_bulk_load.existing_subset_extracts" reference-fk="related_building_outline_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_related_qa_status" type="relfk"
-	 custom-color="#29e8eb"
+	 custom-color="#60418d"
 	 src-table="buildings_bulk_load.related"
 	 dst-table="buildings_bulk_load.qa_status" reference-fk="related_qa_status_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_matched_bulk_load_outlines" type="relfk"
-	 custom-color="#8ac64d"
+	 custom-color="#ce68b1"
 	 src-table="buildings_bulk_load.matched"
 	 dst-table="buildings_bulk_load.bulk_load_outlines" reference-fk="matched_bulk_load_outline_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_matched_existing_subset_extracts" type="relfk"
-	 custom-color="#7fd891"
+	 custom-color="#3e6045"
 	 src-table="buildings_bulk_load.matched"
 	 dst-table="buildings_bulk_load.existing_subset_extracts" reference-fk="matched_building_outline_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_matched_qa_status" type="relfk"
-	 custom-color="#f27802"
+	 custom-color="#13711d"
 	 src-table="buildings_bulk_load.matched"
 	 dst-table="buildings_bulk_load.qa_status" reference-fk="matched_qa_status_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_transferred_bulk_load_outlines" type="relfk"
-	 custom-color="#736041"
+	 custom-color="#9f2967"
 	 src-table="buildings_bulk_load.transferred"
 	 dst-table="buildings_bulk_load.bulk_load_outlines" reference-fk="transferred_bulk_load_outline_id_fkey"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_transferred_building_outlines" type="relfk"
-	 custom-color="#32b538"
+	 custom-color="#9ff28f"
 	 src-table="buildings_bulk_load.transferred"
 	 dst-table="buildings.building_outlines" reference-fk="transferred_new_building_outline_id_fkey"
 	 src-required="false" dst-required="false"/>

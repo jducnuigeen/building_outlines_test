@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<metadata>
+	<info object="&quot;nz-buildings-pgtap-db&quot;" type="database"
+		 last-position="0,0" last-zoom="1"
+		 append-at-eod="false" prepend-at-bod="false"
+		 default-schema="public" default-owner="postgres"/>
+	<info object="pg_catalog" type="schema"
+		 custom-color="#e1e1e1" rect-visible="false"/>
+	<info object="public" type="schema"
+		 custom-color="#e1e1e1" rect-visible="true">
+	<position x="0" y="0"/>
+	</info>
+	<info object="buildings_admin_bdys" type="schema"
+		 custom-color="#cee8ff" rect-visible="true">
+	<position x="49.7191" y="836.139"/>
+	</info>
+	<info object="buildings_common" type="schema"
+		 custom-color="#cfd3ca" rect-visible="true">
+	<position x="42.3396" y="550.857"/>
+	</info>
+	<info object="buildings" type="schema"
+		 custom-color="#cee8ff" rect-visible="true">
+	<position x="7.3391" y="10.3657"/>
+	</info>
+	<info object="buildings_bulk_load" type="schema"
+		 custom-color="#bbbbbb" rect-visible="true">
+	<position x="1003.29" y="-3.6173"/>
+	</info>
+	<info object="buildings_lds" type="schema"
+		 custom-color="#412035" rect-visible="true">
+	<position x="2723.95" y="416.58"/>
+	</info>
+	<info object="buildings_admin_bdys.nz_locality" type="table">
+	<position x="49.7191" y="858.139"/>
+	</info>
+	<info object="buildings_admin_bdys.territorial_authority" type="table">
+	<position x="53.0291" y="1163.47"/>
+	</info>
+	<info object="buildings_common.capture_method" type="table">
+	<position x="578.285" y="622.381"/>
+	</info>
+	<info object="buildings_common.capture_source_group" type="table">
+	<position x="87.2785" y="721.429"/>
+	</info>
+	<info object="buildings_common.capture_source" type="table">
+	<position x="48.3396" y="572.857"/>
+	</info>
+	<info object="buildings.lifecycle_stage" type="table"
+		 hide-ext-attribs="true">
+	<position x="30.0388" y="465.238"/>
+	</info>
+	<info object="buildings.use" type="table"
+		 hide-ext-attribs="true">
+	<position x="99.7759" y="389.048"/>
+	</info>
+	<info object="buildings.buildings" type="table"
+		 hide-ext-attribs="true">
+	<position x="537.186" y="55.7143"/>
+	</info>
+	<info object="buildings.building_outlines" type="table"
+		 hide-ext-attribs="true">
+	<position x="543.56" y="224.286"/>
+	</info>
+	<info object="buildings.building_name" type="table"
+		 hide-ext-attribs="true">
+	<position x="13.3391" y="134.762"/>
+	</info>
+	<info object="buildings.building_use" type="table"
+		 hide-ext-attribs="true">
+	<position x="15.753" y="260.937"/>
+	</info>
+	<info object="buildings.lifecycle" type="table"
+		 hide-ext-attribs="true">
+	<position x="21.0741" y="32.3657"/>
+	</info>
+	<info object="buildings_bulk_load.organisation" type="table"
+		 hide-ext-attribs="true">
+	<position x="1544.29" y="445.541"/>
+	</info>
+	<info object="buildings_bulk_load.bulk_load_status" type="table"
+		 hide-ext-attribs="true">
+	<position x="1042.65" y="536.017"/>
+	</info>
+	<info object="buildings_bulk_load.qa_status" type="table"
+		 hide-ext-attribs="true">
+	<position x="1930.61" y="176.969"/>
+	</info>
+	<info object="buildings_bulk_load.supplied_datasets" type="table"
+		 hide-ext-attribs="true">
+	<position x="1538.33" y="322.684"/>
+	</info>
+	<info object="buildings_bulk_load.bulk_load_outlines" type="table"
+		 hide-ext-attribs="true">
+	<position x="1009.29" y="328.398"/>
+	</info>
+	<info object="buildings_bulk_load.existing_subset_extracts" type="table"
+		 hide-ext-attribs="true">
+	<position x="1034.76" y="26.0018"/>
+	</info>
+	<info object="buildings_bulk_load.added" type="table"
+		 hide-ext-attribs="true">
+	<position x="1542.66" y="511.716"/>
+	</info>
+	<info object="buildings_bulk_load.removed" type="table"
+		 hide-ext-attribs="true">
+	<position x="1536.63" y="244.097"/>
+	</info>
+	<info object="buildings_bulk_load.related" type="table"
+		 hide-ext-attribs="true">
+	<position x="1541.77" y="592.668"/>
+	</info>
+	<info object="buildings_bulk_load.matched" type="table"
+		 hide-ext-attribs="true">
+	<position x="1516.48" y="18.3827"/>
+	</info>
+	<info object="buildings_bulk_load.transferred" type="table"
+		 hide-ext-attribs="true">
+	<position x="1034.76" y="136.51"/>
+	</info>
+	<info object="buildings_lds.nz_building_outlines" type="table">
+	<position x="2729.95" y="438.58"/>
+	</info>
+	<info object="rel_capture_source_capture_source_group" type="relationship"
+		 src-table="buildings_common.capture_source" src-type="table"
+		 dst-table="buildings_common.capture_source_group" dst-type="table"
+		 custom-color="#facf06"/>
+	<info object="rel_building_outlines_buildings" type="relationship"
+		 src-table="buildings.building_outlines" src-type="table"
+		 dst-table="buildings.buildings" dst-type="table"
+		 custom-color="#72f49e">
+	<label ref-type="name-label">
+		<position x="39.807" y="6.98537"/>
+	</label>
+	</info>
+	<info object="rel_building_outlines_capture_method" type="relationship"
+		 src-table="buildings.building_outlines" src-type="table"
+		 dst-table="buildings_common.capture_method" dst-type="table"
+		 custom-color="#52c39c"/>
+	<info object="rel_building_outlines_capture_source" type="relationship"
+		 src-table="buildings.building_outlines" src-type="table"
+		 dst-table="buildings_common.capture_source" dst-type="table"
+		 custom-color="#138a43"/>
+	<info object="rel_building_outlines_lifecycle_stage" type="relationship"
+		 src-table="buildings.building_outlines" src-type="table"
+		 dst-table="buildings.lifecycle_stage" dst-type="table"
+		 custom-color="#741ea6"/>
+	<info object="rel_building_name_buildings" type="relationship"
+		 src-table="buildings.building_name" src-type="table"
+		 dst-table="buildings.buildings" dst-type="table"
+		 custom-color="#1e6030"/>
+	<info object="rel_building_use_buildings" type="relationship"
+		 src-table="buildings.building_use" src-type="table"
+		 dst-table="buildings.buildings" dst-type="table"
+		 custom-color="#2eae82"/>
+	<info object="rel_building_use_use" type="relationship"
+		 src-table="buildings.building_use" src-type="table"
+		 dst-table="buildings.use" dst-type="table"
+		 custom-color="#246ff1"/>
+	<info object="rel_lifecycle_buildings" type="relationship"
+		 src-table="buildings.lifecycle" src-type="table"
+		 dst-table="buildings.buildings" dst-type="table"
+		 custom-color="#38fecc"/>
+	<info object="rel_lifecycle_buildings1" type="relationship"
+		 src-table="buildings.lifecycle" src-type="table"
+		 dst-table="buildings.buildings" dst-type="table"
+		 custom-color="#e6657b"/>
+	<info object="rel_supplied_datasets_organisation" type="relationship"
+		 src-table="buildings_bulk_load.supplied_datasets" src-type="table"
+		 dst-table="buildings_bulk_load.organisation" dst-type="table"
+		 custom-color="#20cf1f"/>
+	<info object="rel_bulk_load_outlines_supplied_datasets" type="relationship"
+		 src-table="buildings_bulk_load.bulk_load_outlines" src-type="table"
+		 dst-table="buildings_bulk_load.supplied_datasets" dst-type="table"
+		 custom-color="#7a875f"/>
+	<info object="rel_bulk_load_outlines_bulk_load_status" type="relationship"
+		 src-table="buildings_bulk_load.bulk_load_outlines" src-type="table"
+		 dst-table="buildings_bulk_load.bulk_load_status" dst-type="table"
+		 custom-color="#31b8e0"/>
+	<info object="rel_bulk_load_outlines_capture_method" type="relationship"
+		 src-table="buildings_bulk_load.bulk_load_outlines" src-type="table"
+		 dst-table="buildings_common.capture_method" dst-type="table"
+		 custom-color="#f90a69"/>
+	<info object="rel_bulk_load_outlines_capture_source" type="relationship"
+		 src-table="buildings_bulk_load.bulk_load_outlines" src-type="table"
+		 dst-table="buildings_common.capture_source" dst-type="table"
+		 custom-color="#02b42f"/>
+	<info object="rel_existing_subset_extracts_building_outlines" type="relationship"
+		 src-table="buildings_bulk_load.existing_subset_extracts" src-type="table"
+		 dst-table="buildings.building_outlines" dst-type="table"
+		 custom-color="#5314b9"/>
+	<info object="rel_existing_subset_extracts_supplied_datasets" type="relationship"
+		 src-table="buildings_bulk_load.existing_subset_extracts" src-type="table"
+		 dst-table="buildings_bulk_load.supplied_datasets" dst-type="table"
+		 custom-color="#f635eb"/>
+	<info object="rel_added_bulk_load_outlines" type="relationship"
+		 src-table="buildings_bulk_load.added" src-type="table"
+		 dst-table="buildings_bulk_load.bulk_load_outlines" dst-type="table"
+		 custom-color="#18ac8e"/>
+	<info object="rel_added_qa_status" type="relationship"
+		 src-table="buildings_bulk_load.added" src-type="table"
+		 dst-table="buildings_bulk_load.qa_status" dst-type="table"
+		 custom-color="#a14e37"/>
+	<info object="rel_removed_existing_subset_extracts" type="relationship"
+		 src-table="buildings_bulk_load.removed" src-type="table"
+		 dst-table="buildings_bulk_load.existing_subset_extracts" dst-type="table"
+		 custom-color="#430a0e"/>
+	<info object="rel_removed_qa_status" type="relationship"
+		 src-table="buildings_bulk_load.removed" src-type="table"
+		 dst-table="buildings_bulk_load.qa_status" dst-type="table"
+		 custom-color="#427194"/>
+	<info object="rel_related_bulk_load_outlines" type="relationship"
+		 src-table="buildings_bulk_load.related" src-type="table"
+		 dst-table="buildings_bulk_load.bulk_load_outlines" dst-type="table"
+		 custom-color="#8add15"/>
+	<info object="rel_related_existing_subset_extracts" type="relationship"
+		 src-table="buildings_bulk_load.related" src-type="table"
+		 dst-table="buildings_bulk_load.existing_subset_extracts" dst-type="table"
+		 custom-color="#80e0b0"/>
+	<info object="rel_related_qa_status" type="relationship"
+		 src-table="buildings_bulk_load.related" src-type="table"
+		 dst-table="buildings_bulk_load.qa_status" dst-type="table"
+		 custom-color="#29e8eb"/>
+	<info object="rel_matched_bulk_load_outlines" type="relationship"
+		 src-table="buildings_bulk_load.matched" src-type="table"
+		 dst-table="buildings_bulk_load.bulk_load_outlines" dst-type="table"
+		 custom-color="#8ac64d"/>
+	<info object="rel_matched_existing_subset_extracts" type="relationship"
+		 src-table="buildings_bulk_load.matched" src-type="table"
+		 dst-table="buildings_bulk_load.existing_subset_extracts" dst-type="table"
+		 custom-color="#7fd891"/>
+	<info object="rel_matched_qa_status" type="relationship"
+		 src-table="buildings_bulk_load.matched" src-type="table"
+		 dst-table="buildings_bulk_load.qa_status" dst-type="table"
+		 custom-color="#f27802"/>
+	<info object="rel_transferred_bulk_load_outlines" type="relationship"
+		 src-table="buildings_bulk_load.transferred" src-type="table"
+		 dst-table="buildings_bulk_load.bulk_load_outlines" dst-type="table"
+		 custom-color="#736041"/>
+	<info object="rel_transferred_building_outlines" type="relationship"
+		 src-table="buildings_bulk_load.transferred" src-type="table"
+		 dst-table="buildings.building_outlines" dst-type="table"
+		 custom-color="#32b538"/>
+	<info object="public.geometry" type="usertype"
+		 sql-disabled="true"/>
+</metadata>

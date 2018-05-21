@@ -33,3 +33,8 @@ th {
 div.section p {
 	font-size: 100%;
 }
+
+#figure div {
+  max-width: 100%;
+  height: auto;
+}
