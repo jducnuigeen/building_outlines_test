@@ -20,7 +20,7 @@ This data model has been designed to manage building data with multiple represen
    :alt: buildings database diagram
 
 
-Schema: {{ schema_gen_buildings["name"] }}
+Schema: {{ schema_gen_buildings["nam"] }}
 ----------------------------------------------------
 
 Description: {{ schema_gen_buildings["comment"] }}
