@@ -1,0 +1,1739 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Internal Data &mdash; NZ Buildings Data Dictionary</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="NZ Buildings Data Dictionary" href="index.html"/>
+        <link rel="prev" title="2. Published Data" href="published_data.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NZ Buildings Data Dictionary
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="published_data.html">2. Published Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">3. Internal Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-model">3.1. Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#schema-buildings">3.2. Schema: buildings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#table-lifecycle-stage">3.2.1. Table: lifecycle_stage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-use">3.2.2. Table: use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-buildings">3.2.3. Table: buildings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-building-outlines">3.2.4. Table: building_outlines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-building-name">3.2.5. Table: building_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-building-use">3.2.6. Table: building_use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-lifecycle">3.2.7. Table: lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#schema-buildings-common">3.3. Schema: buildings_common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#table-capture-method">3.3.1. Table: capture_method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-capture-source-group">3.3.2. Table: capture_source_group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-capture-source">3.3.3. Table: capture_source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#schema-buildings-bulk-load">3.4. Schema: buildings_bulk_load</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#table-organisation">3.4.1. Table: organisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-bulk-load-status">3.4.2. Table: bulk_load_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-qa-status">3.4.3. Table: qa_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-supplied-datasets">3.4.4. Table: supplied_datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-bulk-load-outlines">3.4.5. Table: bulk_load_outlines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-existing-subset-extracts">3.4.6. Table: existing_subset_extracts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-added">3.4.7. Table: added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-removed">3.4.8. Table: removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-related">3.4.9. Table: related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-matched">3.4.10. Table: matched</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-transferred">3.4.11. Table: transferred</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#schema-buildings-admin-bdys">3.5. Schema: buildings_admin_bdys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#table-nz-locality">3.5.1. Table: nz_locality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-territorial-authority">3.5.2. Table: territorial_authority</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">NZ Buildings Data Dictionary</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>3. Internal Data</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/internal_data.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="internal-data">
+<span id="id1"></span><h1>3. Internal Data<a class="headerlink" href="#internal-data" title="Permalink to this headline">¶</a></h1>
+<p>The information below describes the data model for building outlines for internal LINZ purposes.</p>
+<div class="section" id="data-model">
+<h2>3.1. Data Model<a class="headerlink" href="#data-model" title="Permalink to this headline">¶</a></h2>
+<p>To assist you in understanding these datasets, the structure and details of the data fields is described in tables below. The relationship between tables and directly related datasets is provided in a data model diagram. No attempt has been made to indicate cardinality, however, the arrows drawn between datasets point from the dataset containing the unique record, to the dataset that may contain one or more references to that record (i.e. primary key -&gt; foreign key).</p>
+<p>To enable changes between updates to be recorded and then queried using the LDS changeset service, every table has a primary key. Primary keys are shown by a bolded field name. Tables can also have unique keys, which are shown by a bolded field name.</p>
+<p>This data model has been designed to manage building data with multiple representations, allowing for future enhancements in building data management. Not all of this data is currently available and data capture for these new fields will occur over time.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/nz-buildings-pgtap-db.png"><img alt="buildings database diagram" src="_images/nz-buildings-pgtap-db.png" style="width: 100%;" /></a>
+</div>
+</div>
+<div class="section" id="schema-buildings">
+<h2>3.2. Schema: buildings<a class="headerlink" href="#schema-buildings" title="Permalink to this headline">¶</a></h2>
+<p>Description:
+Schema that holds production buildings data.</p>
+<div class="section" id="table-lifecycle-stage">
+<span id="table-name-lifecycle-stage"></span><h3>3.2.1. Table: lifecycle_stage<a class="headerlink" href="#table-lifecycle-stage" title="Permalink to this headline">¶</a></h3>
+<p>Description: Lookup table that holds all of the lifecycle stages for a building.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="10%" />
+<col width="7%" />
+<col width="10%" />
+<col width="6%" />
+<col width="12%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>lifecycle_stage_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the lifecycle stage.</td>
+</tr>
+<tr class="row-odd"><td>value</td>
+<td>varchar</td>
+<td>40</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The stage of a buildings lifecycle.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-use">
+<span id="table-name-use"></span><h3>3.2.2. Table: use<a class="headerlink" href="#table-use" title="Permalink to this headline">¶</a></h3>
+<p>Description: Lookup table that holds all of the uses for a building. These uses are the same as those used in the Topo50 map series.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="9%" />
+<col width="7%" />
+<col width="9%" />
+<col width="6%" />
+<col width="12%" />
+<col width="46%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>use_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the use.</td>
+</tr>
+<tr class="row-odd"><td>value</td>
+<td>varchar</td>
+<td>40</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The building use maintained for the Topo50 map series.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-buildings">
+<span id="table-name-buildings"></span><h3>3.2.3. Table: buildings<a class="headerlink" href="#table-buildings" title="Permalink to this headline">¶</a></h3>
+<p>Description: The building table maintains a unique identifier for a building. Over time, a building can be represented by multiple building outlines aligned to different imagery sources. These building outlines are linked via the building_id.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="9%" />
+<col width="6%" />
+<col width="9%" />
+<col width="6%" />
+<col width="11%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>building_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the building.</td>
+</tr>
+<tr class="row-odd"><td>begin_lifespan</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The date that the building was first captured in the system.</td>
+</tr>
+<tr class="row-even"><td>end_lifespan</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>The date that a building was either replaced or disused.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-building-outlines">
+<span id="table-name-building-outlines"></span><h3>3.2.4. Table: building_outlines<a class="headerlink" href="#table-building-outlines" title="Permalink to this headline">¶</a></h3>
+<p>Description: The building_outline table holds a geometry, typically captured from an aerial photograph. A new record is created for each new outline that represents a building.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="2%" />
+<col width="4%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>building_outline_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the building outline.</td>
+</tr>
+<tr class="row-odd"><td>building_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-buildings">buildings.buildings</a> table. The building id is persistant for the same building across all of the building outlines that represent it.</td>
+</tr>
+<tr class="row-even"><td>capture_method_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-capture-method">buildings_common.capture_method</a> table. Holds the method by which the geometry was captured.</td>
+</tr>
+<tr class="row-odd"><td>capture_source_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-capture-source">buildings_common.capture_source</a> table.</td>
+</tr>
+<tr class="row-even"><td>lifecycle_stage_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-lifecycle-stage">buildings.lifecycle_stage</a> table.</td>
+</tr>
+<tr class="row-odd"><td>suburb_locality_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Holds an external id for suburbs / localities from the nz_locality dataset.</td>
+</tr>
+<tr class="row-even"><td>town_city_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>Holds an external id for the town / city from the nz_locality dataset.</td>
+</tr>
+<tr class="row-odd"><td>territorial_authority_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Holds an external id for the territorial authority from the territorial_authority dataset.</td>
+</tr>
+<tr class="row-even"><td>begin_lifespan</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The date that the building outline was added to the system.</td>
+</tr>
+<tr class="row-odd"><td>end_lifespan</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>The date that the building outline was superceded replaced or disused.</td>
+</tr>
+<tr class="row-even"><td>shape</td>
+<td>geometry</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The geometry of the building outline.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-building-name">
+<span id="table-name-building-name"></span><h3>3.2.5. Table: building_name<a class="headerlink" href="#table-building-name" title="Permalink to this headline">¶</a></h3>
+<p>Description: The building_name table stores a name that is related to a building at a point in time. Names have an lifespan independent from the building - the name can change independent to any other changes to the building.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
+<col width="3%" />
+<col width="6%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>building_name_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for a building name.</td>
+</tr>
+<tr class="row-odd"><td>building_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-buildings">buildings.buildings</a> table.</td>
+</tr>
+<tr class="row-even"><td>building_name</td>
+<td>varchar</td>
+<td>250</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The name of the building where known.</td>
+</tr>
+<tr class="row-odd"><td>begin_lifespan</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The date that the building name was first captured in the system.</td>
+</tr>
+<tr class="row-even"><td>end_lifespan</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>The date that the building name was no longer attributed to a building in the system either because the name was no longer in use or because the building was replaced or disused.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-building-use">
+<span id="table-name-building-use"></span><h3>3.2.6. Table: building_use<a class="headerlink" href="#table-building-use" title="Permalink to this headline">¶</a></h3>
+<p>Description: The building_use table stores a use that is related to a building at a point in time. Uses have an lifespan independent from the building - the use can change independent to any other changes to the building.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
+<col width="3%" />
+<col width="6%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>building_use_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for a building_use.</td>
+</tr>
+<tr class="row-odd"><td>building_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-buildings">buildings.buildings</a> table.</td>
+</tr>
+<tr class="row-even"><td>use_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-use">buildings.use</a> table.</td>
+</tr>
+<tr class="row-odd"><td>begin_lifespan</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The date that the building use was first captured in the system.</td>
+</tr>
+<tr class="row-even"><td>end_lifespan</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>The date that the building use was no longer attributed to a building in the system either because the use was no longer in use or because the building was replaced or disused.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-lifecycle">
+<span id="table-name-lifecycle"></span><h3>3.2.7. Table: lifecycle<a class="headerlink" href="#table-lifecycle" title="Permalink to this headline">¶</a></h3>
+<p>Description: The lifecycle table stores the relationship between buildings when one building is split into two buildings or two buildings are merged into one building. This will generally occur when a building outline was erroneously captured encompassing two buildings, which later becomes clear with additional aerial imagery.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="6%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
+<col width="3%" />
+<col width="5%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>lifecycle_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for a building_use.</td>
+</tr>
+<tr class="row-odd"><td>parent_building_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-buildings">buildings.buildings</a> table. All records stored as parent buildings will be end dated in the system.</td>
+</tr>
+<tr class="row-even"><td>building_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-buildings">buildings.buildings</a> table.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="schema-buildings-common">
+<h2>3.3. Schema: buildings_common<a class="headerlink" href="#schema-buildings-common" title="Permalink to this headline">¶</a></h2>
+<p>Description: Schema that holds tables referenced in more than one other schema.</p>
+<div class="section" id="table-capture-method">
+<span id="table-name-capture-method"></span><h3>3.3.1. Table: capture_method<a class="headerlink" href="#table-capture-method" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+Lookup table that holds all of the methods by which the geometry was captured.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="9%" />
+<col width="7%" />
+<col width="9%" />
+<col width="6%" />
+<col width="12%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>capture_method_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the capture method.</td>
+</tr>
+<tr class="row-odd"><td>value</td>
+<td>varchar</td>
+<td>40</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The method by which the geometry was captured.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-capture-source-group">
+<span id="table-name-capture-source-group"></span><h3>3.3.2. Table: capture_source_group<a class="headerlink" href="#table-capture-source-group" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+Lookup table that holds all of the capture source groups. Capture source
+groups are categories of data sources, e.g. NZ Aerial Imagery</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
+<col width="2%" />
+<col width="5%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>capture_source_group_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the capture source group.</td>
+</tr>
+<tr class="row-odd"><td>value</td>
+<td>varchar</td>
+<td>80</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The name of the capture source group e.g. NZ Aerial Imagery.</td>
+</tr>
+<tr class="row-even"><td>description</td>
+<td>varchar</td>
+<td>400</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The description of the capture source group e.g. external_source_id for this group links to the primary key of the NZ Imagery Surveys layer available on LINZ Data Service at: <a class="reference external" href="https://data.linz.govt.nz/layer/nnnnn">https://data.linz.govt.nz/layer/nnnnn</a>.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-capture-source">
+<span id="table-name-capture-source"></span><h3>3.3.3. Table: capture_source<a class="headerlink" href="#table-capture-source" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+Lookup table that holds all of the methods by which the geometry was captured.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="5%" />
+<col width="3%" />
+<col width="5%" />
+<col width="3%" />
+<col width="6%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>capture_source_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the capture source.</td>
+</tr>
+<tr class="row-odd"><td>capture_source_group_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-capture-source-group">buildings_common.capture_source_group</a> table.</td>
+</tr>
+<tr class="row-even"><td>external_source_id</td>
+<td>varchar</td>
+<td>250</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>Stores a reference to an externally managed identifier that can be linked in order to find out more information about the source.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="schema-buildings-bulk-load">
+<h2>3.4. Schema: buildings_bulk_load<a class="headerlink" href="#schema-buildings-bulk-load" title="Permalink to this headline">¶</a></h2>
+<p>Description: Schema that holds building outlines data while quality assurance is
+conducted. Data is also prepared to be loaded into production.</p>
+<div class="section" id="table-organisation">
+<span id="table-name-organisation"></span><h3>3.4.1. Table: organisation<a class="headerlink" href="#table-organisation" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+This is a lookup table that holds names of organisations that are related to
+buildings data. All suppliers of building outlines data must be recorded here.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="10%" />
+<col width="7%" />
+<col width="10%" />
+<col width="6%" />
+<col width="12%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>organisation_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the organisation table.</td>
+</tr>
+<tr class="row-odd"><td>value</td>
+<td>varchar</td>
+<td>40</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The name of the organisation.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-bulk-load-status">
+<span id="table-name-bulk-load-status"></span><h3>3.4.2. Table: bulk_load_status<a class="headerlink" href="#table-bulk-load-status" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+This is a lookup table that holds the status of building outlines through
+the bulk load process.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="7%" />
+<col width="5%" />
+<col width="7%" />
+<col width="5%" />
+<col width="9%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>bulk_load_status_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the bulk_load_status table.</td>
+</tr>
+<tr class="row-odd"><td>value</td>
+<td>varchar</td>
+<td>40</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The bulk load status of the building outline. Options include: Supplied Added</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-qa-status">
+<span id="table-name-qa-status"></span><h3>3.4.3. Table: qa_status<a class="headerlink" href="#table-qa-status" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+This is a lookup table that holds the status of building outlines during
+QA of the bulk load process.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="10%" />
+<col width="7%" />
+<col width="10%" />
+<col width="6%" />
+<col width="13%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>qa_status_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the qa_status table.</td>
+</tr>
+<tr class="row-odd"><td>value</td>
+<td>varchar</td>
+<td>40</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The QA status of the building outlines.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-supplied-datasets">
+<span id="table-name-supplied-datasets"></span><h3>3.4.4. Table: supplied_datasets<a class="headerlink" href="#table-supplied-datasets" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+This table records information about datasets supplied to LINZ for bulk
+load into the buildings system.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="5%" />
+<col width="4%" />
+<col width="5%" />
+<col width="3%" />
+<col width="6%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>supplied_dataset_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the supplied_datasets table.</td>
+</tr>
+<tr class="row-odd"><td>description</td>
+<td>varchar</td>
+<td>250</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>A general description of the supplied dataset.</td>
+</tr>
+<tr class="row-even"><td>supplier_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-organisation">buildings_bulk_load.organisation</a> table.</td>
+</tr>
+<tr class="row-odd"><td>processed_date</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>The date that the supplied dataset was imported into the buildings_bulk_load schema.</td>
+</tr>
+<tr class="row-even"><td>transfer_date</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>The date that the supplied dataset was transferred to production schema.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-bulk-load-outlines">
+<span id="table-name-bulk-load-outlines"></span><h3>3.4.5. Table: bulk_load_outlines<a class="headerlink" href="#table-bulk-load-outlines" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+This dataset contains all building outline geometries as they are received
+from the supplier, in addition to any new building outlines added during
+QA of that particular bulk load. A number of attributes are first
+connected to the building outline in this table, which are later
+loaded into the production buildings schema.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="5%" />
+<col width="3%" />
+<col width="5%" />
+<col width="3%" />
+<col width="6%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>bulk_load_outline_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the bulk_load_outlines table.</td>
+</tr>
+<tr class="row-odd"><td>supplied_dataset_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-supplied-datasets">buildings_bulk_load.supplied_datasets</a> table.</td>
+</tr>
+<tr class="row-even"><td>external_outline_id</td>
+<td>varchar</td>
+<td>250</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>External identifier held in order to compare with future bulk loads from the same external dataset.</td>
+</tr>
+<tr class="row-odd"><td>bulk_load_status_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-bulk-load-status">buildings_bulk_load.bulk_load_status</a> table.</td>
+</tr>
+<tr class="row-even"><td>capture_method_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-capture-method">buildings_common.capture_method</a> table.</td>
+</tr>
+<tr class="row-odd"><td>capture_source_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-capture-source">buildings_common.capture_source</a> table.</td>
+</tr>
+<tr class="row-even"><td>suburb_locality_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Holds an external id for suburbs / localities from the nz_locality dataset.</td>
+</tr>
+<tr class="row-odd"><td>town_city_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>Holds an external id for the town / city from the nz_locality dataset.</td>
+</tr>
+<tr class="row-even"><td>territorial_authority_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Holds an external id for the territorial authority from the territorial_authority dataset.</td>
+</tr>
+<tr class="row-odd"><td>begin_lifespan</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The date that the building was uploaded via bulk load tools.</td>
+</tr>
+<tr class="row-even"><td>shape</td>
+<td>geometry</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The geometry of the building outline as received from the supplier.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-existing-subset-extracts">
+<span id="table-name-existing-subset-extracts"></span><h3>3.4.6. Table: existing_subset_extracts<a class="headerlink" href="#table-existing-subset-extracts" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+This table contains extracts of production building outlines over the same
+area covered by a new bulk load of building outlines data. Each set of
+extracted building outlines is related to the new bulk load via the
+supplied_dataset_id.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
+<col width="2%" />
+<col width="5%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>building_outline_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the existing_subset_extracts table and foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-building-outlines">buildings.building_outlines</a> table.</td>
+</tr>
+<tr class="row-odd"><td>supplied_dataset_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-supplied-datasets">buildings_bulk_load.supplied_datasets</a> table.</td>
+</tr>
+<tr class="row-even"><td>shape</td>
+<td>geometry</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>The geometry of the building outline that exists in the production schema.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-added">
+<span id="table-name-added"></span><h3>3.4.7. Table: added<a class="headerlink" href="#table-added" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+This table holds the building outlines that have been identified as new
+buildings within the building outlines dataset.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
+<col width="2%" />
+<col width="5%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>bulk_load_outline_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the added table and foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-bulk-load-outlines">buildings_bulk_load.bulk_load_outlines</a> table.</td>
+</tr>
+<tr class="row-odd"><td>qa_status_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-qa-status">buildings_bulk_load.qa_status</a> table.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-removed">
+<span id="table-name-removed"></span><h3>3.4.8. Table: removed<a class="headerlink" href="#table-removed" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+This table holds the building outlines that have been identified as no
+longer existing. These building outlines were within the area of
+capture but were not found in a more recent capture process.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
+<col width="2%" />
+<col width="5%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>building_outline_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the removed table and foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-existing-subset-extracts">buildings_bulk_load.existing_subset_extracts</a> table.</td>
+</tr>
+<tr class="row-odd"><td>qa_status_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-qa-status">buildings_bulk_load.qa_status</a> table.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-related">
+<span id="table-name-related"></span><h3>3.4.9. Table: related<a class="headerlink" href="#table-related" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+This table holds potential m:n matches between outlines that have been
+loaded into the system in bulk and those that already exist.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
+<col width="3%" />
+<col width="6%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>related_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the related table.</td>
+</tr>
+<tr class="row-odd"><td>bulk_load_outline_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-bulk-load-outlines">buildings_bulk_load.bulk_load_outlines</a> table.</td>
+</tr>
+<tr class="row-even"><td>building_outline_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-existing-subset-extracts">buildings_bulk_load.existing_subset_extracts</a> table.</td>
+</tr>
+<tr class="row-odd"><td>qa_status_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-qa-status">buildings_bulk_load.qa_status</a> table.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-matched">
+<span id="table-name-matched"></span><h3>3.4.10. Table: matched<a class="headerlink" href="#table-matched" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+This table holds potential 1:1 matches between outlines that have been
+loaded into the system in bulk and those that already exist.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
+<col width="3%" />
+<col width="6%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>bulk_load_outline_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-bulk-load-outlines">buildings_bulk_load.bulk_load_outlines</a> table.</td>
+</tr>
+<tr class="row-odd"><td>building_outline_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-existing-subset-extracts">buildings_bulk_load.existing_subset_extracts</a> table.</td>
+</tr>
+<tr class="row-even"><td>qa_status_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-qa-status">buildings_bulk_load.qa_status</a> table.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-transferred">
+<span id="table-name-transferred"></span><h3>3.4.11. Table: transferred<a class="headerlink" href="#table-transferred" title="Permalink to this headline">¶</a></h3>
+<p>Description:
+This table holds the building_outline_id that was created for each
+bulk loaded building outline tranferred to production.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
+<col width="2%" />
+<col width="5%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>bulk_load_outline_id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Unique identifier for the transferred table and foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-bulk-load-outlines">buildings_bulk_load.bulk_load_outlines</a> table.</td>
+</tr>
+<tr class="row-odd"><td>new_building_outline_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>Foreign key to the <a class="reference external" href="http://nz-building-outlines.readthedocs.io/en/latest/internal_data.html#table-building-outlines">buildings.building_outlines</a> table.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="schema-buildings-admin-bdys">
+<h2>3.5. Schema: buildings_admin_bdys<a class="headerlink" href="#schema-buildings-admin-bdys" title="Permalink to this headline">¶</a></h2>
+<p>Description:</p>
+<div class="section" id="table-nz-locality">
+<span id="table-name-nz-locality"></span><h3>3.5.1. Table: nz_locality<a class="headerlink" href="#table-nz-locality" title="Permalink to this headline">¶</a></h3>
+<p>Description:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="14%" />
+<col width="10%" />
+<col width="14%" />
+<col width="9%" />
+<col width="18%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>id</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>parent_id</td>
+<td>numeric</td>
+<td>&nbsp;</td>
+<td>10</td>
+<td>0</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>suburb_4th</td>
+<td>varchar</td>
+<td>60</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>suburb_3rd</td>
+<td>varchar</td>
+<td>60</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>suburb_2nd</td>
+<td>varchar</td>
+<td>60</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>suburb_1st</td>
+<td>varchar</td>
+<td>60</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>type_order</td>
+<td>numeric</td>
+<td>&nbsp;</td>
+<td>10</td>
+<td>0</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td>varchar</td>
+<td>12</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>city_id</td>
+<td>numeric</td>
+<td>&nbsp;</td>
+<td>10</td>
+<td>0</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>city_name</td>
+<td>varchar</td>
+<td>60</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>has_addres</td>
+<td>varchar</td>
+<td>1</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>start_date</td>
+<td>date</td>
+<td>4</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>end_date</td>
+<td>date</td>
+<td>4</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>major_id</td>
+<td>numeric</td>
+<td>&nbsp;</td>
+<td>10</td>
+<td>0</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>major_name</td>
+<td>varchar</td>
+<td>80</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>shape</td>
+<td>geometry</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="table-territorial-authority">
+<span id="table-name-territorial-authority"></span><h3>3.5.2. Table: territorial_authority<a class="headerlink" href="#table-territorial-authority" title="Permalink to this headline">¶</a></h3>
+<p>Description:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="14%" />
+<col width="10%" />
+<col width="14%" />
+<col width="9%" />
+<col width="18%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>ogc_fid</strong></td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>shape</td>
+<td>geometry</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>name</td>
+<td>varchar</td>
+<td>100</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="published_data.html" class="btn btn-neutral" title="2. Published Data" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      Last updated on May 22, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Documentation on SQL script setup for proper Read The Docs parsing &mdash; NZ Buildings Data Dictionary</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="NZ Buildings Data Dictionary" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NZ Buildings Data Dictionary
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="published_data.html">2. Published Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal_data.html">3. Internal Data</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">NZ Buildings Data Dictionary</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Documentation on SQL script setup for proper Read The Docs parsing</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/DOCUMENTATION.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="documentation-on-sql-script-setup-for-proper-read-the-docs-parsing">
+<h1>Documentation on SQL script setup for proper Read The Docs parsing<a class="headerlink" href="#documentation-on-sql-script-setup-for-proper-read-the-docs-parsing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>This document describes the requirements for properly formatting the SQL build scripts for this dataset to allow the automated parsing of these scripts by Read The Docs system and correctly generating the tables for the Building Outlines Data Dictionary.</p>
+</div>
+<div class="section" id="file-structure">
+<h2>File Structure<a class="headerlink" href="#file-structure" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The SQL scripts which build schema must be contained in a /sql folder in the root repository.</li>
+<li>Two files are also needed in the root directory: requirements-docs.txt and setup.py.</li>
+<li>All other files needed for the automated Read The Docs system should be located in the /docs/source/ folders.</li>
+<li>The _static folder is where logos, custom css and images are stored.</li>
+<li>The SQL scripts which build schema must also have a name with the format &#8220;&lt;name&gt;_schema.sql&#8221;</li>
+<li>The /sql folder can contain subfolders with additional schema sql build files</li>
+</ul>
+<div class="highlight-sql"><div class="highlight"><pre><span class="o">/</span><span class="n">building_outlines</span><span class="o">/</span><span class="k">sql</span>
+<span class="o">/</span><span class="n">building_outlines</span><span class="o">/</span><span class="n">requirements</span><span class="o">-</span><span class="n">docs</span><span class="p">.</span><span class="n">txt</span>
+<span class="o">/</span><span class="n">building_outlines</span><span class="o">/</span><span class="n">setup</span><span class="p">.</span><span class="n">py</span>
+<span class="o">/</span><span class="n">building_outlines</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="k">source</span><span class="o">/</span>
+<span class="o">/</span><span class="n">building_outlines</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="k">source</span><span class="o">/</span><span class="n">_static</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="files-required">
+<h2>Files required<a class="headerlink" href="#files-required" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Within the /building_outlines/docs/source/ folder, there must be an .rst file for each schema being parsed, with a name format of &#8220;&lt;schema name&gt;_schema.rst&#8221;.</li>
+<li>On the first line of each schema .rst file, there should be a line as shown here to give the file a name for referencing:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre>.. _buildings_schema:
+</pre></div>
+</div>
+<ul class="simple">
+<li>An index.rst file must exist with the names of the above mentioned schema .rst files listed in the toctree without the .rst extension:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre>.. toctree::
+   :maxdepth: 3
+   :numbered:
+
+   introduction
+   data_model
+   buildings_schema
+   buildings_common_schema
+   buildings_bulk_load_schema
+   buildings_lds_schema
+</pre></div>
+</div>
+<ul class="simple">
+<li>any .rst files named in the toctree above must exist in the /docs/source/ folder (ie introduction, data_model, etc)</li>
+<li>a conf.py file containing setup and parsing scripts must be located in the /docs/source/ folder.</li>
+</ul>
+<p>Structure requirements of SQL schema build files:</p>
+<ol class="arabic simple">
+<li>The SQL scripts which build schema must have a name with the format &#8220;&lt;name&gt;_schema.sql&#8221;</li>
+<li>Tables must be created with the following structure, and lines must end with an opening &#8220;(&#8221; bracket, and schema name and schema table name separated by a period:</li>
+</ol>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">buildings</span><span class="p">.</span><span class="n">lifecycle_stage</span> <span class="p">(</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Each table&#8217;s columns must be listed in the lines immediately following the CREATE TABLE IF NOT EXISTS line, and within &#8220;()&#8221; brackets and ending with a semi-colon. It&#8217;s important that each column be preceeded by four spaces, and then a comma &#8221;    ,&#8221;. This is to ensure parsing is not confused by the comma used in the numeric or decimal precision/scope values.</li>
+</ol>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">buildings</span><span class="p">.</span><span class="n">buildings</span> <span class="p">(</span>
+    <span class="n">building_id</span> <span class="nb">serial</span> <span class="k">PRIMARY</span> <span class="k">KEY</span>
+  <span class="p">,</span> <span class="n">begin_lifespan</span> <span class="n">timestamptz</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="n">now</span><span class="p">()</span>
+  <span class="p">,</span> <span class="n">end_lifespan</span> <span class="n">timestamptz</span>
+</pre></div>
+</div>
+<p>);</p>
+<ol class="arabic simple" start="4">
+<li>Every schema, table, and column must have a comment describing it.</li>
+<li>Schema and table and column comments should be formatted as below, ending with a semi-colon, and multiple lines can exist:</li>
+</ol>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">COMMENT</span> <span class="k">ON</span> <span class="k">SCHEMA</span> <span class="n">buildings</span> <span class="k">IS</span> <span class="s1">&#39;The schema holds building information. &#39;</span><span class="p">;</span>
+
+<span class="k">COMMENT</span> <span class="k">ON</span> <span class="k">TABLE</span> <span class="n">buildings</span><span class="p">.</span><span class="n">lifecycle_stage</span> <span class="k">IS</span>
+<span class="s1">&#39;Lookup table that holds all of the lifecycle stages for a building.&#39;</span><span class="p">;</span>
+
+<span class="k">COMMENT</span> <span class="k">ON</span> <span class="k">COLUMN</span> <span class="n">buildings</span><span class="p">.</span><span class="n">buildings</span><span class="p">.</span><span class="n">begin_lifespan</span> <span class="k">IS</span>
+<span class="s1">&#39;The date that the building was first captured in the system.&#39;</span>
+<span class="s1">&#39; This column cannot be null.&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li>Avoid using commas in any comments.</li>
+<li>Numeric data types can have precision or scale values as single or double digits, but there cannot be a space in front of single digit precision values, and must have a space after the comma before the scale value, regardless of whether the scale value is single or double digit.</li>
+</ol>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">buildings_bulk_load</span><span class="p">.</span><span class="n">related</span> <span class="p">(</span>
+ <span class="n">area_bulk_load</span> <span class="nb">numeric</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+ <span class="n">area_existing</span> <span class="nb">numeric</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+ <span class="n">area_overlap</span> <span class="nb">numeric</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
+ <span class="p">);</span>
+</pre></div>
+</div>
+<ol class="arabic" start="8">
+<li><dl class="first docutils">
+<dt>For table column comments which are foreign keys, they can either be written like</dt>
+<dd><p class="first last">&#8220;Foreign key to the schema.table table&#8221;,   or
+&#8220;Unique identifier for the schema.tablename table and foreign key to the schema.table table.&#8221;
+The important part for the parsing script is the &#8220;foreign key to the &#8221; followed by &#8220;table&#8221;, and the schema/table part must be separated by a period. This allows the script to correctly parse the schema and table name and link to the appropriate page containing that column reference.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>9. The in order for the parsing linking to work, the names of the schema must be known in advance, and rst pages setup in advance according
+to the names of the schema. This must be hard coded into the index.rst file, and appropriate links to pages setup. Therefore, the hyperlink to a table in item 8 above requires you to know the URL of the path to the appropriate schema pages in advance.
+For example, an URL anchor link to the building_outlines table in the buildings schema will look like this:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">building</span><span class="o">-</span><span class="n">outlines</span><span class="o">-</span><span class="n">test</span><span class="p">.</span><span class="n">readthedocs</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span><span class="n">buildings_schema</span><span class="p">.</span><span class="n">html</span><span class="o">#</span><span class="k">table</span><span class="o">-</span><span class="n">name</span><span class="o">-</span><span class="n">building</span><span class="o">-</span><span class="n">outlines</span>
+</pre></div>
+</div>
+<p>The above hyperlink is only shown to help understand the structure of the hyperlinks. The parsing script automatically determines the schema and table names.</p>
+</div>
+<div class="section" id="creating-a-database-diagram">
+<h2>Creating a database diagram<a class="headerlink" href="#creating-a-database-diagram" title="Permalink to this headline">¶</a></h2>
+<p>The database diagram was created using licensed pgModeler version 0.9.1 on Ubuntu 16.04. The buildings database was created on a local installation of postgresql. pgModeler was used to &#8220;import&#8221; the database through this local connection, and the diagram created from that import.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      Last updated on May 22, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

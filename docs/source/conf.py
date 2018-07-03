@@ -19,7 +19,7 @@ from tabulate import tabulate
 from os import path
 import glob2
 sys.path.insert(0, os.path.abspath('../../sql'))
-site_url = "http://building-outlines-test.readthedocs.io/en/latest/"
+site_url = "http://nz-building-outlines.readthedocs.io/en/latest/"
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -38,7 +38,6 @@ site_url = "http://building-outlines-test.readthedocs.io/en/latest/"
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.autosectionlabel'
 ]
 
 # 'sphinx.ext.autosectionlabel'
@@ -427,11 +426,11 @@ def get_column_comments(column_str, file_content):
                 hyphens = table_named.replace("_", "-")
                 if schema_check == "buildings" or schema_check == "buildings_common" or schema_check == "buildings_bulk_load":
                     template_url = "`{schema_table} <{site_url}internal_data.html#table-{table_name_hyphens}>`_"
-                    foreign_link = template_url.format(schema_table=schema_and_table_strip, site_url= site_url, table_name_hyphens=hyphens)
+                    foreign_link = template_url.format(schema_table=schema_and_table_strip, site_url=site_url, table_name_hyphens=hyphens)
                     column_comment_result_strip = front_comment + foreign_key_comment + foreign_link + " table" + end_comment
                 if schema_check == "buildings_lds":
                     template_url = "`{schema_table} <{site_url}published_data.html#table-{table_name_hyphens}>`_"
-                    foreign_link = template_url.format(schema_table=schema_and_table_strip, table_name_hyphens=hyphens)
+                    foreign_link = template_url.format(schema_table=schema_and_table_strip, site_url=site_url, table_name_hyphens=hyphens)
                     column_comment_result_strip = front_comment + foreign_key_comment + foreign_link + " table" + end_comment
 
     if column_comment_search is None:
@@ -744,10 +743,11 @@ def get_filenames():
     # read the path and file names of all of the SQL schema files in the /SQL folder
     # including subfolders
     filenames = glob2.glob("../../sql/**/*")
+    schema_filenames = list(filenames)
     for name in filenames:
         if "schema" not in name:
-            filenames.remove(name)
-    return filenames
+            schema_filenames.remove(name)
+    return schema_filenames
 
 
 def setup_html_context(files_to_read):

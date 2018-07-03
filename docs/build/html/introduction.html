@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Introduction &mdash; NZ Buildings Data Dictionary</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="NZ Buildings Data Dictionary" href="index.html"/>
+        <link rel="next" title="2. Published Data" href="published_data.html"/>
+        <link rel="prev" title="NZ Buildings Data Dictionary" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NZ Buildings Data Dictionary
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#purpose">1.1. Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#background">1.2. Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#description">1.3. Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-imagery">1.4. Source Imagery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#coverage-maps">1.5. Coverage Maps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accuracy-specification">1.6. Accuracy Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-format">1.7. File format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#definitions">1.8. Definitions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="published_data.html">2. Published Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal_data.html">3. Internal Data</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">NZ Buildings Data Dictionary</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>1. Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/introduction.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<span id="id1"></span><h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose">
+<h2>1.1. Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>This document provides detailed metadata (data dictionary) for the NZ Buildings data published on the LINZ Data Service.</p>
+</div>
+<div class="section" id="background">
+<h2>1.2. Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>Over the next decade, the LINZ Topographic Office is working towards its vision of recognising the way location information can help unlock new patterns and knowledge, particularly when it is combined with other types of information. One of our strategic goals is to improve national scale datasets and maximize their opportunities for reuse by a variety of national and regional stakeholders.</p>
+<p>Building outlines have been identified as a dataset of national importance, and influence a multitude of decisions made across New Zealand at both the national and regional levels. It is therefore critical to have a consistent and dynamic dataset available. This building outline dataset will provide a foundation for various stakeholders to map risk modelling, environmental assessment, urban development, resilience planning in addition to the visualization and physical location of buildings.</p>
+</div>
+<div class="section" id="description">
+<h2>1.3. Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This dataset includes the spatial coverage of buildings outlines using remotely sensed information. A building outline is a 2D representation of the roof outline of buildings which have been classified from remotely sensed information using a combination of automated and manual processes to extract and orthogonalise building roof outlines and identifies every structure greater than or equal to 10 square meters. These processes use electromagnetic radiation reflectance in the red, green and blue bands (visible bands) to classify pixels based on known patterns of signal combinations from various building roof materials. It may include spaces such as decks, garages and porches. Each building polygon represents a building outline. The building outlines represented in this dataset should not be confused with <em>building footprints</em>, which are 2D representations of where a building touches the ground.</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="_images/footprint.png"><img alt="comparison of footprint with building outlines" src="_images/footprint.png" style="width: 977.0px; height: 341.0px;" /></a>
+<p class="caption"><span class="caption-text">Image 1. Example of a building outline versus a building footprint.</span></p>
+</div>
+<p>The current Topo50 data for buildings is represented by either a <a class="reference external" href="https://data.linz.govt.nz/layer/50246-nz-building-polygons-topo-150k/">building polygon</a> or a <a class="reference external" href="https://data.linz.govt.nz/layer/50245-nz-building-points-topo-150k/">building point</a> . A building polygon is used to represent a structure that is large enough to be captured at 1:50,000 scale and has an area of 25m² or greater. The central business districts of large towns and cities is held in the LINZ building data as large building polygons. It is shown on the printed maps as black fill, and is a generalized view, not showing individual buildings, or open spaces between buildings. A building point is used to represent a building with an area too small to be captured as a polygon feature at 1:50,000 scale.</p>
+<p>The building outlines data described here represents the outlines of individual buildings as polygons, as visible in the imagery, and not generalized for more urban areas.</p>
+<p>Building polygons in the building outlines data are defined by the following criteria:</p>
+<ul class="simple">
+<li>Buildings under construction are not captured as building outlines.</li>
+<li>Primary building structures are captured as separate building outline polygons from adjoining building structure polygons.</li>
+<li>Building extensions, sunrooms, balconies, patios and annexes are captured as part of the primary building outline structure if resolution of imagery allows.</li>
+<li>Permanent building structures such as sheds and greenhouses, not attached to a primary building structure, but larger than 10 square meters is captured as a separate building outline polygon.</li>
+<li>Adjoining townhouses are not captured as separate structures, but rather as joined primary structures.</li>
+<li>Adjoining commercial buildings are captured as separate building outlines when rooflines allows delineation.</li>
+<li>Water tanks are captured as building outlines when their size is at least 16.5 square metres.</li>
+</ul>
+</div>
+<div class="section" id="source-imagery">
+<h2>1.4. Source Imagery<a class="headerlink" href="#source-imagery" title="Permalink to this headline">¶</a></h2>
+<p>Resolution of imagery used for capture of building outlines ranges from 50cm pixel resolution (0.5m GSD) to 10cm pixel resolution (0.1m GSD).</p>
+</div>
+<div class="section" id="coverage-maps">
+<h2>1.5. Coverage Maps<a class="headerlink" href="#coverage-maps" title="Permalink to this headline">¶</a></h2>
+<p>The NZ Building Outlines dataset is being procured and released in stages. Image 2 shows the current coverage of building outlines available on the LDS. Image 3 shows the upcoming coverage of building outlines available by the end of 2018. Image 4 shows the future coverage of building outlines after the next round of aerial imagery is received.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="34%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="_images/current_building_outlines_coverage.jpg"><img alt="current building outlines coverage" src="_images/current_building_outlines_coverage.jpg" style="width: 415.1px; height: 586.6px;" /></a>
+<p class="caption"><span class="caption-text">Image 2: Map of current coverage</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="_images/upcoming_building_outlines_coverage.jpg"><img alt="upcoming bulding outlines coverage" src="_images/upcoming_building_outlines_coverage.jpg" style="width: 415.1px; height: 587.3px;" /></a>
+<p class="caption"><span class="caption-text">Image 3: Map of coverage by the end of 2018.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="_images/future_building_outlines_coverage.jpg"><img alt="future building outlines coverage" src="_images/future_building_outlines_coverage.jpg" style="width: 415.1px; height: 586.6px;" /></a>
+<p class="caption"><span class="caption-text">Image 4: Map of coverage after next round of aerial
+imagery received.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="accuracy-specification">
+<h2>1.6. Accuracy Specification<a class="headerlink" href="#accuracy-specification" title="Permalink to this headline">¶</a></h2>
+<p>The Building Outlines contain spatial detail reflective of the visible characteristics of building outlines as seen from the source imagery to an accuracy of 1 metre. Outlines are captured in full where they are partially occluded by vegetation or require additional viewer interpretation, and squared off at 90 degrees if the corner angles are between 80-100 degrees.</p>
+</div>
+<div class="section" id="file-format">
+<h2>1.7. File format<a class="headerlink" href="#file-format" title="Permalink to this headline">¶</a></h2>
+<p>Aspatial data is provided in UTF-8 format. The source geometry of all spatial tables is NZGD2000 (New Zealand Geodetic Datum 2000).</p>
+</div>
+<div class="section" id="definitions">
+<h2>1.8. Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Term</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Aspatial</td>
+<td>Data that is not related to a spatial geometry</td>
+</tr>
+<tr class="row-odd"><td>LDS</td>
+<td>LINZ Data Service</td>
+</tr>
+<tr class="row-even"><td>Building</td>
+<td>A structure generally permanent in nature which has been constructed
+to meet a specific objective (e.g. housing, storage, and workplace)
+and less permanent structures such as caravans and other portable
+housing may also be represented.</td>
+</tr>
+<tr class="row-odd"><td>Building Outlines</td>
+<td>Building Outlines are a digital representation of the roof outlines
+of a buildings which have been classified from remotely
+sensed information that identifies every building structure that is
+greater than 10 square meters and falls within an area of the
+capture of buildings.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="published_data.html" class="btn btn-neutral float-right" title="2. Published Data" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="NZ Buildings Data Dictionary" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      Last updated on May 22, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

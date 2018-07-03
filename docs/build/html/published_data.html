@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Published Data &mdash; NZ Buildings Data Dictionary</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="NZ Buildings Data Dictionary" href="index.html"/>
+        <link rel="next" title="3. Internal Data" href="internal_data.html"/>
+        <link rel="prev" title="1. Introduction" href="introduction.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NZ Buildings Data Dictionary
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">2. Published Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-model">2.1. Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#schema-buildings-lds">2.2. Schema: buildings_lds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#table-nz-building-outlines">2.2.1. Table: nz_building_outlines</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internal_data.html">3. Internal Data</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">NZ Buildings Data Dictionary</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>2. Published Data</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/published_data.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="published-data">
+<span id="id1"></span><h1>2. Published Data<a class="headerlink" href="#published-data" title="Permalink to this headline">¶</a></h1>
+<p>The data described below represents building outlines data openly available on the LINZ Data Service:
+<a class="reference external" href="https://data.linz.govt.nz/layer/53413-nz-building-outlines-pilot/">https://data.linz.govt.nz/layer/53413-nz-building-outlines-pilot/</a></p>
+<div class="section" id="data-model">
+<h2>2.1. Data Model<a class="headerlink" href="#data-model" title="Permalink to this headline">¶</a></h2>
+<p>To assist you in understanding these datasets, the structure and details of the data fields is described in tables below. The relationship between tables and directly related datasets is provided in a data model diagram. No attempt has been made to indicate cardinality, however, the arrows drawn between datasets point from the dataset containing the unique record, to the dataset that may contain one or more references to that record (i.e. primary key -&gt; foreign key).</p>
+<p>To enable changes between updates to be recorded and then queried using the LDS changeset service, every table has a primary key. Primary keys are shown by a bolded field name. Tables can also have unique keys, which are shown by a bolded field name.</p>
+<p>This data model has been designed to manage building data with multiple representations, allowing for future enhancements in building data management. Not all of this data is currently available and data capture for these new fields will occur over time.</p>
+</div>
+<div class="section" id="schema-buildings-lds">
+<h2>2.2. Schema: buildings_lds<a class="headerlink" href="#schema-buildings-lds" title="Permalink to this headline">¶</a></h2>
+<p>Description: Schema that holds tables that will be published via the LINZ Data Service.</p>
+<div class="section" id="table-nz-building-outlines">
+<span id="table-name-nz-building-outlines"></span><h3>2.2.1. Table: nz_building_outlines<a class="headerlink" href="#table-nz-building-outlines" title="Permalink to this headline">¶</a></h3>
+<p>Description:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="13%" />
+<col width="9%" />
+<col width="13%" />
+<col width="8%" />
+<col width="16%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Column Name</th>
+<th class="head">Data Type</th>
+<th class="head">Length</th>
+<th class="head">Precision</th>
+<th class="head">Scale</th>
+<th class="head">Allows Nulls</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>building_outline_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>building_id</td>
+<td>integer</td>
+<td>32</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>name</td>
+<td>varchar</td>
+<td>250</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>use</td>
+<td>varchar</td>
+<td>40</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>suburb_locality</td>
+<td>varchar</td>
+<td>80</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>town_city</td>
+<td>varchar</td>
+<td>80</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>territorial_authority</td>
+<td>varchar</td>
+<td>80</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>capture_method</td>
+<td>varchar</td>
+<td>250</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>capture_source</td>
+<td>varchar</td>
+<td>250</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>lifecycle_stage</td>
+<td>varchar</td>
+<td>250</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>outline_begin_lifespan</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>building_begin_lifespan</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>name_begin_lifespan</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>use_begin_lifespan</td>
+<td>date</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>shape</td>
+<td>geometry</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="internal_data.html" class="btn btn-neutral float-right" title="3. Internal Data" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="1. Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      Last updated on May 22, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

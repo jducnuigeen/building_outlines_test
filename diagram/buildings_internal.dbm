@@ -1,0 +1,3985 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.1" last-position="0,0" last-zoom="1"
+	 default-schema="public" default-owner="postgres">
+<role name="jducnuigeen"
+      superuser="true"
+      createdb="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="nz-buildings-pgtap-db" encoding="UTF8" lc-collate="en_NZ.UTF-8" lc-ctype="en_NZ.UTF-8" is-template="false" allow-conns="true">
+	<role name="postgres"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<extension name="postgis" cur-version="2.3.3">
+	<schema name="public"/>
+	<comment><![CDATA[PostGIS geometry, geography, and raster spatial types and functions]]></comment>
+</extension>
+
+<schema name="buildings_reference" rect-visible="true" fill-color="#d6e0f9">
+	<role name="jducnuigeen"/>
+</schema>
+
+<sequence name="suburb_locality_suburb_locality_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="suburb_locality" hide-ext-attribs="true">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+	<position x="39.2727" y="840.182"/>
+	<column name="suburb_locality_id" not-null="true" sequence="buildings_reference.suburb_locality_suburb_locality_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="external_suburb_locality_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="suburb_4th">
+		<type name="character varying" length="60"/>
+	</column>
+	<column name="suburb_3rd">
+		<type name="character varying" length="60"/>
+	</column>
+	<column name="suburb_2nd">
+		<type name="character varying" length="60"/>
+	</column>
+	<column name="suburb_1st">
+		<type name="character varying" length="60"/>
+	</column>
+	<column name="shape">
+		<type name="geometry" length="0"/>
+	</column>
+	<constraint name="suburb_locality_pkey" type="pk-constr" table="buildings_reference.suburb_locality">
+		<columns names="suburb_locality_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="town_city_town_city_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="town_city" hide-ext-attribs="true">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+	<position x="436.339" y="840.182"/>
+	<column name="town_city_id" not-null="true" sequence="buildings_reference.town_city_town_city_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="external_city_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="60"/>
+	</column>
+	<column name="shape">
+		<type name="geometry" length="0"/>
+	</column>
+	<constraint name="town_city_pkey" type="pk-constr" table="buildings_reference.town_city">
+		<columns names="town_city_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="territorial_authority" hide-ext-attribs="true">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+	<position x="764.499" y="840.182"/>
+	<column name="territorial_authority_id" not-null="true" default-value="nextval('buildings_reference.territorial_authority_territorial_authority_id_seq'::regclass)">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="external_territorial_authority_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="name">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="shape">
+		<type name="geometry" length="0"/>
+	</column>
+	<constraint name="territorial_authority_pkey" type="pk-constr" table="buildings_reference.territorial_authority">
+		<columns names="territorial_authority_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="territorial_authority_territorial_authority_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="coastlines_and_islands" hide-ext-attribs="true">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+	<position x="1196.1" y="840.182"/>
+	<column name="coastline_and_island_id" not-null="true" default-value="nextval('buildings_reference.coastlines_and_islands_coastline_and_island_id_seq'::regclass)">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="external_coastline_and_island_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="shape">
+		<type name="geometry" length="0"/>
+	</column>
+	<constraint name="coastlines_and_islands_pkey" type="pk-constr" table="buildings_reference.coastlines_and_islands">
+		<columns names="coastline_and_island_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="coastlines_and_islands_coastline_and_island_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<index name="shx_coastlines_and_islands" table="buildings_reference.coastlines_and_islands"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="gist" factor="90">
+		<idxelement use-sorting="false">
+			<column name="shape"/>
+		</idxelement>
+</index>
+
+<sequence name="river_centrelines_river_centreline_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="river_centrelines" hide-ext-attribs="true">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+	<position x="1611.92" y="840.182"/>
+	<column name="river_centreline_id" not-null="true" sequence="buildings_reference.river_centrelines_river_centreline_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="external_river_centreline_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="shape">
+		<type name="geometry" length="0"/>
+	</column>
+	<constraint name="river_centrelines_pkey" type="pk-constr" table="buildings_reference.river_centrelines">
+		<columns names="river_centreline_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="shx_river_centrelines" table="buildings_reference.river_centrelines"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="gist" factor="90">
+		<idxelement use-sorting="false">
+			<column name="shape"/>
+		</idxelement>
+</index>
+
+<sequence name="river_polygons_river_polygon_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="river_polygons" hide-ext-attribs="true">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+	<position x="44.7273" y="995.483"/>
+	<column name="river_polygon_id" not-null="true" sequence="buildings_reference.river_polygons_river_polygon_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="external_river_polygon_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="shape">
+		<type name="geometry" length="0"/>
+	</column>
+	<constraint name="river_polygons_pkey" type="pk-constr" table="buildings_reference.river_polygons">
+		<columns names="river_polygon_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="shx_river_polygons" table="buildings_reference.river_polygons"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="gist" factor="90">
+		<idxelement use-sorting="false">
+			<column name="shape"/>
+		</idxelement>
+</index>
+
+<sequence name="lake_polygons_lake_polygon_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="lake_polygons" hide-ext-attribs="true">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+	<position x="436.423" y="1000.94"/>
+	<column name="lake_polygon_id" not-null="true" sequence="buildings_reference.lake_polygons_lake_polygon_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="external_lake_polygon_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="shape">
+		<type name="geometry" length="0"/>
+	</column>
+	<constraint name="lake_polygons_pkey" type="pk-constr" table="buildings_reference.lake_polygons">
+		<columns names="lake_polygon_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="shx_lake_polygons" table="buildings_reference.lake_polygons"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="gist" factor="90">
+		<idxelement use-sorting="false">
+			<column name="shape"/>
+		</idxelement>
+</index>
+
+<sequence name="pond_polygons_pond_polygon_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="pond_polygons" hide-ext-attribs="true">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+	<position x="763.644" y="1000.94"/>
+	<column name="pond_polygon_id" not-null="true" sequence="buildings_reference.pond_polygons_pond_polygon_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="external_pond_polygon_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="shape">
+		<type name="geometry" length="0"/>
+	</column>
+	<constraint name="pond_polygons_pkey" type="pk-constr" table="buildings_reference.pond_polygons">
+		<columns names="pond_polygon_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="shx_pond_polygons" table="buildings_reference.pond_polygons"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="gist" factor="90">
+		<idxelement use-sorting="false">
+			<column name="shape"/>
+		</idxelement>
+</index>
+
+<sequence name="swamp_polygons_swamp_polygon_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="swamp_polygons" hide-ext-attribs="true">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+	<position x="1196.02" y="1006.39"/>
+	<column name="swamp_polygon_id" not-null="true" sequence="buildings_reference.swamp_polygons_swamp_polygon_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="external_swamp_polygon_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="shape">
+		<type name="geometry" length="0"/>
+	</column>
+	<constraint name="swamp_polygons_pkey" type="pk-constr" table="buildings_reference.swamp_polygons">
+		<columns names="swamp_polygon_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="shx_swamp_polygons" table="buildings_reference.swamp_polygons"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="gist" factor="90">
+		<idxelement use-sorting="false">
+			<column name="shape"/>
+		</idxelement>
+</index>
+
+<sequence name="lagoon_polygons_lagoon_polygon_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="lagoon_polygons" hide-ext-attribs="true">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+	<position x="1977.32" y="846.392"/>
+	<column name="lagoon_polygon_id" not-null="true" sequence="buildings_reference.lagoon_polygons_lagoon_polygon_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="external_lagoon_polygon_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="shape">
+		<type name="geometry" length="0"/>
+	</column>
+	<constraint name="lagoon_polygons_pkey" type="pk-constr" table="buildings_reference.lagoon_polygons">
+		<columns names="lagoon_polygon_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="shx_lagoon_polygons" table="buildings_reference.lagoon_polygons"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="gist" factor="90">
+		<idxelement use-sorting="false">
+			<column name="shape"/>
+		</idxelement>
+</index>
+
+<sequence name="canal_centrelines_canal_centreline_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="canal_centrelines" hide-ext-attribs="true">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+	<position x="1982.91" y="1006.97"/>
+	<column name="canal_centreline_id" not-null="true" sequence="buildings_reference.canal_centrelines_canal_centreline_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="external_canal_centreline_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="shape">
+		<type name="geometry" length="0"/>
+	</column>
+	<constraint name="canal_centrelines_pkey" type="pk-constr" table="buildings_reference.canal_centrelines">
+		<columns names="canal_centreline_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="shx_canal_centrelines" table="buildings_reference.canal_centrelines"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="gist" factor="90">
+		<idxelement use-sorting="false">
+			<column name="shape"/>
+		</idxelement>
+</index>
+
+<sequence name="canal_polygons_canal_polygon_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="canal_polygons" hide-ext-attribs="true">
+	<schema name="buildings_reference"/>
+	<role name="jducnuigeen"/>
+	<position x="1609.65" y="1005.15"/>
+	<column name="canal_polygon_id" not-null="true" sequence="buildings_reference.canal_polygons_canal_polygon_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="external_canal_polygon_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="shape">
+		<type name="geometry" length="0"/>
+	</column>
+	<constraint name="canal_polygons_pkey" type="pk-constr" table="buildings_reference.canal_polygons">
+		<columns names="canal_polygon_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="shx_canal_polygons" table="buildings_reference.canal_polygons"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="gist" factor="90">
+		<idxelement use-sorting="false">
+			<column name="shape"/>
+		</idxelement>
+</index>
+
+<schema name="buildings_common" rect-visible="true" fill-color="#d0d1df">
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Schema that holds tables referenced in more than one other schema.]]></comment>
+</schema>
+
+<sequence name="capture_method_capture_method_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_common"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="capture_method" hide-ext-attribs="true">
+	<schema name="buildings_common"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Lookup table that holds all of the methods by which the geometry was captured.]]></comment>
+	<position x="566.915" y="610"/>
+	<column name="capture_method_id" not-null="true" sequence="buildings_common.capture_method_capture_method_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the capture method.]]></comment>
+	</column>
+	<column name="value" not-null="true">
+		<type name="character varying" length="40"/>
+		<comment><![CDATA[The method by which the geometry was captured.]]></comment>
+	</column>
+	<constraint name="capture_method_pkey" type="pk-constr" table="buildings_common.capture_method">
+		<columns names="capture_method_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="capture_source_group" hide-ext-attribs="true">
+	<schema name="buildings_common"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Lookup table that holds all of the capture source groups. Capture source groups are categories of data sources, e.g. NZ Aerial Imagery]]></comment>
+	<position x="32.7682" y="711.818"/>
+	<column name="capture_source_group_id" not-null="true" default-value="nextval('buildings_common.capture_source_group_capture_source_group_id_seq'::regclass)">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the capture source group.]]></comment>
+	</column>
+	<column name="value" not-null="true">
+		<type name="character varying" length="80"/>
+		<comment><![CDATA[The name of the capture source group e.g. NZ Aerial Imagery.]]></comment>
+	</column>
+	<column name="description" not-null="true">
+		<type name="character varying" length="400"/>
+		<comment><![CDATA[The description of the capture source group e.g. external_source_id for this group links to the primary key of the NZ Imagery Surveys layer, available on LINZ Data Service at: https://data.linz.govt.nz/layer/nnnnn.]]></comment>
+	</column>
+	<constraint name="capture_source_group_pkey" type="pk-constr" table="buildings_common.capture_source_group">
+		<columns names="capture_source_group_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="capture_source_group_capture_source_group_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_common"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<sequence name="capture_source_capture_source_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_common"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="capture_source" hide-ext-attribs="true">
+	<schema name="buildings_common"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Lookup table that holds all of the methods by which the geometry was captured.]]></comment>
+	<position x="38.0297" y="615.455"/>
+	<column name="capture_source_id" not-null="true" sequence="buildings_common.capture_source_capture_source_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the capture source.]]></comment>
+	</column>
+	<column name="capture_source_group_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_common.capture_source_group table.]]></comment>
+	</column>
+	<column name="external_source_id">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[Stores a reference to an externally managed identifier that can be linked in order to find out more information about the source.]]></comment>
+	</column>
+	<constraint name="capture_source_pkey" type="pk-constr" table="buildings_common.capture_source">
+		<columns names="capture_source_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="idx_capture_source_capture_source_group_id" table="buildings_common.capture_source"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="capture_source_group_id"/>
+		</idxelement>
+</index>
+
+<schema name="buildings" rect-visible="true" fill-color="#dde5eb">
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Schema that holds production buildings data.]]></comment>
+</schema>
+
+<sequence name="lifecycle_stage_lifecycle_stage_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="lifecycle_stage" hide-ext-attribs="true">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Lookup table that holds all of the lifecycle stages for a building.]]></comment>
+	<position x="53.0466" y="471.818"/>
+	<column name="lifecycle_stage_id" not-null="true" sequence="buildings.lifecycle_stage_lifecycle_stage_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the lifecycle stage.]]></comment>
+	</column>
+	<column name="value" not-null="true">
+		<type name="character varying" length="40"/>
+		<comment><![CDATA[The stage of a buildings lifecycle.]]></comment>
+	</column>
+	<constraint name="lifecycle_stage_pkey" type="pk-constr" table="buildings.lifecycle_stage">
+		<columns names="lifecycle_stage_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="use_use_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="use" hide-ext-attribs="true">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Lookup table that holds all of the uses for a building. These uses are the same as those used in the Topo50 map series.]]></comment>
+	<position x="128.618" y="388.182"/>
+	<column name="use_id" not-null="true" sequence="buildings.use_use_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the use.]]></comment>
+	</column>
+	<column name="value" not-null="true">
+		<type name="character varying" length="40"/>
+		<comment><![CDATA[The building use, maintained for the Topo50 map series.]]></comment>
+	</column>
+	<constraint name="use_pkey" type="pk-constr" table="buildings.use">
+		<columns names="use_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="buildings_building_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="buildings" hide-ext-attribs="true">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[The building table maintains a unique identifier for a building. Over time, a building can be represented by multiple building outlines aligned to different imagery sources. These building outlines are linked via the building_id.]]></comment>
+	<position x="544.851" y="40.9091"/>
+	<column name="building_id" not-null="true" sequence="buildings.buildings_building_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the building.]]></comment>
+	</column>
+	<column name="begin_lifespan" not-null="true" default-value="now()">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[The date that the building was first captured in the system.]]></comment>
+	</column>
+	<column name="end_lifespan">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[The date that a building was either replaced or disused.]]></comment>
+	</column>
+	<constraint name="buildings_pkey" type="pk-constr" table="buildings.buildings">
+		<columns names="building_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="building_outlines_building_outline_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="building_outlines" hide-ext-attribs="true">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[The building_outline table holds a geometry, typically captured from an aerial photograph. A new record is created for each new outline that represents a building.]]></comment>
+	<position x="542.662" y="148.182"/>
+	<column name="building_outline_id" not-null="true" sequence="buildings.building_outlines_building_outline_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the building outline.]]></comment>
+	</column>
+	<column name="building_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings.buildings table. The building id is persistant for the same building across all of the building outlines that represent it.]]></comment>
+	</column>
+	<column name="capture_method_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_common.capture_method table. Holds the method by which the geometry was captured.]]></comment>
+	</column>
+	<column name="capture_source_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_common.capture_source table.]]></comment>
+	</column>
+	<column name="lifecycle_stage_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings.lifecycle_stage table.]]></comment>
+	</column>
+	<column name="suburb_locality_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Holds an external id for suburbs / localities from the nz_locality dataset.]]></comment>
+	</column>
+	<column name="town_city_id">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Holds an external id for the town / city from the nz_locality dataset.]]></comment>
+	</column>
+	<column name="territorial_authority_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Holds an external id for the territorial authority from the territorial_authority dataset.]]></comment>
+	</column>
+	<column name="begin_lifespan" not-null="true" default-value="now()">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[The date that the building outline was added to the system.]]></comment>
+	</column>
+	<column name="end_lifespan">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[The date that the building outline was superceded, replaced or disused.]]></comment>
+	</column>
+	<column name="shape" not-null="true">
+		<type name="geometry" length="0"/>
+		<comment><![CDATA[The geometry of the building outline.]]></comment>
+	</column>
+	<constraint name="building_outlines_pkey" type="pk-constr" table="buildings.building_outlines">
+		<columns names="building_outline_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="idx_building_outlines_building_id" table="buildings.building_outlines"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="building_id"/>
+		</idxelement>
+</index>
+
+<index name="idx_building_outlines_capture_method_id" table="buildings.building_outlines"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="capture_method_id"/>
+		</idxelement>
+</index>
+
+<index name="idx_building_outlines_capture_source_id" table="buildings.building_outlines"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="capture_source_id"/>
+		</idxelement>
+</index>
+
+<index name="idx_building_outlines_lifecycle_stage_id" table="buildings.building_outlines"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="lifecycle_stage_id"/>
+		</idxelement>
+</index>
+
+<index name="shx_building_outlines" table="buildings.building_outlines"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="gist" factor="90">
+		<idxelement use-sorting="false">
+			<column name="shape"/>
+		</idxelement>
+</index>
+
+<sequence name="building_name_building_name_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="building_name" hide-ext-attribs="true">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[The building_name table stores a name that is related to a building at a point in time. Names have an lifespan independent from the building - the name can change independent to any other changes to the building.]]></comment>
+	<position x="24.6026" y="148.182"/>
+	<column name="building_name_id" not-null="true" sequence="buildings.building_name_building_name_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for a building name.]]></comment>
+	</column>
+	<column name="building_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings.buildings table.]]></comment>
+	</column>
+	<column name="building_name" not-null="true" default-value="''">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[The name of the building, where known.]]></comment>
+	</column>
+	<column name="begin_lifespan" not-null="true" default-value="now()">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[The date that the building name was first captured in the system.]]></comment>
+	</column>
+	<column name="end_lifespan">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[The date that the building name was no longer attributed to a building in the system, either because the name was no longer in use or because the building was replaced or disused.]]></comment>
+	</column>
+	<constraint name="building_name_pkey" type="pk-constr" table="buildings.building_name">
+		<columns names="building_name_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="idx_building_name_building_id" table="buildings.building_name"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="building_id"/>
+		</idxelement>
+</index>
+
+<sequence name="building_use_building_use_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="building_use" hide-ext-attribs="true">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[The building_use table stores a use that is related to a building at a point in time. Uses have an lifespan independent from the building - the use can change independent to any other changes to the building.]]></comment>
+	<position x="40.3193" y="267.301"/>
+	<column name="building_use_id" not-null="true" sequence="buildings.building_use_building_use_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for a building_use.]]></comment>
+	</column>
+	<column name="building_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings.buildings table.]]></comment>
+	</column>
+	<column name="use_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings.use table.]]></comment>
+	</column>
+	<column name="begin_lifespan" not-null="true" default-value="now()">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[The date that the building use was first captured in the system.]]></comment>
+	</column>
+	<column name="end_lifespan">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[The date that the building use was no longer attributed to a building in the system, either because the use was no longer in use or because the building was replaced or disused.]]></comment>
+	</column>
+	<constraint name="building_use_pkey" type="pk-constr" table="buildings.building_use">
+		<columns names="building_use_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="idx_building_use_building_id" table="buildings.building_use"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="building_id"/>
+		</idxelement>
+</index>
+
+<index name="idx_building_use_use_id" table="buildings.building_use"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="use_id"/>
+		</idxelement>
+</index>
+
+<sequence name="lifecycle_lifecycle_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="lifecycle" hide-ext-attribs="true">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[The lifecycle table stores the relationship between buildings when one building is split into two buildings or two buildings are merged into one building. This will generally occur when a building outline was erroneously captured encompassing two buildings, which later becomes clear with additional aerial imagery.]]></comment>
+	<position x="118.814" y="54.5735"/>
+	<column name="lifecycle_id" not-null="true" sequence="buildings.lifecycle_lifecycle_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for a building_use.]]></comment>
+	</column>
+	<column name="parent_building_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings.buildings table. All records stored as parent buildings will be end dated in the system.]]></comment>
+	</column>
+	<column name="building_id">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings.buildings table.]]></comment>
+	</column>
+	<constraint name="lifecycle_pkey" type="pk-constr" table="buildings.lifecycle">
+		<columns names="lifecycle_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="idx_lifecycle_parent_building_id" table="buildings.lifecycle"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="parent_building_id"/>
+		</idxelement>
+</index>
+
+<index name="idx_lifecycle_building_id" table="buildings.lifecycle"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="building_id"/>
+		</idxelement>
+</index>
+
+<schema name="buildings_bulk_load" rect-visible="true" fill-color="#cdd7d4">
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Schema that holds building outlines data while quality assurance is conducted. Data is also prepared to be loaded into production.]]></comment>
+</schema>
+
+<sequence name="organisation_organisation_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="organisation" hide-ext-attribs="true">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[This is a lookup table that holds names of organisations that are related to buildings data. All suppliers of building outlines data must be recorded here.]]></comment>
+	<position x="1657.18" y="405.783"/>
+	<column name="organisation_id" not-null="true" sequence="buildings_bulk_load.organisation_organisation_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the organisation table.]]></comment>
+	</column>
+	<column name="value" not-null="true">
+		<type name="character varying" length="40"/>
+		<comment><![CDATA[The name of the organisation.]]></comment>
+	</column>
+	<constraint name="organisation_pkey" type="pk-constr" table="buildings_bulk_load.organisation">
+		<columns names="organisation_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="bulk_load_status_bulk_load_status_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="bulk_load_status" hide-ext-attribs="true">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[This is a lookup table that holds the status of building outlines through the bulk load process.]]></comment>
+	<position x="1069.46" y="485.783"/>
+	<column name="bulk_load_status_id" not-null="true" sequence="buildings_bulk_load.bulk_load_status_bulk_load_status_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the bulk_load_status table.]]></comment>
+	</column>
+	<column name="value" not-null="true">
+		<type name="character varying" length="40"/>
+		<comment><![CDATA[The bulk load status of the building outline. Options include: Supplied, Added]]></comment>
+	</column>
+	<constraint name="bulk_load_status_pkey" type="pk-constr" table="buildings_bulk_load.bulk_load_status">
+		<columns names="bulk_load_status_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="qa_status_qa_status_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="qa_status" hide-ext-attribs="true">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[This is a lookup table that holds the status of building outlines during QA of the bulk load process.]]></comment>
+	<position x="2121.75" y="260.329"/>
+	<column name="qa_status_id" not-null="true" sequence="buildings_bulk_load.qa_status_qa_status_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the qa_status table.]]></comment>
+	</column>
+	<column name="value" not-null="true">
+		<type name="character varying" length="40"/>
+		<comment><![CDATA[The QA status of the building outlines. ]]></comment>
+	</column>
+	<constraint name="qa_status_pkey" type="pk-constr" table="buildings_bulk_load.qa_status">
+		<columns names="qa_status_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="supplied_datasets_supplied_dataset_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="supplied_datasets" hide-ext-attribs="true">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[This table records information about datasets supplied to LINZ for bulk load into the buildings system.]]></comment>
+	<position x="1617.41" y="254.874"/>
+	<column name="supplied_dataset_id" not-null="true" sequence="buildings_bulk_load.supplied_datasets_supplied_dataset_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the supplied_datasets table.]]></comment>
+	</column>
+	<column name="description" not-null="true">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[A general description of the supplied dataset.]]></comment>
+	</column>
+	<column name="supplier_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_bulk_load.organisation table.]]></comment>
+	</column>
+	<column name="processed_date">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[The date that the supplied dataset was imported into the buildings_bulk_load schema.]]></comment>
+	</column>
+	<column name="transfer_date">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[The date that the supplied dataset was transferred to production schema.]]></comment>
+	</column>
+	<constraint name="supplied_datasets_pkey" type="pk-constr" table="buildings_bulk_load.supplied_datasets">
+		<columns names="supplied_dataset_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="idx_supplied_datasets_supplier_id" table="buildings_bulk_load.supplied_datasets"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="supplier_id"/>
+		</idxelement>
+</index>
+
+<sequence name="bulk_load_outlines_bulk_load_outline_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="bulk_load_outlines" hide-ext-attribs="true">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[This dataset contains all building outline geometries as they are received from the supplier, in addition to any new building outlines added during QA of that particular bulk load. A number of attributes are first connected to the building outline in this table, which are later loaded into the production buildings schema.]]></comment>
+	<position x="1034.42" y="256.692"/>
+	<column name="bulk_load_outline_id" not-null="true" sequence="buildings_bulk_load.bulk_load_outlines_bulk_load_outline_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the bulk_load_outlines table.]]></comment>
+	</column>
+	<column name="supplied_dataset_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_bulk_load.supplied_datasets table.]]></comment>
+	</column>
+	<column name="external_outline_id">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[External identifier, held in order to compare with future bulk loads from the same external dataset.]]></comment>
+	</column>
+	<column name="bulk_load_status_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_bulk_load.bulk_load_status table.]]></comment>
+	</column>
+	<column name="capture_method_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_common.capture_method table.]]></comment>
+	</column>
+	<column name="capture_source_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_common.capture_source table.]]></comment>
+	</column>
+	<column name="suburb_locality_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Holds an external id for suburbs / localities from the nz_locality dataset.]]></comment>
+	</column>
+	<column name="town_city_id">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Holds an external id for the town / city from the nz_locality dataset.]]></comment>
+	</column>
+	<column name="territorial_authority_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Holds an external id for the territorial authority from the territorial_authority dataset.]]></comment>
+	</column>
+	<column name="begin_lifespan" not-null="true" default-value="now()">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[The date that the building was uploaded via bulk load tools.]]></comment>
+	</column>
+	<column name="shape" not-null="true">
+		<type name="geometry" length="0"/>
+		<comment><![CDATA[The geometry of the building outline as received from the supplier.]]></comment>
+	</column>
+	<constraint name="bulk_load_outlines_pkey" type="pk-constr" table="buildings_bulk_load.bulk_load_outlines">
+		<columns names="bulk_load_outline_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="idx_bulk_load_outlines_supplied_dataset_id" table="buildings_bulk_load.bulk_load_outlines"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="supplied_dataset_id"/>
+		</idxelement>
+</index>
+
+<index name="idx_bulk_load_outlines_bulk_load_status_id" table="buildings_bulk_load.bulk_load_outlines"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="bulk_load_status_id"/>
+		</idxelement>
+</index>
+
+<index name="idx_bulk_load_outlines_capture_method_id" table="buildings_bulk_load.bulk_load_outlines"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="capture_method_id"/>
+		</idxelement>
+</index>
+
+<index name="idx_bulk_load_outlines_capture_source_id" table="buildings_bulk_load.bulk_load_outlines"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="capture_source_id"/>
+		</idxelement>
+</index>
+
+<index name="shx_bulk_load_outlines" table="buildings_bulk_load.bulk_load_outlines"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="gist" factor="90">
+		<idxelement use-sorting="false">
+			<column name="shape"/>
+		</idxelement>
+</index>
+
+<table name="existing_subset_extracts" hide-ext-attribs="true">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[This table contains extracts of production building outlines over the same area covered by a new bulk load of building outlines data. Each set of extracted building outlines is related to the new bulk load via the supplied_dataset_id.]]></comment>
+	<position x="1029.91" y="59.4476"/>
+	<column name="building_outline_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the existing_subset_extracts table and foreign key to the buildings.building_outlines table.]]></comment>
+	</column>
+	<column name="supplied_dataset_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_bulk_load.supplied_datasets table.]]></comment>
+	</column>
+	<column name="shape" not-null="true">
+		<type name="geometry" length="0"/>
+		<comment><![CDATA[The geometry of the building outline that exists in the production schema.]]></comment>
+	</column>
+	<constraint name="existing_subset_extracts_pkey" type="pk-constr" table="buildings_bulk_load.existing_subset_extracts">
+		<columns names="building_outline_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="idx_existing_subset_extracts_supplied_dataset_id" table="buildings_bulk_load.existing_subset_extracts"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="supplied_dataset_id"/>
+		</idxelement>
+</index>
+
+<index name="shx_existing_subset_extracts" table="buildings_bulk_load.existing_subset_extracts"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="gist" factor="90">
+		<idxelement use-sorting="false">
+			<column name="shape"/>
+		</idxelement>
+</index>
+
+<table name="added" hide-ext-attribs="true">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[This table holds the building outlines that have been identified as new buildings within the building outlines dataset.]]></comment>
+	<position x="1663.81" y="604.902"/>
+	<column name="bulk_load_outline_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the added table and foreign key to the buildings_bulk_load.bulk_load_outlines table.]]></comment>
+	</column>
+	<column name="qa_status_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_bulk_load.qa_status table.]]></comment>
+	</column>
+	<constraint name="added_pkey" type="pk-constr" table="buildings_bulk_load.added">
+		<columns names="bulk_load_outline_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="idx_added_qa_status_id" table="buildings_bulk_load.added"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="qa_status_id"/>
+		</idxelement>
+</index>
+
+<table name="removed" hide-ext-attribs="true">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[This table holds the building outlines that have been identified as no longer existing. These building outlines were within the area of capture but were not found in a more recent capture process.]]></comment>
+	<position x="1671.32" y="153.993"/>
+	<column name="building_outline_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the removed table and foreign key to the buildings_bulk_load.existing_subset_extracts table.]]></comment>
+	</column>
+	<column name="qa_status_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_bulk_load.qa_status table.]]></comment>
+	</column>
+	<constraint name="removed_pkey" type="pk-constr" table="buildings_bulk_load.removed">
+		<columns names="building_outline_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="idx_removed_qa_status_id" table="buildings_bulk_load.removed"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="qa_status_id"/>
+		</idxelement>
+</index>
+
+<sequence name="related_related_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="related" hide-ext-attribs="true">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[This table holds potential m:n matches between outlines that have been loaded into the system in bulk and those that already exist.]]></comment>
+	<position x="1676.51" y="488.539"/>
+	<column name="related_id" not-null="true" sequence="buildings_bulk_load.related_related_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the related table.]]></comment>
+	</column>
+	<column name="bulk_load_outline_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_bulk_load.bulk_load_outlines table.]]></comment>
+	</column>
+	<column name="building_outline_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_bulk_load.existing_subset_extracts table.]]></comment>
+	</column>
+	<column name="qa_status_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_bulk_load.qa_status table.]]></comment>
+	</column>
+	<constraint name="related_pkey" type="pk-constr" table="buildings_bulk_load.related">
+		<columns names="related_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="idx_related_bulk_load_outline_id" table="buildings_bulk_load.related"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="bulk_load_outline_id"/>
+		</idxelement>
+</index>
+
+<index name="idx_related_building_outline_id" table="buildings_bulk_load.related"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="building_outline_id"/>
+		</idxelement>
+</index>
+
+<index name="idx_related_qa_status_id" table="buildings_bulk_load.related"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="qa_status_id"/>
+		</idxelement>
+</index>
+
+<table name="matched" hide-ext-attribs="true">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[This table holds potential 1:1 matches between outlines that have been loaded into the system in bulk and those that already exist.]]></comment>
+	<position x="1683.68" y="46.7204"/>
+	<column name="bulk_load_outline_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_bulk_load.bulk_load_outlines table.]]></comment>
+	</column>
+	<column name="building_outline_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_bulk_load.existing_subset_extracts table.]]></comment>
+	</column>
+	<column name="qa_status_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_bulk_load.qa_status table.]]></comment>
+	</column>
+	<constraint name="matched_pkey" type="pk-constr" table="buildings_bulk_load.matched">
+		<columns names="bulk_load_outline_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="idx_matched_building_outline_id" table="buildings_bulk_load.matched"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="building_outline_id"/>
+		</idxelement>
+</index>
+
+<index name="idx_matched_qa_status_id" table="buildings_bulk_load.matched"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="qa_status_id"/>
+		</idxelement>
+</index>
+
+<table name="transferred" hide-ext-attribs="true">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[This table holds the building_outline_id that was created for each bulk loaded building outline tranferred to production.]]></comment>
+	<position x="1035.36" y="156.748"/>
+	<column name="bulk_load_outline_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the transferred table and foreign key to the buildings_bulk_load.bulk_load_outlines table.]]></comment>
+	</column>
+	<column name="new_building_outline_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings.building_outlines table.]]></comment>
+	</column>
+	<constraint name="transferred_pkey" type="pk-constr" table="buildings_bulk_load.transferred">
+		<columns names="bulk_load_outline_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="idx_transferred_new_building_outline_id" table="buildings_bulk_load.transferred"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="new_building_outline_id"/>
+		</idxelement>
+</index>
+
+<function name="buildings_version"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="STRICT"
+		function-type="IMMUTABLE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="text" length="1"/>
+	</return-type>
+	<definition><![CDATA[
+
+    SELECT 'dev'::text;
+
+]]></definition>
+</function>
+
+<function name="find_added"
+		window-func="false"
+		returns-setof="true"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="1000">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<parameter name="bulk_load_outline_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	</return-type>
+	<parameter name="p_supplied_dataset_id" in="true">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    WITH intersects AS (
+        -- Join current and supplied building outlines based on intersect
+        -- and get the percentage of their areas that intersect.
+        SELECT 
+              current.building_outline_id
+            , supplied.bulk_load_outline_id
+            , ST_Area(ST_Intersection(current.shape, supplied.shape)) / ST_Area(current.shape) * 100 AS current_intersect
+            , ST_Area(ST_Intersection(current.shape, supplied.shape)) / ST_Area(supplied.shape) * 100 AS supplied_intersect 
+        FROM buildings_bulk_load.existing_subset_extracts current
+        JOIN buildings_bulk_load.bulk_load_outlines supplied ON ST_Intersects(current.shape, supplied.shape)
+        WHERE current.supplied_dataset_id = $1
+        AND supplied.supplied_dataset_id = $1
+    ), supplied_count AS (
+        -- Find all supplied building outlines that have more than or exactly one >5%
+        -- overlap with the current building outlines.
+        SELECT
+              bulk_load_outline_id
+            , count(bulk_load_outline_id)
+        FROM intersects
+        WHERE current_intersect > 5
+        AND supplied_intersect > 5
+        GROUP BY bulk_load_outline_id
+        HAVING count(bulk_load_outline_id) >= 1
+    )
+    -- Find supplied bulk_load_outline_id that do not intersect or intersect
+    -- with <5% overlap, and are therefore marked as new to the dataset.
+    SELECT bulk_load_outline_id
+    FROM buildings_bulk_load.bulk_load_outlines supplied
+    LEFT JOIN buildings_bulk_load.existing_subset_extracts current ON ST_Intersects(supplied.shape, current.shape)
+    LEFT JOIN intersects USING (bulk_load_outline_id)
+    WHERE current.building_outline_id IS NULL
+    AND supplied.supplied_dataset_id = $1
+    OR (     intersects.supplied_intersect < 5
+         AND supplied.bulk_load_outline_id NOT IN ( SELECT bulk_load_outline_id FROM supplied_count ))
+    ;
+
+]]></definition>
+</function>
+
+<function name="find_removed"
+		window-func="false"
+		returns-setof="true"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="1000">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<parameter name="building_outline_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	</return-type>
+	<parameter name="p_supplied_dataset_id" in="true">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    WITH intersects AS (
+        -- Join current and supplied building outlines based on intersect
+        -- and get the percentage of their areas that intersect.
+        SELECT 
+              current.building_outline_id
+            , supplied.bulk_load_outline_id
+            , ST_Area(ST_Intersection(current.shape, supplied.shape)) / ST_Area(current.shape) * 100 AS current_intersect
+            , ST_Area(ST_Intersection(current.shape, supplied.shape)) / ST_Area(supplied.shape) * 100 AS supplied_intersect 
+        FROM buildings_bulk_load.existing_subset_extracts current
+        JOIN buildings_bulk_load.bulk_load_outlines supplied ON ST_Intersects(current.shape, supplied.shape)
+        WHERE current.supplied_dataset_id = $1
+        AND supplied.supplied_dataset_id = $1
+    ), current_count AS (
+        -- Find all current building outlines that have exactly one >5%
+        -- overlap with the supplied building outlines.
+        SELECT
+              building_outline_id
+            , count(building_outline_id)
+        FROM intersects
+        WHERE current_intersect > 5
+        AND supplied_intersect > 5
+        GROUP BY building_outline_id
+        HAVING count(building_outline_id) >= 1
+    )
+    -- Find current building_outline_id that do not intersect or intersect with
+    -- <5% overlap, and are therefore marked for removal from the dataset.
+    SELECT building_outline_id
+    FROM buildings_bulk_load.existing_subset_extracts current
+    LEFT JOIN buildings_bulk_load.bulk_load_outlines supplied ON ST_Intersects(current.shape, supplied.shape)
+    LEFT JOIN intersects USING (building_outline_id)
+    WHERE supplied.bulk_load_outline_id IS NULL
+    AND current.supplied_dataset_id = $1
+    OR (     intersects.current_intersect < 5
+         AND current.building_outline_id NOT IN ( SELECT building_outline_id FROM current_count ))
+    ;
+
+]]></definition>
+</function>
+
+<function name="find_matched"
+		window-func="false"
+		returns-setof="true"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="1000">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<parameter name="building_outline_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="bulk_load_outline_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	</return-type>
+	<parameter name="p_supplied_dataset_id" in="true">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    WITH intersects AS (
+        -- Join current and supplied building outlines based on intersect
+        -- and get the percentage of their areas that intersect.
+        SELECT 
+              current.building_outline_id
+            , supplied.bulk_load_outline_id
+            , ST_Area(ST_Intersection(current.shape, supplied.shape)) / ST_Area(current.shape) * 100 AS current_intersect
+            , ST_Area(ST_Intersection(current.shape, supplied.shape)) / ST_Area(supplied.shape) * 100 AS supplied_intersect 
+        FROM buildings_bulk_load.existing_subset_extracts current
+        JOIN buildings_bulk_load.bulk_load_outlines supplied ON ST_Intersects(current.shape, supplied.shape)
+        WHERE current.supplied_dataset_id = $1
+        AND supplied.supplied_dataset_id = $1
+    ), current_count AS (
+        -- Find all current building outlines that have exactly one >5%
+        -- overlap with the supplied building outlines.
+        SELECT
+              building_outline_id
+            , count(building_outline_id)
+        FROM intersects
+        WHERE current_intersect > 5
+        AND supplied_intersect > 5
+        GROUP BY building_outline_id
+        HAVING count(building_outline_id) = 1
+    ), supplied_count AS (
+        -- Find all supplied building outlines that have exactly one >5%
+        -- overlap with the current building outlines.
+        SELECT
+              bulk_load_outline_id
+            , count(bulk_load_outline_id)
+        FROM intersects
+        WHERE current_intersect > 5
+        AND supplied_intersect > 5
+        GROUP BY bulk_load_outline_id
+        HAVING count(bulk_load_outline_id) = 1
+    )
+    -- Find and return the combination of id's that are involved in 1:1
+    -- intersects
+    SELECT
+          intersects.building_outline_id
+        , intersects.bulk_load_outline_id
+    FROM intersects
+    WHERE building_outline_id IN (
+        SELECT building_outline_id
+        FROM current_count )
+    AND bulk_load_outline_id IN (
+        SELECT bulk_load_outline_id
+        FROM supplied_count )
+    AND (   (current_intersect > 5 AND supplied_intersect > 5) 
+          OR (current_intersect > 90) 
+          OR (supplied_intersect > 90)  )
+    ;
+
+]]></definition>
+</function>
+
+<function name="find_related"
+		window-func="false"
+		returns-setof="true"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="1000">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<parameter name="building_outline_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="bulk_load_outline_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	</return-type>
+	<parameter name="p_supplied_dataset_id" in="true">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    WITH intersects AS (
+        -- Join current and supplied building outlines based on intersect
+        -- and get the percentage of their areas that intersect.
+        SELECT 
+              current.building_outline_id
+            , supplied.bulk_load_outline_id
+            , ST_Area(ST_Intersection(current.shape, supplied.shape)) / ST_Area(current.shape) * 100 AS current_intersect
+            , ST_Area(ST_Intersection(current.shape, supplied.shape)) / ST_Area(supplied.shape) * 100 AS supplied_intersect 
+        FROM buildings_bulk_load.existing_subset_extracts current
+        JOIN buildings_bulk_load.bulk_load_outlines supplied ON ST_Intersects(current.shape, supplied.shape)
+        WHERE current.supplied_dataset_id = $1
+        AND supplied.supplied_dataset_id = $1
+    ), current_count AS (
+        -- Find all current building outlines that have more than one >5%
+        -- overlap with the supplied building outlines.
+        SELECT
+              building_outline_id
+            , count(building_outline_id)
+        FROM intersects
+        WHERE current_intersect > 5
+        AND supplied_intersect > 5
+        GROUP BY building_outline_id
+        HAVING count(building_outline_id) > 1
+    ), supplied_count AS (
+        -- Find all supplied building outlines that have more than one >5%
+        -- overlap with the current building outlines.
+        SELECT
+              bulk_load_outline_id
+            , count(bulk_load_outline_id)
+        FROM intersects
+        WHERE current_intersect > 5
+        AND supplied_intersect > 5
+        GROUP BY bulk_load_outline_id
+        HAVING count(bulk_load_outline_id) > 1
+    )
+    -- Find and return the combination of id's that are involved in m:n
+    -- intersects
+    SELECT
+          intersects.building_outline_id
+        , intersects.bulk_load_outline_id
+    FROM intersects
+    WHERE building_outline_id IN (
+        SELECT building_outline_id
+        FROM current_count )
+    OR bulk_load_outline_id IN (
+        SELECT bulk_load_outline_id
+        FROM supplied_count )
+    AND (   (current_intersect > 5 AND supplied_intersect > 5)
+          OR (current_intersect > 90)
+          OR (supplied_intersect > 90)  )
+    ;
+
+]]></definition>
+</function>
+
+<function name="compare_building_outlines"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="plpgsql" sql-disabled="true"/>
+	<return-type>
+	<type name="void" length="1"/>
+	</return-type>
+	<parameter name="p_supplied_dataset_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+BEGIN
+
+IF ( SELECT processed_date
+     FROM buildings_bulk_load.supplied_datasets
+     WHERE buildings_bulk_load.supplied_datasets.supplied_dataset_id = p_supplied_dataset_id ) IS NULL THEN
+
+        -- ADDED
+
+        INSERT INTO buildings_bulk_load.added (bulk_load_outline_id, qa_status_id)
+        SELECT
+              bulk_load_outline_id
+            , 1 AS qa_status_id
+        FROM buildings_bulk_load.find_added(p_supplied_dataset_id);
+
+        -- REMOVED
+
+        INSERT INTO buildings_bulk_load.removed (building_outline_id, qa_status_id)
+        SELECT
+              building_outline_id
+            , 1 AS qa_status_id
+        FROM buildings_bulk_load.find_removed(p_supplied_dataset_id);
+
+        -- MATCHED
+
+        INSERT INTO buildings_bulk_load.matched (bulk_load_outline_id, building_outline_id, qa_status_id)
+        SELECT
+              bulk_load_outline_id
+            , building_outline_id
+            , 1 AS qa_status_id
+        FROM buildings_bulk_load.find_matched(p_supplied_dataset_id);
+
+        -- RELATED
+
+        INSERT INTO buildings_bulk_load.related (bulk_load_outline_id, building_outline_id, qa_status_id)
+        SELECT
+              bulk_load_outline_id
+            , building_outline_id
+            , 1 AS qa_status_id
+        FROM buildings_bulk_load.find_related(p_supplied_dataset_id);
+
+        -- insert Bulk Load Outlines that don't get sorted into ADDED
+
+        INSERT INTO buildings_bulk_load.added(bulk_load_outline_id, qa_status_id)
+        SELECT blo.bulk_load_outline_id, 1 AS qa_status_id
+        FROM buildings_bulk_load.bulk_load_outlines blo
+        LEFT JOIN buildings_bulk_load.added added ON added.bulk_load_outline_id = blo.bulk_load_outline_id
+        LEFT JOIN buildings_bulk_load.matched matched ON matched.bulk_load_outline_id = blo.bulk_load_outline_id
+        LEFT JOIN buildings_bulk_load.related related ON related.bulk_load_outline_id = blo.bulk_load_outline_id
+        WHERE blo.supplied_dataset_id = p_supplied_dataset_id
+        AND added.bulk_load_outline_id IS NULL
+        AND matched.bulk_load_outline_id IS NULL
+        AND related.bulk_load_outline_id IS NULL;
+
+        -- insert Existing Subset Extracts Outlines that don't get sorted into REMOVED
+
+        INSERT INTO buildings_bulk_load.removed(building_outline_id, qa_status_id)
+        SELECT ex.building_outline_id, 1 AS qa_status_id
+        FROM buildings_bulk_load.existing_subset_extracts ex
+        LEFT JOIN buildings_bulk_load.removed removed ON removed.building_outline_id = ex.building_outline_id
+        LEFT JOIN buildings_bulk_load.matched matched ON matched.building_outline_id = ex.building_outline_id
+        LEFT JOIN buildings_bulk_load.related related ON related.building_outline_id = ex.building_outline_id
+        WHERE ex.supplied_dataset_id = p_supplied_dataset_id
+        AND removed.building_outline_id IS NULL
+        AND matched.building_outline_id IS NULL
+        AND related.building_outline_id IS NULL; 
+
+        -- UPDATE processed_date IN supplied_datasets
+
+        UPDATE buildings_bulk_load.supplied_datasets
+        SET processed_date = now()
+        WHERE supplied_dataset_id = p_supplied_dataset_id;
+
+END IF;
+
+END;
+
+]]></definition>
+</function>
+
+<function name="load_building_outlines"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="plpgsql" sql-disabled="true"/>
+	<return-type>
+	<type name="void" length="1"/>
+	</return-type>
+	<parameter name="p_supplied_dataset_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+DECLARE
+
+    v_new_building_id integer;
+    v_bulk_load_outline_id integer;
+    v_new_building_outline_id integer;
+    v_old_building_id integer;
+
+BEGIN
+
+IF (SELECT buildings_bulk_load.supplied_datasets_select_transfer_date(p_supplied_dataset_id)) IS NULL THEN
+
+        -------------
+        -- REMOVED --
+        -------------
+
+        PERFORM buildings.building_outlines_update_end_lifespan(
+            buildings_bulk_load.building_outlines_removed_select_by_dataset(p_supplied_dataset_id));
+
+        PERFORM buildings.buildings_update_end_lifespan(
+            buildings_bulk_load.buildings_removed_select_by_dataset(p_supplied_dataset_id));
+
+        -------------
+        --  ADDED  --
+        -------------
+
+        FOREACH v_bulk_load_outline_id IN ARRAY (
+            SELECT buildings_bulk_load.added_select_by_dataset(p_supplied_dataset_id)
+        )
+        LOOP
+
+            SELECT buildings.buildings_insert()
+            INTO v_new_building_id;
+
+            SELECT buildings_bulk_load.building_outlines_insert_bulk(v_new_building_id, v_bulk_load_outline_id)
+            INTO v_new_building_outline_id;
+
+            PERFORM buildings_bulk_load.transferred_insert(v_bulk_load_outline_id, v_new_building_outline_id);
+
+        END LOOP;
+
+        -------------
+        -- MATCHED --
+        -------------
+
+        FOREACH v_bulk_load_outline_id IN ARRAY (
+            SELECT buildings_bulk_load.matched_select_by_dataset(p_supplied_dataset_id)
+        )
+        LOOP
+            SELECT buildings_bulk_load.matched_find_building_id(v_bulk_load_outline_id)
+            INTO v_old_building_id;
+
+            SELECT buildings_bulk_load.building_outlines_insert_bulk(v_old_building_id ,v_bulk_load_outline_id)
+            INTO v_new_building_outline_id;
+
+            PERFORM buildings_bulk_load.transferred_insert(v_bulk_load_outline_id, v_new_building_outline_id);
+
+            PERFORM buildings.building_outlines_update_end_lifespan(
+                buildings_bulk_load.building_outlines_matched_select_by_dataset(v_bulk_load_outline_id));
+
+        END LOOP;
+
+        -------------
+        -- RELATED --
+        -------------
+
+        -- Create a new record in buildings where building outlines are in the related table
+
+        FOREACH v_bulk_load_outline_id IN ARRAY (
+            SELECT buildings_bulk_load.related_select_by_dataset(p_supplied_dataset_id)
+        )
+        LOOP
+
+            SELECT buildings.buildings_insert()
+            INTO v_new_building_id;
+
+            SELECT buildings_bulk_load.building_outlines_insert_bulk(v_new_building_id, v_bulk_load_outline_id)
+            INTO v_new_building_outline_id;
+
+            PERFORM buildings.lifecycle_add_record(v_new_building_id, v_bulk_load_outline_id);
+
+            PERFORM buildings_bulk_load.transferred_insert(v_bulk_load_outline_id, v_new_building_outline_id);
+
+            PERFORM buildings.building_outlines_update_end_lifespan(
+                buildings_bulk_load.building_outlines_related_select_by_dataset(v_bulk_load_outline_id));
+
+            PERFORM buildings.buildings_update_end_lifespan(
+                buildings_bulk_load.buildings_related_select_by_dataset(v_bulk_load_outline_id));
+
+        END LOOP;
+
+        PERFORM buildings_bulk_load.supplied_datasets_update_transfer_date(p_supplied_dataset_id);
+
+
+END IF;
+
+END;
+
+]]></definition>
+</function>
+
+<usertype name="geometry" configuration="base"
+ internal-length="0" by-value="false"
+ alignment="double precision" storage="main"
+ delimiter=":"
+ category="U" sql-disabled="true">
+	<schema name="public"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[postgis type: Planar spatial data type.]]></comment>
+</usertype>
+
+<function name="suburb_locality_intersect_polygon"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="p_polygon_geometry">
+		<type name="public.geometry" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    SELECT   suburb_locality_id
+    FROM     buildings_reference.suburb_locality
+    WHERE    ST_Intersects(
+                   p_polygon_geometry
+                 , shape
+             )
+    ORDER BY ST_Area(
+                 ST_Intersection(
+                       p_polygon_geometry
+                     , shape
+                 )
+             ) / ST_Area(shape) DESC
+    LIMIT    1;
+
+]]></definition>
+</function>
+
+<function name="bulk_load_outlines_update_suburb"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    WITH update_suburb AS(
+        UPDATE buildings_bulk_load.bulk_load_outlines outlines
+        SET suburb_locality_id = suburb_locality_intersect.suburb_locality_intersect_polygon
+        FROM (
+            SELECT buildings.suburb_locality_intersect_polygon(outlines.shape), outlines.bulk_load_outline_id
+            FROM buildings_bulk_load.bulk_load_outlines outlines
+        ) suburb_locality_intersect
+        WHERE outlines.bulk_load_outline_id = suburb_locality_intersect.bulk_load_outline_id AND outlines.supplied_dataset_id = $1
+        RETURNING *
+    )
+    SELECT count(*)::integer FROM update_suburb;
+
+]]></definition>
+</function>
+
+<function name="town_city_intersect_polygon"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="p_polygon_geometry">
+		<type name="public.geometry" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    SELECT   town_city_id
+    FROM     buildings_reference.town_city
+    WHERE    ST_Intersects(
+                   p_polygon_geometry
+                 , shape
+             )
+    ORDER BY ST_Area(
+                 ST_Intersection(
+                       p_polygon_geometry
+                     , shape
+                 )
+             ) / ST_Area(shape) DESC
+    LIMIT    1;
+
+]]></definition>
+</function>
+
+<function name="bulk_load_outlines_update_town_city"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    WITH update_town_city AS(
+        UPDATE buildings_bulk_load.bulk_load_outlines outlines
+        SET town_city_id = town_city_intersect.town_city_intersect_polygon
+        FROM (
+            SELECT buildings.town_city_intersect_polygon(outlines.shape), outlines.bulk_load_outline_id
+            FROM buildings_bulk_load.bulk_load_outlines outlines
+        ) town_city_intersect
+        WHERE outlines.bulk_load_outline_id = town_city_intersect.bulk_load_outline_id AND outlines.supplied_dataset_id = $1
+        RETURNING *
+    )
+    SELECT count(*)::integer FROM update_town_city;
+
+]]></definition>
+</function>
+
+<function name="territorial_authority_intersect_polygon"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="p_polygon_geometry">
+		<type name="public.geometry" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    SELECT   territorial_authority_id
+    FROM     buildings_reference.territorial_authority
+    WHERE    ST_Intersects(
+                   p_polygon_geometry
+                 , shape
+             )
+    ORDER BY ST_Area(
+                 ST_Intersection(
+                       p_polygon_geometry
+                     , shape
+                 )
+             ) / ST_Area(shape) DESC
+    LIMIT    1;
+
+]]></definition>
+</function>
+
+<function name="bulk_load_outlines_update_territorial_authority"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    WITH update_territorial_auth AS(
+        UPDATE buildings_bulk_load.bulk_load_outlines outlines
+        SET territorial_authority_id = territorial_authority_intersect.territorial_authority_intersect_polygon
+        FROM (
+            SELECT buildings.territorial_authority_intersect_polygon(outlines.shape), outlines.bulk_load_outline_id
+            FROM buildings_bulk_load.bulk_load_outlines outlines
+        ) territorial_authority_intersect
+        WHERE outlines.bulk_load_outline_id = territorial_authority_intersect.bulk_load_outline_id AND outlines.supplied_dataset_id = $1
+        RETURNING $1
+    )
+    SELECT count(*)::integer FROM update_territorial_auth;
+
+]]></definition>
+</function>
+
+<function name="buildings_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<definition><![CDATA[
+
+    INSERT INTO buildings.buildings(
+          building_id
+        , begin_lifespan
+    )
+    VALUES (
+          DEFAULT -- sequence
+        , DEFAULT -- now()
+    )
+    RETURNING building_id;
+
+]]></definition>
+</function>
+
+<function name="building_outlines_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="p_building_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_capture_method_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_capture_source_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_lifecycle_stage_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_suburb_locality_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_town_city_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_territorial_authority_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_begin_lifespan">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</parameter>
+	<parameter name="p_shape">
+		<type name="public.geometry" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    INSERT INTO buildings.building_outlines(
+          building_outline_id
+        , building_id
+        , capture_method_id
+        , capture_source_id
+        , lifecycle_stage_id
+        , suburb_locality_id
+        , town_city_id
+        , territorial_authority_id
+        , begin_lifespan
+        , shape
+    )
+    VALUES (
+          DEFAULT -- sequence
+        , p_building_id
+        , p_capture_method_id
+        , p_capture_source_id
+        , p_lifecycle_stage_id
+        , p_suburb_locality_id
+        , p_town_city_id
+        , p_territorial_authority_id
+        , p_begin_lifespan
+        , p_shape
+    )
+    RETURNING building_outline_id;
+
+]]></definition>
+</function>
+
+<function name="lifecycle_stage_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="p_value">
+		<type name="character varying" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    INSERT INTO buildings.lifecycle_stage(
+          lifecycle_stage_id
+        , value
+    )
+    VALUES (
+          DEFAULT -- sequence
+        , p_value
+
+    )
+    RETURNING lifecycle_stage_id;
+
+]]></definition>
+</function>
+
+<function name="building_outlines_update_end_lifespan"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Update end_lifespan in building outlines table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0" dimension="1"/>
+	</parameter>
+	<definition><![CDATA[
+
+    WITH update_building_outlines AS (
+        UPDATE buildings.building_outlines
+        SET end_lifespan = now()
+        WHERE building_outline_id = ANY($1)
+        RETURNING *
+    )
+    SELECT count(*)::integer FROM update_building_outlines;
+
+]]></definition>
+</function>
+
+<function name="buildings_update_end_lifespan"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Update end_lifespan in buildings table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0" dimension="1"/>
+	</parameter>
+	<definition><![CDATA[
+
+    WITH update_buildings AS (
+        UPDATE buildings.buildings
+        SET end_lifespan = now()
+        WHERE building_id = ANY($1)
+        RETURNING *
+    )
+    SELECT count(*)::integer FROM update_buildings;
+
+]]></definition>
+</function>
+
+<function name="lifecycle_add_record"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Create new records in lifecycle table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="_param2">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+    INSERT INTO buildings.lifecycle(
+          parent_building_id
+        , building_id
+    )
+    SELECT
+          outlines.building_id
+        , $1
+    FROM buildings_bulk_load.related
+    JOIN buildings.building_outlines outlines USING (building_outline_id)
+    WHERE related.bulk_load_outline_id = $2
+    RETURNING building_id;
+
+]]></definition>
+</function>
+
+<function name="bulk_load_outlines_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="p_supplied_dataset_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_external_outline_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_bulk_load_status_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_capture_method_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_capture_source_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_suburb_locality_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_town_city_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_territorial_authority_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_shape">
+		<type name="public.geometry" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    INSERT INTO buildings_bulk_load.bulk_load_outlines(
+          bulk_load_outline_id
+        , supplied_dataset_id
+        , external_outline_id
+        , bulk_load_status_id
+        , capture_method_id
+        , capture_source_id
+        , suburb_locality_id
+        , town_city_id
+        , territorial_authority_id
+        , begin_lifespan
+        , shape
+    )
+    VALUES (
+          DEFAULT -- sequence
+        , p_supplied_dataset_id
+        , p_external_outline_id
+        , p_bulk_load_status_id
+        , p_capture_method_id
+        , p_capture_source_id
+        , p_suburb_locality_id
+        , p_town_city_id
+        , p_territorial_authority_id
+        , now()
+        , p_shape
+    )
+    RETURNING bulk_load_outline_id;
+
+]]></definition>
+</function>
+
+<function name="existing_subset_extracts_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="p_building_outline_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_supplied_dataset_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_shape">
+		<type name="public.geometry" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+    WITH insert_subset_extracts AS(
+        INSERT INTO buildings_bulk_load.existing_subset_extracts(
+              building_outline_id
+            , supplied_dataset_id
+            , shape
+        )
+        VALUES (
+              p_building_outline_id
+            , p_supplied_dataset_id
+            , p_shape
+        )
+        RETURNING *
+    )
+    SELECT count(*)::integer FROM insert_subset_extracts
+
+]]></definition>
+</function>
+
+<function name="supplied_datasets_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="p_description">
+		<type name="character varying" length="0"/>
+	</parameter>
+	<parameter name="p_supplier_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    INSERT INTO buildings_bulk_load.supplied_datasets(
+          supplied_dataset_id
+        , description
+        , supplier_id
+        , processed_date
+        , transfer_date
+    )
+    VALUES (
+          DEFAULT -- sequence
+        , p_description
+        , p_supplier_id
+        , NULL --processed_date
+        , NULL --transfer_date
+    )
+    RETURNING supplied_dataset_id;
+
+]]></definition>
+</function>
+
+<function name="organisation_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="p_value">
+		<type name="character varying" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    INSERT INTO buildings_bulk_load.organisation(
+          organisation_id
+        , value
+    )
+    VALUES (
+          DEFAULT -- sequence
+        , p_value
+
+    )
+    RETURNING organisation_id;
+
+]]></definition>
+</function>
+
+<function name="supplied_datasets_select_transfer_date"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Return transfer_date in supplied_datasets table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="timestamp with time zone" length="1" with-timezone="true"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+    SELECT transfer_date
+    FROM buildings_bulk_load.supplied_datasets
+    WHERE buildings_bulk_load.supplied_datasets.supplied_dataset_id = $1
+
+]]></definition>
+</function>
+
+<function name="transferred_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Create new records in transferred table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="_param2">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    WITH transferred_insert AS (
+        INSERT INTO buildings_bulk_load.transferred(bulk_load_outline_id, new_building_outline_id)
+        VALUES($1, $2)
+        RETURNING 1
+    )
+    SELECT count(*)::integer FROM transferred_insert;
+
+]]></definition>
+</function>
+
+<function name="supplied_datasets_update_transfer_date"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Update transfer_date in supplied_datasets table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+    WITH update_transfer_date AS (
+        UPDATE buildings_bulk_load.supplied_datasets
+        SET transfer_date = now()
+        WHERE supplied_dataset_id = $1
+        RETURNING *
+    )
+    SELECT count(*)::integer FROM update_transfer_date;
+
+]]></definition>
+</function>
+
+<function name="building_outlines_removed_select_by_dataset"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Select building_outline_id in removed table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1" dimension="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    SELECT ARRAY(
+        SELECT removed.building_outline_id
+        FROM buildings_bulk_load.removed
+        JOIN buildings_bulk_load.existing_subset_extracts current USING (building_outline_id)
+        WHERE current.supplied_dataset_id = $1
+    )
+
+]]></definition>
+</function>
+
+<function name="buildings_removed_select_by_dataset"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Select building_id in removed table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1" dimension="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    SELECT ARRAY(
+        SELECT outlines.building_id
+        FROM buildings.building_outlines outlines
+        JOIN buildings_bulk_load.removed USING (building_outline_id)
+        JOIN buildings_bulk_load.existing_subset_extracts current USING (building_outline_id)
+        WHERE current.supplied_dataset_id = $1
+    )
+
+]]></definition>
+</function>
+
+<function name="added_select_by_dataset"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Select bulk_load_outline_id in added table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1" dimension="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+    SELECT ARRAY(
+        SELECT bulk_load_outline_id
+        FROM buildings_bulk_load.added
+        JOIN buildings_bulk_load.bulk_load_outlines supplied USING (bulk_load_outline_id)
+        WHERE supplied.supplied_dataset_id = $1
+    );
+]]></definition>
+</function>
+
+<function name="matched_select_by_dataset"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Select bulk_load_outline_id in matched table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1" dimension="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+    SELECT ARRAY(
+        SELECT bulk_load_outline_id
+        FROM buildings_bulk_load.matched
+        JOIN buildings_bulk_load.bulk_load_outlines supplied USING (bulk_load_outline_id)
+        WHERE supplied.supplied_dataset_id = $1
+    );
+]]></definition>
+</function>
+
+<function name="building_outlines_matched_select_by_dataset"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Select building_outline_id in matched table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1" dimension="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+    SELECT ARRAY(
+        SELECT matched.building_outline_id
+        FROM buildings_bulk_load.matched
+        WHERE matched.bulk_load_outline_id = $1
+    );
+]]></definition>
+</function>
+
+<function name="related_select_by_dataset"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Select bulk_load_outline_id in related table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1" dimension="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+    SELECT ARRAY(
+        SELECT DISTINCT bulk_load_outline_id
+        FROM buildings_bulk_load.related
+        JOIN buildings_bulk_load.bulk_load_outlines supplied USING (bulk_load_outline_id)
+        WHERE supplied.supplied_dataset_id = $1
+        ORDER BY bulk_load_outline_id DESC
+    );
+
+]]></definition>
+</function>
+
+<function name="building_outlines_related_select_by_dataset"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Select building_outline_id in related table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1" dimension="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    SELECT ARRAY(
+        SELECT related.building_outline_id
+        FROM buildings_bulk_load.related
+        WHERE related.bulk_load_outline_id = $1
+    );
+
+]]></definition>
+</function>
+
+<function name="buildings_related_select_by_dataset"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Select building_id in related table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1" dimension="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    SELECT ARRAY(
+        SELECT outlines.building_id
+        FROM buildings.building_outlines outlines
+        JOIN buildings_bulk_load.related USING (building_outline_id)
+        WHERE related.bulk_load_outline_id = $1
+    );
+
+]]></definition>
+</function>
+
+<function name="building_outlines_insert_bulk"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Create new added records in building outlines table]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="_param2">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    SELECT buildings.building_outlines_insert (
+            $1
+          , supplied.capture_method_id
+          , supplied.capture_source_id
+          , 1
+          , supplied.suburb_locality_id
+          , supplied.town_city_id
+          , supplied.territorial_authority_id
+          , supplied.begin_lifespan
+          , supplied.shape
+          )
+        FROM buildings_bulk_load.bulk_load_outlines supplied
+        WHERE supplied.bulk_load_outline_id = $2
+
+]]></definition>
+</function>
+
+<function name="matched_find_building_id"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Return the building_id of the matched building outlines]]></comment>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    SELECT outlines.building_outline_id
+    FROM buildings.building_outlines outlines
+    JOIN buildings_bulk_load.matched USING (building_outline_id)
+    WHERE matched.bulk_load_outline_id = $1
+
+]]></definition>
+</function>
+
+<function name="related_delete_existing_outlines"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    DELETE FROM buildings_bulk_load.related
+    WHERE building_outline_id = $1
+    RETURNING building_outline_id;
+
+]]></definition>
+</function>
+
+<function name="matched_delete_existing_outlines"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    DELETE FROM buildings_bulk_load.matched
+    WHERE building_outline_id = $1
+    RETURNING building_outline_id;
+
+]]></definition>
+</function>
+
+<function name="removed_delete_existing_outlines"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    DELETE FROM buildings_bulk_load.removed
+    WHERE building_outline_id = $1
+    RETURNING building_outline_id;
+
+]]></definition>
+</function>
+
+<function name="added_delete_bulk_load_outlines"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    DELETE FROM buildings_bulk_load.added
+    WHERE bulk_load_outline_id = $1
+    RETURNING bulk_load_outline_id;
+
+]]></definition>
+</function>
+
+<function name="added_insert_bulk_load_outlines"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+    INSERT INTO buildings_bulk_load.added (bulk_load_outline_id, qa_status_id)
+    VALUES ($1, 2)
+    RETURNING added.bulk_load_outline_id;
+
+]]></definition>
+</function>
+
+<function name="removed_insert_bulk_load_outlines"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    INSERT INTO buildings_bulk_load.removed (building_outline_id, qa_status_id)
+    VALUES ($1, 2)
+    RETURNING removed.building_outline_id;
+
+]]></definition>
+</function>
+
+<function name="matched_insert_buildling_outlines"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="_param2">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    INSERT INTO buildings_bulk_load.matched (bulk_load_outline_id, building_outline_id, qa_status_id)
+    VALUES ($1, $2, 2)
+    RETURNING matched.building_outline_id;
+
+]]></definition>
+</function>
+
+<function name="related_insert_buildling_outlines"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="_param2">
+		<type name="integer" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    INSERT INTO buildings_bulk_load.related (bulk_load_outline_id, building_outline_id, qa_status_id)
+    VALUES ($1, $2, 2)
+    RETURNING related.related_id;
+
+]]></definition>
+</function>
+
+<function name="capture_source_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_common"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="p_capture_source_group_id">
+		<type name="integer" length="0"/>
+	</parameter>
+	<parameter name="p_external_source_id">
+		<type name="character varying" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    INSERT INTO buildings_common.capture_source(
+          capture_source_id
+        , capture_source_group_id
+        , external_source_id
+    )
+    VALUES (
+          DEFAULT -- sequence
+        , p_capture_source_group_id
+        , p_external_source_id
+
+    )
+    RETURNING capture_source_id;
+
+]]></definition>
+</function>
+
+<function name="capture_method_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_common"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="p_value">
+		<type name="character varying" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    INSERT INTO buildings_common.capture_method(
+          capture_method_id
+        , value
+    )
+    VALUES (
+          DEFAULT -- sequence
+        , p_value
+
+    )
+    RETURNING capture_method_id;
+
+]]></definition>
+</function>
+
+<function name="capture_source_group_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_common"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<parameter name="p_value">
+		<type name="character varying" length="0"/>
+	</parameter>
+	<parameter name="p_description">
+		<type name="character varying" length="0"/>
+	</parameter>
+	<definition><![CDATA[
+
+    INSERT INTO buildings_common.capture_source_group( 
+          capture_source_group_id 
+        , value 
+        , description 
+    ) 
+    VALUES ( 
+          DEFAULT -- sequence 
+        , p_value 
+        , p_description 
+    )
+    RETURNING capture_source_group_id; 
+ 
+]]></definition>
+</function>
+
+<function name="create_building_relationship_view"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_bulk_load"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="void" length="1"/>
+	</return-type>
+	<definition><![CDATA[
+
+    CREATE OR REPLACE VIEW buildings_bulk_load.added_outlines AS
+        SELECT a.bulk_load_outline_id, b.shape
+        FROM buildings_bulk_load.added a
+        JOIN buildings_bulk_load.bulk_load_outlines b USING (bulk_load_outline_id);
+
+    CREATE OR REPLACE VIEW buildings_bulk_load.removed_outlines AS
+        SELECT r.building_outline_id, e.shape
+        FROM buildings_bulk_load.removed r
+        JOIN buildings_bulk_load.existing_subset_extracts e USING (building_outline_id);
+
+    CREATE OR REPLACE VIEW buildings_bulk_load.matched_bulk_load_outlines AS
+        SELECT m.bulk_load_outline_id, b.shape
+        FROM buildings_bulk_load.matched m
+        JOIN buildings_bulk_load.bulk_load_outlines b USING (bulk_load_outline_id);
+
+    CREATE OR REPLACE VIEW buildings_bulk_load.related_bulk_load_outlines AS
+        SELECT DISTINCT r.bulk_load_outline_id, b.shape
+        FROM buildings_bulk_load.related r
+        JOIN buildings_bulk_load.bulk_load_outlines b USING (bulk_load_outline_id);
+
+    CREATE OR REPLACE VIEW buildings_bulk_load.matched_existing_outlines AS
+        SELECT m.building_outline_id, e.shape
+        FROM buildings_bulk_load.matched m
+        JOIN buildings_bulk_load.existing_subset_extracts e USING (building_outline_id);
+
+    CREATE OR REPLACE VIEW buildings_bulk_load.related_existing_outlines AS
+        SELECT DISTINCT r.building_outline_id, e.shape
+        FROM buildings_bulk_load.related r
+        JOIN buildings_bulk_load.existing_subset_extracts e USING (building_outline_id);
+
+]]></definition>
+</function>
+
+<schema name="buildings_lds" rect-visible="true" fill-color="#1aa605">
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[Schema that holds tables published via the LINZ Data Service.]]></comment>
+</schema>
+
+<table name="nz_building_outlines">
+	<schema name="buildings_lds"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[NZ Building Outlines contains the current depiction of building outlines.]]></comment>
+	<position x="43.2804" y="1202.06"/>
+	<column name="building_outline_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the building outline. The building outline id is unique to one representation of a building.]]></comment>
+	</column>
+	<column name="building_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for a building. The building id is persistant for the same building across all of the building outlines that represent it.]]></comment>
+	</column>
+	<column name="name">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[The name of the building, where known.]]></comment>
+	</column>
+	<column name="use">
+		<type name="character varying" length="40"/>
+		<comment><![CDATA[The building use, maintained for the Topo50 map series.]]></comment>
+	</column>
+	<column name="suburb_locality" not-null="true">
+		<type name="character varying" length="80"/>
+		<comment><![CDATA[The suburb / locality that the majority of the building outline is within. Sourced from NZ Localities (an NZ Fire Service owned dataset).]]></comment>
+	</column>
+	<column name="town_city">
+		<type name="character varying" length="80"/>
+		<comment><![CDATA[The town / city that the majority of the building outline is within. Sourced from NZ Localities (an NZ Fire Service owned dataset).]]></comment>
+	</column>
+	<column name="territorial_authority" not-null="true">
+		<type name="character varying" length="80"/>
+		<comment><![CDATA[The territorial authority that the majority of the building outline is within. Sourced from Stats NZ.]]></comment>
+	</column>
+	<column name="capture_method" not-null="true">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[The method by which the geometry was captured.]]></comment>
+	</column>
+	<column name="capture_source" not-null="true">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[The source from which the geometry was captured.]]></comment>
+	</column>
+	<column name="external_source_id">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[An externally managed identifier that relates the building outline to its source.]]></comment>
+	</column>
+	<column name="outline_begin_lifespan" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[The date that the building outline was added to the system.]]></comment>
+	</column>
+	<column name="building_begin_lifespan" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[The date that the building was added to the system.]]></comment>
+	</column>
+	<column name="name_begin_lifespan">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[The date that the name was added to the system.]]></comment>
+	</column>
+	<column name="use_begin_lifespan">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[The date that the use was added to the system.]]></comment>
+	</column>
+	<column name="shape" not-null="true">
+		<type name="public.geometry" length="0"/>
+		<comment><![CDATA[The geometry of the building outline, represented as a polygon using NZTM2000 / EPSG 2193. Internal rings are possible, multiple external rings are not.]]></comment>
+	</column>
+</table>
+
+<sequence name="nz_building_outlines_full_history_extract_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="buildings_lds"/>
+	<role name="jducnuigeen"/>
+</sequence>
+
+<table name="nz_building_outlines_full_history" hide-ext-attribs="true">
+	<schema name="buildings_lds"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[NZ Building Outlines: Full History contains all combinations of outline / building / name / use that have existed within the building outlines system, and the dates for which that combination existed. ]]></comment>
+	<position x="481.464" y="1202.06"/>
+	<column name="extract_id" not-null="true" sequence="buildings_lds.nz_building_outlines_full_history_extract_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the full history extract from the building outlines system. This identifier is required by the LINZ Data Service in order to determine changesets.]]></comment>
+	</column>
+	<column name="building_outline_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for the building outline. The building outline id is unique to one representation of a building.]]></comment>
+	</column>
+	<column name="building_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for a building. The building id is persistant for the same building across all of the building outlines that represent it.]]></comment>
+	</column>
+	<column name="name">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[The name of the building, where known.]]></comment>
+	</column>
+	<column name="use">
+		<type name="character varying" length="40"/>
+		<comment><![CDATA[The building use, maintained for the Topo50 map series.]]></comment>
+	</column>
+	<column name="suburb_locality" not-null="true">
+		<type name="character varying" length="80"/>
+		<comment><![CDATA[The suburb / locality that the majority of the building outline is within. Sourced from NZ Localities (an NZ Fire Service owned dataset).]]></comment>
+	</column>
+	<column name="town_city">
+		<type name="character varying" length="80"/>
+		<comment><![CDATA[The town / city that the majority of the building outline is within. Sourced from NZ Localities (an NZ Fire Service owned dataset).]]></comment>
+	</column>
+	<column name="territorial_authority" not-null="true">
+		<type name="character varying" length="80"/>
+		<comment><![CDATA[The territorial authority that the majority of the building outline is within. Sourced from Stats NZ.]]></comment>
+	</column>
+	<column name="capture_method" not-null="true">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[The method by which the geometry was captured.]]></comment>
+	</column>
+	<column name="capture_source" not-null="true">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[The source from which the geometry was captured.]]></comment>
+	</column>
+	<column name="external_source_id">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[An externally managed identifier that relates the building outline to its source.]]></comment>
+	</column>
+	<column name="building_lifecycle" not-null="true">
+		<type name="character varying" length="40"/>
+		<comment><![CDATA[The lifecycle of the building. Note that the lifecycle may be "Current" even though there is a more recent record for the building (with a new building outline, for example). Lifecycle relates to the status of the building only. See nz_building_outlines_lifecycle to determine building relationships.]]></comment>
+	</column>
+	<column name="record_begin_lifespan" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[The date that this combination of attributes became current in the system.]]></comment>
+	</column>
+	<column name="record_end_lifespan">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[The date that this combination of attributes was ended dated in the system. Current records will not have an end date.]]></comment>
+	</column>
+	<column name="shape" not-null="true">
+		<type name="public.geometry" length="0"/>
+		<comment><![CDATA[The geometry of the building outline, represented as a polygon using NZTM2000 / EPSG 2193. Internal rings are possible, multiple external rings are not.]]></comment>
+	</column>
+	<constraint name="nz_building_outlines_full_history_pkey" type="pk-constr" table="buildings_lds.nz_building_outlines_full_history">
+		<columns names="extract_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="nz_building_outlines_lifecycle">
+	<schema name="buildings_lds"/>
+	<role name="jducnuigeen"/>
+	<comment><![CDATA[The lifecycle table stores the relationship between buildings when one building is split into two buildings or two buildings are merged into one building. This will generally occur when a building outline was erroneously captured encompassing two buildings, which later becomes clear with additional aerial imagery.]]></comment>
+	<position x="929.725" y="1202.06"/>
+	<column name="lifecycle_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Unique identifier for a lifecycle.]]></comment>
+	</column>
+	<column name="parent_building_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_lds.nz_building_outlines_full_history table. All records stored as parent buildings will have a date in building_end_lifespan.]]></comment>
+	</column>
+	<column name="building_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Foreign key to the buildings_lds.nz_building_outlines_full_history table. This is the child in the relationship - (one of) the building(s) that replaced the parent building.]]></comment>
+	</column>
+</table>
+
+<function name="nz_building_outlines_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_lds"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<definition><![CDATA[
+
+    WITH populate_nz_building_outlines AS (
+        INSERT INTO buildings_lds.nz_building_outlines (
+              building_outline_id
+            , building_id
+            , name
+            , use
+            , suburb_locality
+            , town_city
+            , territorial_authority
+            , capture_method
+            , capture_source
+            , external_source_id
+            , outline_begin_lifespan
+            , building_begin_lifespan
+            , name_begin_lifespan
+            , use_begin_lifespan
+            , shape
+        )
+        SELECT
+              building_outlines.building_outline_id
+            , building_outlines.building_id
+            , building_name.building_name
+            , use.value
+            , suburb_locality.suburb_4th
+            , town_city.name
+            , territorial_authority.name
+            , capture_method.value
+            , capture_source_group.value
+            , capture_source.external_source_id
+            , building_outlines.begin_lifespan
+            , buildings.begin_lifespan
+            , building_name.begin_lifespan
+            , building_use.begin_lifespan
+            , building_outlines.shape
+        FROM buildings.building_outlines
+        JOIN buildings.buildings USING (building_id)
+        LEFT JOIN buildings.building_name USING (building_id)
+        LEFT JOIN buildings.building_use USING (building_id)
+        LEFT JOIN buildings.use USING (use_id)
+        JOIN buildings.lifecycle_stage USING (lifecycle_stage_id)
+        JOIN buildings_common.capture_method USING (capture_method_id)
+        JOIN buildings_common.capture_source USING (capture_source_id)
+        JOIN buildings_common.capture_source_group USING (capture_source_group_id)
+        JOIN buildings_reference.suburb_locality ON suburb_locality.suburb_locality_id = building_outlines.suburb_locality_id
+        JOIN buildings_reference.town_city ON town_city.town_city_id = building_outlines.town_city_id
+        JOIN buildings_reference.territorial_authority ON territorial_authority.territorial_authority_id = building_outlines.territorial_authority_id
+        WHERE building_outlines.end_lifespan IS NULL
+        AND buildings.end_lifespan IS NULL
+        AND building_name.end_lifespan IS NULL
+        AND building_use.end_lifespan IS NULL
+        ORDER BY building_outlines.building_outline_id
+        RETURNING *
+    )
+    SELECT count(*)::integer FROM populate_nz_building_outlines;
+
+]]></definition>
+</function>
+
+<function name="nz_building_outlines_full_history_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_lds"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<definition><![CDATA[
+
+    WITH populate_nz_building_outlines_full_history AS (
+        INSERT INTO buildings_lds.nz_building_outlines_full_history (
+              building_outline_id
+            , building_id
+            , name
+            , use
+            , suburb_locality
+            , town_city
+            , territorial_authority
+            , capture_method
+            , capture_source
+            , external_source_id
+            , building_lifecycle
+            , record_begin_lifespan
+            , record_end_lifespan
+            , shape
+        )
+        WITH full_history AS (
+            SELECT
+                  building_outlines.building_outline_id
+                , building_outlines.building_id
+                , building_name.building_name As name
+                , use.value AS use
+                , greatest(building_outlines.begin_lifespan, buildings.begin_lifespan, building_name.begin_lifespan, building_use.begin_lifespan) AS record_begin_lifespan
+                , least(building_outlines.end_lifespan, buildings.end_lifespan, building_name.end_lifespan, building_use.end_lifespan) AS record_end_lifespan
+            FROM buildings.building_outlines
+            JOIN buildings.buildings USING (building_id)
+            LEFT JOIN buildings.building_name USING (building_id)
+            LEFT JOIN buildings.building_use USING (building_id)
+            LEFT JOIN buildings.use USING (use_id)
+            GROUP BY
+                  building_outlines.building_outline_id
+                , building_outlines.building_id
+                , building_name.building_name
+                , use.value
+                , building_outlines.begin_lifespan
+                , building_outlines.end_lifespan
+                , buildings.begin_lifespan
+                , buildings.end_lifespan
+                , building_name.begin_lifespan
+                , building_name.end_lifespan
+                , building_use.begin_lifespan
+                , building_use.end_lifespan
+        )
+        SELECT
+              full_history.building_outline_id
+            , full_history.building_id
+            , full_history.name
+            , full_history.use
+            , suburb_locality.suburb_4th
+            , town_city.name
+            , territorial_authority.name
+            , capture_method.value
+            , capture_source_group.value
+            , capture_source.external_source_id
+            , lifecycle_stage.value
+            , full_history.record_begin_lifespan
+            , full_history.record_end_lifespan
+            , building_outlines.shape
+        FROM full_history
+        JOIN buildings.building_outlines USING (building_outline_id)
+        JOIN buildings.buildings ON full_history.building_id = buildings.building_id
+        JOIN buildings.lifecycle_stage USING (lifecycle_stage_id)
+        JOIN buildings_common.capture_method USING (capture_method_id)
+        JOIN buildings_common.capture_source USING (capture_source_id)
+        JOIN buildings_common.capture_source_group USING (capture_source_group_id)
+        JOIN buildings_reference.suburb_locality ON suburb_locality.suburb_locality_id = building_outlines.suburb_locality_id
+        JOIN buildings_reference.town_city ON town_city.town_city_id = building_outlines.town_city_id
+        JOIN buildings_reference.territorial_authority ON territorial_authority.territorial_authority_id = building_outlines.territorial_authority_id
+        ORDER BY full_history.building_outline_id
+        RETURNING *
+    )
+    SELECT count(*)::integer FROM populate_nz_building_outlines_full_history;
+
+]]></definition>
+</function>
+
+<function name="nz_building_outlines_lifecycle_insert"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="buildings_lds"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<type name="integer" length="1"/>
+	</return-type>
+	<definition><![CDATA[
+
+    WITH populate_nz_building_outlines_lifecycle AS (
+        INSERT INTO buildings_lds.nz_building_outlines_lifecycle (
+              lifecycle_id
+            , parent_building_id
+            , building_id
+        )
+        SELECT
+              lifecycle_id
+            , parent_building_id
+            , building_id
+        FROM buildings.lifecycle
+        RETURNING *
+    )
+    SELECT count(*)::integer FROM populate_nz_building_outlines_lifecycle;
+
+]]></definition>
+</function>
+
+<function name="populate_buildings_lds"
+		window-func="false"
+		returns-setof="true"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="1000">
+	<schema name="buildings_lds"/>
+	<role name="jducnuigeen"/>
+	<language name="sql" sql-disabled="true"/>
+	<return-type>
+	<parameter name="table_name">
+		<type name="text" length="0"/>
+	</parameter>
+	<parameter name="rows_inserted">
+		<type name="integer" length="0"/>
+	</parameter>
+	</return-type>
+	<definition><![CDATA[
+
+    TRUNCATE buildings_lds.nz_building_outlines;
+    TRUNCATE buildings_lds.nz_building_outlines_full_history;
+    TRUNCATE buildings_lds.nz_building_outlines_lifecycle;
+
+    VALUES
+          ('nz_building_outlines' , buildings_lds.nz_building_outlines_insert())
+        , ('nz_building_outlines_full_history' , buildings_lds.nz_building_outlines_full_history_insert())
+        , ('nz_building_outlines_lifecycle' , buildings_lds.nz_building_outlines_lifecycle_insert())
+    ;
+
+]]></definition>
+</function>
+
+<constraint name="capture_source_capture_source_group_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_common.capture_source_group" table="buildings_common.capture_source">
+	<columns names="capture_source_group_id" ref-type="src-columns"/>
+	<columns names="capture_source_group_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="building_outlines_building_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings.buildings" table="buildings.building_outlines">
+	<columns names="building_id" ref-type="src-columns"/>
+	<columns names="building_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="building_outlines_capture_method_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_common.capture_method" table="buildings.building_outlines">
+	<columns names="capture_method_id" ref-type="src-columns"/>
+	<columns names="capture_method_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="building_outlines_capture_source_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_common.capture_source" table="buildings.building_outlines">
+	<columns names="capture_source_id" ref-type="src-columns"/>
+	<columns names="capture_source_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="building_outlines_lifecycle_stage_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings.lifecycle_stage" table="buildings.building_outlines">
+	<columns names="lifecycle_stage_id" ref-type="src-columns"/>
+	<columns names="lifecycle_stage_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="building_name_building_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings.buildings" table="buildings.building_name">
+	<columns names="building_id" ref-type="src-columns"/>
+	<columns names="building_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="building_use_building_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings.buildings" table="buildings.building_use">
+	<columns names="building_id" ref-type="src-columns"/>
+	<columns names="building_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="building_use_use_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings.use" table="buildings.building_use">
+	<columns names="use_id" ref-type="src-columns"/>
+	<columns names="use_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="lifecycle_parent_building_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings.buildings" table="buildings.lifecycle">
+	<columns names="parent_building_id" ref-type="src-columns"/>
+	<columns names="building_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="lifecycle_building_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings.buildings" table="buildings.lifecycle">
+	<columns names="building_id" ref-type="src-columns"/>
+	<columns names="building_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="supplied_datasets_supplier_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.organisation" table="buildings_bulk_load.supplied_datasets">
+	<columns names="supplier_id" ref-type="src-columns"/>
+	<columns names="organisation_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="bulk_load_outlines_supplied_dataset_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.supplied_datasets" table="buildings_bulk_load.bulk_load_outlines">
+	<columns names="supplied_dataset_id" ref-type="src-columns"/>
+	<columns names="supplied_dataset_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="bulk_load_outlines_bulk_load_status_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.bulk_load_status" table="buildings_bulk_load.bulk_load_outlines">
+	<columns names="bulk_load_status_id" ref-type="src-columns"/>
+	<columns names="bulk_load_status_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="bulk_load_outlines_capture_method_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_common.capture_method" table="buildings_bulk_load.bulk_load_outlines">
+	<columns names="capture_method_id" ref-type="src-columns"/>
+	<columns names="capture_method_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="bulk_load_outlines_capture_source_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_common.capture_source" table="buildings_bulk_load.bulk_load_outlines">
+	<columns names="capture_source_id" ref-type="src-columns"/>
+	<columns names="capture_source_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="existing_subset_extracts_building_outline_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings.building_outlines" table="buildings_bulk_load.existing_subset_extracts">
+	<columns names="building_outline_id" ref-type="src-columns"/>
+	<columns names="building_outline_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="existing_subset_extracts_supplied_dataset_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.supplied_datasets" table="buildings_bulk_load.existing_subset_extracts">
+	<columns names="supplied_dataset_id" ref-type="src-columns"/>
+	<columns names="supplied_dataset_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="added_bulk_load_outline_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.bulk_load_outlines" table="buildings_bulk_load.added">
+	<columns names="bulk_load_outline_id" ref-type="src-columns"/>
+	<columns names="bulk_load_outline_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="added_qa_status_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.qa_status" table="buildings_bulk_load.added">
+	<columns names="qa_status_id" ref-type="src-columns"/>
+	<columns names="qa_status_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="removed_building_outline_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.existing_subset_extracts" table="buildings_bulk_load.removed">
+	<columns names="building_outline_id" ref-type="src-columns"/>
+	<columns names="building_outline_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="removed_qa_status_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.qa_status" table="buildings_bulk_load.removed">
+	<columns names="qa_status_id" ref-type="src-columns"/>
+	<columns names="qa_status_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="related_bulk_load_outline_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.bulk_load_outlines" table="buildings_bulk_load.related">
+	<columns names="bulk_load_outline_id" ref-type="src-columns"/>
+	<columns names="bulk_load_outline_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="related_building_outline_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.existing_subset_extracts" table="buildings_bulk_load.related">
+	<columns names="building_outline_id" ref-type="src-columns"/>
+	<columns names="building_outline_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="related_qa_status_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.qa_status" table="buildings_bulk_load.related">
+	<columns names="qa_status_id" ref-type="src-columns"/>
+	<columns names="qa_status_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="matched_bulk_load_outline_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.bulk_load_outlines" table="buildings_bulk_load.matched">
+	<columns names="bulk_load_outline_id" ref-type="src-columns"/>
+	<columns names="bulk_load_outline_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="matched_building_outline_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.existing_subset_extracts" table="buildings_bulk_load.matched">
+	<columns names="building_outline_id" ref-type="src-columns"/>
+	<columns names="building_outline_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="matched_qa_status_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.qa_status" table="buildings_bulk_load.matched">
+	<columns names="qa_status_id" ref-type="src-columns"/>
+	<columns names="qa_status_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="transferred_bulk_load_outline_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings_bulk_load.bulk_load_outlines" table="buildings_bulk_load.transferred">
+	<columns names="bulk_load_outline_id" ref-type="src-columns"/>
+	<columns names="bulk_load_outline_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="transferred_new_building_outline_id_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="buildings.building_outlines" table="buildings_bulk_load.transferred">
+	<columns names="new_building_outline_id" ref-type="src-columns"/>
+	<columns names="building_outline_id" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_capture_source_capture_source_group" type="relfk"
+	 custom-color="#53ed3c"
+	 src-table="buildings_common.capture_source"
+	 dst-table="buildings_common.capture_source_group" reference-fk="capture_source_capture_source_group_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_building_outlines_buildings" type="relfk"
+	 custom-color="#f46566"
+	 src-table="buildings.building_outlines"
+	 dst-table="buildings.buildings" reference-fk="building_outlines_building_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_building_outlines_capture_method" type="relfk"
+	 custom-color="#0ed4b3"
+	 src-table="buildings.building_outlines"
+	 dst-table="buildings_common.capture_method" reference-fk="building_outlines_capture_method_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_building_outlines_capture_source" type="relfk"
+	 custom-color="#aef896"
+	 src-table="buildings.building_outlines"
+	 dst-table="buildings_common.capture_source" reference-fk="building_outlines_capture_source_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_building_outlines_lifecycle_stage" type="relfk"
+	 custom-color="#987db0"
+	 src-table="buildings.building_outlines"
+	 dst-table="buildings.lifecycle_stage" reference-fk="building_outlines_lifecycle_stage_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_building_name_buildings" type="relfk"
+	 custom-color="#385e24"
+	 src-table="buildings.building_name"
+	 dst-table="buildings.buildings" reference-fk="building_name_building_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_building_use_buildings" type="relfk"
+	 custom-color="#430131"
+	 src-table="buildings.building_use"
+	 dst-table="buildings.buildings" reference-fk="building_use_building_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_building_use_use" type="relfk"
+	 custom-color="#b9598c"
+	 src-table="buildings.building_use"
+	 dst-table="buildings.use" reference-fk="building_use_use_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_lifecycle_buildings" type="relfk"
+	 custom-color="#9c016e"
+	 src-table="buildings.lifecycle"
+	 dst-table="buildings.buildings" reference-fk="lifecycle_parent_building_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_lifecycle_buildings1" type="relfk"
+	 custom-color="#84cd2a"
+	 src-table="buildings.lifecycle"
+	 dst-table="buildings.buildings" reference-fk="lifecycle_building_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_supplied_datasets_organisation" type="relfk"
+	 custom-color="#50a3c3"
+	 src-table="buildings_bulk_load.supplied_datasets"
+	 dst-table="buildings_bulk_load.organisation" reference-fk="supplied_datasets_supplier_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_bulk_load_outlines_supplied_datasets" type="relfk"
+	 custom-color="#429e56"
+	 src-table="buildings_bulk_load.bulk_load_outlines"
+	 dst-table="buildings_bulk_load.supplied_datasets" reference-fk="bulk_load_outlines_supplied_dataset_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_bulk_load_outlines_bulk_load_status" type="relfk"
+	 custom-color="#74d293"
+	 src-table="buildings_bulk_load.bulk_load_outlines"
+	 dst-table="buildings_bulk_load.bulk_load_status" reference-fk="bulk_load_outlines_bulk_load_status_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_bulk_load_outlines_capture_method" type="relfk"
+	 custom-color="#477395"
+	 src-table="buildings_bulk_load.bulk_load_outlines"
+	 dst-table="buildings_common.capture_method" reference-fk="bulk_load_outlines_capture_method_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_bulk_load_outlines_capture_source" type="relfk"
+	 custom-color="#488d61"
+	 src-table="buildings_bulk_load.bulk_load_outlines"
+	 dst-table="buildings_common.capture_source" reference-fk="bulk_load_outlines_capture_source_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_existing_subset_extracts_building_outlines" type="relfk"
+	 custom-color="#f0c1ce"
+	 src-table="buildings_bulk_load.existing_subset_extracts"
+	 dst-table="buildings.building_outlines" reference-fk="existing_subset_extracts_building_outline_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_existing_subset_extracts_supplied_datasets" type="relfk"
+	 custom-color="#15b9f5"
+	 src-table="buildings_bulk_load.existing_subset_extracts"
+	 dst-table="buildings_bulk_load.supplied_datasets" reference-fk="existing_subset_extracts_supplied_dataset_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_added_bulk_load_outlines" type="relfk"
+	 custom-color="#579590"
+	 src-table="buildings_bulk_load.added"
+	 dst-table="buildings_bulk_load.bulk_load_outlines" reference-fk="added_bulk_load_outline_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_added_qa_status" type="relfk"
+	 custom-color="#a3b38d"
+	 src-table="buildings_bulk_load.added"
+	 dst-table="buildings_bulk_load.qa_status" reference-fk="added_qa_status_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_removed_existing_subset_extracts" type="relfk"
+	 custom-color="#820128"
+	 src-table="buildings_bulk_load.removed"
+	 dst-table="buildings_bulk_load.existing_subset_extracts" reference-fk="removed_building_outline_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_removed_qa_status" type="relfk"
+	 custom-color="#e75be8"
+	 src-table="buildings_bulk_load.removed"
+	 dst-table="buildings_bulk_load.qa_status" reference-fk="removed_qa_status_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_related_bulk_load_outlines" type="relfk"
+	 custom-color="#669536"
+	 src-table="buildings_bulk_load.related"
+	 dst-table="buildings_bulk_load.bulk_load_outlines" reference-fk="related_bulk_load_outline_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_related_existing_subset_extracts" type="relfk"
+	 custom-color="#2fbaa7"
+	 src-table="buildings_bulk_load.related"
+	 dst-table="buildings_bulk_load.existing_subset_extracts" reference-fk="related_building_outline_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_related_qa_status" type="relfk"
+	 custom-color="#21f9b2"
+	 src-table="buildings_bulk_load.related"
+	 dst-table="buildings_bulk_load.qa_status" reference-fk="related_qa_status_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_matched_bulk_load_outlines" type="relfk"
+	 custom-color="#be5b55"
+	 src-table="buildings_bulk_load.matched"
+	 dst-table="buildings_bulk_load.bulk_load_outlines" reference-fk="matched_bulk_load_outline_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_matched_existing_subset_extracts" type="relfk"
+	 custom-color="#3a4c2a"
+	 src-table="buildings_bulk_load.matched"
+	 dst-table="buildings_bulk_load.existing_subset_extracts" reference-fk="matched_building_outline_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_matched_qa_status" type="relfk"
+	 custom-color="#5a364c"
+	 src-table="buildings_bulk_load.matched"
+	 dst-table="buildings_bulk_load.qa_status" reference-fk="matched_qa_status_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_transferred_bulk_load_outlines" type="relfk"
+	 custom-color="#d11857"
+	 src-table="buildings_bulk_load.transferred"
+	 dst-table="buildings_bulk_load.bulk_load_outlines" reference-fk="transferred_bulk_load_outline_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_transferred_building_outlines" type="relfk"
+	 custom-color="#34341b"
+	 src-table="buildings_bulk_load.transferred"
+	 dst-table="buildings.building_outlines" reference-fk="transferred_new_building_outline_id_fkey"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>
