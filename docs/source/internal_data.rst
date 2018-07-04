@@ -27,7 +27,7 @@ Description: {{ schema_gen_buildings["comment"] }}
 
 
 {% for item in schema_tab_buildings  %}
-.. _table-name-{{ite.table_nam}}:
+.. _table-name-{{item.table_nam}}:
 
 Table: {{ item.table_nam }}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
